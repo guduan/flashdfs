@@ -1,0 +1,82 @@
+&run_setup   
+        lattice = FLASH_2012_1200MeV.lte
+	default_order=2,
+        use_beamline = test
+	p_central_mev = 1200,
+        sigma = %s.sig,
+        centroid = %s.cen,
+        output = %s.out,
+			magnets=%s.mag,
+	parameters= %s.par
+        final = %s.fin,
+        print_statistics = 0
+	element_divisions=0
+	acceptance = %s.acc
+&end
+
+&load_parameters
+    filename = undulator_quad.sdds
+	change_defined_values = 1
+&end
+
+&run_control
+        n_steps = 1
+&end
+
+&error_control  error_log = %s.erl &end
+
+! Quad misalignment		
+&error_element name=Q*,element_type=QUAD,item=DX, amplitude=20e-6, cutoff=3, bind=0 &end
+&error_element name=Q*,element_type=QUAD,item=DY, amplitude=20e-6, cutoff=3, bind=0 &end
+
+&twiss_output
+    filename = %s.twi
+    matched = 0,  
+    output_at_each_step=0, 
+	beta_x = 5.54
+	beta_y =30
+	alpha_x = -0.18
+	alpha_y = -0.57
+	higher_order_chromaticity = 0
+	final_values_only=0
+&end
+
+&floor_coordinates
+    filename = %s.flo
+    magnet_centers = 1
+&end
+
+
+!Apply global correction
+&correct
+        mode = trajectory, 
+		method = global,
+        n_xy_cycles = 1
+        n_iterations = 1
+		!corrector_limit[0]=100e-3,100e-3
+        trajectory_output = %s.traj
+        corrector_output = %s.cor
+		!bpm_noise[0] = 200e-6, 200e-6,
+		!bpm_noise_cutoff[0] = 3,3
+		!bpm_noise_distribution[0]="gaussian","gaussian"
+&end
+
+&correction_matrix_output
+        response[0] = %s.hrm, %s.vrm
+        inverse[0] = %s.hirm, %s.virm
+&end
+
+&matrix_output
+	printout=%s.mpr
+    SDDS_output = %s.mat
+    SDDS_output_order = 1
+	individual_matrices=1
+	output_at_each_step=1
+&end
+
+&bunched_beam
+    n_particles_per_bunch = 1
+	use_twiss_command_values = 1
+&end
+
+&track &end

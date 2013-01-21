@@ -1,0 +1,23 @@
+SDDS1poll 
+&column name=ElementName, type=string,  &end 
+&column name=ElementParameter, type=string,  &end 
+&column name=ParameterValue, type=double,  &end 
+&data mode=ascii, &end 
+17
+      Q14SMATCH   K1      1.5544889 
+      Q15SMATCH   K1     -4.6540874 
+         Q5UND1   K1              2 
+         Q6UND1   K1              0 
+         Q5UND2   K1             -2 
+         Q6UND2   K1              0 
+         Q5UND3   K1              2 
+         Q6UND3   K1              0 
+         Q5UND4   K1             -2 
+         Q6UND4   K1              0 
+         Q5UND5   K1              2 
+         Q6UND5   K1              0 
+         Q5UND6   K1    -0.28230966 
+         Q6UND6   K1    0.029234777 
+          Q9EXP   K1    0.089193237 
+         Q10EXP   K1              0 
+         Q11EXP   K1              0 

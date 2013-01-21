@@ -1,0 +1,38 @@
+#!/bin/csh -f 
+set nonomatch 
+
+./cleanup.txt >&test.log
+
+sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 50 /  " undulator_quad_600MeV.sdds
+sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 60 /  " undulator_quad_720MeV.sdds
+sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 75 /  " undulator_quad_900MeV.sdds
+
+elegant flash_dfs1.ele >> test.log
+elegant flash_dfs2.ele >> test.log
+elegant flash_dfs3.ele >> test.log
+
+if(-e flash_dfs3.cen) then
+	echo "**********************"
+	echo "run 3 energies DONE."
+	echo "**********************"
+else
+	echo "Please check 'elegant flash_dfs3.ele'!"
+endif
+
+# show orbits before correction
+sddsplot  \
+	-col=s,Cx flash_dfs1.cen -graph=line,type=1 -legend=spec="orbit @600MeV before correction"  \
+	-col=s,Cx flash_dfs2.cen -graph=line,type=2 -legend=spec="orbit @720MeV before correction"  \
+	-col=s,Cx flash_dfs3.cen -graph=line,type=3 -legend=spec="orbit @900MeV before correction" 
+	
+./iteration1.txt >> test.log
+
+if(-e flash_dfs3.orbit) then
+	echo "**********************"
+	echo "Measured Orbits READY!"
+	echo "**********************"
+else
+	echo "Measured Orbits NOT ready!"
+	echo "Please check 'elegant flash_dfs3.ele'!"
+endif
+

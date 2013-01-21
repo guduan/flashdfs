@@ -1,0 +1,2436 @@
+!---------------------------------------------------------------------------------------------------------------
+! ELEGANT LATTICE FOR FLASH 2010, 1.2GeV AND WITH ACC39 (E. Prat, January 2010)
+! 
+! Starting point: after the main solenoid
+! 
+! Based on FLASH beamline master file (S. Schreiber, 26-11-2009)
+!
+!---------------------------------------------------------------------------------------------------------------
+! CHANGES
+!
+! Intoduction of new ORS chicane using HERA CH/CV steerers (N. Golubeva, W. Decking, 16-01-2012)
+! 
+!---------------------------------------------------------------------------------------------------------------
+!  Energy profile:	     	After ACC1: 	160 MeV
+!				BC2:    	160 MeV
+!		            	BC3:    	470 MeV
+!            			final: 		1200 MeV 
+! 				all modules ON-crest 
+!---------------------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------------------
+!			COLD MAGNETS FOR FLASH 2010
+!
+! Section	Module	Quads Q9/Q10		H9 Steerer	H10 Steerer	V9 Steerer	V10 Steerer
+! ACC1		3,3	Doublet			H9/H10 in series		V9/V10 in series	
+! ACC2		1,1	Doublet			H9/H10 in series		V9/V10 in series	
+! ACC3		7	Separate power supplies	not connected	connected	not connected	connected
+! ACC4		4	Separate power supplies	not connected	connected	not connected	connected
+! ACC5		5	Separate power supplies	H9/H10 in series		V9/V10 in series	
+! ACC6		6	Separate power supplies	H9/H10 in series		V9/V10 in series	
+! ACC7		12	Single Quad		Single Steerer			Single Steerer
+!---------------------------------------------------------------------------------------------------------------
+
+! 	Conventions:
+! 	Wakefields, wirescanners and screens are defined as markers.
+!	Usable BPMs are defined as monitors of zero length.
+!	Toroids and phase monitors (including BAMs) are defined as drifts.
+!
+Q: 		CHARGE, TOTAL= 0.5e-9
+LTWAKE: 	MARK
+LTWAKE39: 	MARK
+
+!---------------------------------------------------------------------------------------------------------------
+!			GRADIENTS AND PHASES OF THE MODULES
+!---------------------------------------------------------------------------------------------------------------
+!
+!  Effective length of accelerating cavities
+% 1.027 sto Coef_E  
+!
+! ACC1
+!
+% 16.76945e6 sto Volt1_1
+% 16.76945e6 sto Volt1_2
+% 16.76945e6 sto Volt1_3
+% 16.76945e6 sto Volt1_4
+% 20.96181e6 sto Volt1_5
+% 20.96181e6 sto Volt1_6
+% 20.96181e6 sto Volt1_7
+% 20.96181e6 sto Volt1_8
+!
+% Volt1_1 Volt1_2 Volt1_3 Volt1_4 Volt1_5 Volt1_6 Volt1_7 Volt1_8 + + + + + + + sto EnerACC2
+!
+! ACC39
+!
+% 0 sto Volt39_1
+% 0 sto Volt39_2
+% 0 sto Volt39_3
+% 0 sto Volt39_4
+!
+!
+!ACC23
+!
+% 16.1e6 sto Volt2_1
+% 12.7e6 sto Volt2_2
+% 18.3e6 sto Volt2_3
+% 18.9e6 sto Volt2_4
+% 18.1e6 sto Volt2_5
+% 15.1e6 sto Volt2_6
+% 18.6e6 sto Volt2_7
+% 19.2e6 sto Volt2_8
+!
+% Volt2_1 Volt2_2 Volt2_3 Volt2_4 Volt2_5 Volt2_6 Volt2_7 Volt2_8 + + + + + + + sto EnerACC2
+!% 25.288e6 sto deltaE_470
+%21.15847e6 sto deltaE_470
+% deltaE_470 Coef_E / sto Volt3_1
+% deltaE_470 Coef_E / sto Volt3_2
+% deltaE_470 Coef_E / sto Volt3_3
+% deltaE_470 Coef_E / sto Volt3_4
+% deltaE_470 Coef_E / sto Volt3_5
+% deltaE_470 Coef_E / sto Volt3_6
+% deltaE_470 Coef_E / sto Volt3_7
+% deltaE_470 Coef_E / sto Volt3_8
+!
+!  ACC4 & ACC5 & ACC6 & ACC7:  equal E_acc in all cavities
+!  Final energy = 1200 MeV 
+!  
+% 22.8125e6 sto deltaE_1200
+!
+% deltaE_1200 Coef_E / sto Volt4_1
+% deltaE_1200 Coef_E / sto Volt4_2
+% deltaE_1200 Coef_E / sto Volt4_3
+% deltaE_1200 Coef_E / sto Volt4_4
+% deltaE_1200 Coef_E / sto Volt4_5
+% deltaE_1200 Coef_E / sto Volt4_6
+% deltaE_1200 Coef_E / sto Volt4_7
+% deltaE_1200 Coef_E / sto Volt4_8
+!
+% deltaE_1200 Coef_E / sto Volt5_1
+% deltaE_1200 Coef_E / sto Volt5_2
+% deltaE_1200 Coef_E / sto Volt5_3
+% deltaE_1200 Coef_E / sto Volt5_4
+% deltaE_1200 Coef_E / sto Volt5_5
+% deltaE_1200 Coef_E / sto Volt5_6
+% deltaE_1200 Coef_E / sto Volt5_7
+% deltaE_1200 Coef_E / sto Volt5_8
+!
+% deltaE_1200 Coef_E / sto Volt6_1
+% deltaE_1200 Coef_E / sto Volt6_2
+% deltaE_1200 Coef_E / sto Volt6_3
+% deltaE_1200 Coef_E / sto Volt6_4
+% deltaE_1200 Coef_E / sto Volt6_5
+% deltaE_1200 Coef_E / sto Volt6_6
+% deltaE_1200 Coef_E / sto Volt6_7
+% deltaE_1200 Coef_E / sto Volt6_8
+!
+% deltaE_1200 Coef_E / sto Volt7_1
+% deltaE_1200 Coef_E / sto Volt7_2
+% deltaE_1200 Coef_E / sto Volt7_3
+% deltaE_1200 Coef_E / sto Volt7_4
+% deltaE_1200 Coef_E / sto Volt7_5
+% deltaE_1200 Coef_E / sto Volt7_6
+% deltaE_1200 Coef_E / sto Volt7_7
+% deltaE_1200 Coef_E / sto Volt7_8
+!
+!
+! ALL MODULES ON-CREST
+% 90 sto acc1_phase
+% 90 sto acc2_phase
+% 90 sto acc3_phase
+% 90 sto acc4_phase
+% 90 sto acc5_phase
+% 90 sto acc6_phase
+% 90 sto acc7_phase
+% -90 sto acc39_phase
+!
+!======================================================================================
+!  QUADRUPOLES AND SEXTUPOLES
+!======================================================================================
+!
+! EFFECTIVE LENGTHS 
+! Quadrupole Type TQA
+% 0.25 sto lpo_tqa
+% 0.2768 sto lef_tqa
+% lef_tqa sto len_tqa
+!
+! Quadrupole Type TQB (collimator)
+% 0.30 sto lpo_tqb
+% 0.3286 sto lef_tqb
+% lef_tqb sto len_tqb
+!
+! Quadrupole Type TQD
+% 0.3000 sto lpo_tqd
+% 0.3046 sto lef_tqd
+% lef_tqd sto len_tqd
+!
+! Quadrupole Type TQG (undulator)
+% 0.110 sto lpo_tqg
+% 0.12716 sto lef_tqg
+% lef_tqg sto len_tqg
+!
+! Quadrupole Type TQF
+% 0.34 sto lpo_tqf
+% 0.3728 sto lef_tqf
+% lef_tqf sto len_tqf
+!
+! Quadrupole Type QA (cold)
+% 0.15 sto lpo_qa
+% 0.185 sto lef_qa
+% lef_qa sto len_qa
+!   
+! Quadrupole Type QC (dump)
+% 1.00 sto lpo_qc
+% 0.0 sto lef_qc
+% lpo_qc sto len_qc
+!
+! Quadrupole type QTS (S-band triplet):
+% 0.05 sto lpo_qtsE
+% 0.100 sto lpo_qtsI
+% 0.093 sto lef_qtsE
+% 0.131 sto lef_qtsI
+% lef_qtsE sto len_qtsE
+% lef_qtsI sto len_qtsI
+!
+! Sextupoles
+% 0.200 sto lpo_tsb  
+% 0.215 sto lef_tsb 
+% lef_tsb sto len_tsb
+!------------------------------------------------------------------
+! Definition
+!------------------------------------------------------------------
+!
+Q9ACC1 :  	QUAD, L = "len_qa", K1 = -4.624075797194812
+Q10ACC1: 	QUAD, L = "len_qa", K1 = 4.624075797194812
+!
+Q1.1UBC2: 	QUAD, L = "len_qtsE", K1 = -10.21974139570176
+Q1.2UBC2: 	QUAD, L = "len_qtsI", K1 = -2.302139499132715
+Q1.3UBC2: 	QUAD, L = "len_qtsE", K1 = 11.67629240007612
+!
+Q1DBC2  :   	QUAD, L = "len_tqa", K1= -0.9241695637399651
+Q1.1DBC2: 	QUAD, L = "len_tqa", K1=  3.301946880834388
+Q2DBC2  :   	QUAD, L = "len_tqa", K1= -3.079244772985211
+Q2.2DBC2: 	QUAD, L = "len_tqa", K1=   1.174818996182671
+Q3DBC2  :   	QUAD, L = "len_tqa", K1= 1.523978438112558
+!
+% 3.2434 sto k1_bc2
+!
+Q4DBC2 :  	QUAD, L = "len_tqa", K1 ="k1_bc2 -1 *"
+Q5DBC2 :  	QUAD, L = "len_tqa", K1 = "k1_bc2"
+Q6DBC2 :  	QUAD, L = "len_tqa", K1 ="k1_bc2 -1 *"
+Q7DBC2 :  	QUAD, L = "len_tqa", K1 = "k1_bc2"
+Q8DBC2 :  	QUAD, L = "len_tqa", K1 ="k1_bc2 -1 *"
+Q9DBC2 :  	QUAD, L = "len_tqa", K1 = "k1_bc2"
+Q10DBC2: 	QUAD, L = "len_tqa", K1 ="k1_bc2 -1 *"
+!
+Q10.3DBC2: 	QUAD, L = "len_tqd", K1 =  -6.426580
+Q11DBC2  :   	QUAD, L = "len_tqd", K1 = 6.676175287573469
+Q12DBC2  :   	QUAD, L = "len_tqd", K1 = -4.651435267997032
+!  
+Q9ACC2 :  	QUAD, L = "len_qa", K1 = 3.390241580898317
+Q10ACC2: 	QUAD, L = "len_qa", K1 =   -3.395539
+Q9ACC3 :  	QUAD, L = "len_qa", K1 = 2.077865
+Q10ACC3: 	QUAD, L = "len_qa", K1 =   -1.857359
+!
+Q1UBC3:  	QUAD, L = "len_tqd", K1 = 0.0
+Q2UBC3:  	QUAD, L = "len_tqd", K1 = 0.0
+Q1DBC3:  	QUAD, L = "len_tqa", K1 = 0.0
+Q2DBC3:  	QUAD, L = "len_tqf", K1 = 8.585955E-01
+Q3DBC3:  	QUAD, L = "len_tqf", K1 = -7.936560E-01
+!
+Q9ACC4 : 	QUAD, L = "len_qa",  K1 = 2.942423
+Q10ACC4: 	QUAD, L = "len_qa",  K1 = -2.849251
+Q9ACC5 : 	QUAD, L = "len_qa",  K1 = 2.552070
+Q10ACC5: 	QUAD, L = "len_qa",  K1 = -2.318901
+Q9ACC6 : 	QUAD, L = "len_qa",  K1 = 2.444440
+Q10ACC6: 	QUAD, L = "len_qa",  K1 = -2.559552
+Q10ACC7 : 	QUAD, L = 0.2975,  K1 = 2.957004e-001
+!
+Q2TCOL: 	QUAD, L = "len_tqa", K1 = -4.141370e-001
+Q8TCOL: 	QUAD, L = "len_tqa", K1 = 2.959839
+Q9TCOL: 	QUAD, L = "len_tqa", K1 = -2.501322
+!
+Q3ECOL: 	QUAD, L = "len_tqb", K1 = 4.245750
+Q4ECOL: 	QUAD, L = "len_tqb", K1 = -3.473380
+Q5ECOL: 	QUAD, L = "len_tqb", K1 = 4.245750
+!
+S6ECOL: 	SEXT, L = "len_tsb", K2= -167.261
+S2ECOL: 	SEXT, L = "len_tsb", K2= 167.261
+!
+Q1ORS : 	QUAD , L = "len_tqa", K1 = -3.072339 	!former Q1MATCH
+Q2ORS : 	QUAD , L = "len_tqa", K1 = 3.723889 	!former Q2MATCH
+Q4ORS : 	QUAD , L = "len_tqa", K1 = -1.284246 	!former Q4MATCH
+Q7ORS: 		QUAD , L = "len_tqa", K1 = 1.348810 	!former Q4SUND2
+Q9ORS : 	QUAD , L = "len_tqa", K1 = -1.316407 	!former Q3SEED
+Q12ORS : 	QUAD , L = "len_tqa", K1 = 1.038838 	!former Q6MATCH
+Q1SFUND1 : 	QUAD , L = "len_tqa", K1 = -0.4177991	!former Q5SUND1
+Q1SFUND2 : 	QUAD , L = "len_tqg", K1 = 3.351880	!new tqg quad
+Q1SFUND3 : 	QUAD , L = "len_tqg", K1 = -3.812003	!new tqg quad
+Q1SFUND4 : 	QUAD , L = "len_tqg", K1 = 2.022660	!new tqq quad
+Q1SFELC : 	QUAD , L = "len_tqa", K1 = -2.186202 	!former Q4SUND1
+Q2SFELC: 	QUAD , L = "len_tqa", K1 = 2.185893	!former Q4SUND3
+Q6SMATCH : 	QUAD , L = "len_tqa", K1 = -1.247695 	!former Q12SEED
+Q8SMATCH : 	QUAD , L = "len_tqa", K1 = 1.949318 	!former Q16SEED
+Q10SMATCH : 	QUAD , L = "len_tqa", K1 = -0.8452856	!former Q18SEED
+Q13SMATCH : 	QUAD , L = "len_tqa", K1 = 2.463859 	!former Q20SEED
+Q14SMATCH : 	QUAD , L = "len_tqg", K1 = 1.415450 	!former Q21SEED
+Q15SMATCH : 	QUAD , L = "len_tqg", K1 = -4.591679	!former Q22SEED
+!
+! Undulator has now a FODO structure 
+!  
+Q5UND1: 	QUAD,  L = "len_tqg", K1 = 2
+Q6UND1: 	QUAD,  L = "len_tqg", K1 = 0
+Q5UND2: 	QUAD,  L = "len_tqg", K1 = -2
+Q6UND2: 	QUAD,  L = "len_tqg", K1 = 0
+Q5UND3: 	QUAD,  L = "len_tqg", K1 = 2
+Q6UND3: 	QUAD,  L = "len_tqg", K1 = 0
+Q5UND4: 	QUAD,  L = "len_tqg", K1 = -2
+Q6UND4: 	QUAD,  L = "len_tqg", K1 = 0
+Q5UND5: 	QUAD,  L = "len_tqg", K1 = 2
+Q6UND5: 	QUAD,  L = "len_tqg", K1 = 0
+Q5UND6: 	QUAD,  L = "len_tqg", K1 = -2
+Q6UND6: 	QUAD,  L = "len_tqg", K1 = 0
+!
+Q9EXP : 	QUAD, L = "len_tqa", K1 = 4.3457247
+Q10EXP: 	QUAD, L = "len_tqb", K1 = -3.55288
+Q11EXP: 	QUAD, L = "len_tqb", K1 = 4.302893
+!  
+!-------------------------------------------------------------------------------------
+!   Fitting of the model of quadrupole field in the reserved place.  
+!-------------------------------------------------------------------------------------
+!
+!   Quadrupole type TQA:
+D0075a: 	DRIFT, L = "0.075 len_tqa lpo_tqa - 0.5 * -"
+D0100a: 	DRIFT, L = "0.100 len_tqa lpo_tqa - 0.5 * -"
+!
+!   Quadrupole type TQB
+D0100bm: 	DRIFT, L = "0.075 len_tqb lpo_tqb - 0.5 * -"
+D0075b: 	DRIFT, L = "0.075 len_tqb lpo_tqb - 0.5 * -" 
+!
+!   Quadrupole type TQD
+D0075d:		DRIFT, L = "0.075 len_tqd lpo_tqd - 0.5 * -"
+!
+!   Quadrupole type TQG
+D0025g: 	DRIFT, L = "0.025 len_tqg lpo_tqg - 0.5 * -"
+D0076g: 	DRIFT, L = "0.076 len_tqg lpo_tqg - 0.5 * -"
+D0100g:		DRIFT, L = "0.100 len_tqg lpo_tqg - 0.5 * -"
+D0026g:		DRIFT, L = "0.026 len_tqg lpo_tqg - 0.5 * -"
+D0022g:		DRIFT, L = "0.022 len_tqg lpo_tqg - 0.5 * -"
+D0018g:		DRIFT, L = "0.018 len_tqg lpo_tqg - 0.5 * -"
+!
+!   Quadrupole type TQF
+D00929f: 	DRIFT, L = "0.0929 len_tqf lpo_tqf - 0.5 * -"
+D0100f: 	DRIFT, L ="0.100 len_tqf lpo_tqf - 0.5 * -"
+D0135f:		DRIFT, L="0.135 len_tqf 0.3 - 0.5 * -"
+D0185f:		DRIFT, L="0.185 len_tqf 0.3 - 0.5 * -"
+!
+!   Quadrupole type QC
+D0200c: 	DRIFT, L= "0.200 len_qc lpo_qc - 0.5 * -"
+D01378c:	DRIFT, L= "0.1378 len_qc lpo_qc - 0.5 * -"
+!
+!   Quadrupole type QA (cold)
+D0100qa: 	DRIFT, L = "0.100 len_qa lpo_qa - 0.5 * -"
+D0075qa: 	DRIFT, L ="0.075 len_qa lpo_qa - 0.5 * -"
+D0095qa: 	DRIFT, L ="0.095 len_qa lpo_qa - 0.5 * -"
+!
+!   Quadrupole type QTS (S-band triplet)
+!
+D0115t: 	DRIFT, L = "0.115 len_qtsE lpo_qtsE - 0.5 * -"
+D0050t: 	DRIFT, L = "0.050 len_qtsE lpo_qtsE - 0.5 * - len_qtsI lpo_qtsI - 0.5 * -"
+D0075t: 	DRIFT, L = "0.075 len_qtsE lpo_qtsE - 0.5 * -"
+!
+!   Sextupoles
+D00881sb: 	DRIFT, L = "0.0881 len_tsb lpo_tsb - 0.5 * -"
+D0055sb : 	DRIFT, L = "0.055 len_tsb lpo_tsb - 0.5 * -" 
+D01811sb: 	DRIFT, L = "0.1811 len_tsb lpo_tsb - 0.5 * -"  
+D0085sb : 	DRIFT, L = "0.085 len_tsb lpo_tsb - 0.5 * -" 
+D0195sb : 	DRIFT, L = "0.195 len_tsb lpo_tsb - 0.5 * -" 
+D0425sb : 	DRIFT, L = "0.425 len_tsb lpo_tsb - 0.5 * -" 
+
+!
+!======================================================================================
+!  DRIFT SPACES
+!======================================================================================
+!
+D0233:		DRIFT, L = 0.233
+D009975:	DRIFT, L = 0.09975
+D0186:		DRIFT, L = 0.186
+D11357:		DRIFT, L = 1.1357
+D0260:		DRIFT, L = 0.260
+D11754:		DRIFT, L = 1.1754
+D03325:		DRIFT, L = 0.3325
+D13025:		DRIFT, L = 1.3025
+D04132:		DRIFT, L = 0.4132
+D19690:		DRIFT, L = 1.969
+D0870:		DRIFT, L = 0.870
+D1529:		DRIFT, L = 1.529
+D1196:		DRIFT, L = 1.196
+D4000:		DRIFT, L = 4.0
+D0370:		DRIFT, L = 0.370
+D3170:		DRIFT, L = 3.170
+D3400:		DRIFT, L = 3.400
+D158766:	DRIFT, L = 1.58766
+D04741:		DRIFT, L = 0.4741
+D032423:	DRIFT, L = 0.32423
+D0950:		DRIFT, L = 0.950
+D0400:		DRIFT, L = 0.4
+D0394:		DRIFT, L = 0.394
+D0600:		DRIFT, L = 0.60
+D00622: 	DRIFT, L = 0.0622
+D00595: 	DRIFT, L = 0.0595
+D00210:		DRIFT, L = 0.021
+D0061:		DRIFT, L = 0.061
+D00515:		DRIFT, L = 0.0515
+D0237: 		DRIFT, L = 0.237
+D13706:		DRIFT, L = 1.3706
+D0064:		DRIFT, L = 0.064
+D235955:	DRIFT, L = 2.35955
+D0290:		DRIFT, L = 0.290
+D150305: 	DRIFT, L = 1.50305
+D0274: 		DRIFT, L = 0.274
+D0021:		DRIFT, L = 0.0210
+D00215:		DRIFT, L = 0.0215
+D0146:		DRIFT, L = 0.146
+D0191: 		DRIFT, L = 0.191
+D0347: 		DRIFT, L = 0.347
+D010075: 	DRIFT, L = 0.10075
+D01023: 	DRIFT, L = 0.1023
+D0076:		DRIFT, L = 0.0760
+D0134: 		DRIFT, L = 0.134
+D0326:  	DRIFT, L = 0.3260
+D0080 : 	DRIFT, L = 0.0800
+D0106:  	DRIFT, L = 0.1060
+D0732:  	DRIFT, L = 0.7320
+D0072: 		DRIFT, L = 0.072
+D0120:  	DRIFT, L = 0.1200 
+D0018:  	DRIFT, L = 0.0180
+D0104: 		DRIFT, L = 0.104
+D0040: 		DRIFT, L = 0.040
+D0116: 		DRIFT, L = 0.1160 
+D0032: 		DRIFT, L = 0.0320
+D0084: 		DRIFT, L = 0.084
+D0215: 		DRIFT, L = 0.215
+D01365: 	DRIFT, L = 0.1365
+D00695: 	DRIFT, L = 0.0695
+D0034: 		DRIFT, L = 0.0340
+D0150: 		DRIFT, L = 0.150
+D0500c:		DRIFT, L = 0.500
+D0085:  	DRIFT, L = 0.0850
+D0100:  	DRIFT, L = 0.100
+D0170:  	DRIFT, L = 0.1700
+D0845:  	DRIFT, L = 0.8450
+D01056: 	DRIFT, L = 0.1056
+D01416: 	DRIFT, L = 0.1416
+D00314:  	DRIFT, L = 0.0314
+D0053:   	DRIFT, L = 0.0530
+D0059:   	DRIFT, L = 0.0590
+D0060:   	DRIFT, L = 0.0600
+D00265:  	DRIFT, L = 0.02650
+D02710:  	DRIFT, L = 0.2710
+D019168: 	DRIFT, L = 0.19168
+D018862: 	DRIFT, L = 0.18862
+D03258:  	DRIFT, L = 0.3258
+D0036: 		DRIFT, L = 0.036
+D0075 : 	DRIFT, L = 0.0750
+D00923: 	DRIFT, L = 0.0923
+D0095 : 	DRIFT, L = 0.0950
+D00095: 	DRIFT, L = 0.0095
+D00995: 	DRIFT, L = 0.0995
+D01014: 	DRIFT, L = 0.1014
+D0130 : 	DRIFT, L = 0.1300
+D0160 : 	DRIFT, L = 0.1600
+D04934: 	DRIFT, L = 0.4934
+D005815: 	DRIFT, L = 0.05815
+D007185: 	DRIFT, L = 0.07185
+D00648: 	DRIFT, L = 0.0648
+D01526: 	DRIFT, L = 0.1526
+D14809: 	DRIFT, L = 1.4809
+D0026: 		DRIFT, L = 0.026
+D0050: 		DRIFT, L = 0.050
+D0065: 		DRIFT, L = 0.065
+D0115: 		DRIFT, L = 0.115
+D0135: 		DRIFT, L = 0.135
+D0045: 		DRIFT, L = 0.045
+D0105: 		DRIFT, L = 0.105
+D0122: 		DRIFT, L = 0.122
+D0288: 		DRIFT, L = 0.288
+D0757: 		DRIFT, L = 0.757
+D0800: 		DRIFT, L = 0.800
+D0896: 		DRIFT, L = 0.896
+D0005: 		DRIFT, L = 0.005
+D0011: 		DRIFT, L = 0.011
+D0020: 		DRIFT, L = 0.020
+D0025: 		DRIFT, L = 0.025
+D0055: 		DRIFT, L = 0.055
+D00551:		DRIFT, L = 0.0551
+D0086: 		DRIFT, L = 0.086
+D0111: 		DRIFT, L = 0.111
+D0125: 		DRIFT, L = 0.125
+D0128: 		DRIFT, L = 0.128
+D0162: 		DRIFT, L = 0.162
+D0175: 		DRIFT, L = 0.175
+D0200: 		DRIFT, L = 0.200
+D0230: 		DRIFT, L = 0.230
+D0250: 		DRIFT, L = 0.250
+D00308: 	DRIFT, L = 0.0308
+D0039:  	DRIFT, L = 0.0390
+D0138:  	DRIFT, L = 0.1380
+D0201:  	DRIFT, L = 0.2010
+D02378: 	DRIFT, L = 0.2378
+D03826: 	DRIFT, L = 0.3826
+D14996: 	DRIFT, L = 1.4996
+D0010:  	DRIFT, L = 0.0100
+D00375: 	DRIFT, L = 0.0375
+D00597: 	DRIFT, L = 0.0597
+D00598: 	DRIFT, L = 0.0598
+D00672: 	DRIFT, L = 0.0672
+D00674: 	DRIFT, L = 0.0674
+D00854: 	DRIFT, L = 0.0854
+D00855: 	DRIFT, L = 0.0855
+D0090:  	DRIFT, L = 0.0900
+D00982: 	DRIFT, L = 0.0982
+D0109:  	DRIFT, L = 0.1090
+D01089: 	DRIFT, L = 0.1089
+D01245: 	DRIFT, L = 0.1245
+D0113:  	DRIFT, L = 0.1130
+D0155:  	DRIFT, L = 0.1550
+D0156:  	DRIFT, L = 0.1560  
+D01565: 	DRIFT, L = 0.1565
+D01566: 	DRIFT, L = 0.1566
+D0157:  	DRIFT, L = 0.1570
+D01675: 	DRIFT, L = 0.1675
+D0168:  	DRIFT, L = 0.1680
+D0176: 		DRIFT, L = 0.176
+D01766: 	DRIFT, L = 0.1766
+D01906: 	DRIFT, L = 0.1906
+D0210:  	DRIFT, L = 0.2100
+D0219:  	DRIFT, L = 0.2190
+D02195: 	DRIFT, L = 0.2195
+D02404: 	DRIFT, L = 0.2404
+D03097: 	DRIFT, L = 0.3097
+D03988: 	DRIFT, L = 0.3988
+D0406:  	DRIFT, L = 0.4062
+D0745:  	DRIFT, L = 0.7450
+D07452: 	DRIFT, L = 0.7452
+D07734: 	DRIFT, L = 0.7734
+D0817:  	DRIFT, L = 0.8170
+D09254: 	DRIFT, L = 0.9254  
+D1127:  	DRIFT, L = 1.1270
+D1172:  	DRIFT, L = 1.1720
+D0152:  	DRIFT, L = 0.1520
+D0180:  	DRIFT, L = 0.1800
+D0225:  	DRIFT, L = 0.2250
+D0244:  	DRIFT, L = 0.2440
+D0350:  	DRIFT, L = 0.3500 
+D04165: 	DRIFT, L = 0.4165
+D04425: 	DRIFT, L = 0.4425
+D12575: 	DRIFT, L = 1.2575
+D1500:  	DRIFT, L = 1.5000
+D0185: 		DRIFT, L = 0.185
+D0070:  	DRIFT, L = 0.0700
+D0245:  	DRIFT, L = 0.2450
+D0300: 		DRIFT, L = 0.300
+D0179: 		DRIFT, L = 0.179
+D0169:  	DRIFT, L = 0.1690
+D0322: 		DRIFT, L = 0.322
+D0340: 		DRIFT, L = 0.340
+D1342: 		DRIFT, L = 1.342
+D1660: 		DRIFT, L = 1.660
+D0074: 		DRIFT, L = 0.074
+D0240: 		DRIFT, L = 0.2400
+D0015:  	DRIFT, L = 0.015
+D0140:  	DRIFT, L = 0.140
+D0280:  	DRIFT, L = 0.280
+D0342:  	DRIFT, L = 0.342
+D0385:  	DRIFT, L = 0.385
+D0392:  	DRIFT, L = 0.392
+D0482:  	DRIFT, L = 0.482
+D0620:  	DRIFT, L = 0.620
+D07983: 	DRIFT, L = 0.79833
+D08833: 	DRIFT, L = 0.8833
+D21093: 	DRIFT, L = 2.1093
+D03115: 	DRIFT, L = 0.3115
+D0161: 		DRIFT, L = 0.161
+D00824:		DRIFT, L = 0.0824
+D01711: 	DRIFT, L = 0.1711
+D02255: 	DRIFT, L = 0.2255
+D06064:	 	DRIFT, L = 0.6064
+D01175: 	DRIFT, L = 0.1175
+D01540: 	DRIFT, L = 0.1540
+D00650:		DRIFT, L = 0.065
+D02003: 	DRIFT, L = 0.2003
+D01320: 	DRIFT, L = 0.1320
+D00020: 	DRIFT, L = 0.0002
+D0014: 		DRIFT, L = 0.014
+D03837: 	DRIFT, L = 0.3837
+D00765: 	DRIFT, L = 0.0765
+D00628: 	DRIFT, L = 0.0628
+D02362: 	DRIFT, L = 0.2362
+D0165: 		DRIFT, L = 0.165
+D0480: 		DRIFT, L = 0.480
+D0470: 		DRIFT, L = 0.470
+D0353: 		DRIFT, L = 0.353
+D0058: 		DRIFT, L = 0.058
+D0022: 		DRIFT, L = 0.022
+D01224:		DRIFT, L = 0.1224
+D0110:		DRIFT, L = 0.110
+D01624:		DRIFT, L = 0.1624
+D00275:		DRIFT, L = 0.0275
+D0030: 		DRIFT, L = 0.03
+D0029:		DRIFT, L = 0.029
+D00075:		DRIFT, L = 0.0075
+D0077:		DRIFT, L = 0.077
+D0071:		DRIFT, L = 0.071
+D0019:		DRIFT, L = 0.019
+D0081:		DRIFT, L = 0.081
+D0393:		DRIFT, L = 0.393
+D0174:		DRIFT, L = 0.174
+D1265:		DRIFT, L = 1.265
+D0068:		DRIFT, L = 0.068
+D0203:		DRIFT, L = 0.203
+D0256:		DRIFT, L = 0.256
+D0017: 		DRIFT, L = 0.017
+D0033:		DRIFT, L = 0.033
+D0126:		DRIFT, L = 0.126
+D0079:		DRIFT, L = 0.079
+D0078:		DRIFT, L = 0.078
+D0127:		DRIFT, L = 0.127
+D080325:	DRIFT, L = 0.80325
+D014175: 	DRIFT, L = 0.14175
+D03378: 	DRIFT, L= 0.3378
+D010175:	DRIFT, L = 0.10175
+D155331: 	DRIFT, L = 1.55331
+D04790: 	DRIFT, L = 0.479
+D0035: 		DRIFT, L = 0.035
+D09354: 	DRIFT, L = 0.9354
+D02392: 	DRIFT, L = 0.2392
+D01752: 	DRIFT, L = 0.1752
+D0093:    DRIFT, L = 0.093
+D0092:    DRIFT, L = 0.092
+D0088:    DRIFT, L = 0.088
+D0103:    DRIFT, L = 0.103
+D0097:    DRIFT, L = 0.097
+!
+!
+!======================================================================================
+!======================================================================================
+!  BEAM LINE DEFINITION
+!======================================================================================
+!======================================================================================
+
+!======================================================================================
+!  INJECTOR: FROM EXIT OF SOLENOID UP TO ACC1
+!======================================================================================
+!
+D1IDUMP: 	HKICK, L = 0.09
+!
+H1GUN: 		HKICK
+V1GUN: 		VKICK
+H2GUN: 		HKICK
+V2GUN: 		VKICK
+H3GUN: 		HKICK
+V3GUN: 		VKICK
+!              
+BPM1GUN: 	MONI
+BPM3GUN: 	MONI
+!
+OTR2GUN: 	MARK
+OTR3GUN:	MARK
+TOR3GUN: 	DRIFT, L = 0.090
+! collimator
+!COLL3GUN:	ECOL, L = 0, X_MAX = 8e-3, Y_MAX = 8e-3
+COLL3GUN:	DRIFT, L=0
+
+INJ: LINE = 	(D03115, H1GUN, D0025, V1GUN, D0225, H2GUN, D0025, V2GUN, D00375, BPM1GUN, &
+		D0161, OTR2GUN, D0111, D1IDUMP, TOR3GUN, D0150, OTR3GUN, COLL3GUN, D00824, &
+		BPM3GUN, D01711, H3GUN, D0025, V3GUN, D02255)
+
+!
+!======================================================================================
+!  ACC1
+!======================================================================================
+!
+!
+BPM9ACC1: 	MONI
+!
+! H9ACC1 and V9ACC1 are finally not connected ?
+H9ACC1: 	HKICK
+V9ACC1: 	VKICK
+H10ACC1: 	HKICK
+V10ACC1: 	VKICK
+!
+!
+C1.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC1.ACC1: LINE = (C1.ACC1, LTWAKE, D01056)
+!
+C2.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC2.ACC1: LINE = (C2.ACC1, LTWAKE, D01056)
+!
+C3.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC3.ACC1: LINE = (C3.ACC1, LTWAKE, D01056)
+!
+C4.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC4.ACC1: LINE = (C4.ACC1, LTWAKE, D01056)
+!
+C5.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC5.ACC1: LINE = (C5.ACC1, LTWAKE, D01056)
+!
+C6.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC6.ACC1: LINE = (C6.ACC1, LTWAKE, D01056)
+!
+C7.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC7.ACC1: LINE = (C7.ACC1, LTWAKE, D01056)
+!
+C8.ACC1: 	RFCA, L=1.0362, PHASE="acc1_phase",			&
+		VOLT="Volt1_8 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+LC8.ACC1: LINE = (C8.ACC1, LTWAKE, D01056)
+!
+!
+StartRFACC1:	MARK
+EndRFACC1:	MARK
+!
+ACC1: 		LINE = (D06064, StartRFACC1, D01416,  LC1.ACC1, D01014, D01416, LC2.ACC1, D01014,  &
+                	D01416,  LC3.ACC1, D01014, D01416, LC4.ACC1, D01014,  &
+                	D01416,  LC5.ACC1, D01014, D01416, LC6.ACC1, D01014,  &
+                	D01416,  LC7.ACC1, D01014, D01416, LC8.ACC1, EndRFACC1, D01175, &
+			BPM9ACC1, D01540, Q9ACC1, H9ACC1, V9ACC1, D00650, &
+			Q10ACC1, H10ACC1, V10ACC1, D02003)
+!
+
+!=====================================================================================
+!  3rd HARMONIC CAVITY: ACC39
+!=====================================================================================
+!
+!Length of the cavity for the ACC39
+% 0.3459 sto L_cav39
+!
+DACC39:		DRIFT, L = "0.50611 0.3459 - 2 /"
+!
+C1.ACC39: 	RFCA, L="L_cav39", PHASE="acc39_phase",				&
+		VOLT="Volt39_1 L_cav39 *",           			&
+                FREQ=3900.0E+06, CHANGE_P0=1, N_KICKS=0,			&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC1.ACC39: 	LINE = (DACC39, C1.ACC39, DACC39, LTWAKE39)
+!
+C2.ACC39: 	RFCA, L="L_cav39", PHASE="acc39_phase",				&
+		VOLT="Volt39_2 L_cav39 *",           			&
+                FREQ=3900.0E+06, CHANGE_P0=1, N_KICKS=0,			&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC2.ACC39: 	LINE = (DACC39, C2.ACC39, DACC39, LTWAKE39)
+!
+C3.ACC39: 	RFCA, L="L_cav39", PHASE="acc39_phase",				&
+		VOLT="Volt39_3 L_cav39 *",           			&
+                FREQ=3900.0E+06, CHANGE_P0=1, N_KICKS=0,			&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC3.ACC39: 	LINE = (DACC39, C3.ACC39, DACC39, LTWAKE39)
+!
+C4.ACC39: 	RFCA, L="L_cav39", PHASE="acc39_phase",				&
+		VOLT="Volt39_4 L_cav39 *",           			&
+                FREQ=3900.0E+06, CHANGE_P0=1, N_KICKS=0,			&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC4.ACC39: 	LINE = (DACC39, C4.ACC39, DACC39, LTWAKE39)
+!
+!
+StartRFACC39:	MARK
+EndRFACC39:	MARK
+!
+ACC39:	 	LINE = (StartRFACC39, D03378, LC1.ACC39, D010175, LC2.ACC39, D010175, LC3.ACC39, 	&
+			D010175, LC4.ACC39, EndRFACC39, D0080, D155331, D04790)
+
+! 
+!=====================================================================================
+!  BC2   = UBC2 + MBC2 + DBC2
+!=====================================================================================
+!-------------------------------------------------------------------------------------
+!  UBC2
+!-------------------------------------------------------------------------------------
+! Phase monitors and toroid
+PHA1UBC2: 	DRIFT, L = 0.040
+PHAB1UBC2: 	DRIFT, L = 0.040 ! BAM
+TOR3UBC2: 	DRIFT, L = 0.1578
+!
+H1UBC2: 	HKICK, L = 0.100, KICK = 0.0
+V1UBC2: 	VKICK, L = 0.100, KICK = 0.0
+!
+DBPM2UBC2: 	DRIFT, L = "0.450 2 /"
+BPM2UBC2: 	MONI
+BPM2UBC2_L: 	LINE = (DBPM2UBC2, BPM2UBC2,DBPM2UBC2)
+!
+D01230t: 	DRIFT, L = "0.1230 0.007 +"
+!
+HV1UBC2:  	LINE = (D0014, V1UBC2, D0084,  H1UBC2)
+QUBC2000: 	LINE = (D0115t, Q1.1UBC2, D0050t, Q1.2UBC2, D0050t, Q1.3UBC2, D0075t)
+!
+StartUBC2: 	MARKER
+EndUBC2:   	MARKER
+!
+!
+UBC2: 		LINE = 	(StartUBC2, D01230t, PHA1UBC2, QUBC2000, HV1UBC2, D0053, BPM2UBC2_L, &
+			PHAB1UBC2, D00020, TOR3UBC2, D01320, EndUBC2)
+
+!
+!-------------------------------------------------------------------------------------
+!  MBC2
+!-------------------------------------------------------------------------------------
+!
+% 0.5 sto lll_bc2
+% 18.0 180.0 / pi * sto ang_bc2
+% lll_bc2 ang_bc2 * ang_bc2 sin / sto larc_bc2
+% larc_bc2 sto len_bc2
+
+% 0.025 sto gap_bc2
+% 0.0 sto hgap_bc2
+% 0.0 sto fint_bc2
+
+D0500bc2: 	DRIFT, L = "0.5 ang_bc2 cos /"
+!
+D1BC2: 		CSBEND, L    = "len_bc2",  ANGLE ="ang_bc2 -1 *",   &
+              	FINT = "fint_bc2", HGAP  = "hgap_bc2",  &
+              	E1   = 0.0,      E2    ="ang_bc2 -1 *"
+!
+D2BC2: 		CSBEND, L    = "len_bc2",  ANGLE = "ang_bc2",   &
+              	FINT = "fint_bc2", HGAP  = "hgap_bc2",  &
+              	E1   = "ang_bc2",  E2    = 0.0
+!
+D3BC2: 		CSBEND, L    = "len_bc2",  ANGLE = "ang_bc2",   &
+              	FINT = "fint_bc2", HGAP  = "hgap_bc2",  &
+              	E1   = 0.0,      E2    = "ang_bc2"
+!
+D4BC2: 		CSBEND, L    = "len_bc2",  ANGLE ="ang_bc2 -1 *",   &
+              	FINT = "fint_bc2", HGAP  ="hgap_bc2",  &
+              	E1   ="ang_bc2 -1 *",  E2    = 0.0
+!
+COLL2BC2: 	ECOL, L = 0.433, X_MAX = 1.0, Y_MAX = 1.0
+!
+H1BC2: 		HKICK
+H2BC2: 		HKICK 
+H3BC2: 		HKICK
+H4BC2: 		HKICK
+!
+BPM2BC2: 	DRIFT, L = 0.0
+OTR3BC2: 	MARK
+!
+StartMBC2: 	MARK, FITPOINT=1
+EndMBC2:   	MARK, FITPOINT=1
+!
+MBC2: 		LINE = (StartMBC2, D0100, D1BC2,   H1BC2, D0500bc2,   D2BC2, H2BC2, D0105, &
+              		BPM2BC2,   D0045, COLL2BC2, D0115, OTR3BC2, D0115,               &
+              		D0150, D3BC2, H3BC2,   D0500bc2, D4BC2,   H4BC2, D0100, EndMBC2) 
+!
+!-------------------------------------------------------------------------------------
+!  DBC2   = DBC2_1   + DBC2_FODO + DBC2_3
+!-------------------------------------------------------------------------------------
+!
+! new double steerer for 2010 HV6DBC2
+!
+!
+H1DBC2:  	HKICK, L = 0.100, KICK = 0.0
+V1DBC2:  	VKICK, L = 0.100, KICK = 0.0
+H2DBC2:  	HKICK, L = 0.100, KICK = 0.0
+V2DBC2:  	VKICK, L = 0.100, KICK = 0.0
+H4DBC2:  	HKICK, L = 0.100, KICK = 0.0
+V4DBC2:  	VKICK, L = 0.100, KICK = 0.0
+H5DBC2:  	HKICK, L = 0.100, KICK = 0.0
+HV6DBC2:  	KICK,  L = 0.100
+V8DBC2:  	VKICK, L = 0.100, KICK = 0.0
+H9DBC2:  	HKICK, L = 0.100, KICK = 0.0
+V10DBC2: 	VKICK, L = 0.100, KICK = 0.0
+H11DBC2: 	HKICK, L = 0.100, KICK = 0.0
+V11DBC2: 	VKICK, L = 0.100, KICK = 0.0
+EO8DBC2: 	DRIFT, L = 0.194
+D0003: 		DRIFT, L= 0.003
+!
+BPM1DBC2:  	MONI
+BPM3DBC2:  	MONI
+BPM5DBC2:  	MONI
+BPM7DBC2:  	MONI
+BPM9DBC2:  	MONI
+BPM11DBC2: 	MONI
+!
+OTR4DBC2:  	MARK
+OTR6DBC2:  	MARK
+OTR8DBC2:  	MARK
+OTR10DBC2: 	MARK
+!
+WIRE4DBC2:  	MARK
+WIRE6DBC2:  	MARK
+WIRE8DBC2:  	MARK
+WIRE10DBC2: 	MARK
+!
+!Phase monitor (BAM) and Toroid
+PHA3DBC2:  	DRIFT, L = 0.040
+TOR10DBC2: 	DRIFT, L = 0.216
+!
+! Quadrupoles with drifts and BPM's.
+!
+Q1DBC2BPM:    	LINE = (D0100a, Q1DBC2,     BPM1DBC2, D0075a)
+Q1.1DBC2000: 	LINE = (D0075a, Q1.1DBC2,             D0075a)
+Q2DBC2000:    	LINE = (D0100a, Q2DBC2,               D0100a)
+Q2.2DBC2000:  	LINE = (D0075a, Q2.2DBC2,             D0075a)
+Q3DBC2BPM:    	LINE = (D0100a, Q3DBC2,     BPM3DBC2, D0100a)
+!
+Q4DBC2000:    	LINE = (D0075a, Q4DBC2,                D0075a)
+Q5DBC2BPM:    	LINE = (D0100a, Q5DBC2,     BPM5DBC2,  D0100a)
+Q6DBC2000:    	LINE = (D0075a, Q6DBC2,                D0075a)
+Q7DBC2BPM:    	LINE = (D0100a, Q7DBC2,     BPM7DBC2,  D0100a)
+Q8DBC2000:    	LINE = (D0075a, Q8DBC2,                D0075a)
+Q9DBC2BPM:    	LINE = (D0100a, Q9DBC2,     BPM9DBC2,  D0100a)
+Q10DBC2000:   	LINE = (D0075a, Q10DBC2,               D0075a)
+!
+Q10.3DBC2000: 	LINE = (D0075d, Q10.3DBC2,             D0075d)
+Q11DBC2BPM:   	LINE = (D0075d, Q11DBC2,    BPM11DBC2, D0075d)
+Q12DBC2000:   	LINE = (D0075d, Q12DBC2,               D0075d)
+!
+! Steering blocks
+!
+DH1DBC2:  	LINE = (D0050, H1DBC2,  D0035)
+DV1DBC2:  	LINE = (D0060, V1DBC2,  D0040)
+DH2DBC2:  	LINE = (D0025, H2DBC2,  D0050)
+DV2DBC2:  	LINE = (D0050, V2DBC2,  D0025)
+DH4DBC2:  	LINE = (D0050, H4DBC2,  D0025)
+DV4DBC2:  	LINE = (D0020, V4DBC2,  D0040)
+DH5DBC2:  	LINE = (D0050, H5DBC2,  D0050)
+DHV6DBC2:  	LINE = (D0020, HV6DBC2,  D0040)
+DEO8DBC2:  	LINE = (D0003, EO8DBC2,  D0003)
+DV8DBC2:  	LINE = (D0020, V8DBC2,  D0040)
+DH9DBC2:  	LINE = (D0050, H9DBC2,  D0050)
+DV10DBC2: 	LINE = (D0020, V10DBC2, D0040)
+DH11DBC2: 	LINE = (D0005, H11DBC2, D0045)
+DV11DBC2: 	LINE = (D0045, V11DBC2, D0005)
+!
+!
+DBC2_1:   	LINE = (D0076,    				  &
+                  	DH1DBC2, Q1DBC2BPM,  DV1DBC2,    Q1.1DBC2000,   & 
+                  	DH2DBC2, Q2DBC2000,  DV2DBC2,    Q2.2DBC2000,   &
+                  	D0135,   PHA3DBC2,   Q3DBC2BPM,  DH4DBC2)
+!
+DBC2_FODO1_1: 	LINE = (Q4DBC2000, DV4DBC2,   D0100, OTR4DBC2)
+DBC2_FODO1_2: 	LINE = (D0025,     WIRE4DBC2, D0105, D0135,   &
+                      	Q5DBC2BPM, DH5DBC2,   D0128, D0072, D0125)
+DBC2_FODO1:   	LINE = (DBC2_FODO1_1, DBC2_FODO1_2)
+
+DBC2_FODO2_1: 	LINE = (Q6DBC2000, DHV6DBC2,   D0100, OTR6DBC2)
+DBC2_FODO2_2: 	LINE = (D0025,     WIRE6DBC2, D0105, D0135,         &     
+                      	Q7DBC2BPM, DEO8DBC2,   D0100, D0175, D0050)
+DBC2_FODO2:   	LINE = (DBC2_FODO2_1, DBC2_FODO2_2)
+
+DBC2_FODO3_1: 	LINE = (Q8DBC2000, DV8DBC2,   D0100, OTR8DBC2)
+DBC2_FODO3_2: 	LINE = (D0025,     WIRE8DBC2, D0105, D0135,         & 
+                      	Q9DBC2BPM, DH9DBC2,   D0055, D0230, D0040) 
+DBC2_FODO3:   	LINE = (DBC2_FODO3_1, DBC2_FODO3_2)
+
+DBC2_FODO4_1: 	LINE = (Q10DBC2000, DV10DBC2,   D0100, OTR10DBC2) 
+DBC2_FODO4_2: 	LINE = (D0025,      WIRE10DBC2, D0105, D0135) 
+DBC2_FODO4:   	LINE = (DBC2_FODO4_1, DBC2_FODO4_2)
+!
+!  Three FODO cells
+!
+DBC2_FODO:  	LINE = (DBC2_FODO1, DBC2_FODO2, DBC2_FODO3)
+!
+!  DBC2_3:  FODO4 + 3 quads between FODO lattice and UBC3.
+!
+DBC2_3:     	LINE = (DBC2_FODO4,                  &
+                    	TOR10DBC2,    D0011,             &     
+                    	Q10.3DBC2000, DH11DBC2,          &
+                    	Q11DBC2BPM,   DV11DBC2,          &  
+                    	Q12DBC2000,   D0104,             &
+                    	D0160,        D0162,  D0160)    
+!
+StartDBC2: 	MARK
+EndDBC2:   	MARK
+!
+DBC2: LINE = (StartDBC2, DBC2_1, DBC2_FODO, DBC2_3, EndDBC2)
+!
+!
+StartBC2: 	MARK
+EndBC2:   	MARK
+!
+BC2: LINE = (StartBC2, UBC2, MBC2, DBC2, EndBC2)
+!
+!=====================================================================================
+!  ACC2 & ACC3 : ACC23 = ACC2 + ACC3
+!=====================================================================================
+!-------------------------------------------------------------------------------------
+!  ACC2
+!-------------------------------------------------------------------------------------
+!
+!
+BPM9ACC2: 	MONI
+!
+
+!
+C1.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C2.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C3.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C4.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C5.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C6.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C7.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C8.ACC2: 	RFCA, L=1.0362, PHASE="acc2_phase",			&
+		VOLT="Volt2_8 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC1.ACC2: 	LINE = (C1.ACC2, LTWAKE, D01056)
+LC2.ACC2: 	LINE = (C2.ACC2, LTWAKE, D01056)
+LC3.ACC2: 	LINE = (C3.ACC2, LTWAKE, D01056)
+LC4.ACC2: 	LINE = (C4.ACC2, LTWAKE, D01056)
+LC5.ACC2: 	LINE = (C5.ACC2, LTWAKE, D01056)
+LC6.ACC2: 	LINE = (C6.ACC2, LTWAKE, D01056)
+LC7.ACC2: 	LINE = (C7.ACC2, LTWAKE, D01056)
+LC8.ACC2: 	LINE = (C8.ACC2, LTWAKE, D01056)
+
+!
+StartRFACC2:	MARK
+EndRFACC2:	MARK
+!
+TMACC2: 	LINE = (StartRFACC2, D01416, LC1.ACC2, D01014, D01416, LC2.ACC2, D01014,  &
+                D01416,  LC3.ACC2, D01014, D01416, LC4.ACC2, D01014,  &
+                D01416,  LC5.ACC2, D01014, D01416, LC6.ACC2, D01014,  &
+                D01416,  LC7.ACC2, D01014, D01416, LC8.ACC2, EndRFACC2, D01175, &
+		BPM9ACC2)
+
+! doublet / steerers in series
+H9ACC2: 	HKICK, L = 0.0, KICK = 0.0
+V9ACC2: 	VKICK, L = 0.0, KICK = 0.0
+H10ACC2: 	HKICK, L = 0.0, KICK = 0.0
+V10ACC2: 	VKICK, L = 0.0, KICK = 0.0
+!
+DQACC2: 	LINE = (D0095qa, Q9ACC2, H9ACC2, V9ACC2, D0065, Q10ACC2, H10ACC2, V10ACC2, D0075qa)
+!
+!
+StartACC2: 	MARK
+EndACC2:   	MARK
+!
+!
+ACC2:   	LINE = (StartACC2, D09354, TMACC2, D00765, DQACC2, D00628, D0080, D02392, EndACC2)
+!
+!-------------------------------------------------------------------------------------
+!  ACC3
+!-------------------------------------------------------------------------------------
+!
+BPM9ACC3: 	MONI
+!
+!
+C1.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C2.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C3.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C4.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C5.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C6.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C7.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C8.ACC3: 	RFCA, L=1.0362, PHASE="acc3_phase",			&
+		VOLT="Volt3_8 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC1.ACC3: 	LINE = (C1.ACC3, LTWAKE, D01056)
+LC2.ACC3: 	LINE = (C2.ACC3, LTWAKE, D01056)
+LC3.ACC3: 	LINE = (C3.ACC3, LTWAKE, D01056)
+LC4.ACC3: 	LINE = (C4.ACC3, LTWAKE, D01056)
+LC5.ACC3: 	LINE = (C5.ACC3, LTWAKE, D01056)
+LC6.ACC3: 	LINE = (C6.ACC3, LTWAKE, D01056)
+LC7.ACC3: 	LINE = (C7.ACC3, LTWAKE, D01056)
+LC8.ACC3: 	LINE = (C8.ACC3, LTWAKE, D01056)
+!
+StartRFACC3:	MARK
+EndRFACC3:	MARK
+!
+TMACC3: 	LINE = (StartRFACC3, D01416, LC1.ACC3, D01014, D01416, LC2.ACC3, D01014,  &
+                D01416,  LC3.ACC3, D01014, D01416, LC4.ACC3, D01014,  &
+                D01416,  LC5.ACC3, D01014, D01416, LC6.ACC3, D01014,  &
+                D01416,  LC7.ACC3, D01014, D01416, LC8.ACC3, EndRFACC3, D01175, &
+		BPM9ACC3)
+
+! quads have separate power supplies, there is only H/V10ACC3
+H10ACC3: 	HKICK, L = 0.0, KICK = 0.0
+V10ACC3: 	VKICK, L = 0.0, KICK = 0.0
+!
+DQACC3: 	LINE = (D0095qa, Q9ACC3, D0065, Q10ACC3, H10ACC3, V10ACC3, D0075qa)
+!
+StartACC3: 	MARK
+EndACC3:   	MARK
+!
+ACC3: 		LINE = (StartACC3, D0080,  TMACC3, D00765, DQACC3, D0064, D0080,   &
+                 	D0160, D13706, D0237,  D0075,  EndACC3)
+!
+!
+ACC23:	 	LINE = (ACC2, ACC3)
+!
+!=====================================================================================
+!  BC3 = UBC3 + MBC3 + DBC3 
+!=====================================================================================
+!-------------------------------------------------------------------------------------
+!  UBC3
+!-------------------------------------------------------------------------------------
+!
+!
+H2UBC3: 	HKICK, L = 0.100, KICK = 0.0
+V2UBC3: 	VKICK, L = 0.100, KICK = 0.0
+!
+TOR1UBC3:  	DRIFT, L = 0.216
+DARK1UBC3: 	DRIFT, L = 0.200
+!
+OTR3UBC3i: 	DRIFT, L = "0.230 2 /"
+OTR3UBC3:	MARK
+OTR3UBC300:	LINE = (OTR3UBC3i, OTR3UBC3, OTR3UBC3i)
+!
+BPM1UBC3: 	MONI
+BPM2UBC3: 	MONI
+!
+!
+! Quadrupole with BPM's
+!
+Q1UBC3BPM: 	LINE = (D0075d, Q1UBC3,   BPM1UBC3, D0075d)
+Q2UBC3000: 	LINE = (D0075d, Q2UBC3,             D0075d)
+!
+! Steering blocks
+!
+HV2UBC3: 	LINE = (D01245, H2UBC3, D01245, D0175,  V2UBC3, BPM2UBC3, D01752)
+!
+UBC3: 		LINE = (D0106,     D0150,    DARK1UBC3, TOR1UBC3,     &
+              		Q1UBC3BPM, D0050,    Q2UBC3000, D0106,        & 
+              		HV2UBC3,   OTR3UBC300, D0106,     D01766)
+!
+!-------------------------------------------------------------------------------------
+!  MBC3
+!-------------------------------------------------------------------------------------
+!
+% 0.5 sto lll_bc3
+% 3.8 180.0 / pi * sto ang_bc3
+% lll_bc3 ang_bc3 * ang_bc3 sin / sto larc_bc3
+% larc_bc3 sto len_bc3
+!
+D1BC3: 		CSBEND,  L   = "len_bc3",  ANGLE="ang_bc3 -1 *", &
+               	E1  = 0.0,      E2   ="ang_bc3 -1 *"
+!
+D4BC3: 		CSBEND,  L   = "len_bc3",  ANGLE= "ang_bc3", &
+               	E1  = "ang_bc3",  E2   = 0.0
+!
+D5BC3: 		CSBEND,  L   = "len_bc3",  ANGLE= "ang_bc3", &
+               	E1  = 0.0,      E2   = "ang_bc3"
+!
+D10BC3: 	CSBEND, L   = "len_bc3",  ANGLE="ang_bc3 -1 *", &
+               	E1  ="ang_bc3 -1 *",  E2   = 0.0 
+!
+D11BC3: 	CSBEND, L   = "len_bc3",  ANGLE="ang_bc3 -1 *", &
+               	E1  = 0.0,      E2   ="ang_bc3 -1 *"
+!
+D14BC3: 	CSBEND, L   = "len_bc3",  ANGLE= "ang_bc3", &
+               	E1  = "ang_bc3",  E2   = 0.0
+! steerers
+H1BC3:  	HKICK, L = 0.0,   KICK = 0.0
+H4BC3:  	HKICK, L = 0.0,   KICK = 0.0
+H5BC3:  	HKICK, L = 0.0,   KICK = 0.0
+H10BC3: 	HKICK, L = 0.0,   KICK = 0.0
+H11BC3: 	HKICK, L = 0.0,   KICK = 0.0
+H14BC3: 	HKICK, L = 0.0,   KICK = 0.0
+!
+! OTR screens
+OTR8BC3i: 	DRIFT, L = "0.230 2 / ang_bc3 cos /"
+OTR11BC3i: 	DRIFT, L = "0.230 2 /"
+OTR8BC3:	MARK
+OTR11BC3:	MARK
+OTR8BC300:	LINE = (OTR8BC3i, OTR8BC3, OTR8BC3i)
+OTR11BC300:	LINE = (OTR11BC3i, OTR11BC3, OTR11BC3i)
+!
+! BPMs
+BPM4BC3 : 	DRIFT, L = 0.034
+BPM11BC3: 	DRIFT, L = 0.034
+!
+!
+D0745bc3 : 	DRIFT, L = "0.7450 ang_bc3 cos /"
+D0200bc3 : 	DRIFT, L = "0.2000 ang_bc3 cos /"
+D0826bc3 : 	DRIFT, L = "0.826 ang_bc3 cos /"
+D0150bc3 : 	DRIFT, L = "0.150 ang_bc3 cos /"
+D0459bc3 : 	DRIFT, L = "0.459 ang_bc3 cos /"
+D2380bc3 : 	LINE = (D0745bc3, D0200bc3, D0826bc3, D0150bc3, D0459bc3)
+!
+D04310bc3 : 	DRIFT, L = "0.4310 ang_bc3 cos /"
+D08080bc3 : 	DRIFT, L = "0.8080 ang_bc3 cos /"
+D09254bc3 : 	DRIFT, L = "0.9254 ang_bc3 cos /"
+D02347bc3 : 	DRIFT, L = "0.2347 ang_bc3 cos /"
+D10044bc3 : 	DRIFT, L = "1.0044 ang_bc3 cos /"
+D2629a: 	LINE = (D04310bc3, D0150bc3, D08080bc3, D0200bc3,  D09254bc3)
+D2629b: 	LINE = (OTR8BC300,   D09254bc3, D0200bc3,  D02347bc3, D0150bc3, D10044bc3)
+!
+D09611bc3 : 	DRIFT, L = "0.9611 ang_bc3 cos /"
+D03238bc3 : 	DRIFT, L = "0.3238 ang_bc3 cos /"
+D07451bc3 : 	DRIFT, L = "0.7451 ang_bc3 cos /"
+D238 : 		LINE = (D09611bc3, D0150bc3, D03238bc3, D0200bc3, D07451bc3)
+!
+StartMBC3: 	MARK
+EndMBC3:   	MARK
+!
+MBC3: 		LINE = (StartMBC3,      D00982,               &
+              		D1BC3,  H1BC3,  D2380bc3,                     &
+              		D4BC3,  H4BC3,  D00598,    BPM4BC3,  D00672,  &
+                        D0230,     D0109,               &
+              		D5BC3,  H5BC3,  D2629a,    D2629b,            &
+              		D10BC3, H10BC3, D00597,    BPM11BC3, D00674,  &
+                        OTR11BC300,  D01089,            &
+              		D11BC3, H11BC3, D238,                         &
+              		D14BC3, H14BC3, D00855,    EndMBC3)
+!-------------------------------------------------------------------------------------
+!  DBC3
+!-------------------------------------------------------------------------------------
+!
+! BPMs
+BPM1DBC3: 	MONI
+BPM3DBC3: 	MONI
+!
+V1DBC3: 	VKICK, L = 0.100
+H1DBC3: 	HKICK, L = 0.100
+H3DBC3: 	HKICK, L = 0.100
+V3DBC3: 	VKICK, L = 0.100
+!
+! Steering blocks
+!
+VH1DBC3: 	LINE = (D0072,  V1DBC3, D0128,    H1DBC3, D01056)
+HV3DBC3: 	LINE = (D00375, H3DBC3, D00375,   D0175,  V3DBC3, BPM3DBC3, D0175)
+!
+! OTR screens
+OTR4DBC3i: 	DRIFT, L = "0.230 2 /"
+OTR5DBC3i: 	DRIFT, L = "0.200 2 /"
+OTR4DBC3:	MARK
+OTR5DBC3:	MARK
+OTR4DBC300:	LINE = (OTR4DBC3i, OTR4DBC3, OTR4DBC3i)
+OTR5DBC300:	LINE = (OTR5DBC3i, OTR5DBC3, OTR5DBC3i)
+!
+! Wirescanners
+WIRE5DBC3i: 	DRIFT, L = "0.005 2 /"
+WIRE5DBC3: 	MARK
+WIRE5DBC300:	LINE = (WIRE5DBC3i, WIRE5DBC3, WIRE5DBC3i)	
+!
+! Quadrupole with BPM's
+!
+Q1DBC3BPM: 	LINE = (D0100a, Q1DBC3,   BPM1DBC3, D0100a)
+Q2DBC3000: 	LINE = (D0100f, Q2DBC3,             D0100f)
+Q3DBC3000: 	LINE = (D0100f, Q3DBC3,             D00929f)
+!
+TOR5DBC3:  	DRIFT, L = 0.216
+RMON4DBC3: 	DRIFT, L = 0.175
+PHA4DBC3:  	DRIFT, L = 0.040
+!
+StartDBC3: 	MARK
+EndDBC3:   	MARK
+!
+DBC3:   	LINE = 	(StartDBC3, VH1DBC3,  D02404,    D01906, Q1DBC3BPM, D00551,    & 
+              		Q2DBC3000, D0010,    Q3DBC3000, D0106,  HV3DBC3,             &
+              		D0090, OTR4DBC300, PHA4DBC3,  D0100,  OTR5DBC300,   D0025,         &
+              		WIRE5DBC300, D0100, TOR5DBC3, RMON4DBC3, D0150,  D0106,     EndDBC3)
+!
+!
+StartBC3: 	MARK
+EndBC3:   	MARK
+! 
+BC3:  		LINE = (StartBC3, UBC3, MBC3, DBC3, EndBC3)
+!
+!=====================================================================================
+!  ACC4567
+!=====================================================================================
+!-------------------------------------------------------------------------------------
+!  ACC4 
+!-------------------------------------------------------------------------------------
+!
+BPM9ACC4: 	MONI
+!
+!
+C1.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C2.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C3.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C4.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C5.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C6.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C7.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C8.ACC4: 	RFCA, L=1.0362, PHASE="acc4_phase",			&
+		VOLT="Volt4_8 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC1.ACC4: 	LINE = (C1.ACC4, LTWAKE, D01056)
+LC2.ACC4: 	LINE = (C2.ACC4, LTWAKE, D01056)
+LC3.ACC4: 	LINE = (C3.ACC4, LTWAKE, D01056)
+LC4.ACC4: 	LINE = (C4.ACC4, LTWAKE, D01056)
+LC5.ACC4: 	LINE = (C5.ACC4, LTWAKE, D01056)
+LC6.ACC4: 	LINE = (C6.ACC4, LTWAKE, D01056)
+LC7.ACC4: 	LINE = (C7.ACC4, LTWAKE, D01056)
+LC8.ACC4: 	LINE = (C8.ACC4, LTWAKE, D01056)
+
+!
+StartRFACC4:	MARK
+EndRFACC4:	MARK
+!
+TMACC4: 	LINE = (StartRFACC4, D01416, LC1.ACC4, D01014, D01416, LC2.ACC4, D01014,  &
+                D01416,  LC3.ACC4, D01014, D01416, LC4.ACC4, D01014,  &
+                D01416,  LC5.ACC4, D01014, D01416, LC6.ACC4, D01014,  &
+                D01416,  LC7.ACC4, D01014, D01416, LC8.ACC4, EndRFACC4, D01175, &
+		BPM9ACC4)
+! 
+H10ACC4: 	HKICK
+V10ACC4: 	VKICK
+!
+DQACC4: 	LINE = (D0095qa, Q9ACC4, D0065, Q10ACC4, H10ACC4, V10ACC4, D0075qa)
+!
+StartACC4: 	MARK
+EndACC4:   	MARK
+
+ACC4:   	LINE = (StartACC4, D0075, D0100,  D0156, D03837, D0160, D0080,   & 
+                	TMACC4, D00765, DQACC4, D00628, D0080, D02362, EndACC4)
+!
+!-------------------------------------------------------------------------------------
+!  ACC5
+!-------------------------------------------------------------------------------------
+!
+BPM9ACC5: 	MONI
+!
+C1.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C2.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C3.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C4.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C5.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C6.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C7.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C8.ACC5: 	RFCA, L=1.0362, PHASE="acc5_phase",			&
+		VOLT="Volt5_8 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC1.ACC5: 	LINE = (C1.ACC5, LTWAKE, D01056)
+LC2.ACC5: 	LINE = (C2.ACC5, LTWAKE, D01056)
+LC3.ACC5: 	LINE = (C3.ACC5, LTWAKE, D01056)
+LC4.ACC5: 	LINE = (C4.ACC5, LTWAKE, D01056)
+LC5.ACC5: 	LINE = (C5.ACC5, LTWAKE, D01056)
+LC6.ACC5: 	LINE = (C6.ACC5, LTWAKE, D01056)
+LC7.ACC5: 	LINE = (C7.ACC5, LTWAKE, D01056)
+LC8.ACC5: 	LINE = (C8.ACC5, LTWAKE, D01056)
+
+!
+StartRFACC5:	MARK
+EndRFACC5:	MARK
+!
+TMACC5: 	LINE = (StartRFACC5, D01416, LC1.ACC5, D01014, D01416, LC2.ACC5, D01014,  &
+                	D01416,  LC3.ACC5, D01014, D01416, LC4.ACC5, D01014,  &
+                	D01416,  LC5.ACC5, D01014, D01416, LC6.ACC5, D01014,  &
+                	D01416,  LC7.ACC5, D01014, D01416, LC8.ACC5, EndRFACC5, D01175, &
+			BPM9ACC5)
+! 
+! steerers are in series
+H9ACC5: 	HKICK
+V9ACC5: 	VKICK
+H10ACC5: 	HKICK
+V10ACC5: 	VKICK
+!
+DQACC5: LINE = (D0095qa, Q9ACC5, H9ACC5, V9ACC5, D0065, Q10ACC5, H10ACC5, V10ACC5,  D0075qa)
+!
+StartACC5: 	MARK
+EndACC5:   	MARK
+!
+ACC5:   	LINE = (StartACC5, D0080, TMACC5, D00765, DQACC5, D00628, D0080,   D02362, EndACC5)
+
+!
+!-------------------------------------------------------------------------------------
+!  ACC6 
+!-------------------------------------------------------------------------------------
+!
+!
+BPM9ACC6: 	MONI
+!
+C1.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C2.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C3.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C4.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C5.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C6.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C7.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C8.ACC6: 	RFCA, L=1.0362, PHASE="acc6_phase",			&
+		VOLT="Volt6_8 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+!
+LC1.ACC6: 	LINE = (C1.ACC6, LTWAKE, D01056)
+LC2.ACC6: 	LINE = (C2.ACC6, LTWAKE, D01056)
+LC3.ACC6: 	LINE = (C3.ACC6, LTWAKE, D01056)
+LC4.ACC6: 	LINE = (C4.ACC6, LTWAKE, D01056)
+LC5.ACC6: 	LINE = (C5.ACC6, LTWAKE, D01056)
+LC6.ACC6: 	LINE = (C6.ACC6, LTWAKE, D01056)
+LC7.ACC6: 	LINE = (C7.ACC6, LTWAKE, D01056)
+LC8.ACC6: 	LINE = (C8.ACC6, LTWAKE, D01056)
+
+!
+StartRFACC6:	MARK
+EndRFACC6:	MARK
+!
+TMACC6: 	LINE = (StartRFACC6, D01416, LC1.ACC6, D01014, D01416, LC2.ACC6, D01014,  &
+                	D01416,  LC3.ACC6, D01014, D01416, LC4.ACC6, D01014,  &
+                	D01416,  LC5.ACC6, D01014, D01416, LC6.ACC6, D01014,  &
+                	D01416,  LC7.ACC6, D01014, D01416, LC8.ACC6, EndRFACC6, D01175, &
+			BPM9ACC6)
+! 
+! steerers are in series
+H9ACC6: 	HKICK
+V9ACC6: 	VKICK
+H10ACC6: 	HKICK
+V10ACC6: 	VKICK
+!
+DQACC6: 	LINE = (D0095qa, Q9ACC6, H9ACC6, V9ACC6, D0065, Q10ACC6, H10ACC6, V10ACC6,  D0075qa)
+!
+StartACC6: 	MARK
+EndACC6:   	MARK
+!
+ACC6:   	LINE = (StartACC6, D0080, TMACC6, D00765, DQACC6, D00628, D0080,   D02362, EndACC6)
+
+!
+!-------------------------------------------------------------------------------------
+!  ACC7
+!-------------------------------------------------------------------------------------
+!
+!
+C1.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_1 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C2.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_2 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C3.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_3 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C4.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_4 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C5.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_5 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C6.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_6 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C7.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_7 Coef_E * ",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+C8.ACC7: 	RFCA, L=1.0362, PHASE="acc7_phase",			&
+		VOLT="Volt7_8 Coef_E *",           			&
+                FREQ=1300.0E+06, CHANGE_P0=1, N_KICKS=0,		&
+                END1_FOCUS=1, END2_FOCUS=1, BODY_FOCUS_MODEL="SRS" 
+!
+LC1.ACC7: 	LINE = (C1.ACC7, LTWAKE, D01056)
+LC2.ACC7: 	LINE = (C2.ACC7, LTWAKE, D01056)
+LC3.ACC7: 	LINE = (C3.ACC7, LTWAKE, D01056)
+LC4.ACC7: 	LINE = (C4.ACC7, LTWAKE, D01056)
+LC5.ACC7: 	LINE = (C5.ACC7, LTWAKE, D01056)
+LC6.ACC7: 	LINE = (C6.ACC7, LTWAKE, D01056)
+LC7.ACC7: 	LINE = (C7.ACC7, LTWAKE, D01056)
+LC8.ACC7: 	LINE = (C8.ACC7, LTWAKE, D01056)
+!
+!
+StartRFACC7:	MARK
+EndRFACC7:	MARK
+!
+TMACC7: 	LINE = (StartRFACC7, D01416, LC1.ACC7, D010075, D01416, LC2.ACC7, D010075,  &
+                	D01416,  LC3.ACC7, D010075, D01416, LC4.ACC7, D010075,  &
+                	D01416,  LC5.ACC7, D010075, D01416, LC6.ACC7, D010075,  &
+                	D01416,  LC7.ACC7, D010075, D01416, LC8.ACC7, EndRFACC7)
+! 
+! single steerer and single quad
+H10ACC7: 	HKICK
+V10ACC7: 	VKICK
+!
+StartACC7: 	MARK
+EndACC7:   	MARK
+!
+!
+!XFEL BPMs
+BPM11ACC7i: 	DRIFT, L = "0.170 2 /"
+BPM15ACC7i: 	DRIFT, L = "0.170 2 /" 	! testing BPM
+BPM16ACC7i: 	DRIFT, L = "0.170 2 /"	! testing BPM
+!
+BPM11ACC7:	MONI
+BPM15ACC7:	MONI
+BPM16ACC7:	MONI
+!
+BPM11ACC700:	LINE = (BPM11ACC7i, BPM11ACC7, BPM11ACC7i)
+BPM15ACC700:	LINE = (BPM15ACC7i, BPM15ACC7, BPM15ACC7i)
+BPM16ACC700:	LINE = (BPM16ACC7i, BPM16ACC7, BPM16ACC7i)
+
+!stripline
+BPM17ACC7i: 	DRIFT, L = "0.345 2 /"
+BPM17ACC7:	MONI
+BPM17ACC700:	LINE = (BPM17ACC7i, BPM17ACC7, BPM17ACC7i)
+
+!OTR monitors
+OTR17ACC7i: 	DRIFT, L = "0.177 2 /"
+OTR17ACC7:	MARK
+OTR17ACC700:	LINE = (OTR17ACC7i, OTR17ACC7, OTR17ACC7i)
+
+OTR18ACC7:	MARK
+
+! Phase monitor (BAM)
+PHA5ACC7: 	DRIFT, L = 0.040
+
+!kicker
+K0400:		DRIFT, L = 0.400
+
+!EO
+EO:		DRIFT, L = 1.155
+
+DQACC7: 	LINE = (D01023, Q10ACC7, H10ACC7, V10ACC7, BPM11ACC700, D0075, D0160, &
+		D150305, D0210, D0075, D0200, D0274, D0150)
+
+ACC7:	  	LINE = (StartACC7, D0075, TMACC7, DQACC7, & 
+			D0150, D0076, D0160, K0400, D0160, D0300, D00215, &
+			BPM15ACC700, BPM16ACC700, D00215, D0200, D0146, EO, &
+			D0200, BPM17ACC700, D0200, D0191, OTR17ACC700, &
+			D0347, D0200, PHA5ACC7, D0115, OTR18ACC7, D0115, &
+			D0350, D0072, EndACC7)
+
+!-------------------------------------------------------------------------------------
+!  ACC4567 
+!-------------------------------------------------------------------------------------
+!
+ACC4567: 	LINE = (ACC4, ACC5, ACC6, ACC7)
+!
+!-------------------------------------------------------------------------------------
+!
+!=====================================================================================
+!  COLLIMATOR = TCOL + DOGLEG
+!=====================================================================================
+!-------------------------------------------------------------------------------------
+!  TCOL
+!-------------------------------------------------------------------------------------
+! steerers
+V4TCOL:  	VKICK, L = 0.100
+H4TCOL:  	HKICK, L = 0.100
+H9TCOL:  	HKICK, L = 0.100
+V9TCOL:  	VKICK, L = 0.100
+!
+! collimators
+COLL2TCOL: 	ECOL, L=0.5, X_MAX=0.002,Y_MAX=0.002
+COLL8TCOL: 	ECOL, L=0.5, X_MAX=0.002,Y_MAX=0.002
+!
+OTR9TCOL: 	MARK
+OTR9TCOLi:	DRIFT, L = "0.230 2 /"
+!
+BPM2TCOL: 	MONI
+!
+!toroid
+TOR1TCOL:	DRIFT, L = 0.216
+!
+!
+! Intrabunch kickers: KICK5TCOL: DESY type, horizontal / KICK6TCOL: PSI type, vertical
+KICK5TCOL:	HKICK, L = 1
+KICK6TCOL:	VKICK, L = 1
+!
+DKICKCOL: 	LINE = (D0040,  KICK5TCOL, D0106, KICK6TCOL, D0080)
+!
+! marker to indicate the point where the bypass starts
+FEL_BYP:	MARK
+COLL8TCOL00: 	LINE = (D0150, COLL8TCOL, D0150) 
+BPM8TCOL: 	MONI
+Q8TCOLBPM: 	LINE = (D0100a, Q8TCOL, BPM8TCOL, D0100a)
+COLL2TCOL00: 	LINE = (D0150, COLL2TCOL, D0150, FEL_BYP) 
+TSP3TCOL: 	LINE = (D0732,  D0732)
+VH4TCOL:  	LINE = (D0120, V4TCOL,  D0018, D0104, D0018, H4TCOL)
+HV9TCOL:  	LINE = (D0032, H9TCOL,  D0084, V9TCOL,  D0034)
+Q9TCOL000: 	LINE = (D0100a, Q9TCOL, D0100a)
+OTR9TCOL00:  	LINE = (OTR9TCOLi, OTR9TCOL, OTR9TCOLi)
+!
+!                
+COLL:    	LINE = (D0326, D0080, D0100, D0106, D0100, TOR1TCOL, &
+			D0100a, Q2TCOL, BPM2TCOL, D0100a, COLL2TCOL00, TSP3TCOL, &
+			D0072, VH4TCOL, DKICKCOL, D0104, D0116, COLL8TCOL00, &
+			Q8TCOLBPM, HV9TCOL, Q9TCOL000, OTR9TCOL00)
+!
+StartCOL_BYP: 	MARK
+EndCOL_BYP:	MARK
+!
+COLL_BYP:	LINE = (StartCOL_BYP, D0326, D0080, D0100, D0106, D0100, TOR1TCOL, &
+			D0100a, Q2TCOL, BPM2TCOL, D0100a, COLL2TCOL00, EndCOL_BYP)
+!
+!-------------------------------------------------------------------------------------
+!  DOGLEG
+!-------------------------------------------------------------------------------------
+% 0.446 sto lll_col 
+% 3.5 180 / pi * sto ang_col 
+% ang_col -1 * sto -ang_col
+% lll_col ang_col * ang_col sin / sto larc_col
+% larc_col sto len_col
+!
+D0273c: 	DRIFT, L = "0.2730 lll_col 0.40 - 0.5 * -" 
+D0220c: 	DRIFT, L = "0.220 lll_col 0.4 - 0.5 * -"
+D0125c: 	DRIFT, L = "0.1246 lll_col 0.4 - 0.5 * -" ! adjusted from 0.125 to 0.1246 to fit master file
+!
+!
+D1ECOL: 	CSBEND, L   = "len_col",   ANGLE= "ang_col",  &
+		E1  = 0.0, E2 = "ang_col"
+D7ECOL: 	CSBEND, L   = "len_col",   ANGLE= "-ang_col", &
+		E1  = "-ang_col", E2 = 0.0
+!
+!	
+H1ECOL:  	HKICK, L = 0.0    
+H2ECOL:  	HKICK, L = 0.100
+H4ECOL:  	HKICK, L = 0.100
+V4ECOL:  	VKICK, L = 0.100
+H6ECOL:  	HKICK, L = 0.100
+H7ECOL:  	HKICK, L = 0.0
+!
+OTR5ECOL: 	MARK
+OTR5ECOLi:  	DRIFT, L = 0.115
+!
+! collimators
+COLL2ECOL: 	ECOL,  L = 0.5, X_MAX = 0.003, Y_MAX = 0.003
+COLL3ECOL: 	ECOL,  L = 0.5, X_MAX = 0.002, Y_MAX = 0.002
+!
+COLL2ECOL00: 	LINE = (D0150, COLL2ECOL, D0150) 
+DS2ECOL : 	LINE = (D00881sb, S2ECOL, D0055sb)
+!
+BPM3ECOL: 	MONI
+BPM5ECOL: 	MONI
+!
+WIRE5ECOL:	MARK
+!
+Q3ECOLBPM: 	LINE = (D0075b, Q3ECOL, BPM3ECOL, D0075b)
+COLL3ECOL00: 	LINE = (D0150, COLL3ECOL, D0150) 
+Q4ECOL000: 	LINE = (D0075b, Q4ECOL, D0075b)
+HV4ECOL:  	LINE = (D0100, H4ECOL,  D0170, V4ECOL,  D0100)
+OTR5ECOL00:  	LINE = (OTR5ECOLi, OTR5ECOL, WIRE5ECOL, OTR5ECOLi)
+Q5ECOLBPM: 	LINE = (D0075b, Q5ECOL, BPM5ECOL, D0075b)
+DS6ECOL : 	LINE = (D0055sb,  S6ECOL, D01811sb)
+!
+!
+DOGLEG:  	LINE = (D0125c,  D1ECOL, H1ECOL, D0273c,  COLL2ECOL00, D0085, &
+			H2ECOL,  DS2ECOL,  Q3ECOLBPM, COLL3ECOL00, Q4ECOL000, &
+			HV4ECOL, OTR5ECOL00, Q5ECOLBPM, DS6ECOL,   D0845, &
+			H6ECOL,  D0220c,   D7ECOL,    H7ECOL,    D0125c)
+!
+!
+StartCOL: 	MARK
+EndCOL:		MARK
+!
+COLLIMATOR:    	LINE = (StartCOL, COLL, DOGLEG, EndCOL)
+
+
+!=====================================================================================
+!  ORS
+!=====================================================================================
+!
+% 0.0085 sto ORS_angle
+% ORS_angle -1 * sto -ORS_angle
+% 0.0085 sto HHG_angle
+% ORS_angle -1 * sto -HHG_angle
+!
+! OTR monitors (2 and 4 are also wirescanners)
+OTR2ORSi: 	DRIFT, L = 0.115
+OTR2ORS: 	MARK
+WIRE2ORS:	MARK	
+OTR2ORS00:  	LINE = (OTR2ORSi, OTR2ORS, WIRE2ORS, OTR2ORSi)
+!
+OTR4ORSi: 	DRIFT, L=0.115
+OTR4ORS: 	MARK
+WIRE4ORS:	MARK
+OTR4ORS00:  	LINE = (OTR4ORSi, OTR4ORS, WIRE4ORS,OTR4ORSi)
+!
+OTR6ORSi: 	DRIFT, L=0.115
+OTR6ORS: 	MARK
+OTR6ORS00:  	LINE = (OTR6ORSi, OTR6ORS, OTR6ORSi)
+!
+OTR10ORSi: 	DRIFT, L=0.115
+OTR10ORS: 	MARK
+OTR10ORS00:  	LINE = (OTR10ORSi, OTR10ORS, OTR10ORSi)
+!
+! BPMs
+BPM2ORS: 	MONI
+BPM4ORS:	MONI
+BPM7ORS: 	MONI
+BPM9ORS: 	MONI
+BPM12ORS: 	MONI
+!
+% 7.7 sto KORS
+!
+!ORS undulators
+!U2ORS:		WIGGLER	, L = 1.45, K = "KORS" , POLES=14, TILT = "pi 2 /" 	!VERONICA - the vertical one
+!U7ORS:		WIGGLER	, L = 1.45, K = "KORS" , POLES=14, TILT = 0.0 		!HILDA - the horizontal one
+U2ORS:		DRIFT	, L = 1.45
+U7ORS:		DRIFT	, L = 1.45
+!
+!
+!
+V1ORS:	 	VKICK, L=0.1
+! HERAe CH/CV steerer, yoke length=0.2m 
+V5ORS:	 	VKICK, L=0.2 
+V6ORS: 		VKICK, L=0.2 
+V6.4ORS: 	VKICK, L=0.2 
+V7ORS: 		VKICK, L=0.2
+V9ORS:	 	VKICK, L=0.1
+V10ORS: 	VKICK, L=0.1
+V11ORS: 	VKICK, L=0.1
+V12ORS: 	VKICK, L=0.1
+H5ORS:		HKICK, L=0.1
+H10ORS:		HKICK, L=0.1
+!
+! Toroid
+TOR7ORS: 	DRIFT, L = 0.158
+!
+StartORS: 	MARK
+EndORS:   	MARK
+!
+ORS:		LINE =	(StartORS, D0200, D0070, V1ORS, D0245, D0175, D0100a, &
+			Q1ORS, D0100a, OTR2ORS00, D0100a, Q2ORS, BPM2ORS, &
+			D0100a, D0045, U2ORS, D0045, OTR4ORS00, D0100a, Q4ORS, BPM4ORS, & 
+         D0100a, D0093, V5ORS, D0127, H5ORS, D0203, V6ORS, D0092, &
+			OTR6ORS00, D0088, V6.4ORS, D0169, TOR7ORS, D0103, &
+			V7ORS, D0097, D0100a, Q7ORS, BPM7ORS, D0100a, D0045, U7ORS, D0045, D0100a, &
+			Q9ORS, BPM9ORS, D0100a, D0035, V9ORS, D0175, H10ORS, D0470, V10ORS, D0035, &
+			OTR10ORS00, D0035, V11ORS, D0745, V12ORS, D0035, D0100a, Q12ORS, BPM12ORS, &
+			D0100a, D0075, D0050, D00095, EndORS)
+
+
+!=====================================================================================
+!  SFUND
+!=====================================================================================
+
+! Blocks of OTR, wirescanner, BPMs and Phase Shifters (wires only in 1SFUND1 and 1SFUND2)
+OTR1SFUND1: 	MARK
+WIRE1SFUND1:    MARK
+BPM1SFUND1: 	MONI
+D1SFUND1:  	LINE = (D00695, OTR1SFUND1, WIRE1SFUND1, BPM1SFUND1, D01365)
+!
+OTR1SFUND2: 	MARK
+WIRE1SFUND2:    MARK
+BPM1SFUND2: 	MONI
+P1SFUND2: 	DRIFT, L = 0.135
+D1SFUND2:	LINE = (D0074, OTR1SFUND2, WIRE1SFUND2, BPM1SFUND2, D01675, P1SFUND2)
+!
+OTR1SFUND3: 	MARK
+BPM1SFUND3: 	MONI
+P1SFUND3: 	DRIFT, L = 0.135
+D1SFUND3:	LINE = (D0074, OTR1SFUND3, BPM1SFUND3, D01675, P1SFUND3)
+!
+OTR1SFUND4: 	MARK
+BPM1SFUND4: 	MONI
+P1SFUND4: 	DRIFT, L = 0.135
+D1SFUND4:	LINE = (D0074, OTR1SFUND4, BPM1SFUND4, D01675, P1SFUND4)
+
+! SFLASH UNDULATORS
+% 2.83 sto UNDK
+!U1SFUND1:	WIGGLER	, L = 2.0, K = "UNDK", POLES=127
+!U1SFUND2:	WIGGLER	, L = 2.0, K = "UNDK", POLES=127
+!U1SFUND3:	WIGGLER	, L = 2.0, K = "UNDK", POLES=127
+!U1SFUND4:	WIGGLER	, L = 4.0, K = "UNDK", POLES=242
+U1SFUND1:	DRIFT	, L = 2.0
+U1SFUND2:	DRIFT	, L = 2.0
+U1SFUND3:	DRIFT	, L = 2.0
+U1SFUND4:	DRIFT	, L = 4.0
+!
+StartSFUND: 	MARK
+EndSFUND:   	MARK
+!
+SFUND:		LINE=	(StartSFUND, D1SFUND1, D00595, D0100a, Q1SFUND1, D0100a, D00210, D0061, U1SFUND1, D0061, &
+			D0018g, Q1SFUND2, D0022g, D1SFUND2, D00515, D0061, U1SFUND2, D0061, &
+			D0018g, Q1SFUND3, D0022g, D1SFUND3, D00515, D0061, U1SFUND3, D0061, &
+			D0018g, Q1SFUND4, D0022g, D1SFUND4, D00515, D0061, U1SFUND4, D0061, EndSFUND)
+
+!=====================================================================================
+!  SFELC
+!=====================================================================================
+!
+BPM1SFELC: 	MONI
+!
+! Intrabunch kickers: KICK2SFELC: DESY type, horizontal / KICK4SFELC: PSI type, vertical
+!
+!
+KICK2SFELC:	HKICK, L = 1
+KICK4SFELC:	VKICK, L = 1
+!
+!V2SFELC: 	CSBEND, angle= "HHG_angle" , L=0.1,e1=0.0, e2="ORS_angle",  tilt="pi 2 /"
+!V3SFELC: 	CSBEND, angle="-HHG_angle", L=0.1, e1="-ORS_angle", e2=0.0, tilt="pi 2 /"
+!V4SFELC: 	CSBEND, angle="-HHG_angle", L=0.1,e1=0.0, e2="-ORS_angle",  tilt="pi 2 /"
+!V6SFELC: 	CSBEND, angle="HHG_angle", L=0.1, e1="ORS_angle", e2=0.0,   tilt="pi 2 /"
+V2SFELC: 	VKICK, L=0.1
+V3SFELC: 	VKICK, L=0.1
+V4SFELC: 	VKICK, L=0.1
+V6SFELC: 	VKICK, L=0.1
+
+
+H3SFELC: 	HKICK, L = 0.100
+H4SFELC: 	HKICK, L = 0.100
+
+! Phase monitor (BAM)
+PHA1SFELC: 	DRIFT, L = 0.040
+
+! mirror chamber
+MIRRCH:		DRIFT, L = 0.2752
+!
+StartSFELC: 	MARK
+EndSFELC:   	MARK
+!
+SFELC: 		LINE = 	(StartSFELC, D0022, D0100a, Q1SFELC, BPM1SFELC, D0100a, PHA1SFELC, &
+			D0100a, Q2SFELC, D0100a, D0035, V2SFELC, D0050, & 
+			KICK2SFELC, D0086, D0104, H3SFELC, D0085, V3SFELC, &
+			D01224, D0110, MIRRCH, D0150, D01624, V4SFELC, D0050, &
+			D0080, D0030, H4SFELC, D0029, D0086, &
+			KICK4SFELC, D0050, V6SFELC, D00275, EndSFELC)
+
+!
+!=====================================================================================
+!  SMATCH
+!=====================================================================================
+!
+BPM1SMATCH : 	MONI
+BPM6SMATCH : 	MONI
+BPM13SMATCH : 	MONI
+BPM14SMATCH :	MONI
+!
+BPM1SMATCHi : 	DRIFT, L = "0.450 2 /"
+BPM1SMATCH00: 	LINE = (BPM1SMATCHi, BPM1SMATCH, BPM1SMATCHi)
+!
+LOLA: 		DRIFT, L = 3.826
+TEO:		DRIFT, L = 0.230
+TOR11SMATCH: 	DRIFT, L = 0.116
+PHA7SMATCH : 	DRIFT, L = 0.040
+!
+!
+KICK6SMATCH: 	DRIFT, L = 0.650
+!
+H7SMATCH : 	HKICK, L = 0.100, KICK = 0.0
+V7SMATCH : 	VKICK, L = 0.100, KICK = 0.0
+H12SMATCH : 	HKICK, L = 0.100, KICK = 0.0
+V12SMATCH : 	VKICK, L = 0.100, KICK = 0.0
+!
+!OTR and/or wirescanner blocks
+OTR8SMATCH: 	MARK
+WIRE8SMATCH:	MARK
+OTR8SMATCH00: 	LINE = (D0100, OTR8SMATCH, WIRE8SMATCH, D0130)
+!
+OTR11SMATCH: 	MARK
+WIRE11SMATCH:MARK
+OTR11SMATCH00: 	LINE = (D0100, OTR11SMATCH, WIRE11SMATCH, D0130)
+!
+OTR13SMATCH: 	MARK
+OTR13SMATCHi:	DRIFT, L = 0.083
+OTR13SMATCH00: 	LINE = (OTR13SMATCHi, OTR13SMATCH, OTR13SMATCHi)
+!
+WIRE14SMATCHi: 	DRIFT, L = "0.123 2 /"
+WIRE14SMATCH: 	MARK
+WIRE14SMATCH00: LINE = (WIRE14SMATCHi, WIRE14SMATCH, WIRE14SMATCHi)
+!
+D9SMATCH:	DRIFT, L = 0.400
+D10SMATCH:	DRIFT, L = 0.400
+!
+!MINI-DUMP
+D11SMATCH:	DRIFT, L = 0.100
+D12SMATCH:	DRIFT, L = 0.100	
+!
+StartSMATCH: 	MARK
+EndSMATCH:   	MARK
+!
+SMATCH: 	LINE = 	(StartSMATCH, D00075, BPM1SMATCH00, D0077, D0072, D0071, LOLA, D0300, D0100a, &
+			Q6SMATCH, BPM6SMATCH, D0100a, D0019, KICK6SMATCH, D0081, &
+			H7SMATCH, D0100, V7SMATCH, D0036, PHA7SMATCH, TEO, D0393, D0100a, &
+			Q8SMATCH, D0100a, OTR8SMATCH00, D0070, D0130, D9SMATCH, D0174, &
+			D10SMATCH, D0185, D1265, D0100a, Q10SMATCH, D0100a, D0021, TOR11SMATCH, &
+			D0021, D0068, OTR11SMATCH00, D0100, D11SMATCH, D0100, D12SMATCH, &
+			D0100, H12SMATCH, D0100, V12SMATCH, D0050, D0100a, Q13SMATCH, BPM13SMATCH, &
+			D0100a, D0203, OTR13SMATCH00, D0020, D0256, D0010, D0146, D0072, &
+			D0071, D0100, D0053, D0100g, Q14SMATCH, BPM14SMATCH, D0076g, WIRE14SMATCH00, &
+			D0076g, Q15SMATCH, D0026g, EndSMATCH)
+!
+!=====================================================================================
+!  UNDULATOR
+!=====================================================================================
+
+! wire-scanner blocks
+WIRE5UND1: 	MARK
+WIRE5UND1i:	DRIFT, L = "0.123 2 /"
+WIRE5UND100: 	LINE = (WIRE5UND1i, WIRE5UND1, WIRE5UND1i)
+
+WIRE5UND2: 	MARK
+WIRE5UND2i:	DRIFT, L = "0.123 2 /"
+WIRE5UND200: 	LINE = (WIRE5UND2i, WIRE5UND2, WIRE5UND2i)
+
+WIRE5UND3: 	MARK
+WIRE5UND3i:	DRIFT, L = "0.123 2 /"
+WIRE5UND300: 	LINE = (WIRE5UND3i, WIRE5UND3, WIRE5UND3i)
+
+WIRE5UND4: 	MARK
+WIRE5UND4i:	DRIFT, L = "0.123 2 /"
+WIRE5UND400: 	LINE = (WIRE5UND4i, WIRE5UND4, WIRE5UND4i)
+
+WIRE5UND5: 	MARK
+WIRE5UND5i:	DRIFT, L = "0.123 2 /"
+WIRE5UND500: 	LINE = (WIRE5UND5i, WIRE5UND5, WIRE5UND5i)
+
+WIRE5UND6: 	MARK
+WIRE5UND6i:	DRIFT, L = "0.123 2 /"
+WIRE5UND600: 	LINE = (WIRE5UND6i, WIRE5UND6, WIRE5UND6i)
+!
+!
+!  Undulator BPMs
+!
+BPM2UND1: 	MONI
+BPM2UND2: 	MONI
+BPM2UND3: 	MONI
+BPM2UND4: 	MONI
+BPM2UND5: 	MONI
+BPM2UND6: 	MONI
+!
+BPM4UND1: 	MONI
+BPM4UND2: 	MONI
+BPM4UND3: 	MONI
+BPM4UND4: 	MONI
+BPM4UND5: 	MONI
+BPM4UND6: 	MONI
+!
+BPM5UND1: 	MONI
+BPM5UND2: 	MONI
+BPM5UND3: 	MONI
+BPM5UND4: 	MONI 
+BPM5UND5: 	MONI
+BPM5UND6: 	MONI
+!
+Q5UND1000: 	LINE = (D0025g, Q5UND1, D0076g)
+Q6UND1000: 	LINE = (D0076g, Q6UND1, D0025g)
+Q5UND2000: 	LINE = (D0025g, Q5UND2, D0076g)
+Q6UND2000: 	LINE = (D0076g, Q6UND2, D0025g)
+Q5UND3000: 	LINE = (D0025g, Q5UND3, D0076g)
+Q6UND3000: 	LINE = (D0076g, Q6UND3, D0025g)
+Q5UND4000: 	LINE = (D0025g, Q5UND4, D0076g)
+Q6UND4000: 	LINE = (D0076g, Q6UND4, D0025g)
+Q5UND5000: 	LINE = (D0025g, Q5UND5, D0076g)
+Q6UND5000: 	LINE = (D0076g, Q6UND5, D0025g)
+Q5UND6000: 	LINE = (D0025g, Q5UND6, D0076g)
+Q6UND6000: 	LINE = (D0076g, Q6UND6, D0025g)
+!
+UND_MAGNET: 	WIGGLER, L=4.553, K=1.2392, POLES=334
+!
+UNDU1: 		LINE=(UND_MAGNET, BPM2UND1, BPM4UND1, Q5UND1000, WIRE5UND100, BPM5UND1, Q6UND1000)
+UNDU2: 		LINE=(UND_MAGNET, BPM2UND2, BPM4UND2, Q5UND2000, WIRE5UND200, BPM5UND2, Q6UND2000)
+UNDU3: 		LINE=(UND_MAGNET, BPM2UND3, BPM4UND3, Q5UND3000, WIRE5UND300, BPM5UND3, Q6UND3000)
+UNDU4: 		LINE=(UND_MAGNET, BPM2UND4, BPM4UND4, Q5UND4000, WIRE5UND400, BPM5UND4, Q6UND4000)
+UNDU5: 		LINE=(UND_MAGNET, BPM2UND5, BPM4UND5, Q5UND5000, WIRE5UND500, BPM5UND5, Q6UND5000)
+UNDU6: 		LINE=(UND_MAGNET, BPM2UND6, BPM4UND6, Q5UND6000, WIRE5UND600, BPM5UND6, Q6UND6000)
+!
+!             
+StartUND: 	MARK
+EndUND:   	MARK
+!
+UNDULATOR:  	LINE = (StartUND, UNDU1, UNDU2, UNDU3, UNDU4, UNDU5, UNDU6, EndUND)
+!
+!=====================================================================================
+!  EXP section
+!=====================================================================================
+!
+! XFEL test BPMs
+BPM1.1EXP:	MONI
+BPM1.2EXP:	MONI
+BPM1.3EXP:	MONI
+BPM2.1EXP:	MONI
+BPM2.2EXP:	MONI
+! other BPMS
+BPM3EXP: 	MONI
+BPM9EXP: 	MONI
+
+BPM1.1EXP00:	LINE = (D0050, D0017, BPM1.1EXP, D0033)
+BPM1.2EXP00:	LINE = (D0050, D0014, BPM1.2EXP, D0036)
+BPM1.3EXP00:	LINE = (D0050, D0014, BPM1.3EXP, D0036)
+BPM2.1EXP00:	LINE = (D0050, D0165, BPM2.1EXP, D0040)
+BPM2.2EXP00:	LINE = (D0050, D0076, BPM2.2EXP, D0126)
+!
+! Steerers
+H1EXP:  	HKICK, L = 0.100, KICK = 0.0
+V1EXP:  	VKICK, L = 0.100, KICK = 0.0
+H3EXP:  	HKICK, L = 0.100, KICK = 0.0
+V3EXP:  	VKICK, L = 0.100, KICK = 0.0
+H10EXP: 	HKICK, L = 0.100, KICK = 0.0
+V10EXP: 	VKICK, L = 0.100, KICK = 0.0
+!
+HV1EXP:  	LINE = (H1EXP, D0100, V1EXP)
+HV3EXP:  	LINE = (H3EXP, D0175, V3EXP, BPM3EXP)
+HV10EXP:  	LINE = (H10EXP, D0100, V10EXP)
+!                    
+! screen with wire (I am not sure if there is a wire)
+OTR12EXPi: 	DRIFT, L = "0.230 2 /"
+OTR12EXP:	MARK
+WIRE12EXP:	MARK
+OTR12EXP00: 	LINE = (OTR12EXPi, OTR12EXP, WIRE12EXP, OTR12EXPi)
+
+! Toroid
+TOR12EXP: 	DRIFT, L = 0.216
+!
+!
+!  Quadrupoles with drifts and BPM's
+!
+Q9EXPBPM:  	LINE = (D0100a,  Q9EXP,  BPM9EXP,  D0100a)
+Q10EXP000: 	LINE = (D0100bm, Q10EXP,           D0100bm)
+Q11EXP000: 	LINE = (D0100bm, Q11EXP,           D0100bm)
+!
+! FIR
+U6P1EXP:	DRIFT, L = 0.0
+U6P2EXP:	DRIFT, L = 0.100
+U6P3EXP:	DRIFT, L = 0.100
+U6P12EXP:	DRIFT, L = 0.100
+U6P21EXP:	DRIFT, L = 0.100
+U6P22EXP:	DRIFT, L = 0.0
+!
+FIR_UND:	DRIFT, L = 3.8
+!
+FIR:		LINE = (U6P1EXP, U6P2EXP, U6P3EXP, FIR_UND, U6P12EXP, U6P21EXP, U6P22EXP)
+!
+!
+!=====================================================================================
+!  DUMP
+!=====================================================================================
+!
+% 1.2 sto lll_dump
+% 19 180.0 / pi * sto ang_dump
+% lll_dump ang_dump * ang_dump sin / sto larc_dump
+% larc_dump sto len_dump
+!
+% -83.00 180.0 / pi * sto dump_tilt
+!
+Q10DUMP: 	QUAD, L = "len_qc", K1 = 1.019746, TILT="dump_tilt"
+Q11DUMP: 	QUAD, L = "len_qc", K1 = -2.3416288, TILT="dump_tilt"
+!
+!
+D6DUMP: 	CSBEND, L  = "len_dump",     ANGLE = "ang_dump -1 *",   &
+               	E1 = 0.0,          E2    = "ang_dump -1 *", TILT="dump_tilt"
+!
+!trim coil
+T6DUMP:		HKICK, TILT="dump_tilt"
+!
+H7DUMP:  	HKICK, L = 0.300, KICK = 0.0
+!
+OTR9DUMPi: 	DRIFT,   L = "0.270 2 /"
+OTR9DUMP:   	MARK
+OTR9DUMP00:  	LINE = (OTR9DUMPi, OTR9DUMP, OTR9DUMPi)
+!
+TOR9DUMP:	DRIFT, L = 0.150
+!
+BPM9DUMP:  	MONI
+BPM10DUMP: 	MONI
+BPM13DUMP: 	MONI
+BPMDUMPair:	MONI
+!
+BPM9DUMPi:  	DRIFT, L = "0.350 2 /"
+BPM13DUMPi:  	DRIFT, L = "0.150 2 /"
+!
+BPM9DUMP00:	LINE = (BPM9DUMPi, BPM9DUMP, BPM9DUMPi)
+BPM13DUMP00:	LINE = (BPM13DUMPi, BPM13DUMP, BPM13DUMPi)
+!
+!
+! Quadrupoles with drifts
+! 
+Q10DUMPU000: 	LINE = (D0200c, Q10DUMP, D01378c)
+Q11DUMPU000: 	LINE = (D0200c, Q11DUMP, D0200c)
+!
+! rotator
+RD13DUMPi:	DRIFT, L = "0.280 2 /"
+RD13DUMP:	MARK
+RD13DUMP00:	LINE = (RD13DUMPi, RD13DUMP, RD13DUMPi)
+!
+! dump
+DUMPi:		DRIFT, L = 2.0
+!
+!
+StartEXP: 	MARK
+EndEXP:   	MARK
+!
+!
+EXP: 		LINE = (StartEXP, D0072, D0075, D0079, BPM1.1EXP00, D0078, &
+			BPM1.2EXP00, D0078, BPM1.3EXP00, D0079, BPM2.1EXP00, &
+			D0127, BPM2.2EXP00, D0019, HV1EXP, D0100, D0106, &
+			D0135, D080325, D0200, D0106, D0040, HV3EXP, &
+			D0175, D014175, D0300, FIR, D0300, Q9EXPBPM, &
+			OTR12EXP00, D0090, Q10EXP000, D0100, HV10EXP, &
+			D0100, Q11EXP000, TOR12EXP, D0230, D0075, D0350, D6DUMP, T6DUMP, EndEXP)
+!
+! 
+StartDUMP: 	MARK
+EndDUMP:   	MARK
+!
+! marker to indicate end of bypass
+FEL_BYP2:	MARK 
+!
+D1090: 		DRIFT, L = "0.4558"
+DUMP: 		LINE = (StartDUMP, D1090, FEL_BYP2, D0034, H7DUMP, D0244, &  
+                	D0100, D0350, OTR9DUMP00, D0230, TOR9DUMP, BPM9DUMP00,  D0230, & 
+                	Q10DUMPU000, BPM10DUMP, D00622, Q11DUMPU000, D0140, RD13DUMP00, &
+                	D0130,  D0085,  D0290, BPM13DUMP00, D235955, &
+			D0080, BPMDUMPair, D0020, EndDUMP)   
+!
+!=====================================================================================
+!  BYPASS
+!=====================================================================================
+!
+% 3.5 180.0 / pi * sto ang_byp
+% -69 180.0 / pi * sto byp_tilt
+!
+!
+! Quadrupoles and sextupoles
+!
+Q6BYP:	 	QUAD, L = "len_tqb", K1 = 2.34682, TILT="byp_tilt"
+Q8BYP:	 	QUAD, L = "len_tqb", K1 = -2.1194, TILT="byp_tilt"
+Q10BYP:	 	QUAD, L = "len_tqb", K1 = 2.34682, TILT="byp_tilt"
+!
+! Q16/17/18BYP are tilted
+!
+Q16BYP:	 	QUAD, L = "len_tqb", K1 = -0.32171, TILT="byp_tilt"
+Q17BYP:	 	QUAD, L = "len_tqb", K1 = 1.89931, TILT="byp_tilt"
+Q18BYP:	 	QUAD, L = "len_tqb", K1 = -1.3869, TILT="byp_tilt"
+!
+Q36BYP:	 	QUAD, L = "len_tqb", K1 = -0.29959
+Q37BYP:	 	QUAD, L = "len_tqb", K1 = 0.490135
+Q39BYP:	 	QUAD, L = "len_tqb", K1 = 0.63157
+Q41BYP:	 	QUAD, L = "len_tqb", K1 = -0.729321
+Q58BYP:	 	QUAD, L = "len_tqb", K1 = 0.110136
+Q75BYP:	 	QUAD, L = "len_tqb", K1 = 8.85238e-003
+Q92BYP:	 	QUAD, L = "len_tqb", K1 = 0.813747, TILT="dump_tilt"
+Q93BYP:	 	QUAD, L = "len_tqb", K1 = -0.75727, TILT="dump_tilt"
+!
+S5BYP:	 	SEXT, L = "len_tsb", K2 = 17.8369, TILT="byp_tilt"
+S10BYP: 	SEXT, L = "len_tsb", K2 = -17.8369, TILT="byp_tilt"
+!
+!
+! BPMs in quadrupoles
+BPM6BYP:	MONI
+BPM18BYP:	MONI
+BPM37BYP:	MONI
+BPM58BYP:	MONI
+BPM75BYP:	MONI
+BPM92BYP:	MONI
+BPM5DUMP:	MONI
+
+! OTR screens
+OTR6BYP:	MARK
+OTR6BYPi:	DRIFT, L = "0.230 2 /"
+OTR6BYP00:	LINE = (OTR6BYPi, OTR6BYP, OTR6BYPi)
+!
+OTR35BYP:	MARK
+OTR35BYPi:	DRIFT, L = "0.230 2 /"
+OTR35BYP00:	LINE = (OTR35BYPi, OTR35BYP, OTR35BYPi)
+!
+OTR38BYP:	MARK
+WIRE38BYP:	MARK
+OTR38BYPi:	DRIFT, L = "0.230 2 /"
+OTR38BYP00:	LINE = (OTR38BYPi, OTR38BYP, WIRE38BYP, OTR38BYPi)
+!
+OTR57BYP:	MARK
+OTR57BYPi:	DRIFT, L = "0.230 2 /"
+OTR57BYP00:	LINE = (OTR57BYPi, OTR57BYP, OTR57BYPi)
+!
+! Steerers
+H6BYP:		HKICK, L = 0.1
+V6BYP:		VKICK, L = 0.1
+!
+H11BYP:		HKICK, L = 0.1
+V11BYP:		VKICK, L = 0.1
+!
+H19BYP:		HKICK, L = 0.1
+V19BYP:		VKICK, L = 0.1
+!
+H37BYP:		HKICK, L = 0.1
+V37BYP:		VKICK, L = 0.1
+!
+H41BYP:		HKICK, L = 0.1
+V41BYP:		VKICK, L = 0.1
+!
+H58BYP:		HKICK, L = 0.1
+V58BYP:		VKICK, L = 0.1
+!
+H76BYP:		HKICK, L = 0.1
+V76BYP:		VKICK, L = 0.1
+!
+H93BYP:		HKICK, L = 0.1
+V93BYP:		VKICK, L = 0.1
+!
+!
+% 0.446 sto lll_byp
+% lll_byp ang_byp * ang_byp sin / sto larc_byp
+% larc_byp sto len_byp
+!
+D1BYP: 		CSBEND, L   = "len_byp",   ANGLE= "ang_byp",  &
+		E1  = 0.0, E2 = "ang_byp" , TILT="byp_tilt", 
+!
+D2BYP: 		CSBEND, L   = "len_byp",   ANGLE= "ang_byp",  &
+		E1  = 0, E2 = "ang_byp", TILT="byp_tilt", 
+!
+!
+D14BYP:		CSBEND, L   = "len_byp",   ANGLE= "ang_byp -1 *",  &
+		E1  = "ang_byp -1 *", E2 = 0, TILT="byp_tilt", 
+!
+D15BYP:		CSBEND, L   = "len_byp",   ANGLE= "ang_byp -1 *",  &
+		E1  = "ang_byp -1 *", E2 = 0, TILT="byp_tilt", 
+!
+!
+! ARC OF BYPASS
+!
+D0233b: 	DRIFT, L = "0.2330 lll_byp 0.40 - 0.5 * -" 
+D0225b: 	DRIFT, L = "0.2250 lll_byp 0.40 - 0.5 * -"
+
+D01531: DRIFT, L = 0.1531
+D01005:	DRIFT, L =0.1005
+D01717: DRIFT, L = 0.1717
+D01421:  	DRIFT, L = 0.1421
+D01536: DRIFT, L = 0.1536
+
+BYP1:		LINE = (D0233b, D1BYP, D01531, D2BYP, D01717, &
+			D0186, D11357, D0260, D0110, D0075, D11754, &
+			D0260, D0110, D0085sb, S5BYP, D0195sb, OTR6BYP00, &
+			D0075b, Q6BYP, BPM6BYP, D0075b, D0100, H6BYP, D0200, V6BYP, &
+			D0100, D0110, D03325, D0260, D0110, D0075b, &
+			Q8BYP, D0075b, D13025, D0110, D0075b, Q10BYP, D0075b, &
+			D0425sb, S10BYP, D0055sb, D0110, D0110, H11BYP, &
+			D0200, V11BYP, D04132, D0260, D19690, D0110, &
+			D01421, D14BYP, D01536, D15BYP)
+!
+TOR16BYP:	DRIFT, L = 0.216
+!
+! STRAIGHT LINE OF BYPASS
+!
+BYP2:		LINE = (D0225b, D0200, D0075b, Q16BYP, D0075b, TOR16BYP, D0134, &
+			D0075b, Q17BYP, D0075b, D0110, D0260, D0870, D0110, &
+			D0075b, Q18BYP, BPM18BYP, D0075b, D0100, H19BYP, D0200, V19BYP, &
+			D0100, D0110, D0260, D1529, D0075, D0110, D0260, D1196, &
+			D4000, D0110, D4000, D0260, D4000, D0110, OTR35BYP00, &
+			D0075b, Q36BYP, D0075b, D0110, D0370, D0260, D0110, &
+			D0075b, Q37BYP, BPM37BYP, D0075b, D0100, H37BYP, D0200, V37BYP, &
+			D0210, D0110, D0210, OTR38BYP00, D0480, D0110, &
+			D0075b, Q39BYP, D0075b, D0110, D0260, D0480, &
+			D0075b, Q41BYP, D0075b, D0100, H41BYP, D0200, V41BYP, &
+			D0100, D3170, D0110, D4000, D0260, D4000, D0110, D4000, &
+			D0260, OTR57BYP00, D0110, D0075b, Q58BYP, BPM58BYP, D0075b, D0100, &
+			H58BYP, D0200, V58BYP, D0100, D3400, D0110, D4000, &
+			D0260, D4000, D0110, D4000, D0260, D0110, &
+			D0075b, Q75BYP, BPM75BYP, D0075b, D0100, H76BYP, D0200, V76BYP, &
+			D0100, D3400, D0110, D4000, D0260, D4000, D0110, D4000, &
+			D0260, D0110, D0075b, Q92BYP, BPM92BYP, D0075b, D0100, H93BYP, &
+			D0200, V93BYP, D0050, D0075b, Q93BYP, D0075b, &
+			D158766, D0260, D0110)
+!
+!
+StartBYP: 	MARK, FITPOINT=1
+EndBYP:   	MARK
+!
+BYPASS:		LINE = (StartBYP, BYP1, BYP2, EndBYP)
+!
+!
+! FIRST PART OF THE DUMP
+!
+Q4DUMP:  	QUAD, L = "len_tqf", K1 = 2.82642, TILT="dump_tilt"
+!
+D1DUMP: 	CSBEND, L  = "len_dump",     ANGLE = "ang_dump -1 *",   &
+               	E1 = 0.0,          E2    = "ang_dump -1 *",  TILT="dump_tilt"
+!
+!
+!
+StartDUMP0: 	MARK, FITPOINT=1
+EndDUMP0:   	MARK
+!
+!
+D03655:	DRIFT, L = 0.3655
+DUMP0:		LINE = (StartDUMP0, D0394, D1DUMP, D03655, D08833, D0230, D0135f, Q4DUMP, &
+			D0185f, D0085, D04741, BPM5DUMP, D032423, D0230, D0950, EndDUMP0)
+!
+!
+!
+FLASH_BYP:	LINE = 	(INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  &
+               		COLL_BYP, BYPASS, DUMP0, DUMP) 
+
+
+MALIN:MALIGN
+!
+!
+!-------------------------------------------------------------------------------------
+
+FLASH: 		LINE = 	(INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  &
+               		COLLIMATOR, ORS, SFUND, SFELC, SMATCH, UNDULATOR, EXP, DUMP) 
+
+!-------------------------------------------------------------------------------------
+
+D001:	DRIFT, L = 0.01
+
+starttest:LINE=(D001,BPM13SMATCH, &
+			D0100a, D0203, OTR13SMATCH00, D0020, D0256, D0010, D0146, D0072, &
+			D0071, D0100, D0053, D0100g, Q14SMATCH, BPM14SMATCH, D0076g, WIRE14SMATCH00, &
+			D0076g, Q15SMATCH, D0026g, EndSMATCH)
+
+test: 		LINE = 	(MALIN, starttest,UNDULATOR, EXP)

@@ -1,0 +1,1938 @@
+This is elegant 25.1.0, Nov 28 2012, by M. Borland, W. Guo, V. Sajaev, Y. Wang, Y. Wu, and A. Xiao.
+Link date: Nov 28 2012 20:01:37
+statistics:    ET:     00:00:00 CP:    0.00 BIO:0 DIO:0 PF:0 MEM:0
+&run_setup
+    lattice = FLASH_2012_1200MeV.lte,
+    use_beamline = test,
+    rootname = {NULL},
+    output = %s.out,
+    centroid = %s.cen,
+    sigma = %s.sig,
+    final = %s.fin,
+    acceptance = %s.acc,
+    losses = {NULL},
+    magnets = %s.mag,
+    semaphore_file = {NULL},
+    parameters = %s.param,
+    combine_bunch_statistics = 0,
+    wrap_around = 1,
+    final_pass = 0,
+    default_order = 2,
+    concat_order = 0,
+    print_statistics = 0,
+    random_number_seed = 987654321,
+    correction_iterations = 1,
+    echo_lattice = 0,
+    p_central = 0.000000000000000e+000,
+    p_central_mev = 6.000000000000000e+002,
+    always_change_p0 = 0,
+    load_balancing_on = 0,
+    random_sequence_No = 1,
+    expand_for = {NULL},
+    tracking_updates = 1,
+    search_path = {NULL},
+    element_divisions = 0,
+&end
+Seeding random number generators
+computed value for Q9ACC1.L is 1.850000000000000e-001
+computed value for Q10ACC1.L is 1.850000000000000e-001
+computed value for Q1.1UBC2.L is 9.300000000000000e-002
+computed value for Q1.2UBC2.L is 1.310000000000000e-001
+computed value for Q1.3UBC2.L is 9.300000000000000e-002
+computed value for Q1DBC2.L is 2.768000000000000e-001
+computed value for Q1.1DBC2.L is 2.768000000000000e-001
+computed value for Q2DBC2.L is 2.768000000000000e-001
+computed value for Q2.2DBC2.L is 2.768000000000000e-001
+computed value for Q3DBC2.L is 2.768000000000000e-001
+computed value for Q4DBC2.L is 2.768000000000000e-001
+computed value for Q4DBC2.K1 is -3.243400000000000e+000
+computed value for Q5DBC2.L is 2.768000000000000e-001
+computed value for Q5DBC2.K1 is 3.243400000000000e+000
+computed value for Q6DBC2.L is 2.768000000000000e-001
+computed value for Q6DBC2.K1 is -3.243400000000000e+000
+computed value for Q7DBC2.L is 2.768000000000000e-001
+computed value for Q7DBC2.K1 is 3.243400000000000e+000
+computed value for Q8DBC2.L is 2.768000000000000e-001
+computed value for Q8DBC2.K1 is -3.243400000000000e+000
+computed value for Q9DBC2.L is 2.768000000000000e-001
+computed value for Q9DBC2.K1 is 3.243400000000000e+000
+computed value for Q10DBC2.L is 2.768000000000000e-001
+computed value for Q10DBC2.K1 is -3.243400000000000e+000
+computed value for Q10.3DBC2.L is 3.046000000000000e-001
+computed value for Q11DBC2.L is 3.046000000000000e-001
+computed value for Q12DBC2.L is 3.046000000000000e-001
+computed value for Q9ACC2.L is 1.850000000000000e-001
+computed value for Q10ACC2.L is 1.850000000000000e-001
+computed value for Q9ACC3.L is 1.850000000000000e-001
+computed value for Q10ACC3.L is 1.850000000000000e-001
+computed value for Q1UBC3.L is 3.046000000000000e-001
+computed value for Q2UBC3.L is 3.046000000000000e-001
+computed value for Q1DBC3.L is 2.768000000000000e-001
+computed value for Q2DBC3.L is 3.728000000000000e-001
+computed value for Q3DBC3.L is 3.728000000000000e-001
+computed value for Q9ACC4.L is 1.850000000000000e-001
+computed value for Q10ACC4.L is 1.850000000000000e-001
+computed value for Q9ACC5.L is 1.850000000000000e-001
+computed value for Q10ACC5.L is 1.850000000000000e-001
+computed value for Q9ACC6.L is 1.850000000000000e-001
+computed value for Q10ACC6.L is 1.850000000000000e-001
+computed value for Q2TCOL.L is 2.768000000000000e-001
+computed value for Q8TCOL.L is 2.768000000000000e-001
+computed value for Q9TCOL.L is 2.768000000000000e-001
+computed value for Q3ECOL.L is 3.286000000000000e-001
+computed value for Q4ECOL.L is 3.286000000000000e-001
+computed value for Q5ECOL.L is 3.286000000000000e-001
+computed value for S6ECOL.L is 2.150000000000000e-001
+computed value for S2ECOL.L is 2.150000000000000e-001
+computed value for Q1ORS.L is 2.768000000000000e-001
+computed value for Q2ORS.L is 2.768000000000000e-001
+computed value for Q4ORS.L is 2.768000000000000e-001
+computed value for Q7ORS.L is 2.768000000000000e-001
+computed value for Q9ORS.L is 2.768000000000000e-001
+computed value for Q12ORS.L is 2.768000000000000e-001
+computed value for Q1SFUND1.L is 2.768000000000000e-001
+computed value for Q1SFUND2.L is 1.271600000000000e-001
+computed value for Q1SFUND3.L is 1.271600000000000e-001
+computed value for Q1SFUND4.L is 1.271600000000000e-001
+computed value for Q1SFELC.L is 2.768000000000000e-001
+computed value for Q2SFELC.L is 2.768000000000000e-001
+computed value for Q6SMATCH.L is 2.768000000000000e-001
+computed value for Q8SMATCH.L is 2.768000000000000e-001
+computed value for Q10SMATCH.L is 2.768000000000000e-001
+computed value for Q13SMATCH.L is 2.768000000000000e-001
+computed value for Q14SMATCH.L is 1.271600000000000e-001
+computed value for Q15SMATCH.L is 1.271600000000000e-001
+computed value for Q5UND1.L is 1.271600000000000e-001
+computed value for Q6UND1.L is 1.271600000000000e-001
+computed value for Q5UND2.L is 1.271600000000000e-001
+computed value for Q6UND2.L is 1.271600000000000e-001
+computed value for Q5UND3.L is 1.271600000000000e-001
+computed value for Q6UND3.L is 1.271600000000000e-001
+computed value for Q5UND4.L is 1.271600000000000e-001
+computed value for Q6UND4.L is 1.271600000000000e-001
+computed value for Q5UND5.L is 1.271600000000000e-001
+computed value for Q6UND5.L is 1.271600000000000e-001
+computed value for Q5UND6.L is 1.271600000000000e-001
+computed value for Q6UND6.L is 1.271600000000000e-001
+computed value for Q9EXP.L is 2.768000000000000e-001
+computed value for Q10EXP.L is 3.286000000000000e-001
+computed value for Q11EXP.L is 3.286000000000000e-001
+computed value for D0075A.L is 6.160000000000000e-002
+computed value for D0100A.L is 8.660000000000001e-002
+computed value for D0100BM.L is 6.069999999999999e-002
+computed value for D0075B.L is 6.069999999999999e-002
+computed value for D0075D.L is 7.270000000000000e-002
+computed value for D0025G.L is 1.642000000000000e-002
+computed value for D0076G.L is 6.742000000000001e-002
+computed value for D0100G.L is 9.142000000000000e-002
+computed value for D0026G.L is 1.742000000000000e-002
+computed value for D0022G.L is 1.342000000000000e-002
+computed value for D0018G.L is 9.420000000000001e-003
+computed value for D00929F.L is 7.650000000000000e-002
+computed value for D0100F.L is 8.360000000000001e-002
+computed value for D0135F.L is 9.859999999999999e-002
+computed value for D0185F.L is 1.486000000000000e-001
+computed value for D0200C.L is 2.000000000000000e-001
+computed value for D01378C.L is 1.378000000000000e-001
+computed value for D0100QA.L is 8.250000000000000e-002
+computed value for D0075QA.L is 5.750000000000000e-002
+computed value for D0095QA.L is 7.750000000000000e-002
+computed value for D0115T.L is 9.350000000000000e-002
+computed value for D0050T.L is 1.300000000000001e-002
+computed value for D0075T.L is 5.350000000000000e-002
+computed value for D00881SB.L is 8.060000000000001e-002
+computed value for D0055SB.L is 4.750000000000001e-002
+computed value for D01811SB.L is 1.736000000000000e-001
+computed value for D0085SB.L is 7.750000000000001e-002
+computed value for D0195SB.L is 1.875000000000000e-001
+computed value for D0425SB.L is 4.175000000000000e-001
+computed value for C1.ACC1.PHASE is 9.000000000000000e+001
+computed value for C1.ACC1.VOLT is 1.722222515000000e+007
+computed value for C2.ACC1.PHASE is 9.000000000000000e+001
+computed value for C2.ACC1.VOLT is 1.722222515000000e+007
+computed value for C3.ACC1.PHASE is 9.000000000000000e+001
+computed value for C3.ACC1.VOLT is 1.722222515000000e+007
+computed value for C4.ACC1.PHASE is 9.000000000000000e+001
+computed value for C4.ACC1.VOLT is 1.722222515000000e+007
+computed value for C5.ACC1.PHASE is 9.000000000000000e+001
+computed value for C5.ACC1.VOLT is 2.152777887000000e+007
+computed value for C6.ACC1.PHASE is 9.000000000000000e+001
+computed value for C6.ACC1.VOLT is 2.152777887000000e+007
+computed value for C7.ACC1.PHASE is 9.000000000000000e+001
+computed value for C7.ACC1.VOLT is 2.152777887000000e+007
+computed value for C8.ACC1.PHASE is 9.000000000000000e+001
+computed value for C8.ACC1.VOLT is 2.152777887000000e+007
+computed value for DACC39.L is 8.010499999999998e-002
+computed value for C1.ACC39.L is 3.459000000000000e-001
+computed value for C1.ACC39.PHASE is -9.000000000000000e+001
+computed value for C1.ACC39.VOLT is 0.000000000000000e+000
+computed value for C2.ACC39.L is 3.459000000000000e-001
+computed value for C2.ACC39.PHASE is -9.000000000000000e+001
+computed value for C2.ACC39.VOLT is 0.000000000000000e+000
+computed value for C3.ACC39.L is 3.459000000000000e-001
+computed value for C3.ACC39.PHASE is -9.000000000000000e+001
+computed value for C3.ACC39.VOLT is 0.000000000000000e+000
+computed value for C4.ACC39.L is 3.459000000000000e-001
+computed value for C4.ACC39.PHASE is -9.000000000000000e+001
+computed value for C4.ACC39.VOLT is 0.000000000000000e+000
+computed value for DBPM2UBC2.L is 2.250000000000000e-001
+computed value for D01230T.L is 1.300000000000000e-001
+computed value for D0500BC2.L is 5.257311121191336e-001
+computed value for D1BC2.L is 5.083203692315260e-001
+computed value for D1BC2.ANGLE is -3.141592653589793e-001
+computed value for D1BC2.FINT is 0.000000000000000e+000
+computed value for D1BC2.HGAP is 0.000000000000000e+000
+computed value for D1BC2.E2 is -3.141592653589793e-001
+computed value for D2BC2.L is 5.083203692315260e-001
+computed value for D2BC2.ANGLE is 3.141592653589793e-001
+computed value for D2BC2.FINT is 0.000000000000000e+000
+computed value for D2BC2.HGAP is 0.000000000000000e+000
+computed value for D2BC2.E1 is 3.141592653589793e-001
+computed value for D3BC2.L is 5.083203692315260e-001
+computed value for D3BC2.ANGLE is 3.141592653589793e-001
+computed value for D3BC2.FINT is 0.000000000000000e+000
+computed value for D3BC2.HGAP is 0.000000000000000e+000
+computed value for D3BC2.E2 is 3.141592653589793e-001
+computed value for D4BC2.L is 5.083203692315260e-001
+computed value for D4BC2.ANGLE is -3.141592653589793e-001
+computed value for D4BC2.FINT is 0.000000000000000e+000
+computed value for D4BC2.HGAP is 0.000000000000000e+000
+computed value for D4BC2.E1 is -3.141592653589793e-001
+computed value for C1.ACC2.PHASE is 9.000000000000000e+001
+computed value for C1.ACC2.VOLT is 1.653470000000000e+007
+computed value for C2.ACC2.PHASE is 9.000000000000000e+001
+computed value for C2.ACC2.VOLT is 1.304290000000000e+007
+computed value for C3.ACC2.PHASE is 9.000000000000000e+001
+computed value for C3.ACC2.VOLT is 1.879410000000000e+007
+computed value for C4.ACC2.PHASE is 9.000000000000000e+001
+computed value for C4.ACC2.VOLT is 1.941030000000000e+007
+computed value for C5.ACC2.PHASE is 9.000000000000000e+001
+computed value for C5.ACC2.VOLT is 1.858870000000000e+007
+computed value for C6.ACC2.PHASE is 9.000000000000000e+001
+computed value for C6.ACC2.VOLT is 1.550770000000000e+007
+computed value for C7.ACC2.PHASE is 9.000000000000000e+001
+computed value for C7.ACC2.VOLT is 1.910220000000000e+007
+computed value for C8.ACC2.PHASE is 9.000000000000000e+001
+computed value for C8.ACC2.VOLT is 1.971840000000000e+007
+computed value for C1.ACC3.PHASE is 9.000000000000000e+001
+computed value for C1.ACC3.VOLT is 2.115847000000000e+007
+computed value for C2.ACC3.PHASE is 9.000000000000000e+001
+computed value for C2.ACC3.VOLT is 2.115847000000000e+007
+computed value for C3.ACC3.PHASE is 9.000000000000000e+001
+computed value for C3.ACC3.VOLT is 2.115847000000000e+007
+computed value for C4.ACC3.PHASE is 9.000000000000000e+001
+computed value for C4.ACC3.VOLT is 2.115847000000000e+007
+computed value for C5.ACC3.PHASE is 9.000000000000000e+001
+computed value for C5.ACC3.VOLT is 2.115847000000000e+007
+computed value for C6.ACC3.PHASE is 9.000000000000000e+001
+computed value for C6.ACC3.VOLT is 2.115847000000000e+007
+computed value for C7.ACC3.PHASE is 9.000000000000000e+001
+computed value for C7.ACC3.VOLT is 2.115847000000000e+007
+computed value for C8.ACC3.PHASE is 9.000000000000000e+001
+computed value for C8.ACC3.VOLT is 2.115847000000000e+007
+computed value for OTR3UBC3I.L is 1.150000000000000e-001
+computed value for D1BC3.L is 5.003667444913532e-001
+computed value for D1BC3.ANGLE is -6.632251157578452e-002
+computed value for D1BC3.E2 is -6.632251157578452e-002
+computed value for D4BC3.L is 5.003667444913532e-001
+computed value for D4BC3.ANGLE is 6.632251157578452e-002
+computed value for D4BC3.E1 is 6.632251157578452e-002
+computed value for D5BC3.L is 5.003667444913532e-001
+computed value for D5BC3.ANGLE is 6.632251157578452e-002
+computed value for D5BC3.E2 is 6.632251157578452e-002
+computed value for D10BC3.L is 5.003667444913532e-001
+computed value for D10BC3.ANGLE is -6.632251157578452e-002
+computed value for D10BC3.E1 is -6.632251157578452e-002
+computed value for D11BC3.L is 5.003667444913532e-001
+computed value for D11BC3.ANGLE is -6.632251157578452e-002
+computed value for D11BC3.E2 is -6.632251157578452e-002
+computed value for D14BC3.L is 5.003667444913532e-001
+computed value for D14BC3.ANGLE is 6.632251157578452e-002
+computed value for D14BC3.E1 is 6.632251157578452e-002
+computed value for OTR8BC3I.L is 1.152533882284690e-001
+computed value for OTR11BC3I.L is 1.150000000000000e-001
+computed value for D0745BC3.L is 7.466415150452990e-001
+computed value for D0200BC3.L is 2.004406751799460e-001
+computed value for D0826BC3.L is 8.278199884931771e-001
+computed value for D0150BC3.L is 1.503305063849595e-001
+computed value for D0459BC3.L is 4.600113495379761e-001
+computed value for D04310BC3.L is 4.319496550127837e-001
+computed value for D08080BC3.L is 8.097803277269819e-001
+computed value for D09254BC3.L is 9.274390040576103e-001
+computed value for D02347BC3.L is 2.352171323236666e-001
+computed value for D10044BC3.L is 1.006613070753689e+000
+computed value for D09611BC3.L is 9.632176645772306e-001
+computed value for D03238BC3.L is 3.245134531163326e-001
+computed value for D07451BC3.L is 7.467417353828889e-001
+computed value for OTR4DBC3I.L is 1.150000000000000e-001
+computed value for OTR5DBC3I.L is 1.000000000000000e-001
+computed value for WIRE5DBC3I.L is 2.500000000000000e-003
+computed value for C1.ACC4.PHASE is 9.000000000000000e+001
+computed value for C1.ACC4.VOLT is 2.281250000000000e+007
+computed value for C2.ACC4.PHASE is 9.000000000000000e+001
+computed value for C2.ACC4.VOLT is 2.281250000000000e+007
+computed value for C3.ACC4.PHASE is 9.000000000000000e+001
+computed value for C3.ACC4.VOLT is 2.281250000000000e+007
+computed value for C4.ACC4.PHASE is 9.000000000000000e+001
+computed value for C4.ACC4.VOLT is 2.281250000000000e+007
+computed value for C5.ACC4.PHASE is 9.000000000000000e+001
+computed value for C5.ACC4.VOLT is 2.281250000000000e+007
+computed value for C6.ACC4.PHASE is 9.000000000000000e+001
+computed value for C6.ACC4.VOLT is 2.281250000000000e+007
+computed value for C7.ACC4.PHASE is 9.000000000000000e+001
+computed value for C7.ACC4.VOLT is 2.281250000000000e+007
+computed value for C8.ACC4.PHASE is 9.000000000000000e+001
+computed value for C8.ACC4.VOLT is 2.281250000000000e+007
+computed value for C1.ACC5.PHASE is 9.000000000000000e+001
+computed value for C1.ACC5.VOLT is 2.281250000000000e+007
+computed value for C2.ACC5.PHASE is 9.000000000000000e+001
+computed value for C2.ACC5.VOLT is 2.281250000000000e+007
+computed value for C3.ACC5.PHASE is 9.000000000000000e+001
+computed value for C3.ACC5.VOLT is 2.281250000000000e+007
+computed value for C4.ACC5.PHASE is 9.000000000000000e+001
+computed value for C4.ACC5.VOLT is 2.281250000000000e+007
+computed value for C5.ACC5.PHASE is 9.000000000000000e+001
+computed value for C5.ACC5.VOLT is 2.281250000000000e+007
+computed value for C6.ACC5.PHASE is 9.000000000000000e+001
+computed value for C6.ACC5.VOLT is 2.281250000000000e+007
+computed value for C7.ACC5.PHASE is 9.000000000000000e+001
+computed value for C7.ACC5.VOLT is 2.281250000000000e+007
+computed value for C8.ACC5.PHASE is 9.000000000000000e+001
+computed value for C8.ACC5.VOLT is 2.281250000000000e+007
+computed value for C1.ACC6.PHASE is 9.000000000000000e+001
+computed value for C1.ACC6.VOLT is 2.281250000000000e+007
+computed value for C2.ACC6.PHASE is 9.000000000000000e+001
+computed value for C2.ACC6.VOLT is 2.281250000000000e+007
+computed value for C3.ACC6.PHASE is 9.000000000000000e+001
+computed value for C3.ACC6.VOLT is 2.281250000000000e+007
+computed value for C4.ACC6.PHASE is 9.000000000000000e+001
+computed value for C4.ACC6.VOLT is 2.281250000000000e+007
+computed value for C5.ACC6.PHASE is 9.000000000000000e+001
+computed value for C5.ACC6.VOLT is 2.281250000000000e+007
+computed value for C6.ACC6.PHASE is 9.000000000000000e+001
+computed value for C6.ACC6.VOLT is 2.281250000000000e+007
+computed value for C7.ACC6.PHASE is 9.000000000000000e+001
+computed value for C7.ACC6.VOLT is 2.281250000000000e+007
+computed value for C8.ACC6.PHASE is 9.000000000000000e+001
+computed value for C8.ACC6.VOLT is 2.281250000000000e+007
+computed value for C1.ACC7.PHASE is 9.000000000000000e+001
+computed value for C1.ACC7.VOLT is 2.281250000000000e+007
+computed value for C2.ACC7.PHASE is 9.000000000000000e+001
+computed value for C2.ACC7.VOLT is 2.281250000000000e+007
+computed value for C3.ACC7.PHASE is 9.000000000000000e+001
+computed value for C3.ACC7.VOLT is 2.281250000000000e+007
+computed value for C4.ACC7.PHASE is 9.000000000000000e+001
+computed value for C4.ACC7.VOLT is 2.281250000000000e+007
+computed value for C5.ACC7.PHASE is 9.000000000000000e+001
+computed value for C5.ACC7.VOLT is 2.281250000000000e+007
+computed value for C6.ACC7.PHASE is 9.000000000000000e+001
+computed value for C6.ACC7.VOLT is 2.281250000000000e+007
+computed value for C7.ACC7.PHASE is 9.000000000000000e+001
+computed value for C7.ACC7.VOLT is 2.281250000000000e+007
+computed value for C8.ACC7.PHASE is 9.000000000000000e+001
+computed value for C8.ACC7.VOLT is 2.281250000000000e+007
+computed value for BPM11ACC7I.L is 8.500000000000001e-002
+computed value for BPM15ACC7I.L is 8.500000000000001e-002
+computed value for BPM16ACC7I.L is 8.500000000000001e-002
+computed value for BPM17ACC7I.L is 1.725000000000000e-001
+computed value for OTR17ACC7I.L is 8.850000000000000e-002
+computed value for OTR9TCOLI.L is 1.150000000000000e-001
+computed value for D0273C.L is 2.500000000000000e-001
+computed value for D0220C.L is 1.970000000000000e-001
+computed value for D0125C.L is 1.016000000000000e-001
+computed value for D1ECOL.L is 4.462775003499576e-001
+computed value for D1ECOL.ANGLE is 6.108652381980154e-002
+computed value for D1ECOL.E2 is 6.108652381980154e-002
+computed value for D7ECOL.L is 4.462775003499576e-001
+computed value for D7ECOL.ANGLE is -6.108652381980154e-002
+computed value for D7ECOL.E1 is -6.108652381980154e-002
+computed value for BPM1SMATCHI.L is 2.250000000000000e-001
+computed value for WIRE14SMATCHI.L is 6.150000000000000e-002
+computed value for WIRE5UND1I.L is 6.150000000000000e-002
+computed value for WIRE5UND2I.L is 6.150000000000000e-002
+computed value for WIRE5UND3I.L is 6.150000000000000e-002
+computed value for WIRE5UND4I.L is 6.150000000000000e-002
+computed value for WIRE5UND5I.L is 6.150000000000000e-002
+computed value for WIRE5UND6I.L is 6.150000000000000e-002
+computed value for OTR12EXPI.L is 1.150000000000000e-001
+computed value for Q10DUMP.L is 1.000000000000000e+000
+computed value for Q10DUMP.TILT is -1.448623279155294e+000
+computed value for Q11DUMP.L is 1.000000000000000e+000
+computed value for Q11DUMP.TILT is -1.448623279155294e+000
+computed value for D6DUMP.L is 1.222278850086591e+000
+computed value for D6DUMP.ANGLE is -3.316125578789226e-001
+computed value for D6DUMP.E2 is -3.316125578789226e-001
+computed value for D6DUMP.TILT is -1.448623279155294e+000
+computed value for T6DUMP.TILT is -1.448623279155294e+000
+computed value for OTR9DUMPI.L is 1.350000000000000e-001
+computed value for BPM9DUMPI.L is 1.750000000000000e-001
+computed value for BPM13DUMPI.L is 7.500000000000000e-002
+computed value for RD13DUMPI.L is 1.400000000000000e-001
+computed value for D1090.L is 4.558000000000000e-001
+computed value for Q6BYP.L is 3.286000000000000e-001
+computed value for Q6BYP.TILT is -1.204277183876088e+000
+computed value for Q8BYP.L is 3.286000000000000e-001
+computed value for Q8BYP.TILT is -1.204277183876088e+000
+computed value for Q10BYP.L is 3.286000000000000e-001
+computed value for Q10BYP.TILT is -1.204277183876088e+000
+computed value for Q16BYP.L is 3.286000000000000e-001
+computed value for Q16BYP.TILT is -1.204277183876088e+000
+computed value for Q17BYP.L is 3.286000000000000e-001
+computed value for Q17BYP.TILT is -1.204277183876088e+000
+computed value for Q18BYP.L is 3.286000000000000e-001
+computed value for Q18BYP.TILT is -1.204277183876088e+000
+computed value for Q36BYP.L is 3.286000000000000e-001
+computed value for Q37BYP.L is 3.286000000000000e-001
+computed value for Q39BYP.L is 3.286000000000000e-001
+computed value for Q41BYP.L is 3.286000000000000e-001
+computed value for Q58BYP.L is 3.286000000000000e-001
+computed value for Q75BYP.L is 3.286000000000000e-001
+computed value for Q92BYP.L is 3.286000000000000e-001
+computed value for Q92BYP.TILT is -1.448623279155294e+000
+computed value for Q93BYP.L is 3.286000000000000e-001
+computed value for Q93BYP.TILT is -1.448623279155294e+000
+computed value for S5BYP.L is 2.150000000000000e-001
+computed value for S5BYP.TILT is -1.204277183876088e+000
+computed value for S10BYP.L is 2.150000000000000e-001
+computed value for S10BYP.TILT is -1.204277183876088e+000
+computed value for OTR6BYPI.L is 1.150000000000000e-001
+computed value for OTR35BYPI.L is 1.150000000000000e-001
+computed value for OTR38BYPI.L is 1.150000000000000e-001
+computed value for OTR57BYPI.L is 1.150000000000000e-001
+computed value for D1BYP.L is 4.462775003499576e-001
+computed value for D1BYP.ANGLE is 6.108652381980154e-002
+computed value for D1BYP.E2 is 6.108652381980154e-002
+computed value for D1BYP.TILT is -1.204277183876088e+000
+computed value for D2BYP.L is 4.462775003499576e-001
+computed value for D2BYP.ANGLE is 6.108652381980154e-002
+computed value for D2BYP.E2 is 6.108652381980154e-002
+computed value for D2BYP.TILT is -1.204277183876088e+000
+computed value for D14BYP.L is 4.462775003499576e-001
+computed value for D14BYP.ANGLE is -6.108652381980154e-002
+computed value for D14BYP.E1 is -6.108652381980154e-002
+computed value for D14BYP.TILT is -1.204277183876088e+000
+computed value for D15BYP.L is 4.462775003499576e-001
+computed value for D15BYP.ANGLE is -6.108652381980154e-002
+computed value for D15BYP.E1 is -6.108652381980154e-002
+computed value for D15BYP.TILT is -1.204277183876088e+000
+computed value for D0233B.L is 2.100000000000000e-001
+computed value for D0225B.L is 2.020000000000000e-001
+computed value for Q4DUMP.L is 3.728000000000000e-001
+computed value for Q4DUMP.TILT is -1.448623279155294e+000
+computed value for D1DUMP.L is 1.222278850086591e+000
+computed value for D1DUMP.ANGLE is -3.316125578789226e-001
+computed value for D1DUMP.E2 is -3.316125578789226e-001
+computed value for D1DUMP.TILT is -1.448623279155294e+000
+length of beamline TEST per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&load_parameters
+    filename = undulator_quad_600MeV.sdds,
+    filename_list = {NULL},
+    include_name_pattern = {NULL},
+    include_item_pattern = {NULL},
+    include_type_pattern = {NULL},
+    exclude_name_pattern = {NULL},
+    exclude_item_pattern = {NULL},
+    exclude_type_pattern = {NULL},
+    change_defined_values = 1,
+    clear_settings = 0,
+    allow_missing_files = 0,
+    allow_missing_elements = 0,
+    allow_missing_parameters = 0,
+    force_occurence_data = 1,
+    verbose = 0,
+    use_first = 0,
+&end
+Using single filename for parameter loading
+17  parameter values loaded
+New length per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&run_control
+    n_steps = 1,
+    bunch_frequency = 0.000000000000000e+000,
+    n_indices = 0,
+    n_passes = 1,
+    reset_rf_for_each_step = 1,
+    first_is_fiducial = 0,
+    restrict_fiducialization = 0,
+    reset_scattering_seed = 0,
+&end
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&error_control
+    clear_error_settings = 1,
+    summarize_error_settings = 0,
+    error_log = %s.erl,
+    no_errors_for_first_step = 0,
+    error_factor = 1.000000000000000e+000,
+&end
+
+*** Cleared error settings
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&error
+    name = Q*,
+    exclude = {NULL},
+    item = DX,
+    element_type = {NULL},
+    type = gaussian,
+    amplitude = 2.000000000000000e-004,
+    cutoff = 3.000000000000000e+000,
+    bind = 0,
+    bind_number = 0,
+    bind_across_names = 0,
+    fractional = 0,
+    post_correction = 0,
+    additive = 1,
+    allow_missing_elements = 0,
+    before = {NULL},
+    after = {NULL},
+&end
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&error
+    name = Q*,
+    exclude = {NULL},
+    item = DY,
+    element_type = {NULL},
+    type = gaussian,
+    amplitude = 2.000000000000000e-004,
+    cutoff = 3.000000000000000e+000,
+    bind = 0,
+    bind_number = 0,
+    bind_across_names = 0,
+    fractional = 0,
+    post_correction = 0,
+    additive = 1,
+    allow_missing_elements = 0,
+    before = {NULL},
+    after = {NULL},
+&end
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&error
+    name = BPM*,
+    exclude = {NULL},
+    item = DX,
+    element_type = MONI,
+    type = gaussian,
+    amplitude = 2.000000000000000e-004,
+    cutoff = 3.000000000000000e+000,
+    bind = 0,
+    bind_number = 0,
+    bind_across_names = 0,
+    fractional = 0,
+    post_correction = 0,
+    additive = 1,
+    allow_missing_elements = 0,
+    before = {NULL},
+    after = {NULL},
+&end
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&error
+    name = BPM*,
+    exclude = {NULL},
+    item = DY,
+    element_type = MONI,
+    type = gaussian,
+    amplitude = 2.000000000000000e-004,
+    cutoff = 3.000000000000000e+000,
+    bind = 0,
+    bind_number = 0,
+    bind_across_names = 0,
+    fractional = 0,
+    post_correction = 0,
+    additive = 1,
+    allow_missing_elements = 0,
+    before = {NULL},
+    after = {NULL},
+&end
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&twiss_output
+    filename = %s.twi,
+    matched = 0,
+    output_at_each_step = 0,
+    output_before_tune_correction = 0,
+    final_values_only = 0,
+    statistics = 0,
+    radiation_integrals = 0,
+    beta_x = 1.184339900000000e+001,
+    alpha_x = 2.100000000000000e+000,
+    eta_x = 0.000000000000000e+000,
+    etap_x = 0.000000000000000e+000,
+    beta_y = 3.823322000000000e+000,
+    alpha_y = -1.920000000000000e+000,
+    eta_y = 0.000000000000000e+000,
+    etap_y = 0.000000000000000e+000,
+    reference_file = {NULL},
+    reference_element = {NULL},
+    reference_element_occurrence = 0,
+    reflect_reference_values = 0,
+    concat_order = 3,
+    higher_order_chromaticity = 0,
+    higher_order_chromaticity_points = 5,
+    higher_order_chromaticity_range = 4.000000000000000e-004,
+    quick_higher_order_chromaticity = 0,
+    chromatic_tune_spread_half_range = 0.000000000000000e+000,
+    cavities_are_drifts_if_matched = 1,
+    compute_driving_terms = 0,
+    leading_order_driving_terms_only = 0,
+    local_dispersion = 1,
+&end
+final Twiss parameters (chromaticity valid for fully second-order calculation only!):
+         beta          alpha           nu           eta          eta'       dnu/d(dp/p)   dbeta/(dp/p)     accept.
+          m                          1/2pi           m                         1/2pi            m          mm-mrad
+--------------------------------------------------------------------------------------------------------------------
+  x: 4.886878e+005 2.840654e+004 1.572278e+000 -2.447272e-002 -4.196298e-002 -4.478566e-002 -1.065059e+007 0.000000e+000
+  y: 2.001196e+006 -1.244688e+005 1.519222e+000 1.993143e-001 3.417610e-001 -3.633403e-002 -3.286085e+007 0.000000e+000
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&floor_coordinates
+    filename = %s.flo,
+    X0 = 0.000000000000000e+000,
+    Y0 = 0.000000000000000e+000,
+    Z0 = 0.000000000000000e+000,
+    theta0 = 0.000000000000000e+000,
+    phi0 = 0.000000000000000e+000,
+    psi0 = 0.000000000000000e+000,
+    include_vertices = 0,
+    vertices_only = 0,
+    magnet_centers = 1,
+&end
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&matrix_output
+    printout = %s.mpr,
+    printout_order = 1,
+    full_matrix_only = 0,
+    SDDS_output = %s.mat,
+    SDDS_output_order = 1,
+    individual_matrices = 1,
+    output_at_each_step = 1,
+    start_from = {NULL},
+    start_from_occurence = 1,
+    SDDS_output_match = {NULL},
+&end
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&bunched_beam
+    bunch = {NULL},
+    n_particles_per_bunch = 1,
+    time_start = 0.000000000000000e+000,
+    matched_to_cell = {NULL},
+    emit_x = 0.000000000000000e+000,
+    emit_nx = 0.000000000000000e+000,
+    beta_x = 1.184339900000000e+001,
+    alpha_x = 2.100000000000000e+000,
+    eta_x = 0.000000000000000e+000,
+    etap_x = 0.000000000000000e+000,
+    emit_y = 0.000000000000000e+000,
+    emit_ny = 0.000000000000000e+000,
+    beta_y = 3.823322000000000e+000,
+    alpha_y = -1.920000000000000e+000,
+    eta_y = 0.000000000000000e+000,
+    etap_y = 0.000000000000000e+000,
+    use_twiss_command_values = 1,
+    Po = 1.174170457378141e+003,
+    sigma_dp = 0.000000000000000e+000,
+    sigma_s = 0.000000000000000e+000,
+    dp_s_coupling = 0.000000000000000e+000,
+    emit_z = 0.000000000000000e+000,
+    beta_z = 0.000000000000000e+000,
+    alpha_z = 0.000000000000000e+000,
+    momentum_chirp = 0.000000000000000e+000,
+    one_random_bunch = 1,
+    save_initial_coordinates = 1,
+    limit_invariants = 0,
+    symmetrize = 0,
+    halton_sequence[0] = 0, 0, 0,
+    halton_radix[0] = 0, 0, 0, 0, 0, 0,
+    optimized_halton = 0,
+    randomize_order[0] = 0, 0, 0,
+    limit_in_4d = 0,
+    enforce_rms_values[0] = 0, 0, 0,
+    distribution_cutoff[0] = 2.000000000000000e+000, 2.000000000000000e+000, 2.000000000000000e+000,
+    distribution_type[0] = gaussian, gaussian, gaussian,
+    centroid[0] = 0.000000000000000e+000, 0.000000000000000e+000, 0.000000000000000e+000, 0.000000000000000e+000, 
+        0.000000000000000e+000, 0.000000000000000e+000,
+    first_is_fiducial = 0,
+&end
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&track
+    center_on_orbit = 0,
+    center_momentum_also = 1,
+    offset_by_orbit = 0,
+    offset_momentum_also = 1,
+    soft_failure = 1,
+    use_linear_chromatic_matrix = 0,
+    longitudinal_ring_only = 0,
+    ibs_only = 0,
+    stop_tracking_particle_limit = -1,
+&end
+17 matrices (re)computed
+tracking step 1.0
+generating bunch 1.0
+0 matrices (re)computed after correction
+warning: 15 elements had no matrix
+tracking 1 particles
+1 particles transmitted, total effort of 1 particle-turns
+16 multipole kicks done
+
+Dumping output beam data...done.
+Dumping acceptance output...done.
+Dumping centroid data...done.
+Dumping sigma data...done.
+Dumping final properties data...done.
+Tracking step completed   ET:     00:00:00 CP:    0.11 BIO:0 DIO:0 PF:0 MEM:0
+
+
+Finished tracking.
+End of input data encountered.
+statistics:    ET:     00:00:00 CP:    0.12 BIO:0 DIO:0 PF:0 MEM:0
+=====================================================================================
+Thanks for using elegant.  Please cite the following reference in your publications:
+  M. Borland, "elegant: A Flexible SDDS-Compliant Code for Accelerator Simulation,"
+  Advanced Photon Source LS-287, September 2000.
+If you use a modified version, please indicate this in all publications.
+=====================================================================================
+This is elegant 25.1.0, Nov 28 2012, by M. Borland, W. Guo, V. Sajaev, Y. Wang, Y. Wu, and A. Xiao.
+Link date: Nov 28 2012 20:01:37
+statistics:    ET:     00:00:00 CP:    0.00 BIO:0 DIO:0 PF:0 MEM:0
+&run_setup
+    lattice = FLASH_2012_1200MeV.lte,
+    use_beamline = test,
+    rootname = {NULL},
+    output = %s.out,
+    centroid = %s.cen,
+    sigma = %s.sig,
+    final = %s.fin,
+    acceptance = %s.acc,
+    losses = {NULL},
+    magnets = %s.mag,
+    semaphore_file = {NULL},
+    parameters = %s.param,
+    combine_bunch_statistics = 0,
+    wrap_around = 1,
+    final_pass = 0,
+    default_order = 2,
+    concat_order = 0,
+    print_statistics = 0,
+    random_number_seed = 987654321,
+    correction_iterations = 1,
+    echo_lattice = 0,
+    p_central = 0.000000000000000e+000,
+    p_central_mev = 7.200000000000000e+002,
+    always_change_p0 = 0,
+    load_balancing_on = 0,
+    random_sequence_No = 1,
+    expand_for = {NULL},
+    tracking_updates = 1,
+    search_path = {NULL},
+    element_divisions = 0,
+&end
+Seeding random number generators
+computed value for Q9ACC1.L is 1.850000000000000e-001
+computed value for Q10ACC1.L is 1.850000000000000e-001
+computed value for Q1.1UBC2.L is 9.300000000000000e-002
+computed value for Q1.2UBC2.L is 1.310000000000000e-001
+computed value for Q1.3UBC2.L is 9.300000000000000e-002
+computed value for Q1DBC2.L is 2.768000000000000e-001
+computed value for Q1.1DBC2.L is 2.768000000000000e-001
+computed value for Q2DBC2.L is 2.768000000000000e-001
+computed value for Q2.2DBC2.L is 2.768000000000000e-001
+computed value for Q3DBC2.L is 2.768000000000000e-001
+computed value for Q4DBC2.L is 2.768000000000000e-001
+computed value for Q4DBC2.K1 is -3.243400000000000e+000
+computed value for Q5DBC2.L is 2.768000000000000e-001
+computed value for Q5DBC2.K1 is 3.243400000000000e+000
+computed value for Q6DBC2.L is 2.768000000000000e-001
+computed value for Q6DBC2.K1 is -3.243400000000000e+000
+computed value for Q7DBC2.L is 2.768000000000000e-001
+computed value for Q7DBC2.K1 is 3.243400000000000e+000
+computed value for Q8DBC2.L is 2.768000000000000e-001
+computed value for Q8DBC2.K1 is -3.243400000000000e+000
+computed value for Q9DBC2.L is 2.768000000000000e-001
+computed value for Q9DBC2.K1 is 3.243400000000000e+000
+computed value for Q10DBC2.L is 2.768000000000000e-001
+computed value for Q10DBC2.K1 is -3.243400000000000e+000
+computed value for Q10.3DBC2.L is 3.046000000000000e-001
+computed value for Q11DBC2.L is 3.046000000000000e-001
+computed value for Q12DBC2.L is 3.046000000000000e-001
+computed value for Q9ACC2.L is 1.850000000000000e-001
+computed value for Q10ACC2.L is 1.850000000000000e-001
+computed value for Q9ACC3.L is 1.850000000000000e-001
+computed value for Q10ACC3.L is 1.850000000000000e-001
+computed value for Q1UBC3.L is 3.046000000000000e-001
+computed value for Q2UBC3.L is 3.046000000000000e-001
+computed value for Q1DBC3.L is 2.768000000000000e-001
+computed value for Q2DBC3.L is 3.728000000000000e-001
+computed value for Q3DBC3.L is 3.728000000000000e-001
+computed value for Q9ACC4.L is 1.850000000000000e-001
+computed value for Q10ACC4.L is 1.850000000000000e-001
+computed value for Q9ACC5.L is 1.850000000000000e-001
+computed value for Q10ACC5.L is 1.850000000000000e-001
+computed value for Q9ACC6.L is 1.850000000000000e-001
+computed value for Q10ACC6.L is 1.850000000000000e-001
+computed value for Q2TCOL.L is 2.768000000000000e-001
+computed value for Q8TCOL.L is 2.768000000000000e-001
+computed value for Q9TCOL.L is 2.768000000000000e-001
+computed value for Q3ECOL.L is 3.286000000000000e-001
+computed value for Q4ECOL.L is 3.286000000000000e-001
+computed value for Q5ECOL.L is 3.286000000000000e-001
+computed value for S6ECOL.L is 2.150000000000000e-001
+computed value for S2ECOL.L is 2.150000000000000e-001
+computed value for Q1ORS.L is 2.768000000000000e-001
+computed value for Q2ORS.L is 2.768000000000000e-001
+computed value for Q4ORS.L is 2.768000000000000e-001
+computed value for Q7ORS.L is 2.768000000000000e-001
+computed value for Q9ORS.L is 2.768000000000000e-001
+computed value for Q12ORS.L is 2.768000000000000e-001
+computed value for Q1SFUND1.L is 2.768000000000000e-001
+computed value for Q1SFUND2.L is 1.271600000000000e-001
+computed value for Q1SFUND3.L is 1.271600000000000e-001
+computed value for Q1SFUND4.L is 1.271600000000000e-001
+computed value for Q1SFELC.L is 2.768000000000000e-001
+computed value for Q2SFELC.L is 2.768000000000000e-001
+computed value for Q6SMATCH.L is 2.768000000000000e-001
+computed value for Q8SMATCH.L is 2.768000000000000e-001
+computed value for Q10SMATCH.L is 2.768000000000000e-001
+computed value for Q13SMATCH.L is 2.768000000000000e-001
+computed value for Q14SMATCH.L is 1.271600000000000e-001
+computed value for Q15SMATCH.L is 1.271600000000000e-001
+computed value for Q5UND1.L is 1.271600000000000e-001
+computed value for Q6UND1.L is 1.271600000000000e-001
+computed value for Q5UND2.L is 1.271600000000000e-001
+computed value for Q6UND2.L is 1.271600000000000e-001
+computed value for Q5UND3.L is 1.271600000000000e-001
+computed value for Q6UND3.L is 1.271600000000000e-001
+computed value for Q5UND4.L is 1.271600000000000e-001
+computed value for Q6UND4.L is 1.271600000000000e-001
+computed value for Q5UND5.L is 1.271600000000000e-001
+computed value for Q6UND5.L is 1.271600000000000e-001
+computed value for Q5UND6.L is 1.271600000000000e-001
+computed value for Q6UND6.L is 1.271600000000000e-001
+computed value for Q9EXP.L is 2.768000000000000e-001
+computed value for Q10EXP.L is 3.286000000000000e-001
+computed value for Q11EXP.L is 3.286000000000000e-001
+computed value for D0075A.L is 6.160000000000000e-002
+computed value for D0100A.L is 8.660000000000001e-002
+computed value for D0100BM.L is 6.069999999999999e-002
+computed value for D0075B.L is 6.069999999999999e-002
+computed value for D0075D.L is 7.270000000000000e-002
+computed value for D0025G.L is 1.642000000000000e-002
+computed value for D0076G.L is 6.742000000000001e-002
+computed value for D0100G.L is 9.142000000000000e-002
+computed value for D0026G.L is 1.742000000000000e-002
+computed value for D0022G.L is 1.342000000000000e-002
+computed value for D0018G.L is 9.420000000000001e-003
+computed value for D00929F.L is 7.650000000000000e-002
+computed value for D0100F.L is 8.360000000000001e-002
+computed value for D0135F.L is 9.859999999999999e-002
+computed value for D0185F.L is 1.486000000000000e-001
+computed value for D0200C.L is 2.000000000000000e-001
+computed value for D01378C.L is 1.378000000000000e-001
+computed value for D0100QA.L is 8.250000000000000e-002
+computed value for D0075QA.L is 5.750000000000000e-002
+computed value for D0095QA.L is 7.750000000000000e-002
+computed value for D0115T.L is 9.350000000000000e-002
+computed value for D0050T.L is 1.300000000000001e-002
+computed value for D0075T.L is 5.350000000000000e-002
+computed value for D00881SB.L is 8.060000000000001e-002
+computed value for D0055SB.L is 4.750000000000001e-002
+computed value for D01811SB.L is 1.736000000000000e-001
+computed value for D0085SB.L is 7.750000000000001e-002
+computed value for D0195SB.L is 1.875000000000000e-001
+computed value for D0425SB.L is 4.175000000000000e-001
+computed value for C1.ACC1.PHASE is 9.000000000000000e+001
+computed value for C1.ACC1.VOLT is 1.722222515000000e+007
+computed value for C2.ACC1.PHASE is 9.000000000000000e+001
+computed value for C2.ACC1.VOLT is 1.722222515000000e+007
+computed value for C3.ACC1.PHASE is 9.000000000000000e+001
+computed value for C3.ACC1.VOLT is 1.722222515000000e+007
+computed value for C4.ACC1.PHASE is 9.000000000000000e+001
+computed value for C4.ACC1.VOLT is 1.722222515000000e+007
+computed value for C5.ACC1.PHASE is 9.000000000000000e+001
+computed value for C5.ACC1.VOLT is 2.152777887000000e+007
+computed value for C6.ACC1.PHASE is 9.000000000000000e+001
+computed value for C6.ACC1.VOLT is 2.152777887000000e+007
+computed value for C7.ACC1.PHASE is 9.000000000000000e+001
+computed value for C7.ACC1.VOLT is 2.152777887000000e+007
+computed value for C8.ACC1.PHASE is 9.000000000000000e+001
+computed value for C8.ACC1.VOLT is 2.152777887000000e+007
+computed value for DACC39.L is 8.010499999999998e-002
+computed value for C1.ACC39.L is 3.459000000000000e-001
+computed value for C1.ACC39.PHASE is -9.000000000000000e+001
+computed value for C1.ACC39.VOLT is 0.000000000000000e+000
+computed value for C2.ACC39.L is 3.459000000000000e-001
+computed value for C2.ACC39.PHASE is -9.000000000000000e+001
+computed value for C2.ACC39.VOLT is 0.000000000000000e+000
+computed value for C3.ACC39.L is 3.459000000000000e-001
+computed value for C3.ACC39.PHASE is -9.000000000000000e+001
+computed value for C3.ACC39.VOLT is 0.000000000000000e+000
+computed value for C4.ACC39.L is 3.459000000000000e-001
+computed value for C4.ACC39.PHASE is -9.000000000000000e+001
+computed value for C4.ACC39.VOLT is 0.000000000000000e+000
+computed value for DBPM2UBC2.L is 2.250000000000000e-001
+computed value for D01230T.L is 1.300000000000000e-001
+computed value for D0500BC2.L is 5.257311121191336e-001
+computed value for D1BC2.L is 5.083203692315260e-001
+computed value for D1BC2.ANGLE is -3.141592653589793e-001
+computed value for D1BC2.FINT is 0.000000000000000e+000
+computed value for D1BC2.HGAP is 0.000000000000000e+000
+computed value for D1BC2.E2 is -3.141592653589793e-001
+computed value for D2BC2.L is 5.083203692315260e-001
+computed value for D2BC2.ANGLE is 3.141592653589793e-001
+computed value for D2BC2.FINT is 0.000000000000000e+000
+computed value for D2BC2.HGAP is 0.000000000000000e+000
+computed value for D2BC2.E1 is 3.141592653589793e-001
+computed value for D3BC2.L is 5.083203692315260e-001
+computed value for D3BC2.ANGLE is 3.141592653589793e-001
+computed value for D3BC2.FINT is 0.000000000000000e+000
+computed value for D3BC2.HGAP is 0.000000000000000e+000
+computed value for D3BC2.E2 is 3.141592653589793e-001
+computed value for D4BC2.L is 5.083203692315260e-001
+computed value for D4BC2.ANGLE is -3.141592653589793e-001
+computed value for D4BC2.FINT is 0.000000000000000e+000
+computed value for D4BC2.HGAP is 0.000000000000000e+000
+computed value for D4BC2.E1 is -3.141592653589793e-001
+computed value for C1.ACC2.PHASE is 9.000000000000000e+001
+computed value for C1.ACC2.VOLT is 1.653470000000000e+007
+computed value for C2.ACC2.PHASE is 9.000000000000000e+001
+computed value for C2.ACC2.VOLT is 1.304290000000000e+007
+computed value for C3.ACC2.PHASE is 9.000000000000000e+001
+computed value for C3.ACC2.VOLT is 1.879410000000000e+007
+computed value for C4.ACC2.PHASE is 9.000000000000000e+001
+computed value for C4.ACC2.VOLT is 1.941030000000000e+007
+computed value for C5.ACC2.PHASE is 9.000000000000000e+001
+computed value for C5.ACC2.VOLT is 1.858870000000000e+007
+computed value for C6.ACC2.PHASE is 9.000000000000000e+001
+computed value for C6.ACC2.VOLT is 1.550770000000000e+007
+computed value for C7.ACC2.PHASE is 9.000000000000000e+001
+computed value for C7.ACC2.VOLT is 1.910220000000000e+007
+computed value for C8.ACC2.PHASE is 9.000000000000000e+001
+computed value for C8.ACC2.VOLT is 1.971840000000000e+007
+computed value for C1.ACC3.PHASE is 9.000000000000000e+001
+computed value for C1.ACC3.VOLT is 2.115847000000000e+007
+computed value for C2.ACC3.PHASE is 9.000000000000000e+001
+computed value for C2.ACC3.VOLT is 2.115847000000000e+007
+computed value for C3.ACC3.PHASE is 9.000000000000000e+001
+computed value for C3.ACC3.VOLT is 2.115847000000000e+007
+computed value for C4.ACC3.PHASE is 9.000000000000000e+001
+computed value for C4.ACC3.VOLT is 2.115847000000000e+007
+computed value for C5.ACC3.PHASE is 9.000000000000000e+001
+computed value for C5.ACC3.VOLT is 2.115847000000000e+007
+computed value for C6.ACC3.PHASE is 9.000000000000000e+001
+computed value for C6.ACC3.VOLT is 2.115847000000000e+007
+computed value for C7.ACC3.PHASE is 9.000000000000000e+001
+computed value for C7.ACC3.VOLT is 2.115847000000000e+007
+computed value for C8.ACC3.PHASE is 9.000000000000000e+001
+computed value for C8.ACC3.VOLT is 2.115847000000000e+007
+computed value for OTR3UBC3I.L is 1.150000000000000e-001
+computed value for D1BC3.L is 5.003667444913532e-001
+computed value for D1BC3.ANGLE is -6.632251157578452e-002
+computed value for D1BC3.E2 is -6.632251157578452e-002
+computed value for D4BC3.L is 5.003667444913532e-001
+computed value for D4BC3.ANGLE is 6.632251157578452e-002
+computed value for D4BC3.E1 is 6.632251157578452e-002
+computed value for D5BC3.L is 5.003667444913532e-001
+computed value for D5BC3.ANGLE is 6.632251157578452e-002
+computed value for D5BC3.E2 is 6.632251157578452e-002
+computed value for D10BC3.L is 5.003667444913532e-001
+computed value for D10BC3.ANGLE is -6.632251157578452e-002
+computed value for D10BC3.E1 is -6.632251157578452e-002
+computed value for D11BC3.L is 5.003667444913532e-001
+computed value for D11BC3.ANGLE is -6.632251157578452e-002
+computed value for D11BC3.E2 is -6.632251157578452e-002
+computed value for D14BC3.L is 5.003667444913532e-001
+computed value for D14BC3.ANGLE is 6.632251157578452e-002
+computed value for D14BC3.E1 is 6.632251157578452e-002
+computed value for OTR8BC3I.L is 1.152533882284690e-001
+computed value for OTR11BC3I.L is 1.150000000000000e-001
+computed value for D0745BC3.L is 7.466415150452990e-001
+computed value for D0200BC3.L is 2.004406751799460e-001
+computed value for D0826BC3.L is 8.278199884931771e-001
+computed value for D0150BC3.L is 1.503305063849595e-001
+computed value for D0459BC3.L is 4.600113495379761e-001
+computed value for D04310BC3.L is 4.319496550127837e-001
+computed value for D08080BC3.L is 8.097803277269819e-001
+computed value for D09254BC3.L is 9.274390040576103e-001
+computed value for D02347BC3.L is 2.352171323236666e-001
+computed value for D10044BC3.L is 1.006613070753689e+000
+computed value for D09611BC3.L is 9.632176645772306e-001
+computed value for D03238BC3.L is 3.245134531163326e-001
+computed value for D07451BC3.L is 7.467417353828889e-001
+computed value for OTR4DBC3I.L is 1.150000000000000e-001
+computed value for OTR5DBC3I.L is 1.000000000000000e-001
+computed value for WIRE5DBC3I.L is 2.500000000000000e-003
+computed value for C1.ACC4.PHASE is 9.000000000000000e+001
+computed value for C1.ACC4.VOLT is 2.281250000000000e+007
+computed value for C2.ACC4.PHASE is 9.000000000000000e+001
+computed value for C2.ACC4.VOLT is 2.281250000000000e+007
+computed value for C3.ACC4.PHASE is 9.000000000000000e+001
+computed value for C3.ACC4.VOLT is 2.281250000000000e+007
+computed value for C4.ACC4.PHASE is 9.000000000000000e+001
+computed value for C4.ACC4.VOLT is 2.281250000000000e+007
+computed value for C5.ACC4.PHASE is 9.000000000000000e+001
+computed value for C5.ACC4.VOLT is 2.281250000000000e+007
+computed value for C6.ACC4.PHASE is 9.000000000000000e+001
+computed value for C6.ACC4.VOLT is 2.281250000000000e+007
+computed value for C7.ACC4.PHASE is 9.000000000000000e+001
+computed value for C7.ACC4.VOLT is 2.281250000000000e+007
+computed value for C8.ACC4.PHASE is 9.000000000000000e+001
+computed value for C8.ACC4.VOLT is 2.281250000000000e+007
+computed value for C1.ACC5.PHASE is 9.000000000000000e+001
+computed value for C1.ACC5.VOLT is 2.281250000000000e+007
+computed value for C2.ACC5.PHASE is 9.000000000000000e+001
+computed value for C2.ACC5.VOLT is 2.281250000000000e+007
+computed value for C3.ACC5.PHASE is 9.000000000000000e+001
+computed value for C3.ACC5.VOLT is 2.281250000000000e+007
+computed value for C4.ACC5.PHASE is 9.000000000000000e+001
+computed value for C4.ACC5.VOLT is 2.281250000000000e+007
+computed value for C5.ACC5.PHASE is 9.000000000000000e+001
+computed value for C5.ACC5.VOLT is 2.281250000000000e+007
+computed value for C6.ACC5.PHASE is 9.000000000000000e+001
+computed value for C6.ACC5.VOLT is 2.281250000000000e+007
+computed value for C7.ACC5.PHASE is 9.000000000000000e+001
+computed value for C7.ACC5.VOLT is 2.281250000000000e+007
+computed value for C8.ACC5.PHASE is 9.000000000000000e+001
+computed value for C8.ACC5.VOLT is 2.281250000000000e+007
+computed value for C1.ACC6.PHASE is 9.000000000000000e+001
+computed value for C1.ACC6.VOLT is 2.281250000000000e+007
+computed value for C2.ACC6.PHASE is 9.000000000000000e+001
+computed value for C2.ACC6.VOLT is 2.281250000000000e+007
+computed value for C3.ACC6.PHASE is 9.000000000000000e+001
+computed value for C3.ACC6.VOLT is 2.281250000000000e+007
+computed value for C4.ACC6.PHASE is 9.000000000000000e+001
+computed value for C4.ACC6.VOLT is 2.281250000000000e+007
+computed value for C5.ACC6.PHASE is 9.000000000000000e+001
+computed value for C5.ACC6.VOLT is 2.281250000000000e+007
+computed value for C6.ACC6.PHASE is 9.000000000000000e+001
+computed value for C6.ACC6.VOLT is 2.281250000000000e+007
+computed value for C7.ACC6.PHASE is 9.000000000000000e+001
+computed value for C7.ACC6.VOLT is 2.281250000000000e+007
+computed value for C8.ACC6.PHASE is 9.000000000000000e+001
+computed value for C8.ACC6.VOLT is 2.281250000000000e+007
+computed value for C1.ACC7.PHASE is 9.000000000000000e+001
+computed value for C1.ACC7.VOLT is 2.281250000000000e+007
+computed value for C2.ACC7.PHASE is 9.000000000000000e+001
+computed value for C2.ACC7.VOLT is 2.281250000000000e+007
+computed value for C3.ACC7.PHASE is 9.000000000000000e+001
+computed value for C3.ACC7.VOLT is 2.281250000000000e+007
+computed value for C4.ACC7.PHASE is 9.000000000000000e+001
+computed value for C4.ACC7.VOLT is 2.281250000000000e+007
+computed value for C5.ACC7.PHASE is 9.000000000000000e+001
+computed value for C5.ACC7.VOLT is 2.281250000000000e+007
+computed value for C6.ACC7.PHASE is 9.000000000000000e+001
+computed value for C6.ACC7.VOLT is 2.281250000000000e+007
+computed value for C7.ACC7.PHASE is 9.000000000000000e+001
+computed value for C7.ACC7.VOLT is 2.281250000000000e+007
+computed value for C8.ACC7.PHASE is 9.000000000000000e+001
+computed value for C8.ACC7.VOLT is 2.281250000000000e+007
+computed value for BPM11ACC7I.L is 8.500000000000001e-002
+computed value for BPM15ACC7I.L is 8.500000000000001e-002
+computed value for BPM16ACC7I.L is 8.500000000000001e-002
+computed value for BPM17ACC7I.L is 1.725000000000000e-001
+computed value for OTR17ACC7I.L is 8.850000000000000e-002
+computed value for OTR9TCOLI.L is 1.150000000000000e-001
+computed value for D0273C.L is 2.500000000000000e-001
+computed value for D0220C.L is 1.970000000000000e-001
+computed value for D0125C.L is 1.016000000000000e-001
+computed value for D1ECOL.L is 4.462775003499576e-001
+computed value for D1ECOL.ANGLE is 6.108652381980154e-002
+computed value for D1ECOL.E2 is 6.108652381980154e-002
+computed value for D7ECOL.L is 4.462775003499576e-001
+computed value for D7ECOL.ANGLE is -6.108652381980154e-002
+computed value for D7ECOL.E1 is -6.108652381980154e-002
+computed value for BPM1SMATCHI.L is 2.250000000000000e-001
+computed value for WIRE14SMATCHI.L is 6.150000000000000e-002
+computed value for WIRE5UND1I.L is 6.150000000000000e-002
+computed value for WIRE5UND2I.L is 6.150000000000000e-002
+computed value for WIRE5UND3I.L is 6.150000000000000e-002
+computed value for WIRE5UND4I.L is 6.150000000000000e-002
+computed value for WIRE5UND5I.L is 6.150000000000000e-002
+computed value for WIRE5UND6I.L is 6.150000000000000e-002
+computed value for OTR12EXPI.L is 1.150000000000000e-001
+computed value for Q10DUMP.L is 1.000000000000000e+000
+computed value for Q10DUMP.TILT is -1.448623279155294e+000
+computed value for Q11DUMP.L is 1.000000000000000e+000
+computed value for Q11DUMP.TILT is -1.448623279155294e+000
+computed value for D6DUMP.L is 1.222278850086591e+000
+computed value for D6DUMP.ANGLE is -3.316125578789226e-001
+computed value for D6DUMP.E2 is -3.316125578789226e-001
+computed value for D6DUMP.TILT is -1.448623279155294e+000
+computed value for T6DUMP.TILT is -1.448623279155294e+000
+computed value for OTR9DUMPI.L is 1.350000000000000e-001
+computed value for BPM9DUMPI.L is 1.750000000000000e-001
+computed value for BPM13DUMPI.L is 7.500000000000000e-002
+computed value for RD13DUMPI.L is 1.400000000000000e-001
+computed value for D1090.L is 4.558000000000000e-001
+computed value for Q6BYP.L is 3.286000000000000e-001
+computed value for Q6BYP.TILT is -1.204277183876088e+000
+computed value for Q8BYP.L is 3.286000000000000e-001
+computed value for Q8BYP.TILT is -1.204277183876088e+000
+computed value for Q10BYP.L is 3.286000000000000e-001
+computed value for Q10BYP.TILT is -1.204277183876088e+000
+computed value for Q16BYP.L is 3.286000000000000e-001
+computed value for Q16BYP.TILT is -1.204277183876088e+000
+computed value for Q17BYP.L is 3.286000000000000e-001
+computed value for Q17BYP.TILT is -1.204277183876088e+000
+computed value for Q18BYP.L is 3.286000000000000e-001
+computed value for Q18BYP.TILT is -1.204277183876088e+000
+computed value for Q36BYP.L is 3.286000000000000e-001
+computed value for Q37BYP.L is 3.286000000000000e-001
+computed value for Q39BYP.L is 3.286000000000000e-001
+computed value for Q41BYP.L is 3.286000000000000e-001
+computed value for Q58BYP.L is 3.286000000000000e-001
+computed value for Q75BYP.L is 3.286000000000000e-001
+computed value for Q92BYP.L is 3.286000000000000e-001
+computed value for Q92BYP.TILT is -1.448623279155294e+000
+computed value for Q93BYP.L is 3.286000000000000e-001
+computed value for Q93BYP.TILT is -1.448623279155294e+000
+computed value for S5BYP.L is 2.150000000000000e-001
+computed value for S5BYP.TILT is -1.204277183876088e+000
+computed value for S10BYP.L is 2.150000000000000e-001
+computed value for S10BYP.TILT is -1.204277183876088e+000
+computed value for OTR6BYPI.L is 1.150000000000000e-001
+computed value for OTR35BYPI.L is 1.150000000000000e-001
+computed value for OTR38BYPI.L is 1.150000000000000e-001
+computed value for OTR57BYPI.L is 1.150000000000000e-001
+computed value for D1BYP.L is 4.462775003499576e-001
+computed value for D1BYP.ANGLE is 6.108652381980154e-002
+computed value for D1BYP.E2 is 6.108652381980154e-002
+computed value for D1BYP.TILT is -1.204277183876088e+000
+computed value for D2BYP.L is 4.462775003499576e-001
+computed value for D2BYP.ANGLE is 6.108652381980154e-002
+computed value for D2BYP.E2 is 6.108652381980154e-002
+computed value for D2BYP.TILT is -1.204277183876088e+000
+computed value for D14BYP.L is 4.462775003499576e-001
+computed value for D14BYP.ANGLE is -6.108652381980154e-002
+computed value for D14BYP.E1 is -6.108652381980154e-002
+computed value for D14BYP.TILT is -1.204277183876088e+000
+computed value for D15BYP.L is 4.462775003499576e-001
+computed value for D15BYP.ANGLE is -6.108652381980154e-002
+computed value for D15BYP.E1 is -6.108652381980154e-002
+computed value for D15BYP.TILT is -1.204277183876088e+000
+computed value for D0233B.L is 2.100000000000000e-001
+computed value for D0225B.L is 2.020000000000000e-001
+computed value for Q4DUMP.L is 3.728000000000000e-001
+computed value for Q4DUMP.TILT is -1.448623279155294e+000
+computed value for D1DUMP.L is 1.222278850086591e+000
+computed value for D1DUMP.ANGLE is -3.316125578789226e-001
+computed value for D1DUMP.E2 is -3.316125578789226e-001
+computed value for D1DUMP.TILT is -1.448623279155294e+000
+length of beamline TEST per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&load_parameters
+    filename = undulator_quad_720MeV.sdds,
+    filename_list = {NULL},
+    include_name_pattern = {NULL},
+    include_item_pattern = {NULL},
+    include_type_pattern = {NULL},
+    exclude_name_pattern = {NULL},
+    exclude_item_pattern = {NULL},
+    exclude_type_pattern = {NULL},
+    change_defined_values = 1,
+    clear_settings = 0,
+    allow_missing_files = 0,
+    allow_missing_elements = 0,
+    allow_missing_parameters = 0,
+    force_occurence_data = 1,
+    verbose = 0,
+    use_first = 0,
+&end
+Using single filename for parameter loading
+17  parameter values loaded
+New length per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&load_parameters
+    filename = flash_dfs1.erl,
+    filename_list = {NULL},
+    include_name_pattern = {NULL},
+    include_item_pattern = {NULL},
+    include_type_pattern = {NULL},
+    exclude_name_pattern = {NULL},
+    exclude_item_pattern = {NULL},
+    exclude_type_pattern = {NULL},
+    change_defined_values = 1,
+    clear_settings = 0,
+    allow_missing_files = 0,
+    allow_missing_elements = 0,
+    allow_missing_parameters = 0,
+    force_occurence_data = 1,
+    verbose = 0,
+    use_first = 0,
+&end
+Using single filename for parameter loading
+88  parameter values loaded
+New length per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.03 BIO:0 DIO:0 PF:0 MEM:0
+&run_control
+    n_steps = 1,
+    bunch_frequency = 0.000000000000000e+000,
+    n_indices = 0,
+    n_passes = 1,
+    reset_rf_for_each_step = 1,
+    first_is_fiducial = 0,
+    restrict_fiducialization = 0,
+    reset_scattering_seed = 0,
+&end
+statistics:    ET:     00:00:00 CP:    0.03 BIO:0 DIO:0 PF:0 MEM:0
+&twiss_output
+    filename = %s.twi,
+    matched = 0,
+    output_at_each_step = 0,
+    output_before_tune_correction = 0,
+    final_values_only = 0,
+    statistics = 0,
+    radiation_integrals = 0,
+    beta_x = 1.184339900000000e+001,
+    alpha_x = 2.100000000000000e+000,
+    eta_x = 0.000000000000000e+000,
+    etap_x = 0.000000000000000e+000,
+    beta_y = 3.823322000000000e+000,
+    alpha_y = -1.920000000000000e+000,
+    eta_y = 0.000000000000000e+000,
+    etap_y = 0.000000000000000e+000,
+    reference_file = {NULL},
+    reference_element = {NULL},
+    reference_element_occurrence = 0,
+    reflect_reference_values = 0,
+    concat_order = 3,
+    higher_order_chromaticity = 0,
+    higher_order_chromaticity_points = 5,
+    higher_order_chromaticity_range = 4.000000000000000e-004,
+    quick_higher_order_chromaticity = 0,
+    chromatic_tune_spread_half_range = 0.000000000000000e+000,
+    cavities_are_drifts_if_matched = 1,
+    compute_driving_terms = 0,
+    leading_order_driving_terms_only = 0,
+    local_dispersion = 1,
+&end
+final Twiss parameters (chromaticity valid for fully second-order calculation only!):
+         beta          alpha           nu           eta          eta'       dnu/d(dp/p)   dbeta/(dp/p)     accept.
+          m                          1/2pi           m                         1/2pi            m          mm-mrad
+--------------------------------------------------------------------------------------------------------------------
+  x: 1.576644e+004 7.439943e+002 1.555461e+000 -1.022411e-002 -3.915318e-002 -1.763234e-001 -3.361503e+005 0.000000e+000
+  y: 2.256510e+005 -1.517586e+004 1.508564e+000 -1.760872e-001 3.155425e-001 -7.404998e-002 -3.179121e+006 0.000000e+000
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&floor_coordinates
+    filename = %s.flo,
+    X0 = 0.000000000000000e+000,
+    Y0 = 0.000000000000000e+000,
+    Z0 = 0.000000000000000e+000,
+    theta0 = 0.000000000000000e+000,
+    phi0 = 0.000000000000000e+000,
+    psi0 = 0.000000000000000e+000,
+    include_vertices = 0,
+    vertices_only = 0,
+    magnet_centers = 1,
+&end
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&matrix_output
+    printout = %s.mpr,
+    printout_order = 1,
+    full_matrix_only = 0,
+    SDDS_output = %s.mat,
+    SDDS_output_order = 1,
+    individual_matrices = 1,
+    output_at_each_step = 1,
+    start_from = {NULL},
+    start_from_occurence = 1,
+    SDDS_output_match = {NULL},
+&end
+statistics:    ET:     00:00:00 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&bunched_beam
+    bunch = {NULL},
+    n_particles_per_bunch = 1,
+    time_start = 0.000000000000000e+000,
+    matched_to_cell = {NULL},
+    emit_x = 0.000000000000000e+000,
+    emit_nx = 0.000000000000000e+000,
+    beta_x = 1.184339900000000e+001,
+    alpha_x = 2.100000000000000e+000,
+    eta_x = 0.000000000000000e+000,
+    etap_x = 0.000000000000000e+000,
+    emit_y = 0.000000000000000e+000,
+    emit_ny = 0.000000000000000e+000,
+    beta_y = 3.823322000000000e+000,
+    alpha_y = -1.920000000000000e+000,
+    eta_y = 0.000000000000000e+000,
+    etap_y = 0.000000000000000e+000,
+    use_twiss_command_values = 1,
+    Po = 1.409004548853769e+003,
+    sigma_dp = 0.000000000000000e+000,
+    sigma_s = 0.000000000000000e+000,
+    dp_s_coupling = 0.000000000000000e+000,
+    emit_z = 0.000000000000000e+000,
+    beta_z = 0.000000000000000e+000,
+    alpha_z = 0.000000000000000e+000,
+    momentum_chirp = 0.000000000000000e+000,
+    one_random_bunch = 1,
+    save_initial_coordinates = 1,
+    limit_invariants = 0,
+    symmetrize = 0,
+    halton_sequence[0] = 0, 0, 0,
+    halton_radix[0] = 0, 0, 0, 0, 0, 0,
+    optimized_halton = 0,
+    randomize_order[0] = 0, 0, 0,
+    limit_in_4d = 0,
+    enforce_rms_values[0] = 0, 0, 0,
+    distribution_cutoff[0] = 2.000000000000000e+000, 2.000000000000000e+000, 2.000000000000000e+000,
+    distribution_type[0] = gaussian, gaussian, gaussian,
+    centroid[0] = 0.000000000000000e+000, 0.000000000000000e+000, 0.000000000000000e+000, 0.000000000000000e+000, 
+        0.000000000000000e+000, 0.000000000000000e+000,
+    first_is_fiducial = 0,
+&end
+statistics:    ET:     00:00:00 CP:    0.07 BIO:0 DIO:0 PF:0 MEM:0
+&track
+    center_on_orbit = 0,
+    center_momentum_also = 1,
+    offset_by_orbit = 0,
+    offset_momentum_also = 1,
+    soft_failure = 1,
+    use_linear_chromatic_matrix = 0,
+    longitudinal_ring_only = 0,
+    ibs_only = 0,
+    stop_tracking_particle_limit = -1,
+&end
+tracking step 1
+generating bunch 1.0
+warning: 15 elements had no matrix
+tracking 1 particles
+1 particles transmitted, total effort of 1 particle-turns
+16 multipole kicks done
+
+Dumping output beam data...done.
+Dumping acceptance output...done.
+Dumping centroid data...done.
+Dumping sigma data...done.
+Dumping final properties data...done.
+Tracking step completed   ET:     00:00:00 CP:    0.08 BIO:0 DIO:0 PF:0 MEM:0
+
+
+Finished tracking.
+End of input data encountered.
+statistics:    ET:     00:00:00 CP:    0.09 BIO:0 DIO:0 PF:0 MEM:0
+=====================================================================================
+Thanks for using elegant.  Please cite the following reference in your publications:
+  M. Borland, "elegant: A Flexible SDDS-Compliant Code for Accelerator Simulation,"
+  Advanced Photon Source LS-287, September 2000.
+If you use a modified version, please indicate this in all publications.
+=====================================================================================
+This is elegant 25.1.0, Nov 28 2012, by M. Borland, W. Guo, V. Sajaev, Y. Wang, Y. Wu, and A. Xiao.
+Link date: Nov 28 2012 20:01:37
+statistics:    ET:     00:00:00 CP:    0.00 BIO:0 DIO:0 PF:0 MEM:0
+&run_setup
+    lattice = FLASH_2012_1200MeV.lte,
+    use_beamline = test,
+    rootname = {NULL},
+    output = %s.out,
+    centroid = %s.cen,
+    sigma = %s.sig,
+    final = %s.fin,
+    acceptance = %s.acc,
+    losses = {NULL},
+    magnets = %s.mag,
+    semaphore_file = {NULL},
+    parameters = %s.param,
+    combine_bunch_statistics = 0,
+    wrap_around = 1,
+    final_pass = 0,
+    default_order = 2,
+    concat_order = 0,
+    print_statistics = 0,
+    random_number_seed = 987654321,
+    correction_iterations = 1,
+    echo_lattice = 0,
+    p_central = 0.000000000000000e+000,
+    p_central_mev = 9.000000000000000e+002,
+    always_change_p0 = 0,
+    load_balancing_on = 0,
+    random_sequence_No = 1,
+    expand_for = {NULL},
+    tracking_updates = 1,
+    search_path = {NULL},
+    element_divisions = 0,
+&end
+Seeding random number generators
+computed value for Q9ACC1.L is 1.850000000000000e-001
+computed value for Q10ACC1.L is 1.850000000000000e-001
+computed value for Q1.1UBC2.L is 9.300000000000000e-002
+computed value for Q1.2UBC2.L is 1.310000000000000e-001
+computed value for Q1.3UBC2.L is 9.300000000000000e-002
+computed value for Q1DBC2.L is 2.768000000000000e-001
+computed value for Q1.1DBC2.L is 2.768000000000000e-001
+computed value for Q2DBC2.L is 2.768000000000000e-001
+computed value for Q2.2DBC2.L is 2.768000000000000e-001
+computed value for Q3DBC2.L is 2.768000000000000e-001
+computed value for Q4DBC2.L is 2.768000000000000e-001
+computed value for Q4DBC2.K1 is -3.243400000000000e+000
+computed value for Q5DBC2.L is 2.768000000000000e-001
+computed value for Q5DBC2.K1 is 3.243400000000000e+000
+computed value for Q6DBC2.L is 2.768000000000000e-001
+computed value for Q6DBC2.K1 is -3.243400000000000e+000
+computed value for Q7DBC2.L is 2.768000000000000e-001
+computed value for Q7DBC2.K1 is 3.243400000000000e+000
+computed value for Q8DBC2.L is 2.768000000000000e-001
+computed value for Q8DBC2.K1 is -3.243400000000000e+000
+computed value for Q9DBC2.L is 2.768000000000000e-001
+computed value for Q9DBC2.K1 is 3.243400000000000e+000
+computed value for Q10DBC2.L is 2.768000000000000e-001
+computed value for Q10DBC2.K1 is -3.243400000000000e+000
+computed value for Q10.3DBC2.L is 3.046000000000000e-001
+computed value for Q11DBC2.L is 3.046000000000000e-001
+computed value for Q12DBC2.L is 3.046000000000000e-001
+computed value for Q9ACC2.L is 1.850000000000000e-001
+computed value for Q10ACC2.L is 1.850000000000000e-001
+computed value for Q9ACC3.L is 1.850000000000000e-001
+computed value for Q10ACC3.L is 1.850000000000000e-001
+computed value for Q1UBC3.L is 3.046000000000000e-001
+computed value for Q2UBC3.L is 3.046000000000000e-001
+computed value for Q1DBC3.L is 2.768000000000000e-001
+computed value for Q2DBC3.L is 3.728000000000000e-001
+computed value for Q3DBC3.L is 3.728000000000000e-001
+computed value for Q9ACC4.L is 1.850000000000000e-001
+computed value for Q10ACC4.L is 1.850000000000000e-001
+computed value for Q9ACC5.L is 1.850000000000000e-001
+computed value for Q10ACC5.L is 1.850000000000000e-001
+computed value for Q9ACC6.L is 1.850000000000000e-001
+computed value for Q10ACC6.L is 1.850000000000000e-001
+computed value for Q2TCOL.L is 2.768000000000000e-001
+computed value for Q8TCOL.L is 2.768000000000000e-001
+computed value for Q9TCOL.L is 2.768000000000000e-001
+computed value for Q3ECOL.L is 3.286000000000000e-001
+computed value for Q4ECOL.L is 3.286000000000000e-001
+computed value for Q5ECOL.L is 3.286000000000000e-001
+computed value for S6ECOL.L is 2.150000000000000e-001
+computed value for S2ECOL.L is 2.150000000000000e-001
+computed value for Q1ORS.L is 2.768000000000000e-001
+computed value for Q2ORS.L is 2.768000000000000e-001
+computed value for Q4ORS.L is 2.768000000000000e-001
+computed value for Q7ORS.L is 2.768000000000000e-001
+computed value for Q9ORS.L is 2.768000000000000e-001
+computed value for Q12ORS.L is 2.768000000000000e-001
+computed value for Q1SFUND1.L is 2.768000000000000e-001
+computed value for Q1SFUND2.L is 1.271600000000000e-001
+computed value for Q1SFUND3.L is 1.271600000000000e-001
+computed value for Q1SFUND4.L is 1.271600000000000e-001
+computed value for Q1SFELC.L is 2.768000000000000e-001
+computed value for Q2SFELC.L is 2.768000000000000e-001
+computed value for Q6SMATCH.L is 2.768000000000000e-001
+computed value for Q8SMATCH.L is 2.768000000000000e-001
+computed value for Q10SMATCH.L is 2.768000000000000e-001
+computed value for Q13SMATCH.L is 2.768000000000000e-001
+computed value for Q14SMATCH.L is 1.271600000000000e-001
+computed value for Q15SMATCH.L is 1.271600000000000e-001
+computed value for Q5UND1.L is 1.271600000000000e-001
+computed value for Q6UND1.L is 1.271600000000000e-001
+computed value for Q5UND2.L is 1.271600000000000e-001
+computed value for Q6UND2.L is 1.271600000000000e-001
+computed value for Q5UND3.L is 1.271600000000000e-001
+computed value for Q6UND3.L is 1.271600000000000e-001
+computed value for Q5UND4.L is 1.271600000000000e-001
+computed value for Q6UND4.L is 1.271600000000000e-001
+computed value for Q5UND5.L is 1.271600000000000e-001
+computed value for Q6UND5.L is 1.271600000000000e-001
+computed value for Q5UND6.L is 1.271600000000000e-001
+computed value for Q6UND6.L is 1.271600000000000e-001
+computed value for Q9EXP.L is 2.768000000000000e-001
+computed value for Q10EXP.L is 3.286000000000000e-001
+computed value for Q11EXP.L is 3.286000000000000e-001
+computed value for D0075A.L is 6.160000000000000e-002
+computed value for D0100A.L is 8.660000000000001e-002
+computed value for D0100BM.L is 6.069999999999999e-002
+computed value for D0075B.L is 6.069999999999999e-002
+computed value for D0075D.L is 7.270000000000000e-002
+computed value for D0025G.L is 1.642000000000000e-002
+computed value for D0076G.L is 6.742000000000001e-002
+computed value for D0100G.L is 9.142000000000000e-002
+computed value for D0026G.L is 1.742000000000000e-002
+computed value for D0022G.L is 1.342000000000000e-002
+computed value for D0018G.L is 9.420000000000001e-003
+computed value for D00929F.L is 7.650000000000000e-002
+computed value for D0100F.L is 8.360000000000001e-002
+computed value for D0135F.L is 9.859999999999999e-002
+computed value for D0185F.L is 1.486000000000000e-001
+computed value for D0200C.L is 2.000000000000000e-001
+computed value for D01378C.L is 1.378000000000000e-001
+computed value for D0100QA.L is 8.250000000000000e-002
+computed value for D0075QA.L is 5.750000000000000e-002
+computed value for D0095QA.L is 7.750000000000000e-002
+computed value for D0115T.L is 9.350000000000000e-002
+computed value for D0050T.L is 1.300000000000001e-002
+computed value for D0075T.L is 5.350000000000000e-002
+computed value for D00881SB.L is 8.060000000000001e-002
+computed value for D0055SB.L is 4.750000000000001e-002
+computed value for D01811SB.L is 1.736000000000000e-001
+computed value for D0085SB.L is 7.750000000000001e-002
+computed value for D0195SB.L is 1.875000000000000e-001
+computed value for D0425SB.L is 4.175000000000000e-001
+computed value for C1.ACC1.PHASE is 9.000000000000000e+001
+computed value for C1.ACC1.VOLT is 1.722222515000000e+007
+computed value for C2.ACC1.PHASE is 9.000000000000000e+001
+computed value for C2.ACC1.VOLT is 1.722222515000000e+007
+computed value for C3.ACC1.PHASE is 9.000000000000000e+001
+computed value for C3.ACC1.VOLT is 1.722222515000000e+007
+computed value for C4.ACC1.PHASE is 9.000000000000000e+001
+computed value for C4.ACC1.VOLT is 1.722222515000000e+007
+computed value for C5.ACC1.PHASE is 9.000000000000000e+001
+computed value for C5.ACC1.VOLT is 2.152777887000000e+007
+computed value for C6.ACC1.PHASE is 9.000000000000000e+001
+computed value for C6.ACC1.VOLT is 2.152777887000000e+007
+computed value for C7.ACC1.PHASE is 9.000000000000000e+001
+computed value for C7.ACC1.VOLT is 2.152777887000000e+007
+computed value for C8.ACC1.PHASE is 9.000000000000000e+001
+computed value for C8.ACC1.VOLT is 2.152777887000000e+007
+computed value for DACC39.L is 8.010499999999998e-002
+computed value for C1.ACC39.L is 3.459000000000000e-001
+computed value for C1.ACC39.PHASE is -9.000000000000000e+001
+computed value for C1.ACC39.VOLT is 0.000000000000000e+000
+computed value for C2.ACC39.L is 3.459000000000000e-001
+computed value for C2.ACC39.PHASE is -9.000000000000000e+001
+computed value for C2.ACC39.VOLT is 0.000000000000000e+000
+computed value for C3.ACC39.L is 3.459000000000000e-001
+computed value for C3.ACC39.PHASE is -9.000000000000000e+001
+computed value for C3.ACC39.VOLT is 0.000000000000000e+000
+computed value for C4.ACC39.L is 3.459000000000000e-001
+computed value for C4.ACC39.PHASE is -9.000000000000000e+001
+computed value for C4.ACC39.VOLT is 0.000000000000000e+000
+computed value for DBPM2UBC2.L is 2.250000000000000e-001
+computed value for D01230T.L is 1.300000000000000e-001
+computed value for D0500BC2.L is 5.257311121191336e-001
+computed value for D1BC2.L is 5.083203692315260e-001
+computed value for D1BC2.ANGLE is -3.141592653589793e-001
+computed value for D1BC2.FINT is 0.000000000000000e+000
+computed value for D1BC2.HGAP is 0.000000000000000e+000
+computed value for D1BC2.E2 is -3.141592653589793e-001
+computed value for D2BC2.L is 5.083203692315260e-001
+computed value for D2BC2.ANGLE is 3.141592653589793e-001
+computed value for D2BC2.FINT is 0.000000000000000e+000
+computed value for D2BC2.HGAP is 0.000000000000000e+000
+computed value for D2BC2.E1 is 3.141592653589793e-001
+computed value for D3BC2.L is 5.083203692315260e-001
+computed value for D3BC2.ANGLE is 3.141592653589793e-001
+computed value for D3BC2.FINT is 0.000000000000000e+000
+computed value for D3BC2.HGAP is 0.000000000000000e+000
+computed value for D3BC2.E2 is 3.141592653589793e-001
+computed value for D4BC2.L is 5.083203692315260e-001
+computed value for D4BC2.ANGLE is -3.141592653589793e-001
+computed value for D4BC2.FINT is 0.000000000000000e+000
+computed value for D4BC2.HGAP is 0.000000000000000e+000
+computed value for D4BC2.E1 is -3.141592653589793e-001
+computed value for C1.ACC2.PHASE is 9.000000000000000e+001
+computed value for C1.ACC2.VOLT is 1.653470000000000e+007
+computed value for C2.ACC2.PHASE is 9.000000000000000e+001
+computed value for C2.ACC2.VOLT is 1.304290000000000e+007
+computed value for C3.ACC2.PHASE is 9.000000000000000e+001
+computed value for C3.ACC2.VOLT is 1.879410000000000e+007
+computed value for C4.ACC2.PHASE is 9.000000000000000e+001
+computed value for C4.ACC2.VOLT is 1.941030000000000e+007
+computed value for C5.ACC2.PHASE is 9.000000000000000e+001
+computed value for C5.ACC2.VOLT is 1.858870000000000e+007
+computed value for C6.ACC2.PHASE is 9.000000000000000e+001
+computed value for C6.ACC2.VOLT is 1.550770000000000e+007
+computed value for C7.ACC2.PHASE is 9.000000000000000e+001
+computed value for C7.ACC2.VOLT is 1.910220000000000e+007
+computed value for C8.ACC2.PHASE is 9.000000000000000e+001
+computed value for C8.ACC2.VOLT is 1.971840000000000e+007
+computed value for C1.ACC3.PHASE is 9.000000000000000e+001
+computed value for C1.ACC3.VOLT is 2.115847000000000e+007
+computed value for C2.ACC3.PHASE is 9.000000000000000e+001
+computed value for C2.ACC3.VOLT is 2.115847000000000e+007
+computed value for C3.ACC3.PHASE is 9.000000000000000e+001
+computed value for C3.ACC3.VOLT is 2.115847000000000e+007
+computed value for C4.ACC3.PHASE is 9.000000000000000e+001
+computed value for C4.ACC3.VOLT is 2.115847000000000e+007
+computed value for C5.ACC3.PHASE is 9.000000000000000e+001
+computed value for C5.ACC3.VOLT is 2.115847000000000e+007
+computed value for C6.ACC3.PHASE is 9.000000000000000e+001
+computed value for C6.ACC3.VOLT is 2.115847000000000e+007
+computed value for C7.ACC3.PHASE is 9.000000000000000e+001
+computed value for C7.ACC3.VOLT is 2.115847000000000e+007
+computed value for C8.ACC3.PHASE is 9.000000000000000e+001
+computed value for C8.ACC3.VOLT is 2.115847000000000e+007
+computed value for OTR3UBC3I.L is 1.150000000000000e-001
+computed value for D1BC3.L is 5.003667444913532e-001
+computed value for D1BC3.ANGLE is -6.632251157578452e-002
+computed value for D1BC3.E2 is -6.632251157578452e-002
+computed value for D4BC3.L is 5.003667444913532e-001
+computed value for D4BC3.ANGLE is 6.632251157578452e-002
+computed value for D4BC3.E1 is 6.632251157578452e-002
+computed value for D5BC3.L is 5.003667444913532e-001
+computed value for D5BC3.ANGLE is 6.632251157578452e-002
+computed value for D5BC3.E2 is 6.632251157578452e-002
+computed value for D10BC3.L is 5.003667444913532e-001
+computed value for D10BC3.ANGLE is -6.632251157578452e-002
+computed value for D10BC3.E1 is -6.632251157578452e-002
+computed value for D11BC3.L is 5.003667444913532e-001
+computed value for D11BC3.ANGLE is -6.632251157578452e-002
+computed value for D11BC3.E2 is -6.632251157578452e-002
+computed value for D14BC3.L is 5.003667444913532e-001
+computed value for D14BC3.ANGLE is 6.632251157578452e-002
+computed value for D14BC3.E1 is 6.632251157578452e-002
+computed value for OTR8BC3I.L is 1.152533882284690e-001
+computed value for OTR11BC3I.L is 1.150000000000000e-001
+computed value for D0745BC3.L is 7.466415150452990e-001
+computed value for D0200BC3.L is 2.004406751799460e-001
+computed value for D0826BC3.L is 8.278199884931771e-001
+computed value for D0150BC3.L is 1.503305063849595e-001
+computed value for D0459BC3.L is 4.600113495379761e-001
+computed value for D04310BC3.L is 4.319496550127837e-001
+computed value for D08080BC3.L is 8.097803277269819e-001
+computed value for D09254BC3.L is 9.274390040576103e-001
+computed value for D02347BC3.L is 2.352171323236666e-001
+computed value for D10044BC3.L is 1.006613070753689e+000
+computed value for D09611BC3.L is 9.632176645772306e-001
+computed value for D03238BC3.L is 3.245134531163326e-001
+computed value for D07451BC3.L is 7.467417353828889e-001
+computed value for OTR4DBC3I.L is 1.150000000000000e-001
+computed value for OTR5DBC3I.L is 1.000000000000000e-001
+computed value for WIRE5DBC3I.L is 2.500000000000000e-003
+computed value for C1.ACC4.PHASE is 9.000000000000000e+001
+computed value for C1.ACC4.VOLT is 2.281250000000000e+007
+computed value for C2.ACC4.PHASE is 9.000000000000000e+001
+computed value for C2.ACC4.VOLT is 2.281250000000000e+007
+computed value for C3.ACC4.PHASE is 9.000000000000000e+001
+computed value for C3.ACC4.VOLT is 2.281250000000000e+007
+computed value for C4.ACC4.PHASE is 9.000000000000000e+001
+computed value for C4.ACC4.VOLT is 2.281250000000000e+007
+computed value for C5.ACC4.PHASE is 9.000000000000000e+001
+computed value for C5.ACC4.VOLT is 2.281250000000000e+007
+computed value for C6.ACC4.PHASE is 9.000000000000000e+001
+computed value for C6.ACC4.VOLT is 2.281250000000000e+007
+computed value for C7.ACC4.PHASE is 9.000000000000000e+001
+computed value for C7.ACC4.VOLT is 2.281250000000000e+007
+computed value for C8.ACC4.PHASE is 9.000000000000000e+001
+computed value for C8.ACC4.VOLT is 2.281250000000000e+007
+computed value for C1.ACC5.PHASE is 9.000000000000000e+001
+computed value for C1.ACC5.VOLT is 2.281250000000000e+007
+computed value for C2.ACC5.PHASE is 9.000000000000000e+001
+computed value for C2.ACC5.VOLT is 2.281250000000000e+007
+computed value for C3.ACC5.PHASE is 9.000000000000000e+001
+computed value for C3.ACC5.VOLT is 2.281250000000000e+007
+computed value for C4.ACC5.PHASE is 9.000000000000000e+001
+computed value for C4.ACC5.VOLT is 2.281250000000000e+007
+computed value for C5.ACC5.PHASE is 9.000000000000000e+001
+computed value for C5.ACC5.VOLT is 2.281250000000000e+007
+computed value for C6.ACC5.PHASE is 9.000000000000000e+001
+computed value for C6.ACC5.VOLT is 2.281250000000000e+007
+computed value for C7.ACC5.PHASE is 9.000000000000000e+001
+computed value for C7.ACC5.VOLT is 2.281250000000000e+007
+computed value for C8.ACC5.PHASE is 9.000000000000000e+001
+computed value for C8.ACC5.VOLT is 2.281250000000000e+007
+computed value for C1.ACC6.PHASE is 9.000000000000000e+001
+computed value for C1.ACC6.VOLT is 2.281250000000000e+007
+computed value for C2.ACC6.PHASE is 9.000000000000000e+001
+computed value for C2.ACC6.VOLT is 2.281250000000000e+007
+computed value for C3.ACC6.PHASE is 9.000000000000000e+001
+computed value for C3.ACC6.VOLT is 2.281250000000000e+007
+computed value for C4.ACC6.PHASE is 9.000000000000000e+001
+computed value for C4.ACC6.VOLT is 2.281250000000000e+007
+computed value for C5.ACC6.PHASE is 9.000000000000000e+001
+computed value for C5.ACC6.VOLT is 2.281250000000000e+007
+computed value for C6.ACC6.PHASE is 9.000000000000000e+001
+computed value for C6.ACC6.VOLT is 2.281250000000000e+007
+computed value for C7.ACC6.PHASE is 9.000000000000000e+001
+computed value for C7.ACC6.VOLT is 2.281250000000000e+007
+computed value for C8.ACC6.PHASE is 9.000000000000000e+001
+computed value for C8.ACC6.VOLT is 2.281250000000000e+007
+computed value for C1.ACC7.PHASE is 9.000000000000000e+001
+computed value for C1.ACC7.VOLT is 2.281250000000000e+007
+computed value for C2.ACC7.PHASE is 9.000000000000000e+001
+computed value for C2.ACC7.VOLT is 2.281250000000000e+007
+computed value for C3.ACC7.PHASE is 9.000000000000000e+001
+computed value for C3.ACC7.VOLT is 2.281250000000000e+007
+computed value for C4.ACC7.PHASE is 9.000000000000000e+001
+computed value for C4.ACC7.VOLT is 2.281250000000000e+007
+computed value for C5.ACC7.PHASE is 9.000000000000000e+001
+computed value for C5.ACC7.VOLT is 2.281250000000000e+007
+computed value for C6.ACC7.PHASE is 9.000000000000000e+001
+computed value for C6.ACC7.VOLT is 2.281250000000000e+007
+computed value for C7.ACC7.PHASE is 9.000000000000000e+001
+computed value for C7.ACC7.VOLT is 2.281250000000000e+007
+computed value for C8.ACC7.PHASE is 9.000000000000000e+001
+computed value for C8.ACC7.VOLT is 2.281250000000000e+007
+computed value for BPM11ACC7I.L is 8.500000000000001e-002
+computed value for BPM15ACC7I.L is 8.500000000000001e-002
+computed value for BPM16ACC7I.L is 8.500000000000001e-002
+computed value for BPM17ACC7I.L is 1.725000000000000e-001
+computed value for OTR17ACC7I.L is 8.850000000000000e-002
+computed value for OTR9TCOLI.L is 1.150000000000000e-001
+computed value for D0273C.L is 2.500000000000000e-001
+computed value for D0220C.L is 1.970000000000000e-001
+computed value for D0125C.L is 1.016000000000000e-001
+computed value for D1ECOL.L is 4.462775003499576e-001
+computed value for D1ECOL.ANGLE is 6.108652381980154e-002
+computed value for D1ECOL.E2 is 6.108652381980154e-002
+computed value for D7ECOL.L is 4.462775003499576e-001
+computed value for D7ECOL.ANGLE is -6.108652381980154e-002
+computed value for D7ECOL.E1 is -6.108652381980154e-002
+computed value for BPM1SMATCHI.L is 2.250000000000000e-001
+computed value for WIRE14SMATCHI.L is 6.150000000000000e-002
+computed value for WIRE5UND1I.L is 6.150000000000000e-002
+computed value for WIRE5UND2I.L is 6.150000000000000e-002
+computed value for WIRE5UND3I.L is 6.150000000000000e-002
+computed value for WIRE5UND4I.L is 6.150000000000000e-002
+computed value for WIRE5UND5I.L is 6.150000000000000e-002
+computed value for WIRE5UND6I.L is 6.150000000000000e-002
+computed value for OTR12EXPI.L is 1.150000000000000e-001
+computed value for Q10DUMP.L is 1.000000000000000e+000
+computed value for Q10DUMP.TILT is -1.448623279155294e+000
+computed value for Q11DUMP.L is 1.000000000000000e+000
+computed value for Q11DUMP.TILT is -1.448623279155294e+000
+computed value for D6DUMP.L is 1.222278850086591e+000
+computed value for D6DUMP.ANGLE is -3.316125578789226e-001
+computed value for D6DUMP.E2 is -3.316125578789226e-001
+computed value for D6DUMP.TILT is -1.448623279155294e+000
+computed value for T6DUMP.TILT is -1.448623279155294e+000
+computed value for OTR9DUMPI.L is 1.350000000000000e-001
+computed value for BPM9DUMPI.L is 1.750000000000000e-001
+computed value for BPM13DUMPI.L is 7.500000000000000e-002
+computed value for RD13DUMPI.L is 1.400000000000000e-001
+computed value for D1090.L is 4.558000000000000e-001
+computed value for Q6BYP.L is 3.286000000000000e-001
+computed value for Q6BYP.TILT is -1.204277183876088e+000
+computed value for Q8BYP.L is 3.286000000000000e-001
+computed value for Q8BYP.TILT is -1.204277183876088e+000
+computed value for Q10BYP.L is 3.286000000000000e-001
+computed value for Q10BYP.TILT is -1.204277183876088e+000
+computed value for Q16BYP.L is 3.286000000000000e-001
+computed value for Q16BYP.TILT is -1.204277183876088e+000
+computed value for Q17BYP.L is 3.286000000000000e-001
+computed value for Q17BYP.TILT is -1.204277183876088e+000
+computed value for Q18BYP.L is 3.286000000000000e-001
+computed value for Q18BYP.TILT is -1.204277183876088e+000
+computed value for Q36BYP.L is 3.286000000000000e-001
+computed value for Q37BYP.L is 3.286000000000000e-001
+computed value for Q39BYP.L is 3.286000000000000e-001
+computed value for Q41BYP.L is 3.286000000000000e-001
+computed value for Q58BYP.L is 3.286000000000000e-001
+computed value for Q75BYP.L is 3.286000000000000e-001
+computed value for Q92BYP.L is 3.286000000000000e-001
+computed value for Q92BYP.TILT is -1.448623279155294e+000
+computed value for Q93BYP.L is 3.286000000000000e-001
+computed value for Q93BYP.TILT is -1.448623279155294e+000
+computed value for S5BYP.L is 2.150000000000000e-001
+computed value for S5BYP.TILT is -1.204277183876088e+000
+computed value for S10BYP.L is 2.150000000000000e-001
+computed value for S10BYP.TILT is -1.204277183876088e+000
+computed value for OTR6BYPI.L is 1.150000000000000e-001
+computed value for OTR35BYPI.L is 1.150000000000000e-001
+computed value for OTR38BYPI.L is 1.150000000000000e-001
+computed value for OTR57BYPI.L is 1.150000000000000e-001
+computed value for D1BYP.L is 4.462775003499576e-001
+computed value for D1BYP.ANGLE is 6.108652381980154e-002
+computed value for D1BYP.E2 is 6.108652381980154e-002
+computed value for D1BYP.TILT is -1.204277183876088e+000
+computed value for D2BYP.L is 4.462775003499576e-001
+computed value for D2BYP.ANGLE is 6.108652381980154e-002
+computed value for D2BYP.E2 is 6.108652381980154e-002
+computed value for D2BYP.TILT is -1.204277183876088e+000
+computed value for D14BYP.L is 4.462775003499576e-001
+computed value for D14BYP.ANGLE is -6.108652381980154e-002
+computed value for D14BYP.E1 is -6.108652381980154e-002
+computed value for D14BYP.TILT is -1.204277183876088e+000
+computed value for D15BYP.L is 4.462775003499576e-001
+computed value for D15BYP.ANGLE is -6.108652381980154e-002
+computed value for D15BYP.E1 is -6.108652381980154e-002
+computed value for D15BYP.TILT is -1.204277183876088e+000
+computed value for D0233B.L is 2.100000000000000e-001
+computed value for D0225B.L is 2.020000000000000e-001
+computed value for Q4DUMP.L is 3.728000000000000e-001
+computed value for Q4DUMP.TILT is -1.448623279155294e+000
+computed value for D1DUMP.L is 1.222278850086591e+000
+computed value for D1DUMP.ANGLE is -3.316125578789226e-001
+computed value for D1DUMP.E2 is -3.316125578789226e-001
+computed value for D1DUMP.TILT is -1.448623279155294e+000
+length of beamline TEST per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&load_parameters
+    filename = undulator_quad_900MeV.sdds,
+    filename_list = {NULL},
+    include_name_pattern = {NULL},
+    include_item_pattern = {NULL},
+    include_type_pattern = {NULL},
+    exclude_name_pattern = {NULL},
+    exclude_item_pattern = {NULL},
+    exclude_type_pattern = {NULL},
+    change_defined_values = 1,
+    clear_settings = 0,
+    allow_missing_files = 0,
+    allow_missing_elements = 0,
+    allow_missing_parameters = 0,
+    force_occurence_data = 1,
+    verbose = 0,
+    use_first = 0,
+&end
+Using single filename for parameter loading
+17  parameter values loaded
+New length per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.02 BIO:0 DIO:0 PF:0 MEM:0
+&load_parameters
+    filename = flash_dfs1.erl,
+    filename_list = {NULL},
+    include_name_pattern = {NULL},
+    include_item_pattern = {NULL},
+    include_type_pattern = {NULL},
+    exclude_name_pattern = {NULL},
+    exclude_item_pattern = {NULL},
+    exclude_type_pattern = {NULL},
+    change_defined_values = 1,
+    clear_settings = 0,
+    allow_missing_files = 0,
+    allow_missing_elements = 0,
+    allow_missing_parameters = 0,
+    force_occurence_data = 1,
+    verbose = 0,
+    use_first = 0,
+&end
+Using single filename for parameter loading
+88  parameter values loaded
+New length per pass: 4.536187885008660e+001 m
+statistics:    ET:     00:00:00 CP:    0.03 BIO:0 DIO:0 PF:0 MEM:0
+&run_control
+    n_steps = 1,
+    bunch_frequency = 0.000000000000000e+000,
+    n_indices = 0,
+    n_passes = 1,
+    reset_rf_for_each_step = 1,
+    first_is_fiducial = 0,
+    restrict_fiducialization = 0,
+    reset_scattering_seed = 0,
+&end
+statistics:    ET:     00:00:00 CP:    0.03 BIO:0 DIO:0 PF:0 MEM:0
+&twiss_output
+    filename = %s.twi,
+    matched = 0,
+    output_at_each_step = 0,
+    output_before_tune_correction = 0,
+    final_values_only = 0,
+    statistics = 0,
+    radiation_integrals = 0,
+    beta_x = 1.184339900000000e+001,
+    alpha_x = 2.100000000000000e+000,
+    eta_x = 0.000000000000000e+000,
+    etap_x = 0.000000000000000e+000,
+    beta_y = 3.823322000000000e+000,
+    alpha_y = -1.920000000000000e+000,
+    eta_y = 0.000000000000000e+000,
+    etap_y = 0.000000000000000e+000,
+    reference_file = {NULL},
+    reference_element = {NULL},
+    reference_element_occurrence = 0,
+    reflect_reference_values = 0,
+    concat_order = 3,
+    higher_order_chromaticity = 0,
+    higher_order_chromaticity_points = 5,
+    higher_order_chromaticity_range = 4.000000000000000e-004,
+    quick_higher_order_chromaticity = 0,
+    chromatic_tune_spread_half_range = 0.000000000000000e+000,
+    cavities_are_drifts_if_matched = 1,
+    compute_driving_terms = 0,
+    leading_order_driving_terms_only = 0,
+    local_dispersion = 1,
+&end
+final Twiss parameters (chromaticity valid for fully second-order calculation only!):
+         beta          alpha           nu           eta          eta'       dnu/d(dp/p)   dbeta/(dp/p)     accept.
+          m                          1/2pi           m                         1/2pi            m          mm-mrad
+--------------------------------------------------------------------------------------------------------------------
+  x: 4.128059e+001 1.702844e+000 1.224322e+000 1.238217e-002 -4.239537e-002 -3.247594e+000 4.790958e+002 0.000000e+000
+  y: 2.182417e+003 -1.595710e+002 1.464927e+000 8.794413e-002 3.335403e-001 -4.556293e-001 -5.928367e+004 0.000000e+000
+statistics:    ET:     00:00:01 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&floor_coordinates
+    filename = %s.flo,
+    X0 = 0.000000000000000e+000,
+    Y0 = 0.000000000000000e+000,
+    Z0 = 0.000000000000000e+000,
+    theta0 = 0.000000000000000e+000,
+    phi0 = 0.000000000000000e+000,
+    psi0 = 0.000000000000000e+000,
+    include_vertices = 0,
+    vertices_only = 0,
+    magnet_centers = 1,
+&end
+statistics:    ET:     00:00:01 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&matrix_output
+    printout = %s.mpr,
+    printout_order = 1,
+    full_matrix_only = 0,
+    SDDS_output = %s.mat,
+    SDDS_output_order = 1,
+    individual_matrices = 1,
+    output_at_each_step = 1,
+    start_from = {NULL},
+    start_from_occurence = 1,
+    SDDS_output_match = {NULL},
+&end
+statistics:    ET:     00:00:01 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&bunched_beam
+    bunch = {NULL},
+    n_particles_per_bunch = 1,
+    time_start = 0.000000000000000e+000,
+    matched_to_cell = {NULL},
+    emit_x = 0.000000000000000e+000,
+    emit_nx = 0.000000000000000e+000,
+    beta_x = 1.184339900000000e+001,
+    alpha_x = 2.100000000000000e+000,
+    eta_x = 0.000000000000000e+000,
+    etap_x = 0.000000000000000e+000,
+    emit_y = 0.000000000000000e+000,
+    emit_ny = 0.000000000000000e+000,
+    beta_y = 3.823322000000000e+000,
+    alpha_y = -1.920000000000000e+000,
+    eta_y = 0.000000000000000e+000,
+    etap_y = 0.000000000000000e+000,
+    use_twiss_command_values = 1,
+    Po = 1.761255686067211e+003,
+    sigma_dp = 0.000000000000000e+000,
+    sigma_s = 0.000000000000000e+000,
+    dp_s_coupling = 0.000000000000000e+000,
+    emit_z = 0.000000000000000e+000,
+    beta_z = 0.000000000000000e+000,
+    alpha_z = 0.000000000000000e+000,
+    momentum_chirp = 0.000000000000000e+000,
+    one_random_bunch = 1,
+    save_initial_coordinates = 1,
+    limit_invariants = 0,
+    symmetrize = 0,
+    halton_sequence[0] = 0, 0, 0,
+    halton_radix[0] = 0, 0, 0, 0, 0, 0,
+    optimized_halton = 0,
+    randomize_order[0] = 0, 0, 0,
+    limit_in_4d = 0,
+    enforce_rms_values[0] = 0, 0, 0,
+    distribution_cutoff[0] = 2.000000000000000e+000, 2.000000000000000e+000, 2.000000000000000e+000,
+    distribution_type[0] = gaussian, gaussian, gaussian,
+    centroid[0] = 0.000000000000000e+000, 0.000000000000000e+000, 0.000000000000000e+000, 0.000000000000000e+000, 
+        0.000000000000000e+000, 0.000000000000000e+000,
+    first_is_fiducial = 0,
+&end
+statistics:    ET:     00:00:01 CP:    0.06 BIO:0 DIO:0 PF:0 MEM:0
+&track
+    center_on_orbit = 0,
+    center_momentum_also = 1,
+    offset_by_orbit = 0,
+    offset_momentum_also = 1,
+    soft_failure = 1,
+    use_linear_chromatic_matrix = 0,
+    longitudinal_ring_only = 0,
+    ibs_only = 0,
+    stop_tracking_particle_limit = -1,
+&end
+tracking step 1
+generating bunch 1.0
+warning: 15 elements had no matrix
+tracking 1 particles
+1 particles transmitted, total effort of 1 particle-turns
+16 multipole kicks done
+
+Dumping output beam data...done.
+Dumping acceptance output...done.
+Dumping centroid data...done.
+Dumping sigma data...done.
+Dumping final properties data...done.
+Tracking step completed   ET:     00:00:01 CP:    0.08 BIO:0 DIO:0 PF:0 MEM:0
+
+
+Finished tracking.
+End of input data encountered.
+statistics:    ET:     00:00:01 CP:    0.09 BIO:0 DIO:0 PF:0 MEM:0
+=====================================================================================
+Thanks for using elegant.  Please cite the following reference in your publications:
+  M. Borland, "elegant: A Flexible SDDS-Compliant Code for Accelerator Simulation,"
+  Advanced Photon Source LS-287, September 2000.
+If you use a modified version, please indicate this in all publications.
+=====================================================================================
