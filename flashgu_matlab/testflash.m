@@ -1,6 +1,6 @@
 clc;clear all;
-elegant_file_root='E:\flashgu\';
-matlab_file_root='E:\flashgu_matlab\';
+elegant_file_root='E:\gitHub\flashdfs\flashgu\';
+matlab_file_root='E:\gitHub\flashdfs\flashgu_matlab\';
 
 beamline1=getline_flash(0.5);
 elemlist1=getList(beamline1,600);

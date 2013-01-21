@@ -1,8 +1,8 @@
 clc;
 
-%offset_calculated=lscov(QRmat1-QRmat2,orbit_real1-orbit_real2);
-offset_calculated=pinv(QRmat1-QRmat2)*(orbit_real1-orbit_real2);
-%qoffset_calculated=offset_calculated(1:nQuad);
+[offset_calculated,std_offset_calculated]=lscov(R,x);
+
+qoffset_calculated=offset_calculated(1:nQuad);
 
 tt1=cell2mat({qoffset_calculated,qoffset_real});
 figure;subplot(2,1,1);
