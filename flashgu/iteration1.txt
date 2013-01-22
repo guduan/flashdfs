@@ -1,6 +1,11 @@
 #!/bin/csh -f
 set nonomatch
 
+
+elegant flash_dfs1.ele >> test.log
+elegant flash_dfs2.ele >> test.log
+elegant flash_dfs3.ele >> test.log
+
 sddsconvert -ascii flash_dfs1.mat -nowarnings
 sddsconvert -ascii flash_dfs2.mat -nowarnings
 sddsconvert -ascii flash_dfs3.mat -nowarnings
@@ -9,14 +14,6 @@ sddsconvert -ascii flash_dfs3.mat -nowarnings
 #sddsconvert -ascii flash_dfs1.hrm -nowarnings
 #sddsconvert -ascii flash_dfs2.hrm -nowarnings
 #sddsconvert -ascii flash_dfs3.hrm -nowarnings
-
-# sort Transport Matrice for Matlab loading
-sddsconvert -pipe=out -ascii flash_dfs1.mat  -retain=col,s,ElementName,R* -fromPage=1 -toPage=1 \
-    | sddsprintout -pipe=in -col=* -width=9999 flash_dfs1.mat1
-sddsconvert -pipe=out -ascii flash_dfs2.mat  -retain=col,s,ElementName,R* -fromPage=1 -toPage=1 \
-	| sddsprintout -pipe=in -col=* -width=9999 flash_dfs2.mat1
-sddsconvert -pipe=out -ascii flash_dfs3.mat  -retain=col,s,ElementName,R* -fromPage=1 -toPage=1 \
-	| sddsprintout -pipe=in -col=* -width=9999 flash_dfs3.mat1
 
 # get bpm&quad positions and input error values
 sddsprocess -pipe=out flash_dfs1.erl -match=col,ElementType=MONI  -match=col,ElementParameter=DX \
@@ -35,12 +32,12 @@ sddsprocess  -pipe=out flash_dfs1.cen -match=col,ElementType=QUAD\
 	
 # get the BPM readings @ each energy
 sddsprocess -pipe=out flash_dfs1.cen -match=col,ElementType=MONI  \
-	| sddsconvert -pipe=in -ascii -retain=col,s,Cx -fromPage=1 -toPage=1 flash_dfs1.cx
+	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName -fromPage=1 -toPage=1 \
+	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs1.orbit
 sddsprocess -pipe=out flash_dfs2.cen -match=col,ElementType=MONI \
-	| sddsconvert -pipe=in -ascii -retain=col,s,Cx -fromPage=1 -toPage=1 flash_dfs2.cx
+	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName -fromPage=1 -toPage=1 \
+	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs2.orbit
 sddsprocess -pipe=out flash_dfs3.cen -match=col,ElementType=MONI \
-	| sddsconvert -pipe=in -ascii -retain=col,s,Cx  -fromPage=1 -toPage=1 flash_dfs3.cx
+	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName  -fromPage=1 -toPage=1 \
+	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs3.orbit
 
-sddsprintout  flash_dfs1.cx -col=Cx -width=9999 flash_dfs1.orbit
-sddsprintout  flash_dfs2.cx -col=Cx -width=9999 flash_dfs2.orbit
-sddsprintout  flash_dfs3.cx -col=Cx -width=9999 flash_dfs3.orbit

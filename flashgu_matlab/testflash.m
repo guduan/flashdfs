@@ -22,9 +22,9 @@ zBpm=elemlist1.zBpm;
 zQuad=elemlist1.zQuad;
 % derive Transport Matrice form ELEGANT
 %----------------------------------------------------
-a1=importdata([elegant_file_root 'flash_dfs1.mat1']);
-a2=importdata([elegant_file_root 'flash_dfs2.mat1']);
-a3=importdata([elegant_file_root 'flash_dfs3.mat1']);
+a1=importdata([elegant_file_root 'flash_dfs01.mat1']);
+a2=importdata([elegant_file_root 'flash_dfs02.mat1']);
+a3=importdata([elegant_file_root 'flash_dfs03.mat1']);
 b1=a1.data;
 b2=a2.data;
 b3=a3.data;
@@ -48,7 +48,7 @@ b3=a3.data;
     for i=1:nElement
      for j=1:6
          for k=1:6
-             Tmat3(j,k,i)=b2(i+1,(j-1)*6+k);
+             Tmat3(j,k,i)=b3(i+1,(j-1)*6+k);
          end
      end
   end
@@ -58,6 +58,9 @@ QRmat1=getQRmat(Tmat1,elemlist1);
 QRmat2=getQRmat(Tmat2,elemlist2);
 QRmat3=getQRmat(Tmat3,elemlist3);
 
+[orbit_real1,bpmlist]=textread([elegant_file_root 'flash_dfs1.cx1'],'%*s %s %s' );
+[orbit_real2,bpmlist]=textread([elegant_file_root 'flash_dfs1.cx1'],'%*s %s %s' );
+[orbit_real3,bpmlist]=textread([elegant_file_root 'flash_dfs1.cx1'],'%*s %s %s' );
 orbit1=importdata([elegant_file_root 'flash_dfs1.orbit']);
 orbit2=importdata([elegant_file_root 'flash_dfs2.orbit']);
 orbit3=importdata([elegant_file_root 'flash_dfs3.orbit']);
@@ -120,6 +123,8 @@ RBPM=-eye(nBpm);
 
 RALL=[QRmat1,RBPM;QRmat2,RBPM;QRmat3,RBPM];
 xMeas=[orbit_real1+bpm_noise1;orbit_real2+bpm_noise2;orbit_real3+bpm_noise3];
+% RALL=[QRmat1;QRmat2;QRmat3];
+% xMeas=[orbit_real1;orbit_real2;orbit_real3];
 
 %RLagr=[RQLin,RQLin*0;RQMin,RQMin*0;RBLin*0,RBLin;RBMin*0,RBMin];
 % use Quad Min Fit, BPM Min Fit

@@ -1,0 +1,57 @@
+&run_setup   
+        lattice = FLASH_2012_1200MeV.lte
+	    default_order=2,
+        use_beamline = test
+	    p_central_mev = 720,
+        sigma = %s.sig,
+        centroid = %s.cen,
+        output = %s.out,
+		magnets=%s.mag,
+	    parameters= %s.param
+        final = %s.fin,
+        print_statistics = 0
+	    element_divisions=0
+	    acceptance = %s.acc
+&end
+
+&load_parameters
+    filename = undulator_quad_720MeV.sdds
+	change_defined_values = 1
+	force_occurence_data=1
+&end
+
+&run_control
+        n_steps = 1
+&end
+
+&twiss_output
+    filename = %s.twi
+    matched = 0,  
+    output_at_each_step=0, 
+	beta_x = 11.843399
+	beta_y =3.823322
+	alpha_x =2.1
+	alpha_y = -1.92
+	higher_order_chromaticity = 0
+	final_values_only=0
+&end
+
+&floor_coordinates
+    filename = %s.flo
+    magnet_centers = 1
+&end
+
+&matrix_output
+	printout=%s.mpr
+    SDDS_output = %s.mat
+    SDDS_output_order = 1
+	individual_matrices=1
+	output_at_each_step=1
+&end
+
+&bunched_beam
+    n_particles_per_bunch = 1
+	use_twiss_command_values = 1
+&end
+
+&track &end

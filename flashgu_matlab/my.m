@@ -1,52 +1,17 @@
 clc;
+a1=importdata([elegant_file_root 'flash_dfs10.mat1']);
+b1=a1.data;
 
-%offset_calculated=lscov(QRmat1-QRmat2,orbit_real1-orbit_real2);
-offset_calculated=pinv(QRmat1-QRmat2)*(orbit_real1-orbit_real2);
-%qoffset_calculated=offset_calculated(1:nQuad);
-
-tt1=cell2mat({qoffset_calculated,qoffset_real});
-figure;subplot(2,1,1);
-bar(tt1);title('Quad-Offset comparison after 1st correction');
-
-
-
-
-
-% QRmat1=getQRmat(Tmat1,elemlist1);
-% QRmat2=getQRmat(Tmat2,elemlist2);
-% QRmat3=getQRmat(Tmat3,elemlist3);
-% % useQuadlist=[0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0];
-% % useBpmlist=[1     1     1     1     1     1     1     1     1     1,...
-% %                         1     1     1     1     1     1     1     1     1     1,...
-% %                         1     1     1     1     1     1     1];
-% useQuadlist=[3 5 7 9 13];
-% a=1:nQuad;
-% unuseQuadlist=setdiff(a,useQuadlist);
-% unuseBpmlist=[1 2 3];
-% 
-% 
-% nQuad_new=length(useQuadlist);
-% nBpm_new=nBpm-length(unuseBpm);
-% 
-% a=1:nQuad;
-% unuseQuadlist=setdiff(a,useQ);
-% 
-% QRmat1(:,unuseQuadlist)=[];
-% QRmat1(unuseBpm,:)=[];
-% % for i=1:nQuad_new
-% %     if(useQuadlist(i)==0)
-% %         QRmat1(:,i)=[];
-% %         QRmat2(:,i)=[];
-% %         QRmat3(:,i)=[];
-% %     end
-% % end
-% % for i=1:nBpm_new
-% %     if(useBpmlist(i)==0)
-% %         QRmat1(i,:)=[];
-% %         QRmat2(i,:)=[];
-% %         QRmat3(i,:)=[];
-% %     end
-% % end
-% %  a=1:nQuad;
-% %  b=[3 5 7 9 13];
-% %  c=setdiff(a,b)
+ for i=1:nElement
+     for j=1:6
+         for k=1:6
+             Tmat1(j,k,i)=b1(i+1,(j-1)*6+k);
+         end
+     end
+ end
+ 
+Rmat=getTmatAll(Tmat1,33,44);
+Qmat=Tmat1(:,:,33);
+QR=(1-Qmat(1,1))*Rmat(1,1)-Qmat(2,1)*Rmat(1,2);
+QR2=getTmatAll(Tmat1,33,44)-getTmatAll(Tmat1,32,44);
+a=QR2(1,1)
