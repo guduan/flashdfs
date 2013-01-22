@@ -59,8 +59,8 @@ QRmat2=getQRmat(Tmat2,elemlist2);
 QRmat3=getQRmat(Tmat3,elemlist3);
 
 orbit_real1=textread([elegant_file_root 'flash_dfs1.orbit'],'%*n %*s %n' );
-orbit_real2=textread([elegant_file_root 'flash_dfs2.orbit'],'%*n %*s %n' );
-orbit_real3=textread([elegant_file_root 'flash_dfs3.orbit'],'%*n %*s %n' );
+orbit_real2=textread([elegant_file_root 'flash_dfs1.orbit'],'%*n %*s %n' );
+orbit_real3=textread([elegant_file_root 'flash_dfs1.orbit'],'%*n %*s %n' );
 
 qoffsetdata=importdata([elegant_file_root 'flash_dfs.realquadoffset']);
 qoffset_real=qoffsetdata.data;
@@ -95,9 +95,6 @@ bpmoffset_real(unuseBpmlist)=[];
 
 zQuad(unuseQuadlist)=[];
 zBpm(unuseBpmlist)=[];
-
-elemlist1.bpmid(unuseBpmlist)=[];
-elemlist1.quadid(unuseQuadlist)=[];
 %******************
 
 use_noise=0;
