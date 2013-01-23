@@ -19,11 +19,6 @@ else
 	echo "Please check 'elegant flash_dfs03.ele'!"
 endif
 
-#sddsplot  \
-#	-col=s,Cx flash_dfs01.cen -graph=line,type=1 -legend=spec="orbit @600MeV before correction"  \
-#	-col=s,Cx flash_dfs02.cen -graph=line,type=2 -legend=spec="orbit @720MeV before correction"  \
-#	-col=s,Cx flash_dfs03.cen -graph=line,type=3 -legend=spec="orbit @900MeV before correction" 
-
 # sort Transport Matrice for Matlab loading
 sddsconvert -pipe=out -ascii flash_dfs01.mat  -retain=col,s,ElementName,R* -fromPage=1 -toPage=1 \
     | sddsprintout -pipe=in -col=* -width=9999 flash_dfs01.mat1

@@ -21,12 +21,16 @@
 &end
 
 &load_parameters
-    filename = flash_dfs1.param
+    filename = qoffset_new_after_1st.sdds
 	change_defined_values = 1
-	force_occurence_data=1
+    force_occurence_data=1
 &end
 
-&alter_elements name=Q5UND1 , item=DX, value="1e-4 ", verbose=1 &end
+&load_parameters
+    filename = bpmoffset_new_after_1st.sdds
+	change_defined_values = 1
+        force_occurence_data=1
+&end
 
 &run_control
         n_steps = 1

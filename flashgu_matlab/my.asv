@@ -1,0 +1,35 @@
+a1=importdata([elegant_file_root 'flash_dfs01.mat1']);
+a2=importdata([elegant_file_root 'flash_dfs02.mat1']);
+a3=importdata([elegant_file_root 'flash_dfs03.mat1']);
+b1=a1.data;
+b2=a2.data;
+b3=a3.data;
+
+for i=1:nElement
+    for j=1:6
+        for k=1:6
+            Tmat1(j,k,i)=b1(i+1,(j-1)*6+k);
+        end
+    end
+end
+
+for i=1:nElement
+    for j=1:6
+        for k=1:6
+            Tmat2(j,k,i)=b2(i+1,(j-1)*6+k);
+        end
+    end
+end
+
+for i=1:nElement
+    for j=1:6
+        for k=1:6
+            Tmat3(j,k,i)=b3(i+1,(j-1)*6+k);
+        end
+    end
+end
+
+% calculate Response Matrix
+QRmat1=getQRmat(Tmat1,elemlist1);
+QRmat2=getQRmat(Tmat2,elemlist2);
+QRmat3=getQRmat(Tmat3,elemlist3);

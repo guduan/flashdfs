@@ -30,7 +30,8 @@ sddsprocess  -pipe=out flash_dfs1.cen -match=col,ElementType=QUAD\
 #sddsxref  flash_dfs.bpmoffset.real  flash_dfs.bpmlocation flash_dfs.bpmoffset.real1 -take=s
 #sddsxref  flash_dfs.quadoffset.real  flash_dfs.quadlocation flash_dfs.quadoffset.real1 -take=s
 	
-# get the BPM readings @ each energy
+# get the BPM readings @ each energy(CAUTION!! not the real BPM readings, too bad, they are just
+# readings without BPM offsets
 sddsprocess -pipe=out flash_dfs1.cen -match=col,ElementType=MONI  \
 	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName -fromPage=1 -toPage=1 \
 	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs1.orbit
