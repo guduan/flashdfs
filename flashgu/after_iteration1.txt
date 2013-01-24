@@ -16,24 +16,32 @@ elegant flash_dfs11.ele >> test.log
 elegant flash_dfs12.ele >> test.log
 elegant flash_dfs13.ele >> test.log
 
-sddsplot  \
-	-col=s,Cx flash_dfs1.cen -graph=line,type=1 -legend=spec="orbit @600MeV before correction"  \
-	-col=s,Cx flash_dfs2.cen -graph=line,type=2 -legend=spec="orbit @720MeV before correction"  \
-	-col=s,Cx flash_dfs3.cen -graph=line,type=3 -legend=spec="orbit @900MeV before correction" 
-sddsplot  \
-	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @600MeV after 1st correction"  \
-	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @720MeV after 1st correction"  \
-	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @900MeV after 1st correction" 
+sddsplot  -scale=0,50,-15e-3,10e-3 -tickSettings=yspacing=5e-3 -title='Orbits Before 1st Correction' -topTitle \
+	-col=s,Cx flash_dfs1.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+	-col=s,Cx flash_dfs2.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+	-col=s,Cx flash_dfs3.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+
+sddsplot  -scale=0,50,-5e-4,5e-4 -tickSettings=yspacing=1e-4 -title='Orbits After 1st Correction' -topTitle \
+	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
 	
-sddsplot  \
-	-col=s,Cx flash_dfs1.cen  -graph=line,type=1 -legend=spec="orbit @600MeV before correction"  \
-	-col=s,Cx flash_dfs11.cen  -graph=line,type=3 -legend=spec="orbit @600MeV after 1st correction"
+sddsplot  -scale=0,50,-3e-3,3e-3 -tickSettings=yspacing=5e-4 -title=' Orbits Comparison after 1st correction @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs3.cen  -graph=line,type=1 -legend=spec="Before 1st correction"  \
+	-col=s,Cx flash_dfs13.cen  -graph=line,type=3 -legend=spec="After 1st correction"
 
+# plot Dispersion Before and After 1st correction.
+sddsmakedataset scan.sdds \
+    -column=dp,type=double,symbol='$gd' -data=-4e-3,-3e-3,-2e-3,-1e-3,0,1e-3,2e-3,3e-3,4e-3 -ascii
+	
+./measure_dispersion.txt flash_dfs4 'Dispersion_before_1st_correction @ 900MeV' 
+./measure_dispersion.txt flash_dfs14 'Dispersion_after_1st_correction @ 900MeV' 
 
-#sddsplot -graph=line,vary \
-#	-col=s,x  flash_dfs1.traj  -fromPage=1 -toPage=1 -legend=spec=orbit_before_1st_DFS \
-#	-col=s,Cx test2.cen -fromPage=5 -toPage=5 -legend=spec=orbit_after_1st_DFS
-#
-#./measure_dispersion.txt test0 BEFORE_DFS	
-#./measure_dispersion.txt test2 AFTER_1st_DFS
-echo "after_iteration is DONE"
+echo "after_iteration1 is DONE"
+echo "next step is measure orbits after 1st correction @ each Energy.(run iteration2.txt)"
+
+./iteration2.txt >> test.log
+echo "Orbits measurement for 2nd correction is DONE!"
+
+echo "Ready for 2nd correction!"
+echo "Now you can run 2nd correction in Matlab. Run 'flashdfs1.m' ."

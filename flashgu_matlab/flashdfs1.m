@@ -28,13 +28,16 @@ nQuad_old=nQuad;
 % derive Transport Matrice form ELEGANT
 %----------------------------------------------------
 if (exist([elegant_file_root 'TransportMatrice_900MeV.mat'],'file'))
+    disp('Transport Matrix and Response Matrix already exist,waiting for loading');
     load([elegant_file_root 'TransportMatrice_600MeV.mat']);
     load([elegant_file_root 'ResponseMatrice_600MeV.mat']);
     load([elegant_file_root 'TransportMatrice_720MeV.mat']);
     load([elegant_file_root 'ResponseMatrice_720MeV.mat']);
     load([elegant_file_root 'TransportMatrice_900MeV.mat']);
     load([elegant_file_root 'ResponseMatrice_900MeV.mat']);
+    disp('Transport Matrix and Response Matrix looading DONE');
 else
+    disp('Transport Matrix NOT ready, waiting for calculation');
     a1=importdata([elegant_file_root 'flash_dfs01.mat1']);
     a2=importdata([elegant_file_root 'flash_dfs02.mat1']);
     a3=importdata([elegant_file_root 'flash_dfs03.mat1']);
@@ -76,11 +79,13 @@ else
     save([elegant_file_root 'ResponseMatrice_720MeV.mat'],'QRmat2');
     save([elegant_file_root 'TransportMatrice_900MeV.mat'],'Tmat3');
     save([elegant_file_root 'ResponseMatrice_900MeV.mat'],'QRmat3');
+    disp('Transport Matrix calculation DONE.');
 end
 
 orbit_real1=textread([elegant_file_root 'flash_dfs1.orbit'],'%*n %*s %n' );
 orbit_real2=textread([elegant_file_root 'flash_dfs2.orbit'],'%*n %*s %n' );
 orbit_real3=textread([elegant_file_root 'flash_dfs3.orbit'],'%*n %*s %n' );
+disp('Orbit Measurment DONE.');
 
 qoffsetdata=importdata([elegant_file_root 'flash_dfs.realquadoffset']);
 qoffset_real=qoffsetdata.data;
@@ -178,24 +183,27 @@ bpmoffset_new=zeros(1,nBpm_old);
 qoffset_new(useQuadlist)=[qoffset_real-qoffset_calculated];
 bpmoffset_new(useBpmlist)=[bpmoffset_real-bpmoffset_calculated];
 
-csvwrite('qoffset_new.dat',qoffset_new);
-csvwrite('bpmoffset_new.dat',bpmoffset_new);
+csvwrite([elegant_file_root 'qoffset_new1.dat'],qoffset_new);
+csvwrite([elegant_file_root 'bpmoffset_new1.dat'],bpmoffset_new);
 
-fid=fopen('qoffset_new.dat','r');
+fid=fopen([elegant_file_root 'qoffset_new1.dat'],'r');
 temp=fgets(fid);
 fclose(fid);
 aa=['sddsmakedataset -ascii ', [elegant_file_root  'qoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
 dos(aa);
 
-fid=fopen('bpmoffset_new.dat','r');
+fid=fopen([elegant_file_root 'bpmoffset_new1.dat'],'r');
 temp=fgets(fid);
 fclose(fid);
-aa=['sddsmakedataset  -ascii ', [elegant_file_root 'bpmoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
+aa=['sddsmakedataset -ascii ', [elegant_file_root 'bpmoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
 dos(aa);
 
 cd (elegant_file_root);
-aa=['C:\cygwin\bin\mintty.exe ',[elegant_file_root 'after_iteration1.txt >>test.log;exit']];
+aa=['C:\cygwin\bin\mintty.exe ',[elegant_file_root 'after_iteration1.txt&']];
 dos(aa);
 checkfile('qoffset_new_after_1st.sdds');
+disp('************************');
 disp('1st Corrcetion is DONE!');
+disp('Ready for 2nd correction, Please run flashdfs2.m');
+disp('************************');
 cd (matlab_file_root);

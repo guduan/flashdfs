@@ -12,9 +12,9 @@ elegant flash_dfs02.ele >> test.log
 elegant flash_dfs03.ele >> test.log
 
 if(-e flash_dfs03.cen) then
-	echo "**********************"
-	echo "run 3 energies DONE."
-	echo "**********************"
+    echo "********************"
+	echo "Calculating Transport Matrice for each Energy."
+    echo "********************"
 else
 	echo "Please check 'elegant flash_dfs03.ele'!"
 endif
@@ -29,7 +29,7 @@ sddsconvert -pipe=out -ascii flash_dfs03.mat  -retain=col,s,ElementName,R* -from
 
 if(-e flash_dfs03.cen) then
 	echo "Transport Matrice preparation DONE!"
-	echo "**********************"
+    echo "********************"
 else
 	echo "Please check 'elegant flash_dfs03.ele'!"
 endif
@@ -37,8 +37,10 @@ endif
 ./iteration1.txt >> test.log
 
 if(-e flash_dfs3.orbit) then
-	echo "Measure Orbits DONE"
-	echo "**********************"
+	echo "Orbits measurement for 1st correction is DONE!"
+    echo "********************"
 endif
 
-
+echo "Ready for 1st correction!"
+echo "Now you can run 1st correction in Matlab. Run 'flashdfs1.m' ."
+echo "********************"

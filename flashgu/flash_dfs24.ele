@@ -1,0 +1,81 @@
+&run_setup   
+        lattice = FLASH_2012_1200MeV.lte
+	    default_order=2,
+        use_beamline = test
+	    p_central_mev = 900,
+        sigma = %s.sig,
+        centroid = %s.cen,
+        output = %s.out,
+		magnets=%s.mag,
+	    parameters= %s.param
+        final = %s.fin,
+        print_statistics = 0
+	    element_divisions=0
+	    acceptance = %s.acc
+&end
+
+&load_parameters
+    filename = undulator_quad_900MeV.sdds
+	change_defined_values = 1
+	force_occurence_data=1
+&end
+
+&load_parameters
+    filename = qoffset_new_after_2nd.sdds
+	change_defined_values = 1
+    force_occurence_data=1
+&end
+
+&load_parameters
+    filename = bpmoffset_new_after_2nd.sdds
+	change_defined_values = 1
+        force_occurence_data=1
+&end
+
+&run_control
+        n_indices = 1,
+        reset_rf_for_each_step = 0,
+		first_is_fiducial= 1 !necessory when dispersion scan ,need to establish one fiducial orbit
+&end
+
+
+&vary_element 
+    name=malin, 
+    item=dp, 
+	index_number=0,
+	index_limit=9,
+	enumeration_file =scan.sdds, 
+	enumeration_column = dp
+&end
+
+&twiss_output
+    filename = %s.twi
+    matched = 0,  
+    output_at_each_step=0, 
+	beta_x = 11.843399
+	beta_y =3.823322
+	alpha_x =2.1
+	alpha_y = -1.92
+	higher_order_chromaticity = 0
+	final_values_only=0
+&end
+
+&floor_coordinates
+    filename = %s.flo
+    magnet_centers = 1
+&end
+
+&matrix_output
+	printout=%s.mpr
+    SDDS_output = %s.mat
+    SDDS_output_order = 1
+	individual_matrices=1
+	output_at_each_step=1
+&end
+
+&bunched_beam
+    n_particles_per_bunch = 1
+	use_twiss_command_values = 1
+&end
+
+&track &end

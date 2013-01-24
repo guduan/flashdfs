@@ -1,32 +1,38 @@
-#!/bin/bash -f
+#!/bin/csh -f
 set nonomatch
 
-sddsprocess -pipe=out test.erl  -match=col,ElementParameter=DX -match=col,ElementType=QUAD \
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,ElementType=QUAD \
 	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
 	| sddsxref -pipe qoffset_new2.sdds -take=ParameterValue  \
-	| sddsxref -pipe=in test.quadlocation -take=s qoffset_new_after_2nd.sdds
+	| sddsxref -pipe=in flash_dfs.quadlocation -take=s qoffset_new_after_2nd.sdds
 
-sddsprocess -pipe=out test.erl  -match=col,ElementParameter=DX -match=col,ElementType=MONI \
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,ElementType=MONI \
 	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
 	| sddsxref -pipe bpmoffset_new2.sdds -take=ParameterValue  \
-	| sddsxref -pipe=in test.bpmlocation -take=s bpmoffset_new_after_2nd.sdds
+	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_2nd.sdds
 
-elegant test24.ele
+#put new quad/bpmoffset into lattice to check the orbit and dispersion
+elegant flash_dfs21.ele >> test.log
+elegant flash_dfs22.ele >> test.log
+elegant flash_dfs23.ele >> test.log
 
-#sddsplot  -graph=line,vary \
-#	-col=s,x  test.traj  -fromPage=1 -toPage=1  -legend=spec=orbit_before_DFS \
-#	-col=s,Cx test2.cen -fromPage=5 -toPage=5  -legend=spec=orbit_after_1st_DFS \
-#	-col=s,Cx test24.cen -fromPage=5 -toPage=5  -legend=spec=orbit_after_2nd_DFS 
-#	
-sddsplot  -graph=line,vary \
-	-col=s,Cx test2.cen -fromPage=5 -toPage=5  -legend=spec=orbit_after_1st_DFS \
-	-col=s,Cx test24.cen -fromPage=5 -toPage=5  -legend=spec=orbit_after_2nd_DFS 
-#
-#sddsplot  -layout=1,2 \
-#	-col=s,Cx test2.cen -fromPage=5 -toPage=5 -graph=line,type=2 -legend=spec=orbit_after_1st_DFS \
-#	-col=s,ParameterValue bpmoffset_new_after_1st.sdds -graph=sym,type=2,connect,type=2 -legend=spec=BPM_OFFSET_after_1st_DFS -end \
-#	-col=s,Cx test24.cen -fromPage=5 -toPage=5 -graph=line,type=3 -legend=spec=orbit_after_2nd_DFS \
-#	-col=s,ParameterValue bpmoffset_new_after_2nd.sdds -graph=sym,type=3-graph=sym,connect,type=2 -legend=spec=BPM_OFFSET_after_2nd_DFS
-#
-#	
-#./measure_dispersion.txt test24 AFTER_2nd_DFS
+sddsplot  -scale=0,50,-5e-5,1e-4 -tickSettings=yspacing=2e-5  -title='Orbits After 2nd Correction' -topTitle \
+	-col=s,Cx flash_dfs21.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+	-col=s,Cx flash_dfs22.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+	-col=s,Cx flash_dfs23.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+	
+sddsplot  -scale=0,50,-1e-4,2e-4 -tickSettings=yspacing=0.5e-4 -title=' Orbits Comparison after 2ndcorrection @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs13.cen  -graph=line,type=1 -legend=spec="After 1st correction"  \
+	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction"
+
+# plot Dispersion Before and After 1st correction.
+sddsmakedataset scan.sdds \
+    -column=dp,type=double,symbol='$gd' -data=-4e-3,-3e-3,-2e-3,-1e-3,0,1e-3,2e-3,3e-3,4e-3 -ascii
+	
+./measure_dispersion.txt flash_dfs24 'Dispersion_after_2nd_correction @ 900MeV' 
+
+echo "after_iteration2 is DONE"
+echo "next step is measure orbits after 2nd correction @ each Energy.(run iteration3.txt)"
+
+./iteration3.txt >> test.log
+echo "Orbits measurement for 3rd correction is DONE!"
