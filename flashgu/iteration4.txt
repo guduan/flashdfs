@@ -1,0 +1,14 @@
+#!/bin/csh -f
+set nonomatch
+
+# get the BPM readings after 3rd correction @ each energy(CAUTION!! not the real BPM readings, too bad, they are just
+# readings WITHOUT BPM offsets
+sddsprocess -pipe=out flash_dfs31.cen -match=col,ElementType=MONI  \
+	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName -fromPage=1 -toPage=1 \
+	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs31.orbit
+sddsprocess -pipe=out flash_dfs32.cen -match=col,ElementType=MONI \
+	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName -fromPage=1 -toPage=1 \
+	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs32.orbit
+sddsprocess -pipe=out flash_dfs33.cen -match=col,ElementType=MONI \
+	| sddsconvert -pipe -ascii -retain=col,s,Cx,ElementName  -fromPage=1 -toPage=1 \
+	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs33.orbit

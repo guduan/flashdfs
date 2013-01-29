@@ -16,15 +16,29 @@ elegant flash_dfs21.ele >> test.log
 elegant flash_dfs22.ele >> test.log
 elegant flash_dfs23.ele >> test.log
 
-sddsplot  -scale=0,50,-5e-5,1e-4 -tickSettings=yspacing=2e-5  -title='Orbits After 2nd Correction' -topTitle \
+#sddsplot  -scale=0,50,-5e-5,1e-4 -tickSettings=yspacing=2e-5  -title='Orbits After 2nd Correction' -topTitle \
+#	-col=s,Cx flash_dfs21.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+#	-col=s,Cx flash_dfs22.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+#	-col=s,Cx flash_dfs23.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+#	
+#sddsplot  -scale=0,50,-1e-4,2e-4 -tickSettings=yspacing=0.5e-4 -title=' Orbits Comparison after 2ndcorrection @ 900MeV' -topTitle \
+#	-col=s,Cx flash_dfs13.cen  -graph=line,type=1 -legend=spec="After 1st correction"  \
+#	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction"
+
+sddsplot  -title='Orbits After 2nd Correction' -topTitle \
 	-col=s,Cx flash_dfs21.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
 	-col=s,Cx flash_dfs22.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
 	-col=s,Cx flash_dfs23.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
 	
-sddsplot  -scale=0,50,-1e-4,2e-4 -tickSettings=yspacing=0.5e-4 -title=' Orbits Comparison after 2ndcorrection @ 900MeV' -topTitle \
+sddsplot  -title=' Orbits Comparison after 2nd correction @ 900MeV' -topTitle \
 	-col=s,Cx flash_dfs13.cen  -graph=line,type=1 -legend=spec="After 1st correction"  \
 	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction"
-
+	
+sddsplot  -title=' Orbits Comparison after 2 correction @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs3.cen  -graph=line,type=1 -legend=spec="Before 1st correction"  \
+	-col=s,Cx flash_dfs13.cen  -graph=line,type=2 -legend=spec="After 1st correction"  \
+	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction"
+	
 # plot Dispersion Before and After 1st correction.
 sddsmakedataset scan.sdds \
     -column=dp,type=double,symbol='$gd' -data=-4e-3,-3e-3,-2e-3,-1e-3,0,1e-3,2e-3,3e-3,4e-3 -ascii

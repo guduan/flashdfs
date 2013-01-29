@@ -16,12 +16,27 @@ elegant flash_dfs11.ele >> test.log
 elegant flash_dfs12.ele >> test.log
 elegant flash_dfs13.ele >> test.log
 
-sddsplot  -scale=0,50,-15e-3,10e-3 -tickSettings=yspacing=5e-3 -title='Orbits Before 1st Correction' -topTitle \
+#sddsplot  -scale=0,50,-15e-3,10e-3 -tickSettings=yspacing=5e-3 -title='Orbits Before 1st Correction' -topTitle \
+#	-col=s,Cx flash_dfs1.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+#	-col=s,Cx flash_dfs2.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+#	-col=s,Cx flash_dfs3.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+#
+#sddsplot  -scale=0,50,-1e-3,1e-3 -tickSettings=yspacing=2e-4 -title='Orbits After 1st Correction' -topTitle \
+#	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+#	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+#	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+
+sddsplot -title='Orbits Before 1st Correction' -topTitle \
 	-col=s,Cx flash_dfs1.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
 	-col=s,Cx flash_dfs2.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
 	-col=s,Cx flash_dfs3.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
 
-sddsplot  -scale=0,50,-5e-4,5e-4 -tickSettings=yspacing=1e-4 -title='Orbits After 1st Correction' -topTitle \
+sddsplot   -title='Orbits After 1st Correction' -topTitle \
+	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+	
+sddsplot  -title='Orbits After 1st Correction' -topTitle \
 	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
 	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
 	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
@@ -30,6 +45,8 @@ sddsplot  -scale=0,50,-3e-3,3e-3 -tickSettings=yspacing=5e-4 -title=' Orbits Com
 	-col=s,Cx flash_dfs3.cen  -graph=line,type=1 -legend=spec="Before 1st correction"  \
 	-col=s,Cx flash_dfs13.cen  -graph=line,type=3 -legend=spec="After 1st correction"
 
+	
+	
 # plot Dispersion Before and After 1st correction.
 sddsmakedataset scan.sdds \
     -column=dp,type=double,symbol='$gd' -data=-4e-3,-3e-3,-2e-3,-1e-3,0,1e-3,2e-3,3e-3,4e-3 -ascii

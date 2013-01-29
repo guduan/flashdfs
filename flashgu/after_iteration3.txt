@@ -1,0 +1,44 @@
+#!/bin/csh -f
+set nonomatch
+
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,ElementType=QUAD \
+	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+	| sddsxref -pipe qoffset_new3.sdds -take=ParameterValue  \
+	| sddsxref -pipe=in flash_dfs.quadlocation -take=s qoffset_new_after_3rd.sdds
+
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,ElementType=MONI \
+	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+	| sddsxref -pipe bpmoffset_new3.sdds -take=ParameterValue  \
+	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_3rd.sdds
+
+#put new quad/bpmoffset into lattice to check the orbit and dispersion
+elegant flash_dfs31.ele >> test.log
+elegant flash_dfs32.ele >> test.log
+elegant flash_dfs33.ele >> test.log
+
+sddsplot  -title='Orbits After 3rd Correction' -topTitle \
+	-col=s,Cx flash_dfs31.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+	-col=s,Cx flash_dfs32.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+	-col=s,Cx flash_dfs33.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+	
+sddsplot  -title=' Orbits Comparison after 3rd correction @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs23.cen  -graph=line,type=1 -legend=spec="After 2nd correction"  \
+	-col=s,Cx flash_dfs33.cen  -graph=line,type=3 -legend=spec="After 3rd correction"
+	
+sddsplot  -title=' Orbits Comparison after 3 correction @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs3.cen  -graph=line,type=1 -legend=spec="Before 1st correction"  \
+	-col=s,Cx flash_dfs13.cen  -graph=line,type=2 -legend=spec="After 1st correction"  \
+	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction" \
+	-col=s,Cx flash_dfs33.cen  -graph=line,type=4 -legend=spec="After 3rd correction"
+	
+# plot Dispersion Before and After 2rd correction.
+sddsmakedataset scan.sdds \
+    -column=dp,type=double,symbol='$gd' -data=-4e-3,-3e-3,-2e-3,-1e-3,0,1e-3,2e-3,3e-3,4e-3 -ascii
+	
+./measure_dispersion.txt flash_dfs34 'Dispersion_after_3rd_correction @ 900MeV' 
+
+echo "after_iteration3 is DONE"
+echo "next step is measure orbits after 3rd correction @ each Energy.(run iteration4.txt)"
+
+./iteration4.txt >> test.log
+echo "Orbits measurement for 4th correction is DONE!"

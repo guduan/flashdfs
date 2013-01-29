@@ -1,0 +1,41 @@
+#!/bin/csh -f
+set nonomatch
+
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,ElementType=QUAD \
+	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+	| sddsxref -pipe qoffset_new4.sdds -take=ParameterValue  \
+	| sddsxref -pipe=in flash_dfs.quadlocation -take=s qoffset_new_after_4th.sdds
+
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,ElementType=MONI \
+	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+	| sddsxref -pipe bpmoffset_new4.sdds -take=ParameterValue  \
+	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_4th.sdds
+
+#put new quad/bpmoffset into lattice to check the orbit and dispersion
+elegant flash_dfs41.ele >> test.log
+elegant flash_dfs42.ele >> test.log
+elegant flash_dfs43.ele >> test.log
+
+sddsplot  -title='Orbits After 4th Correction' -topTitle \
+	-col=s,Cx flash_dfs41.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
+	-col=s,Cx flash_dfs42.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
+	-col=s,Cx flash_dfs43.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
+	
+sddsplot  -title=' Orbits Comparison after 4th correction @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs33.cen  -graph=line,type=1 -legend=spec="After 3rd correction"  \
+	-col=s,Cx flash_dfs43.cen  -graph=line,type=3 -legend=spec="After 4th correction"
+	
+sddsplot  -title=' Orbits Comparison after 4 correction @ 900MeV' -topTitle \
+	-col=s,Cx flash_dfs3.cen  -graph=line,type=1 -legend=spec="Before 1st correction"  \
+	-col=s,Cx flash_dfs13.cen  -graph=line,type=2 -legend=spec="After 1st correction"  \
+	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction" \
+	-col=s,Cx flash_dfs33.cen  -graph=line,type=4 -legend=spec="After 3rd correction" \
+	-col=s,Cx flash_dfs43.cen  -graph=line,type=5 -legend=spec="After 4th correction"
+	
+./measure_dispersion.txt flash_dfs44 'Dispersion_after_4th_correction @ 900MeV' 
+
+echo "after_iteration4 is DONE"
+echo "next step is measure orbits after 5th correction @ each Energy.(run iteration5.txt)"
+
+#./iteration5.txt >> test.log
+#echo "Orbits measurement for 5th correction is DONE!"
