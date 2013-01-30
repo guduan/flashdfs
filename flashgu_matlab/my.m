@@ -4,37 +4,58 @@ global elegant_file_root  matlab_file_root
 elegant_file_root='E:\gitHub\flashdfs\flashgu\';
 matlab_file_root='E:\gitHub\flashdfs\flashgu_matlab\';
 
-[Tmat1,QRmat1,status]=init_BBA(600);
-[Tmat2,QRmat2,~]=init_BBA(720);
-[Tmat3,QRmat3,~]=init_BBA(900);
-
-measured_orbit1.orbit1=Readbpm1(600);
-measured_orbit1.orbit2=Readbpm1(720);
-measured_orbit1.orbit3=Readbpm1(900);
-input_offset1=Read_real_offset(1);
-
-Tmat.Tmat1=Tmat1;
-Tmat.Tmat2=Tmat2;
-Tmat.Tmat3=Tmat3;
-
-QRmat.QRmat1=QRmat1;
-QRmat.QRmat2=QRmat2;
-QRmat.QRmat3=QRmat3;
-
+[Tmat,status]=init_BBA_new();
+QRmat=DFS_QRmat_Get(Tmat,status);
+LRmat=DFS_LRmat_Get(Tmat,status);
 status.useQuadlist=[1 2 3 5 7 9 11 13 14 15];% Quadlist that in use
 status.unuseBpmlist=[1 2 3];% Bpmlist that NOT use
 
 [QRmat,status]=modify_QRmat(QRmat,status);
-[measured_orbit1,input_offset1,status]=modify_meas_input(measured_orbit1,input_offset1,status);
+[LRmat,status]=modify_LRmat(LRmat,status);
 
-%******************
-% add noise on bpm readings
-use_noise=1;
-
-%******************
-
-
-DFS_correct_1;
+use_noise=1;% add noise on bpm readings
+% change feedback_gain_factor=0.5
+feedback_gain_factor=0.8;
+DFS_correct_1; 
 DFS_correct_2;
 DFS_correct_3;
 DFS_correct_4;
+
+rms_orbit1(:,1.)=sqrt(mean(xMeas1.^2));
+rms_orbit1(:,2)=sqrt(mean(xMeas2.^2));
+rms_orbit1(:,3)=sqrt(mean(xMeas3.^2));
+rms_orbit1(:,4)=sqrt(mean(xMeas4.^2));
+
+%{
+%*******************************
+	% change feedback_gain_factor=0.7
+feedback_gain_factor=0.7;
+DFS_correct_1; 
+DFS_correct_2;
+DFS_correct_3;
+DFS_correct_4;
+
+rms_orbit2(:,1.)=sqrt(mean(xMeas1.^2));
+rms_orbit2(:,2)=sqrt(mean(xMeas2.^2));
+rms_orbit2(:,3)=sqrt(mean(xMeas3.^2));
+rms_orbit2(:,4)=sqrt(mean(xMeas4.^2));
+
+%*******************************
+% change feedback_gain_factor=0.8
+feedback_gain_factor=0.8;
+DFS_correct_1; 
+DFS_correct_2;
+DFS_correct_3;
+DFS_correct_4;
+
+rms_orbit3(:,1.)=sqrt(mean(xMeas1.^2));
+rms_orbit3(:,2)=sqrt(mean(xMeas2.^2));
+rms_orbit3(:,3)=sqrt(mean(xMeas3.^2));
+rms_orbit3(:,4)=sqrt(mean(xMeas4.^2));
+%*******************************
+rms_orbit(:,1) =rms_orbit1';
+rms_orbit(:,2) =rms_orbit2';
+rms_orbit(:,3) =rms_orbit3';
+
+
+%}
