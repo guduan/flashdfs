@@ -1,4 +1,4 @@
-function orbit=Readbpm0(energy)
+function orbit=Readbpm1(energy)
 % used to read Bpm readings;
 % but for now, it can only read the "real" orbit position from ELEGANT, if
 % you want simulate orbit measurement in real world, Please add BPM offsets

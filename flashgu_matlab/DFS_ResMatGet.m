@@ -7,10 +7,10 @@ opts=struct( ...
     'useLinBpm',1,...
     'useMinBpm',1);
 
-nQuad=status.nQuad;
-nBpm=status.nBpm;
-zQuad=status.zQuad;
-zBpm=status.zBpm;
+nQuad=status.nQuad_new;
+nBpm=status.nBpm_new;
+zQuad=status.zQuad_new;
+zBpm=status.zBpm_new;
 
 RQLin=[ones(1,nQuad),zeros(1,nBpm);zQuad,zeros(1,nBpm)];
 RQMin=[eye(nQuad),zeros(nQuad,nBpm)];

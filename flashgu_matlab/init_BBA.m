@@ -19,10 +19,6 @@ status.nElement=length(status.beamline);
 status.zBpm=status.elemlist.zBpm;
 status.zQuad=status.elemlist.zQuad;
 
-status.nBpm_old=status.nBpm;
-status.nCorr_old=status.nCorr;
-status.nQuad_old=status.nQuad;
-
 Tmat=zeros(6,6,status.nElement);
 QRmat=zeros(status.nBpm,status.nQuad);
 

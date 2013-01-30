@@ -7,10 +7,11 @@ matlab_file_root='E:\gitHub\flashdfs\flashgu_matlab\';
 [Tmat1,QRmat1,status]=init_BBA(600);
 [Tmat2,QRmat2,~]=init_BBA(720);
 [Tmat3,QRmat3,~]=init_BBA(900);
-measured_orbit.orbit1=Readbpm0(600);
-measured_orbit.orbit2=Readbpm0(720);
-measured_orbit.orbit3=Readbpm0(900);
-input_offset=Read_real_offset(1);
+
+measured_orbit1.orbit1=Readbpm1(600);
+measured_orbit1.orbit2=Readbpm1(720);
+measured_orbit1.orbit3=Readbpm1(900);
+input_offset1=Read_real_offset(1);
 
 Tmat.Tmat1=Tmat1;
 Tmat.Tmat2=Tmat2;
@@ -20,24 +21,52 @@ QRmat.QRmat1=QRmat1;
 QRmat.QRmat2=QRmat2;
 QRmat.QRmat3=QRmat3;
 
-[Tmat,QRmat,status,measured_orbit,input_offset]=element_choose(Tmat,QRmat,status,measured_orbit,input_offset);
+status.useQuadlist=[1 2 3 5 7 9 11 13 14 15];% Quadlist that in use
+status.unuseBpmlist=[1 2 3];% Bpmlist that NOT use
+
+[QRmat,status]=modify_QRmat(QRmat,status);
+[measured_orbit1,input_offset1,status]=modify_meas_input(measured_orbit1,input_offset1,status);
+
 %******************
 % add noise on bpm readings
 use_noise=1;
 
 %******************
 [RALL,RLagr]=DFS_ResMatGet(status,QRmat);
-[xMeas,xLagr]=DFS_BpmDataGet(status,measured_orbit,use_noise,input_offset);
+[xMeas1,xLagr1]=DFS_BpmDataGet(status,measured_orbit1,use_noise,input_offset1);
 
 R=[RALL;RLagr];
-x=[xMeas;xLagr];
+x1=[xMeas1;xLagr1];
 
 weight_factor=1e3;
-w=[weight_factor*ones(size(xMeas));ones(size(xLagr))];
+w=[weight_factor*ones(size(xMeas1));ones(size(xLagr1))];
 
-result=runDFS(status,R,x,w);
-plot_offset(result,input_offset);
+% run 1st DFS
+result1=runDFS(status,R,x1,w);
+plot_offset(result1,input_offset1,1);
+offset_feedback(0.8,result1,input_offset1,1,status);
+
+% run 2nd DFS
+measured_orbit2.orbit1=Readbpm2(600);
+measured_orbit2.orbit2=Readbpm2(720);
+measured_orbit2.orbit3=Readbpm2(900);
+input_offset2=Read_real_offset(2);
+
+[measured_orbit2,input_offset2,status]=modify_meas_input(measured_orbit2,input_offset2,status);
+use_noise=1;% add noise on bpm readings
+
+[RALL,RLagr]=DFS_ResMatGet(status,QRmat);
+[xMeas2,xLagr2]=DFS_BpmDataGet(status,measured_orbit2,use_noise,input_offset2);
+
+R=[RALL;RLagr];
+x2=[xMeas2;xLagr2];
+
+weight_factor=1e3;
+w=[weight_factor*ones(size(xMeas2));ones(size(xLagr2))];
+result2=runDFS(status,R,x2,w);
+plot_offset(result2,input_offset2,2);
+offset_feedback(0.8,result2,input_offset2,2,status);
 
 
 
-
+%}
