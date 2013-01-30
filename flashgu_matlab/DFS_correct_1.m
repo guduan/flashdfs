@@ -3,11 +3,8 @@ measured_orbit1=Readbpm(1);
 input_offset1=Read_real_offset(1);
 
 [measured_orbit1,input_offset1,status]=modify_meas_input(measured_orbit1,input_offset1,status);
-
-[RALL,RLagr]=DFS_ResMatGet(status,QRmat,LRmat);
 [xMeas1,xLagr1]=DFS_BpmDataGet(status,measured_orbit1,use_noise,input_offset1);
-
-R=[RALL;RLagr];
+R=DFS_ResMatGet(status,QRmat,LRmat);
 x1=[xMeas1;xLagr1];
 
 weight_factor=1e3;
