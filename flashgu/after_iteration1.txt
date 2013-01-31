@@ -10,7 +10,11 @@ sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,
 	| sddsconvert -pipe -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
 	| sddsxref -pipe bpmoffset_new1.sdds -take=ParameterValue  \
 	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_1st.sdds
-
+	
+sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN  -match=col,ElementParameter=DX* \
+	| sddsconvert -pipe -ascii -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+	| sddsxref -pipe=in launch_new1.sdds -take=ParameterValue launch_new_after_1st.sdds
+	
 #put new quad/bpmoffset into lattice to check the orbit and dispersion
 elegant flash_dfs11.ele >> test.log
 elegant flash_dfs12.ele >> test.log

@@ -14,26 +14,32 @@ bpmoffset_new=zeros(1,status.nBpm);
 %feedback_gain_factor=0.8;
 qoffset_new(status.useQuadlist)=[input_offset.qoffset_real-result.qoffset_calculated*feedback_gain_factor];
 bpmoffset_new(status.useBpmlist)=[input_offset.bpmoffset_real-result.bpmoffset_calculated*feedback_gain_factor];
-
+% launch_new=[result.init_x,result.init_xp].*(1-feedback_gain_factor);
+launch_new=[result.init_x,result.init_xp].*0.1;
 csvwrite([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],qoffset_new);
 csvwrite([elegant_file_root 'bpmoffset_new',num2str(correction_number),'.dat'],bpmoffset_new);
-
+%generate new quadoffset after iteration
 fid=fopen([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],'r');
 temp=fgets(fid);
 fclose(fid);
 aa=['sddsmakedataset -ascii ', [elegant_file_root 'qoffset_new',num2str(correction_number),'.sdds'], ' -column=ParameterValue,type=double -data=',temp];
 dos(aa);
-
+%generate new bpmoffset after iteration
 fid=fopen([elegant_file_root 'bpmoffset_new',num2str(correction_number),'.dat'],'r');
 temp=fgets(fid);
 fclose(fid);
 aa=['sddsmakedataset -ascii ', [elegant_file_root 'bpmoffset_new',num2str(correction_number),'.sdds'], ' -column=ParameterValue,type=double -data=',temp];
+dos(aa);
+%generate new launch parameters after iteration
+aa=['sddsmakedataset -ascii ', [elegant_file_root 'launch_new',num2str(correction_number),'.sdds'],...
+        ' -column=ParameterValue,type=double -data=',num2str(launch_new(1)),',',num2str(launch_new(2))];
 dos(aa);
 
 cd (elegant_file_root);
 aa=['C:\cygwin\bin\mintty.exe ',[elegant_file_root 'after_iteration',num2str(correction_number),'.txt&']];
 dos(aa);
 
+cd (matlab_file_root);
 switch correction_number
     case 1
         checkfile('qoffset_new_after_1st.sdds');
@@ -58,4 +64,3 @@ switch correction_number
     otherwise
         disp('5th correction is NOT Ready yet');
 end
-cd (matlab_file_root);

@@ -22,6 +22,10 @@ switch correction_number
         orbit1=textread([elegant_file_root 'flash_dfs31.orbit'],'%*n %*s %n' );
         orbit2=textread([elegant_file_root 'flash_dfs32.orbit'],'%*n %*s %n' );
         orbit3=textread([elegant_file_root 'flash_dfs33.orbit'],'%*n %*s %n' );
+    case 5
+        orbit1=textread([elegant_file_root 'flash_dfs41.orbit'],'%*n %*s %n' );
+        orbit2=textread([elegant_file_root 'flash_dfs42.orbit'],'%*n %*s %n' );
+        orbit3=textread([elegant_file_root 'flash_dfs43.orbit'],'%*n %*s %n' );
     otherwise
         disp('5th correction is NOT Ready now!');
 end

@@ -18,6 +18,9 @@ switch number_of_correction
     case 4
         qoffset_real   =dlmread([elegant_file_root 'qoffset_new3.dat'])';
         bpmoffset_real =dlmread([elegant_file_root 'bpmoffset_new3.dat'])';
+    case 5
+        qoffset_real   =dlmread([elegant_file_root 'qoffset_new4.dat'])';
+        bpmoffset_real =dlmread([elegant_file_root 'bpmoffset_new4.dat'])';
     otherwise
         disp('Do you really want apply 5th correction??');
 end

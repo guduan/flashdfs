@@ -17,18 +17,25 @@ use_noise=1;% add noise on bpm readings
 % change feedback_gain_factor=0.5
 feedback_gain_factor=0.8;
 DFS_correct_1; 
-checkfile([elegant_file_root,'qoffset_new_after_1st.sdds']);
+checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
-checkfile([elegant_file_root,'qoffset_new_after_2nd.sdds']);
+checkfile([elegant_file_root,'flash_dfs23.orbit']);
 DFS_correct_3;
-checkfile([elegant_file_root,'qoffset_new_after_3rd.sdds']);
+checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
-checkfile([elegant_file_root,'qoffset_new_after_4th.sdds']);
 
-rms_orbit1(:,1.)=sqrt(mean(xMeas1.^2));
+ALL_orbit1(1,:)=xMeas1;
+ALL_orbit1(2,:)=xMeas2;
+ALL_orbit1(3,:)=xMeas3;
+ALL_orbit1(4,:)=xMeas4;
+ALL_orbit1(5,:)=xMeas5;
+
+rms_orbit1(:,1)=sqrt(mean(xMeas1.^2));
 rms_orbit1(:,2)=sqrt(mean(xMeas2.^2));
 rms_orbit1(:,3)=sqrt(mean(xMeas3.^2));
 rms_orbit1(:,4)=sqrt(mean(xMeas4.^2));
+rms_orbit1(:,5)=sqrt(mean(xMeas5.^2));
+
 
 %{
 %*******************************

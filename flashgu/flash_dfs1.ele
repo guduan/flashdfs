@@ -24,8 +24,6 @@
         n_steps = 1
 &end
 
-!&alter_elements name=UND_MAGNET, item=K, value="1.2392 100 * 50 / ", verbose=1 &end
-
 &error_control  error_log = %s.erl &end
 
 ! Quad misalignment		
@@ -35,6 +33,12 @@
 ! BPM misalignment		
 &error_element name=BPM* element_type=MONI item=DX amplitude=200e-6 cutoff=3 bind=0 &end
 &error_element name=BPM* element_type=MONI item=DY amplitude=200e-6 cutoff=3 bind=0 &end
+
+! Incoming misalignment		
+&error_element name=MALIN element_type=MALIGN item=DX amplitude=500e-6 cutoff=3 bind=0 &end
+&error_element name=MALIN element_type=MALIGN item=DXP amplitude=100e-6 cutoff=3 bind=0 &end
+
+
 
 &twiss_output
     filename = %s.twi

@@ -21,6 +21,12 @@
 &end
 
 &load_parameters
+    filename = launch_new_after_1st.sdds
+	change_defined_values = 1
+    force_occurence_data=1
+&end
+
+&load_parameters
     filename = qoffset_new_after_1st.sdds
 	change_defined_values = 1
     force_occurence_data=1
