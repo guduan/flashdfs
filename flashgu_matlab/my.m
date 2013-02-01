@@ -24,17 +24,17 @@ DFS_correct_3;
 checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
 
-ALL_orbit1(1,:)=xMeas1;
-ALL_orbit1(2,:)=xMeas2;
-ALL_orbit1(3,:)=xMeas3;
-ALL_orbit1(4,:)=xMeas4;
-ALL_orbit1(5,:)=xMeas5;
-
-rms_orbit1(:,1)=sqrt(mean(xMeas1.^2));
-rms_orbit1(:,2)=sqrt(mean(xMeas2.^2));
-rms_orbit1(:,3)=sqrt(mean(xMeas3.^2));
-rms_orbit1(:,4)=sqrt(mean(xMeas4.^2));
-rms_orbit1(:,5)=sqrt(mean(xMeas5.^2));
+% ALL_orbit1(1,:)=xMeas1;
+% ALL_orbit1(2,:)=xMeas2;
+% ALL_orbit1(3,:)=xMeas3;
+% ALL_orbit1(4,:)=xMeas4;
+% ALL_orbit1(5,:)=xMeas5;
+% 
+% rms_orbit1(:,1)=sqrt(mean(xMeas1.^2));
+% rms_orbit1(:,2)=sqrt(mean(xMeas2.^2));
+% rms_orbit1(:,3)=sqrt(mean(xMeas3.^2));
+% rms_orbit1(:,4)=sqrt(mean(xMeas4.^2));
+% rms_orbit1(:,5)=sqrt(mean(xMeas5.^2));
 
 
 %{

@@ -1,140 +1,0 @@
-SDDS1
-!# little-endian
-&description text="final properties--input: flash_dfs34.ele  lattice: FLASH_2012_1200MeV.lte", contents="final properties", &end
-&parameter name=Sx, symbol="$gs$r$bx$n", units=m, description=sqrt(<(x-<x>)^2>), type=double, &end
-&parameter name=Sxp, symbol="$gs$r$bx'$n", description=sqrt(<(x'-<x'>)^2>), type=double, &end
-&parameter name=Sy, symbol="$gs$r$by$n", units=m, description=sqrt(<(y-<y>)^2>), type=double, &end
-&parameter name=Syp, symbol="$gs$r$by'$n", description=sqrt(<(y'-<y'>)^2>), type=double, &end
-&parameter name=Ss, symbol="$gs$r$bs$n", units=m, description=sqrt(<(s-<s>)^2>), type=double, &end
-&parameter name=Sdelta, symbol="$gs$bd$n$r", description=sqrt(<(delta-<delta>)^2>), type=double, &end
-&parameter name=St, symbol="$gs$r$bt$n", units=s, description=sqrt(<(t-<t>)^2>), type=double, &end
-&parameter name=Cx, symbol=<x>, units=m, description="x centroid", type=double, &end
-&parameter name=Cxp, symbol=<x'>, description="x' centroid", type=double, &end
-&parameter name=Cy, symbol=<y>, units=m, description="y centroid", type=double, &end
-&parameter name=Cyp, symbol=<y'>, description="y' centroid", type=double, &end
-&parameter name=Cs, symbol=<s>, units=m, description="mean distance traveled", type=double, &end
-&parameter name=Cdelta, symbol="<$gd$r>", description="delta centroid", type=double, &end
-&parameter name=Ct, symbol=<t>, units=s, description="mean time of flight", type=double, &end
-&parameter name=s12, symbol="$gs$r$b12$n", units=m, description="<x*xp'>", type=double, &end
-&parameter name=s13, symbol="$gs$r$b13$n", units="m$a2$n", description="<x*y>", type=double, &end
-&parameter name=s14, symbol="$gs$r$b14$n", units=m, description="<x*y'>", type=double, &end
-&parameter name=s15, symbol="$gs$r$b15$n", units="m^a2$n", description="<x*s>", type=double, &end
-&parameter name=s16, symbol="$gs$r$b16$n", units=m, description="<x*delta>", type=double, &end
-&parameter name=s23, symbol="$gs$r$b23$n", units=m, description="<x'*y>", type=double, &end
-&parameter name=s24, symbol="$gs$r$b24$n", description="<x'*y'>", type=double, &end
-&parameter name=s25, symbol="$gs$r$b25$n", units=m, description="<x'*s>", type=double, &end
-&parameter name=s26, symbol="$gs$r$b26$n", description="<x'*delta>", type=double, &end
-&parameter name=s34, symbol="$gs$r$b34$n", units=m, description="<y*y'>", type=double, &end
-&parameter name=s35, symbol="$gs$r$b35$n", units="m^a2$n", description="<y*s>", type=double, &end
-&parameter name=s36, symbol="$gs$r$b36$n", units=m, description="<y*delta>", type=double, &end
-&parameter name=s45, symbol="$gs$r$b45$n", units=m, description="<y'*s>", type=double, &end
-&parameter name=s46, symbol="$gs$r$b46$n", description="<s'*delta>", type=double, &end
-&parameter name=s56, symbol="$gs$r$b56$n", units=m, description="<s*delta>", type=double, &end
-&parameter name=Transmission, description=Transmission, type=double, &end
-&parameter name=pCentral, symbol="p$bcen$n", units="m$be$nc", description="Reference beta*gamma", type=double, &end
-&parameter name=pAverage, symbol="p$bave$n", units="m$be$nc", description="Mean beta*gamma", type=double, &end
-&parameter name=KAverage, symbol="K$bave$n", units=MeV, description="Mean kinetic energy", type=double, &end
-&parameter name=Charge, units=C, description="Beam charge", type=double, &end
-&parameter name=ex, symbol="$ge$r$bx$n", units=m, description="geometric horizontal emittance", type=double, &end
-&parameter name=ey, symbol="$ge$r$by$n", units=m, description="geometric vertical emittance", type=double, &end
-&parameter name=ecx, symbol="$ge$r$bx,c$n", units=m, description="geometric horizontal emittance less dispersive contributions", type=double, &end
-&parameter name=ecy, symbol="$ge$r$by,c$n", units=m, description="geometric vertical emittance less dispersive contributions", type=double, &end
-&parameter name=el, symbol="$ge$r$bl$n", units=s, type=double, &end
-&parameter name=enx, symbol="$ge$r$bx,n$n", units=m, description="normalized horizontal emittance", type=double, &end
-&parameter name=eny, symbol="$ge$r$by,n$n", units=m, description="normalized vertical emittance", type=double, &end
-&parameter name=ecnx, symbol="$ge$r$bx,cn$n", units=m, description="normalized horizontal emittance less dispersive contributions", type=double, &end
-&parameter name=ecny, symbol="$ge$r$by,cn$n", units=m, description="normalized vertical emittance less dispersive contributions", type=double, &end
-&parameter name=ma1, units=m, description="maximum absolute value of x", type=double, &end
-&parameter name=ma2, description="maximum absolute value of x'", type=double, &end
-&parameter name=ma3, units=m, description="maximum absolute value of y", type=double, &end
-&parameter name=ma4, description="maximum absolute value of y'", type=double, &end
-&parameter name=Wx, symbol="W$bx$n", units=m, description="68.26% width in x", type=double, &end
-&parameter name=Wy, symbol="W$by$n", units=m, description="68.26% width in y", type=double, &end
-&parameter name=Dt, symbol="$gD$rt", units=s, description="Total time-of-flight span", type=double, &end
-&parameter name=Ddelta, symbol="$gDd$r", description="Total delta span", type=double, &end
-&parameter name=Dt50, symbol="$gD$rt$b50$n", units=s, description="50% time-of-flight span", type=double, &end
-&parameter name=Dt60, symbol="$gD$rt$b60$n", units=s, description="60% time-of-flight span", type=double, &end
-&parameter name=Dt70, symbol="$gD$rt$b70$n", units=s, description="70% time-of-flight span", type=double, &end
-&parameter name=Dt80, symbol="$gD$rt$b80$n", units=s, description="80% time-of-flight span", type=double, &end
-&parameter name=Dt90, symbol="$gD$rt$b90$n", units=s, description="90% time-of-flight span", type=double, &end
-&parameter name=Dt95, symbol="$gD$rt$b95$n", units=s, description="95% time-of-flight span", type=double, &end
-&parameter name=Ddelta50, symbol="$gDd$r$b50$n", description="50% delta span", type=double, &end
-&parameter name=Ddelta60, symbol="$gDd$r$b60$n", description="60% delta span", type=double, &end
-&parameter name=Ddelta70, symbol="$gDd$r$b70$n", description="70% delta span", type=double, &end
-&parameter name=Ddelta80, symbol="$gDd$r$b80$n", description="80% delta span", type=double, &end
-&parameter name=Ddelta90, symbol="$gDd$r$b90$n", description="90% delta span", type=double, &end
-&parameter name=Ddelta95, symbol="$gDd$r$b95$n", description="95% delta span", type=double, &end
-&parameter name=DtPerc10, units=s, description="Time offset to 10% point", type=double, &end
-&parameter name=DtPerc20, units=s, description="Time offset to 20% point", type=double, &end
-&parameter name=DtPerc30, units=s, description="Time offset to 30% point", type=double, &end
-&parameter name=DtPerc40, units=s, description="Time offset to 40% point", type=double, &end
-&parameter name=DtPerc50, units=s, description="Time offset to 50% point", type=double, &end
-&parameter name=DtPerc60, units=s, description="Time offset to 60% point", type=double, &end
-&parameter name=DtPerc70, units=s, description="Time offset to 70% point", type=double, &end
-&parameter name=DtPerc80, units=s, description="Time offset to 80% point", type=double, &end
-&parameter name=DtPerc90, units=s, description="Time offset to 90% point", type=double, &end
-&parameter name=R11, symbol="R$b11$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R12, symbol="R$b12$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R13, symbol="R$b13$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R14, symbol="R$b14$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R15, symbol="R$b15$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R16, symbol="R$b16$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R21, symbol="R$b21$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R22, symbol="R$b22$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R23, symbol="R$b23$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R24, symbol="R$b24$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R25, symbol="R$b25$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R26, symbol="R$b26$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R31, symbol="R$b31$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R32, symbol="R$b32$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R33, symbol="R$b33$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R34, symbol="R$b34$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R35, symbol="R$b35$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R36, symbol="R$b36$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R41, symbol="R$b41$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R42, symbol="R$b42$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R43, symbol="R$b43$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R44, symbol="R$b44$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R45, symbol="R$b45$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R46, symbol="R$b46$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R51, symbol="R$b51$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R52, symbol="R$b52$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R53, symbol="R$b53$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R54, symbol="R$b54$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R55, symbol="R$b55$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R56, symbol="R$b56$n", units=m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R61, symbol="R$b61$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R62, symbol="R$b62$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R63, symbol="R$b63$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R64, symbol="R$b64$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=R65, symbol="R$b65$n", units=1/m, description="Transport matrix element from start of system", type=double, &end
-&parameter name=R66, symbol="R$b66$n", description="Transport matrix element from start of system", type=double, &end
-&parameter name=detR, symbol="det R", description="Determinant of transport matrix from start of system", type=double, &end
-&parameter name=CPU, units=s, type=double, &end
-&parameter name=MEM, units=pages, type=long, &end
-&parameter name=PF, units=pages, type=long, &end
-&parameter name=Step, type=long, &end
-&parameter name=Steps, type=long, &end
-&parameter name=Particles, description="Number of particles", type=long, &end
-&parameter name=MALIN.DP, type=double, &end
-&data mode=binary, &end
-                                                            ­ƒÕ6øì<¿Œ¤“XÙ> `æÑ{€>»#?®3å>R4©HR®F@        SŠO„>                                                                                                                              ğ?J ¸×h›@J ¸×h›@@ãøÿ‹@                                                                                ­ƒÕ6øì<?Œ¤“XÙ> `æÑ{€>»#?®3å>                                                                                                                                                                                                        ñ)á‘»@ÒÁ¬çF–5@Iåğ¨aÍ¿u¸ç"íöÀ?        rÖ;ç¼n¿iü[_VÉ¿ÊĞ7L•gê¿ÙŠ²Ã¥Û?›ÂyŞÏ¿        ¯kŒü£¥¿ÙÏL§İš?‘1sÔÁ? ù¸¤÷[AÀ²TsÖ)4@        „¬;pIµÉ?ş¦yUÀ§§¿…^á7ƒ4Ğ¿ùû}Jñ À£SÜĞûÁö?        „ÉšKÖ?´=ô‘¨Ã¿BÃlUKê¿½.§‘±&À'ÂR|L3@      ğ?Ğ"pˆe÷–?                                              ğ?¼ó©ÿÿï?¤p=
-×£À?           	      ü©ñÒMbp¿                                                            Ì»r>ÜÆ>¿†ú~øá¿\SO7*?„y×Ø¸ 7?Æà²S®F@Ò÷G
-&sP?æ03O„>                                                                                                                              ğ?J ¸×h›@;˜¼>ão›@ë©,PŒ@                                                                                Ì»r>ÜÆ>?†ú~øá?\SO7*?„y×Ø¸ 7?                                                                                                                                                                                                        Eÿ‰º@†ra}9¦5@×ĞòÍ¿`’ñëÀ?        µy\K¿7téû~tÉ¿‡Í*ÕÅQê¿P¥_¡{WÛ?úYÅ–ªĞÏ¿        èŠø‡˜¥¿}
-×}Yš?DW’Á?Ó{™ÎR/AÀ†)OôÅ4@        Rì(š¨É?0„ğ3ºò§¿)ãÛö<Ğ¿»Q¥6ïÀ[e]::¿ö?        Dì||Ö?#÷àCµéÃ¿Ã×— ê¿ŒÕugºv&À¾J¹B].@      ğ?º"ú€ö–?                                              ğ?A¢ÆÏÿÿï?
-×£p=
-Ç?           	      ú~j¼t“h¿                                                            §ÃÜô?O@¿Y£sñp¿íeş¸.:?fŠ	×ÅF?ßØ´ÂS®F@Ò÷G
-&s`?G¼PÜO„>                                                                                                                              ğ?J ¸×h›@qæXÅîv›@§K"_ƒŒ@                                                                                §ÃÜô?O@?Y£sñp?íeş¸.:?fŠ	×ÅF?                                                                                                                                                                                                        	@Æ>]G@ƒÙ6Cvµ5@ÇàDÌ«Ì¿Óî<6ßÀ?        ?µx'¿£“¨äÉ¿Ó|8é:ê¿d+¡È	Û?]Rh†lÂÏ¿        ÒXÑ¥¿ñÃf©/ š?À½¦•Á?¦PgióAÀË¬,œÿ3@        ê4±Ïê›É?§šY<¨¿Äÿ‹ÜDĞ¿6­â°Ë½À´Ù…Æ*¼ö?        ñ¥Hˆ¬÷Õ?3¤)Ä¿ÕFÄ8³ê¿¡kÿ?<&ÀÃ±¡8)@      ğ?×Ê~$õ–?                                              ğ?¿ó+ëÿÿï?q=
-×£pÍ?           	      ü©ñÒMb`¿                                                            Y·Xó9A¿îÓ×T®k¿µµ;¤C?¢aGÙ¡úP?å®T®F@»ók¹¬h?hj…O„>                                                                                                                              ğ?J ¸×h›@§4õKú}›@i÷A’¶Œ@                                                                                Y·Xó9A?îÓ×T®k?µµ;¤C?¢aGÙ¡úP?                                                                                                                                                                                                        í°%W°z@xíÿªşÃ5@ë÷7_MRÌ¿gèêÎ»ÒÀ?        œ®ÆÃ¿÷(”«É¿ËßR.#ê¿—Œåÿ§¼Ú?vÏâ(À³Ï¿        ÈªGŒ‘‚¥¿Ã:^Œøäš?İ4”!˜Á?‹Ÿ²)ÙÖ@ÀñRc%û3@        å•g;É?bísØƒ¨¿N+Jº5LĞ¿ş
-°ŒÀ•.Ò Î¸ö?        N§hİëÕ?â7ú`hÄ¿œ‚°è’Äê¿ûÒ"&Àsè2&c#@      ğ?8±ø½ô–?                                              ğ?U
-?ûÿÿï?ìQ¸…ëÑ?           	      ü©ñÒMbP¿                                                            QìYŠ#B¿@Á·‡d0%¿Î˜‘„­ J?àµTÃSV?vÎ <U®F@Ò÷G
-&sp?²á|.O„>                                                                                                                              ğ?J ¸×h›@İ‚‘Ò…›@+­aÅéŒ@                                                                                QìYŠ#B?@Á·‡d0%?Î˜‘„­ J?àµTÃSV?                                                                                                                                                                                                        óªÛ­@1ø!%ÔÑ5@|ß„ ’ùË¿Á|˜:ÆÀ?        ÑkçYçàœ¿"XbÈ”ÄÉ¿{†
-ê¿Ó‘¦ÉpÚ?+ªmÄ¦¤Ï¿        s•¼,“w¥¿¹Ô¯äİ'›?*[Ú šÁ?2¸BÄ«@À¾ÙiŞéö3@        œkî‹‚É?ìÚ•Ê¨¿ªÊAÙSĞ¿È9ïaã[ÀKwğó$µö?        N¯Ì£àÕ?RäŸì¥Ä¿jrEÕê¿(6`È%ÀÎ5¼ÒY@      ğ?f1¿œİó–?                                              ğ?‰    ğ?…ëQ¸Õ?           	                                                                          ’°„³C¿Wl™"¨*¿u¸ºj=PP?c®‘Î!\?^ŠùU®F@1õÙŒït?¨ö‡×O„>                                                                                                                              ğ?J ¸×h›@Ñ-YŒ›@älø#Œ@                                                                                ’°„³C?Wl™"¨*?u¸ºj=PP?c®‘Î!\?                                                                                                                                                                                                        ,ãp¢qŞ@G• øŞ5@FŞ¼é˜¡Ë¿a]l‚¹À?        ~U.Iá½œ¿¸áš™ëÛÉ¿Øed-ğé¿…=@$Ú?4.E!•Ï¿        !’¶’l¥¿Ömæåh›?b.ø¡E›Á?Müîr@ÀªÀƒ¡gò3@        6MÇeÜuÉ?	8Ë*©¿;æZVHYĞ¿&
-Le+ÀÍêÀé/±ö?        ‹dB>ÔÕ?äïZœJâÄ¿¶x˜åê¿zã\Ìù%ÀH¬µô@      ğ?Êlçÿò–?                                              ğ?]oùÿÿï?R¸…ëQØ?           	      ü©ñÒMbP?                                                            gs(hóC¿ß$”¨‰0¿YıaR‡S?¡
-÷AÚ×`?~_k¶V®F@»ók¹¬x?
-w‹€O„>                                                                                                                              ğ?J ¸×h›@IÊß“›@6¡+P*Œ@                                                                                gs(hóC?ß$”¨‰0?YıaR‡S?¡
-÷AÚ×`?                                                                                                                                                                                                        «ã@!Ûå
-lë5@èÒ]İ`JË¿á¦,%”¬À?        äòsc›œ¿Z€–.ñÉ¿şS ãEÕé¿­ğyµØÙ?n«õ1…Ï¿        ¶ò-a¥¿ÃRbZ¨›?óR¢ò›Á?:Êa\&T@Àul@Ÿí3@        ¼0HÍ,iÉ?}¯v©Q©¿Şó_Ğ¿e&#p5ûÀ)qV«ï¬ö?        ¬ ìnÈÕ?	g¶Å|Å¿/´ôê¿½€½îU%ÀfÀ2@      ğ?K7ã#ò–?                                              ğ?ş7Œçÿÿï?…ëQ¸…Û?           	      ü©ñÒMb`?                                                            èhî²ÙD¿%nOœÇ2¿Ww³5ËV?6µ4´c?¦›CsW®F@ñı‘‚É|?è2‡)O„>                                                                                                                              ğ?J ¸×h›@~mff(š›@"
-Á^ƒ1Œ@                                                                                èhî²ÙD?%nOœÇ2?Ww³5ËV?6µ4´c?                                                                                                                                                                                                        .$©Ec>@p4P1÷5@*´lŸèóÊ¿A’špŸÀ?        ìÁ¨zYxœ¿ej²Ê¿rœl8f¹é¿®£Ô¿ÛÙ?/èÙtÏ¿        °“µ•‹V¥¿.Âbnå›?;(	œÁ??g’Ä)@À 
-öL‘è3@        !G	%}\É?Ğhµİ(“©¿½ c:dĞ¿¡tRqSËÀi1÷àd¨ö?        •8ï Ÿ¼Õ?jC¼U…WÅ¿¯» ·Eë¿|N©…>%ÀŒ¨	@      ğ?•zmIñ–?                                              ğ?Ñ±WÊÿÿï?¸…ëQ¸Ş?           	      ú~j¼t“h?                                                            B=™ãç¾E¿P9f8J5¿uÇIZ?‘%bf?Ş0X®F@Ò÷G
-&s€?¬úzÒO„>                                                                                                                              ğ?J ¸×h›@¶»í3¡›@˜çà‘¶8Œ@                                                                                B=™ãç¾E?P9f8J5?uÇIZ?‘%bf?                                                                                                                                                                                                        tîÒÄòl@*{5[I6@g,tõ.Ê¿^n3¡’À?        H5Õ`×Uœ¿cñª¼,Ê¿';®ˆ’œé¿¿mì‘CÙ?ŒÙN$dÏ¿        ¯s¤ò„K¥¿Ekyú œ?9;Œ›Á?!Ô•¸±ü?À/hZ>ã3@        \&mÍOÉ?´¢ÔZ!Ó©¿GÙø3êhĞ¿ ó¾›À	2£ö?        %ëÁ`Ğ°Õ?!-Ë„fÅ¿^,™ë¿SÓK¿èä$À±AaoŸ@      ğ?Âpùépğ–?                                              ğ?•Ñ¡ÿÿï?ö(\Âõà?        	   	      ü©ñÒMbp?

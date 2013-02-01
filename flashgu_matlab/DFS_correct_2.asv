@@ -7,11 +7,11 @@ input_offset2=Read_real_offset(2);
 R=DFS_ResMatGet(status,QRmat,LRmat);
 x2=[xMeas2;xLagr2];
 
-weight_factor=1e4;
-w=[weight_factor*ones(size(xMeas2));ones(size(xLagr2))];
-result2=runDFS(status,R,x2,w);
-plot_offset(result2,input_offset2,2);
-offset_feedback(feedback_gain_factor,result2,input_offset2,2,status);
+% weight_factor=1e5;
+% w=[weight_factor*ones(size(xMeas2));ones(size(xLagr2))];
+% result2=runDFS(status,R,x2,w);
+% plot_offset(result2,input_offset2,2);
+% offset_feedback(feedback_gain_factor,result2,input_offset2,2,status);
 
 
 % clear rms_error_bpm rms_error_quad rms_error

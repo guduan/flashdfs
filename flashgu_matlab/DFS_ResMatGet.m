@@ -6,7 +6,7 @@ opts=struct( ...
     'useMinQuad',1,...
     'useLinBpm',1,...
     'useMinBpm',1,...
-     'useLaunchfit',1);
+    'useLaunchfit',1);
 
 nQuad=status.nQuad_new;
 nBpm=status.nBpm_new;
@@ -22,16 +22,16 @@ RBMin=[zeros(nBpm,nQuad),eye(nBpm)];
 RBPM=-eye(nBpm);
 %***************************************************
 Rmag=[LRmat.LRmat1.*opts.useLaunchfit,  QRmat.QRmat1,   RBPM;
-             LRmat.LRmat2.*opts.useLaunchfit,  QRmat.QRmat2,   RBPM;
-             LRmat.LRmat3.*opts.useLaunchfit,  QRmat.QRmat3,   RBPM];
+    LRmat.LRmat2.*opts.useLaunchfit,  QRmat.QRmat2,   RBPM;
+    LRmat.LRmat3.*opts.useLaunchfit,  QRmat.QRmat3,   RBPM];
 
 RLagr=[RQLin.*opts.useLinQuad;
-           RQMin.*opts.useMinQuad;
-           RBLin.*opts.useLinBpm;
-           RBMin.*opts.useMinBpm];
-           
+    RQMin.*opts.useMinQuad;
+    RBLin.*opts.useLinBpm;
+    RBMin.*opts.useMinBpm];
+
 RALL=[Rmag;
-          zeros(size(RLagr,1),2),RLagr];
+    zeros(size(RLagr,1),2),RLagr];
 %***************************************************
 disp('Full Response Matrix for DFS is OK');
 % R=[RALL;RLagr];

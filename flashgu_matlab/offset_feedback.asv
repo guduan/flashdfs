@@ -15,7 +15,7 @@ bpmoffset_new=zeros(1,status.nBpm);
 qoffset_new(status.useQuadlist)=[input_offset.qoffset_real-result.qoffset_calculated*feedback_gain_factor];
 bpmoffset_new(status.useBpmlist)=[input_offset.bpmoffset_real-result.bpmoffset_calculated*feedback_gain_factor];
 % launch_new=[result.init_x,result.init_xp].*(1-feedback_gain_factor);
-launch_new=[result.init_x,result.init_xp].*0.1;
+launch_new=[result.init_x,result.init_xp].*[0.9;
 csvwrite([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],qoffset_new);
 csvwrite([elegant_file_root 'bpmoffset_new',num2str(correction_number),'.dat'],bpmoffset_new);
 %generate new quadoffset after iteration
