@@ -146,6 +146,7 @@ xBMin=0*RBMin(:,1);
 
 RBPM=-eye(nBpm);
 
+
 RALL=[QRmat1,RBPM;QRmat2,RBPM;QRmat3,RBPM];
 xMeas=[orbit_real1+bpm_noise1-bpmoffset_real;
     orbit_real2+bpm_noise2-bpmoffset_real;
@@ -155,11 +156,16 @@ xMeas=[orbit_real1+bpm_noise1-bpmoffset_real;
 RLagr=[RQLin;RQMin;RBLin;RBMin];
 xLagr=[xQLin;xQMin;xBLin;xBMin];
 
+% R=[RALL;RLagr];
+% x=[xMeas;xLagr];
+% weight_factor=1e3;
+% w=[weight_factor*ones(size(xMeas));ones(size(xLagr))];
 
-R=[RALL;RLagr];
-x=[xMeas;xLagr];
+
+R=RALL;
+x=xMeas;
 weight_factor=1e3;
-w=[weight_factor*ones(size(xMeas));ones(size(xLagr))];
+w=[weight_factor*ones(size(xMeas))];
 
 [offset_calculated,std_offset_calculated]=lscov(R,x,w);
 
@@ -178,35 +184,35 @@ subplot(2,1,2);bar(tt2);
 %axis([0 nBpm+1 -10e-4  10e-4]);
 title('BPM-Offset comparison in 1st correction');
 
-% prepare offset data for next correction
-qoffset_new=zeros(1,nQuad_old);
-bpmoffset_new=zeros(1,nBpm_old);
-
-feedback_gain_factor=0.8;
-qoffset_new(useQuadlist)=[qoffset_real-qoffset_calculated*feedback_gain_factor];
-bpmoffset_new(useBpmlist)=[bpmoffset_real-bpmoffset_calculated*feedback_gain_factor];
-
-csvwrite([elegant_file_root 'qoffset_new1.dat'],qoffset_new);
-csvwrite([elegant_file_root 'bpmoffset_new1.dat'],bpmoffset_new);
-
-fid=fopen([elegant_file_root 'qoffset_new1.dat'],'r');
-temp=fgets(fid);
-fclose(fid);
-aa=['sddsmakedataset -ascii ', [elegant_file_root  'qoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
-dos(aa);
-
-fid=fopen([elegant_file_root 'bpmoffset_new1.dat'],'r');
-temp=fgets(fid);
-fclose(fid);
-aa=['sddsmakedataset -ascii ', [elegant_file_root 'bpmoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
-dos(aa);
-
-cd (elegant_file_root);
-aa=['C:\cygwin\bin\mintty.exe ',[elegant_file_root 'after_iteration1.txt&']];
-dos(aa);
-checkfile('qoffset_new_after_1st.sdds');
-disp('************************');
-disp('1st Corrcetion is DONE!');
-disp('Ready for 2nd correction, Please run flashdfs2.m');
-disp('************************');
-cd (matlab_file_root);
+% % prepare offset data for next correction
+% qoffset_new=zeros(1,nQuad_old);
+% bpmoffset_new=zeros(1,nBpm_old);
+% 
+% feedback_gain_factor=0.8;
+% qoffset_new(useQuadlist)=[qoffset_real-qoffset_calculated*feedback_gain_factor];
+% bpmoffset_new(useBpmlist)=[bpmoffset_real-bpmoffset_calculated*feedback_gain_factor];
+% 
+% csvwrite([elegant_file_root 'qoffset_new1.dat'],qoffset_new);
+% csvwrite([elegant_file_root 'bpmoffset_new1.dat'],bpmoffset_new);
+% 
+% fid=fopen([elegant_file_root 'qoffset_new1.dat'],'r');
+% temp=fgets(fid);
+% fclose(fid);
+% aa=['sddsmakedataset -ascii ', [elegant_file_root  'qoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
+% dos(aa);
+% 
+% fid=fopen([elegant_file_root 'bpmoffset_new1.dat'],'r');
+% temp=fgets(fid);
+% fclose(fid);
+% aa=['sddsmakedataset -ascii ', [elegant_file_root 'bpmoffset_new1.sdds'], ' -column=ParameterValue,type=double -data=',temp];
+% dos(aa);
+% 
+% cd (elegant_file_root);
+% aa=['C:\cygwin\bin\mintty.exe ',[elegant_file_root 'after_iteration1.txt&']];
+% dos(aa);
+% checkfile('qoffset_new_after_1st.sdds');
+% disp('************************');
+% disp('1st Corrcetion is DONE!');
+% disp('Ready for 2nd correction, Please run flashdfs2.m');
+% disp('************************');
+% cd (matlab_file_root);

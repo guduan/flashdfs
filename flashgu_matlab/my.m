@@ -16,7 +16,18 @@ status.unuseBpmlist=[1 2 3];% Bpmlist that NOT use
 use_noise=1;% add noise on bpm readings
 % change feedback_gain_factor=0.5
 feedback_gain_factor=0.8;
+
+status.opts=struct( ...
+    'useLinQuad',1,...
+    'useMinQuad',1,...
+    'useLinBpm',1,...
+    'useMinBpm',1,...
+    'useLaunchfit',0);
+
+
+
 DFS_correct_1; 
+%{
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 checkfile([elegant_file_root,'flash_dfs23.orbit']);
@@ -37,7 +48,7 @@ DFS_correct_4;
 % rms_orbit1(:,5)=sqrt(mean(xMeas5.^2));
 
 
-%{
+
 %*******************************
 	% change feedback_gain_factor=0.7
 feedback_gain_factor=0.7;

@@ -1,13 +1,6 @@
 function RALL=DFS_ResMatGet(status,QRmat,LRmat)
 % get the whole Response Matrix for DFS including the soft constrain part
 
-opts=struct( ...
-    'useLinQuad',1,...
-    'useMinQuad',1,...
-    'useLinBpm',1,...
-    'useMinBpm',1,...
-    'useLaunchfit',1);
-
 nQuad=status.nQuad_new;
 nBpm=status.nBpm_new;
 zQuad=status.zQuad_new;
@@ -20,18 +13,41 @@ RBLin=[zeros(1,nQuad),ones(1,nBpm);zeros(1,nQuad),zBpm];
 RBMin=[zeros(nBpm,nQuad),eye(nBpm)];
 
 RBPM=-eye(nBpm);
-%***************************************************
-Rmag=[LRmat.LRmat1.*opts.useLaunchfit,  QRmat.QRmat1,   RBPM;
-    LRmat.LRmat2.*opts.useLaunchfit,  QRmat.QRmat2,   RBPM;
-    LRmat.LRmat3.*opts.useLaunchfit,  QRmat.QRmat3,   RBPM];
 
-RLagr=[RQLin.*opts.useLinQuad;
-    RQMin.*opts.useMinQuad;
-    RBLin.*opts.useLinBpm;
-    RBMin.*opts.useMinBpm];
+RLMin=repmat(zeros(1,nQuad+nBpm),2,1);
 
-RALL=[Rmag;
-    zeros(size(RLagr,1),2),RLagr];
+Rmag=[QRmat.QRmat1,   RBPM;
+			QRmat.QRmat2,   RBPM;
+			QRmat.QRmat3,   RBPM];
+			
+RALL=Rmag;
+
+if status.opts.useLinQuad
+    RALL=[RALL;RQLin];
+end
+
+if status.opts.useMinQuad
+    RALL=[RALL;RQMin];
+end
+
+if status.opts.useLinBpm
+    RALL=[RALL;RBLin];
+end
+
+if status.opts.useMinBpm
+    RALL=[RALL;RBMin];
+end
+
+%*******
+if status.opts.useLaunchfit % if useLaunch=1
+    [a,b]=size(RALL);
+    [c,d]=size(LRmat);
+    r1=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3;zeros(a-c,2)];
+    RALL=[r1,RALL];
+    r2=[eye(2),zeros(2,b)];
+    RALL=[RALL;r2];
+end
+
 %***************************************************
 disp('Full Response Matrix for DFS is OK');
 % R=[RALL;RLagr];
