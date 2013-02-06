@@ -21,7 +21,9 @@ sddsprocess -pipe=out flash_dfs1.erl -match=col,ElementType=MONI  -match=col,Ele
 	| sddsprintout -pipe=in -col=ParameterValue -width=9999 flash_dfs.realbpmoffset
 sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementType=QUAD -match=col,ElementParameter=DX \
 	| sddsprintout -pipe=in -col=ParameterValue -width=9999 flash_dfs.realquadoffset
-
+sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementType=MALIGN -match=col,ElementParameter=DX* \
+	| sddsprintout -pipe=in -col=ParameterValue -width=9999 flash_dfs.realinitial
+	
 sddsprocess  -pipe=out flash_dfs1.cen -match=col,ElementType=MONI \
 	| sddsconvert -pipe=in -ascii -retain=col,s,ElementName,ElementType,ElementOccurence -fromPage=1 -toPage=1 flash_dfs.bpmlocation
 	

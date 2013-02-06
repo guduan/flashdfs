@@ -30,10 +30,13 @@ temp=fgets(fid);
 fclose(fid);
 aa=['sddsmakedataset -ascii ', [elegant_file_root 'bpmoffset_new',num2str(correction_number),'.sdds'], ' -column=ParameterValue,type=double -data=',temp];
 dos(aa);
+
+if status.opts.useLaunchfit
 %generate new launch parameters after iteration
 aa=['sddsmakedataset -ascii ', [elegant_file_root 'launch_new',num2str(correction_number),'.sdds'],...
         ' -column=ParameterValue,type=double -data=',num2str(launch_new(1)),',',num2str(launch_new(2))];
 dos(aa);
+end
 
 cd (elegant_file_root);
 aa=['C:\cygwin\bin\mintty.exe ',[elegant_file_root 'after_iteration',num2str(correction_number),'.txt&']];

@@ -1,25 +1,33 @@
 function w=DFS_set_weight_factor(status,weight_factor)
 % set weight factors for lscov
 
-w=[weight_factor*status.nBpm_new];
-if status.opts.useLaunchfit
-    w=[1;1;w];
-end
+wmag=[weight_factor*ones(3*status.nBpm_new,1)];
 
+wconstrain=[];
 if status.opts.useLinQuad
-    w=[w;weight_factor*ones(2,1)];
+    wconstrain=[wconstrain;weight_factor*ones(2,1)];
 end
 
 if status.opts.useMinQuad
-    w=[w;weight_factor*ones(status.nQuad_new,1)];
+    wconstrain=[wconstrain;weight_factor*ones(status.nQuad_new,1)];
 end
 
 if status.opts.useLinBpm
-    w=[w;weight_factor*ones(2,1)];
+    wconstrain=[wconstrain;weight_factor*ones(2,1)];
 end
 
 if status.opts.useMinBpm
-    w=[w;weight_factor*ones(status.nQuad_new,1)];
+    wconstrain=[wconstrain;weight_factor*ones(status.nBpm_new,1)];
+end
+
+if status.opts.useLaunchfit
+    wconstrain=[wconstrain;1;1];
+end
+
+if status.opts.usenoise
+    w=[wmag;wconstrain];
+else
+    w=wmag;
 end
 
 disp('weight factors choosen is DONE!');

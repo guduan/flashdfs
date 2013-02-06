@@ -1,14 +1,13 @@
-function [xMeas,xLagr]=DFS_BpmDataGet(status,measured_orbit,input_offset)
+function [x,xMeas,xconstrain]=DFS_BpmDataGet(status,measured_orbit,input_offset)
 
 nQuad=status.nQuad_new;
 nBpm=status.nBpm_new;
 zQuad=status.zQuad_new;
 zBpm=status.zBpm_new;
 
-use_noise=1;
-bpm_noise1=2e-6*randn(nBpm,1)*use_noise;
-bpm_noise2=2e-6*randn(nBpm,1)*use_noise;
-bpm_noise3=2e-6*randn(nBpm,1)*use_noise;
+bpm_noise1=2e-6*randn(nBpm,1)*status.opts.usenoise;
+bpm_noise2=2e-6*randn(nBpm,1)*status.opts.usenoise;
+bpm_noise3=2e-6*randn(nBpm,1)*status.opts.usenoise;
 
 xMeas=[measured_orbit.orbit1+bpm_noise1-input_offset.bpmoffset_real;
     measured_orbit.orbit2+bpm_noise2-input_offset.bpmoffset_real;
@@ -20,10 +19,32 @@ RBLin=[zeros(1,nQuad),ones(1,nBpm);zeros(1,nQuad),zBpm];
 RBMin=[zeros(nBpm,nQuad),eye(nBpm)];
 RLMin=repmat(zeros(1,nQuad+nBpm),2,1);
 
-[a,b]=size([RQLin;RQMin;RBLin;RBMin;RLMin]);
-xLagr=zeros(a,1);
+xconstrain=[];
+%*****
+if status.opts.useLinQuad
+    xconstrain=[xconstrain;zeros(size(RQLin,1),1)];
+end
+
+if status.opts.useMinQuad
+    xconstrain=[xconstrain;zeros(size(RQMin,1),1)];
+end
+
+if status.opts.useLinBpm
+    xconstrain=[xconstrain;zeros(size(RBLin,1),1)];
+end
+
+if status.opts.useMinBpm
+    xconstrain=[xconstrain;zeros(size(RBMin,1),1)];
+end
+
+%***
+if ~status.opts.usenoise
+    x=xMeas;
+elseif status.opts.usenoise&&~status.opts.useLaunchfit
+    x=[xMeas;xconstrain];
+elseif status.opts.usenoise&&status.opts.useLaunchfit
+    xconstrain=[xconstrain;zeros(size(RLMin,1),1)];
+    x=[xMeas;xconstrain];
+end
+%********
 disp('Full Orbit Measurement for DFS is OK');
-
-
-
-
