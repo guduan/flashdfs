@@ -21,7 +21,7 @@ if status.opts.useMinBpm
 end
 
 if status.opts.useLaunchfit
-    wconstrain=[wconstrain;1;1];
+    wconstrain=[wconstrain;1];
 end
 
 if status.opts.usenoise

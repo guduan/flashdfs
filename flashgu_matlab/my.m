@@ -26,7 +26,6 @@ feedback_gain_factor=0.8;
 
 
 DFS_correct_1; 
-%{
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 checkfile([elegant_file_root,'flash_dfs23.orbit']);
@@ -34,6 +33,7 @@ DFS_correct_3;
 checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
 
+%{
 % ALL_orbit1(1,:)=xMeas1;
 % ALL_orbit1(2,:)=xMeas2;
 % ALL_orbit1(3,:)=xMeas3;

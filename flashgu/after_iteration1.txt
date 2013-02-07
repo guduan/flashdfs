@@ -11,7 +11,7 @@ sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,
 	| sddsxref -pipe bpmoffset_new1.sdds -take=ParameterValue  \
 	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_1st.sdds
 	
-sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN  -match=col,ElementParameter=DX* \
+sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN  -match=col,ElementParameter=DXP \
 	| sddsconvert -pipe -ascii -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
 	| sddsxref -pipe=in launch_new1.sdds -take=ParameterValue launch_new_after_1st.sdds
 	
@@ -39,12 +39,7 @@ sddsplot   -title='Orbits After 1st Correction' -topTitle \
 	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
 	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
 	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
-	
-sddsplot  -title='Orbits After 1st Correction' -topTitle \
-	-col=s,Cx flash_dfs11.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
-	-col=s,Cx flash_dfs12.cen -graph=line,type=2 -legend=spec="orbit @ 720MeV"  \
-	-col=s,Cx flash_dfs13.cen -graph=line,type=3 -legend=spec="orbit @ 900MeV" 
-	
+		
 sddsplot  -scale=0,50,-3e-3,3e-3 -tickSettings=yspacing=5e-4 -title=' Orbits Comparison after 1st correction @ 900MeV' -topTitle \
 	-col=s,Cx flash_dfs3.cen  -graph=line,type=1 -legend=spec="Before 1st correction"  \
 	-col=s,Cx flash_dfs13.cen  -graph=line,type=3 -legend=spec="After 1st correction"

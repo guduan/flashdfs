@@ -13,7 +13,7 @@ if status.opts.useLaunchfit
     %result.init_x=result.offset_calculated(nQuad+nBpm+1);
     result.init_xp=result.offset_calculated(nQuad+nBpm+1);
 else
-    result.init_x=[];
+    %result.init_x=[];
     result.init_xp=[];
 end
 result.std_qoffset_calculated=result.std_offset_calculated(1:nQuad);

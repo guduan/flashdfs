@@ -17,7 +17,7 @@ RQLin=[ones(1,nQuad),zeros(1,nBpm);zQuad,zeros(1,nBpm)];
 RQMin=[eye(nQuad),zeros(nQuad,nBpm)];
 RBLin=[zeros(1,nQuad),ones(1,nBpm);zeros(1,nQuad),zBpm];
 RBMin=[zeros(nBpm,nQuad),eye(nBpm)];
-RLMin=repmat(zeros(1,nQuad+nBpm),2,1);
+RLMin=zeros(1,nQuad+nBpm);
 
 xconstrain=[];
 %*****
