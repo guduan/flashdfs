@@ -7,7 +7,7 @@ matlab_file_root='E:\gitHub\flashdfs\flashgu_matlab\';
 [Tmat,status]=init_BBA_new();
 
 status.opts=struct( ...
-    'usenoise',1,...
+    'usenoise',0,...
     'useLinQuad',1,...
     'useMinQuad',1,...
     'useLinBpm',1,...
@@ -22,8 +22,8 @@ status.unuseBpmlist=[1 2 3];% Bpmlist that NOT use
 [QRmat,status]=modify_QRmat(QRmat,status);
 [LRmat,status]=modify_LRmat(LRmat,status);
 
-feedback_gain_factor=0.8;
-
+status.feedback_gain_factor=0.8;
+status.bpm_noise_level=10e-6;
 
 DFS_correct_1; 
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
@@ -33,7 +33,10 @@ DFS_correct_3;
 checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
 
+
+
 %{
+
 % ALL_orbit1(1,:)=xMeas1;
 % ALL_orbit1(2,:)=xMeas2;
 % ALL_orbit1(3,:)=xMeas3;

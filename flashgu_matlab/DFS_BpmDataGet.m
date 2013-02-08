@@ -5,9 +5,16 @@ nBpm=status.nBpm_new;
 zQuad=status.zQuad_new;
 zBpm=status.zBpm_new;
 
-bpm_noise1=2e-6*randn(nBpm,1)*status.opts.usenoise;
-bpm_noise2=2e-6*randn(nBpm,1)*status.opts.usenoise;
-bpm_noise3=2e-6*randn(nBpm,1)*status.opts.usenoise;
+% use 1000 noise settings to simulate 1000 times measurement.
+%mean(randn(status.nBpm_new,1000),2) generate mean value of 1000 noise.
+bpm_noise_level=status.bpm_noise_level; % bpm noise level in meter
+
+bpm_noise1=bpm_noise_level*mean(randn(status.nBpm_new,1000),2)*status.opts.usenoise;
+bpm_noise2=bpm_noise_level*mean(randn(status.nBpm_new,1000),2)*status.opts.usenoise;
+bpm_noise3=bpm_noise_level*mean(randn(status.nBpm_new,1000),2)*status.opts.usenoise;
+% bpm_noise1=2e-6*randn(nBpm,1)*status.opts.usenoise;
+% bpm_noise2=2e-6*randn(nBpm,1)*status.opts.usenoise;
+% bpm_noise3=2e-6*randn(nBpm,1)*status.opts.usenoise;
 
 xMeas=[measured_orbit.orbit1+bpm_noise1-input_offset.bpmoffset_real;
     measured_orbit.orbit2+bpm_noise2-input_offset.bpmoffset_real;

@@ -5,19 +5,19 @@ wmag=[weight_factor*ones(3*status.nBpm_new,1)];
 
 wconstrain=[];
 if status.opts.useLinQuad
-    wconstrain=[wconstrain;weight_factor*ones(2,1)];
+    wconstrain=[wconstrain;ones(2,1)];
 end
 
 if status.opts.useMinQuad
-    wconstrain=[wconstrain;weight_factor*ones(status.nQuad_new,1)];
+    wconstrain=[wconstrain;ones(status.nQuad_new,1)];
 end
 
 if status.opts.useLinBpm
-    wconstrain=[wconstrain;weight_factor*ones(2,1)];
+    wconstrain=[wconstrain;ones(2,1)];
 end
 
 if status.opts.useMinBpm
-    wconstrain=[wconstrain;weight_factor*ones(status.nBpm_new,1)];
+    wconstrain=[wconstrain;ones(status.nBpm_new,1)];
 end
 
 if status.opts.useLaunchfit

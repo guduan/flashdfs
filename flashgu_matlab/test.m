@@ -1,3 +1,4 @@
-r1=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
+clc
 
-init=lscov(r1,x1);
+a=randn(status.nBpm_new,1000);
+b=mean(randn(status.nBpm_new,1000),2);

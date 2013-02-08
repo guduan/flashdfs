@@ -6,12 +6,11 @@ input_offset4=Read_real_offset(4);
 [x4,xMeas4,xconstrain4]=DFS_BpmDataGet(status,measured_orbit4,input_offset4);
 [R4,Rmag4,Rconstrain4]=DFS_ResMatGet(status,QRmat,LRmat);
 
-weight_factor=1e6;
-w=DFS_set_weight_factor(status,weight_factor);
-result4=runDFS(status,R4,x4,w);
+weight_factor=1e5;
+w4=DFS_set_weight_factor(status,weight_factor);
+result4=runDFS(status,R4,x4,w4);
 plot_offset(result4,input_offset4,4);
-
-offset_feedback(feedback_gain_factor,result4,input_offset4,4,status);
+offset_feedback(result4,input_offset4,4,status);
 
 
 % clear rms_error_bpm rms_error_quad rms_error
