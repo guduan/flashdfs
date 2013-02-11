@@ -6,7 +6,7 @@ input_offset3=Read_real_offset(3);
 [x3,xMeas3,xconstrain3]=DFS_BpmDataGet(status,measured_orbit3,input_offset3);
 [R3,Rmag3,Rconstrain3]=DFS_ResMatGet(status,QRmat,LRmat);
 
-weight_factor=1e0;
+weight_factor=1e5;
 w3=DFS_set_weight_factor(status,weight_factor);
 result3=runDFS(status,R3,x3,w3);
 plot_offset(result3,input_offset3,3);

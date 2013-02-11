@@ -1,4 +1,2 @@
 clc
-
-a=randn(status.nBpm_new,1000);
-b=mean(randn(status.nBpm_new,1000),2);
+a=[measured_orbit1.orbit3';measured_orbit2.orbit3';measured_orbit3.orbit3';measured_orbit4.orbit3';measured_orbit5.orbit3'];
