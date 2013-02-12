@@ -10,8 +10,8 @@ qoffset_new(status.useQuadlist)=input_offset.qoffset_real-result.qoffset_calcula
 bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_calculated*status.feedback_gain_factor;
 % launch_new=input_offset.launch_real-result.init_xp*status.feedback_gain_factor;
 
-% result.linefit=polyfit(status.zQuad_new,result.qoffset_calculated',1);
-result.linefit=polyfit(status.zBpm_new,result.bpmoffset_calculated',1);
+
+result.linefit=polyfit(status.zQuad_new,result.qoffset_calculated',1);
 launch_new=input_offset.launch_real-result.init_xp*status.feedback_gain_factor-result.linefit(1);
 
 csvwrite([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],qoffset_new);
