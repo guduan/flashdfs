@@ -16,7 +16,7 @@ sddsconvert -ascii flash_dfs3.mat -nowarnings
 #sddsconvert -ascii flash_dfs2.hrm -nowarnings
 #sddsconvert -ascii flash_dfs3.hrm -nowarnings
 
-sddsprocess -pipe=out flash_dfs1.erl -match=col,ElementType=MONI  -match=col,ElementParameter=DX
+#sddsprocess -pipe=out flash_dfs1.erl -match=col,ElementType=MONI  -match=col,ElementParameter=DX
 
 
 # get bpm&quad positions and input error values
