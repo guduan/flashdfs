@@ -1,0 +1,32 @@
+SDDS1
+&description text="centroid output--input: flash_dfs1.ele  lattice: FLASH_2012_1200MeV.lte", contents="centroid output", &end
+&parameter name=Step, description="Simulation step", type=long, &end
+&column name=s, units=m, description=Distance, type=double,  &end
+&column name=ElementName, description="Element name", format_string=%10s, type=string,  &end
+&column name=ElementOccurence, description="Occurence of element", format_string=%6ld, type=long,  &end
+&column name=ElementType, description="Element-type name", format_string=%10s, type=string,  &end
+&data mode=ascii, &end
+! page number 1
+1
+                  21
+5.166899999999999e+000 Q6SMATCH 1 QUAD 
+7.365899999999998e+000 Q8SMATCH 1 QUAD 
+1.066990000000000e+001 Q10SMATCH 1 QUAD 
+1.242590000000000e+001 Q13SMATCH 1 QUAD 
+1.382808000000000e+001 Q14SMATCH 1 QUAD 
+1.421308000000000e+001 Q15SMATCH 1 QUAD 
+1.892708000000000e+001 Q5UND1 1 QUAD 
+1.931208000000000e+001 Q6UND1 1 QUAD 
+2.402508000000000e+001 Q5UND2 1 QUAD 
+2.441007999999999e+001 Q6UND2 1 QUAD 
+2.912307999999999e+001 Q5UND3 1 QUAD 
+2.950807999999999e+001 Q6UND3 1 QUAD 
+3.422107999999999e+001 Q5UND4 1 QUAD 
+3.460607999999999e+001 Q6UND4 1 QUAD 
+3.931907999999999e+001 Q5UND5 1 QUAD 
+3.970407999999999e+001 Q6UND5 1 QUAD 
+4.441707999999998e+001 Q5UND6 1 QUAD 
+4.480207999999999e+001 Q6UND6 1 QUAD 
+5.387790000000000e+001 Q9EXP 1 QUAD 
+5.467380000000000e+001 Q10EXP 1 QUAD 
+5.562380000000000e+001 Q11EXP 1 QUAD 

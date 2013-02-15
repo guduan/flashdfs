@@ -1,9 +1,9 @@
 function [LRmat,status]=modify_LRmat(LRmat,status)
 % modify Launch Response Matrices
 
-useQuadlist=status.useQuadlist;% Quadlist that in use
+unuseQuadlist=status.unuseQuadlist;% Quadlist that in use
 a=1:status.nQuad;
-unuseQuadlist=setdiff(a,useQuadlist);
+useQuadlist=setdiff(a,unuseQuadlist);
 
 unuseBpmlist=status.unuseBpmlist;% Bpmlist that NOT use
 a=1:status.nBpm;

@@ -48,8 +48,8 @@ elseif status.opts.usenoise&&~status.opts.useLaunchfit
 elseif status.opts.usenoise&&status.opts.useLaunchfit
     r1=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
     [a,b]=size(Rconstrain);
-    Rconstrain=[Rconstrain,zeros(a,1)];
-    r2=[zeros(1,b),0];
+    Rconstrain=[Rconstrain,zeros(a,2)];
+    r2=[zeros(2,b),eye(2)];
     Rconstrain=[Rconstrain;r2];
     R=[Rmag,r1;Rconstrain];
 end

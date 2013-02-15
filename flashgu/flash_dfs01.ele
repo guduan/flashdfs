@@ -28,10 +28,10 @@
     filename = %s.twi
     matched = 0,  
     output_at_each_step=0, 
-	beta_x = 11.843399
-	beta_y =3.823322
-	alpha_x =2.1
-	alpha_y = -1.92
+	beta_x = 8.366
+	beta_x = 21.5
+	alpha_x =0.782
+	alpha_y = -2.182
 	higher_order_chromaticity = 0
 	final_values_only=0
 &end

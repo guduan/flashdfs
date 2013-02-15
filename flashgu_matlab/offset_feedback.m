@@ -1,24 +1,23 @@
-function offset_feedback(result,input_offset,correction_number,status)
+function offset_feedback(feedback_gain_factor,result,input_offset,correction_number,status)
 % feedback offsets, prepare offset data for next correction
 
 global elegant_file_root matlab_file_root
 
+% nQuad=status.nQuad_new;
+% nBpm=status.nBpm_new;
+% zQuad=status.zQuad_new;
+% zBpm=status.zBpm_new;
+
 qoffset_new=zeros(1,status.nQuad);
 bpmoffset_new=zeros(1,status.nBpm);
 
-qoffset_new(status.useQuadlist)=input_offset.qoffset_real-result.qoffset_calculated*status.feedback_gain_factor;
-bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_calculated*status.feedback_gain_factor;
-launch_new=input_offset.launch_real-result.init_xp*status.feedback_gain_factor;
-
-if correction_number==3
-    launch_new=launch_new-
-% 
-% result.linefit=polyfit(status.zQuad_new,result.qoffset_calculated',1);
-% launch_new=input_offset.launch_real-result.init_xp*status.feedback_gain_factor-result.linefit(1);
-
+%feedback_gain_factor=0.8;
+qoffset_new(status.useQuadlist)=[input_offset.qoffset_real-result.qoffset_calculated*feedback_gain_factor];
+bpmoffset_new(status.useBpmlist)=[input_offset.bpmoffset_real-result.bpmoffset_calculated*feedback_gain_factor];
+% launch_new=[result.init_x,result.init_xp].*(1-feedback_gain_factor);
+launch_new=[result.init_x,result.init_xp].*0.1;
 csvwrite([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],qoffset_new);
 csvwrite([elegant_file_root 'bpmoffset_new',num2str(correction_number),'.dat'],bpmoffset_new);
-csvwrite([elegant_file_root 'launch_new',num2str(correction_number),'.dat'],launch_new);
 %generate new quadoffset after iteration
 fid=fopen([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],'r');
 temp=fgets(fid);
@@ -35,7 +34,7 @@ dos(aa);
 if status.opts.useLaunchfit
 %generate new launch parameters after iteration
 aa=['sddsmakedataset -ascii ', [elegant_file_root 'launch_new',num2str(correction_number),'.sdds'],...
-        ' -column=ParameterValue,type=double -data=',num2str(launch_new)];
+        ' -column=ParameterValue,type=double -data=',num2str(launch_new(1)),',',num2str(launch_new(2))];
 dos(aa);
 end
 
