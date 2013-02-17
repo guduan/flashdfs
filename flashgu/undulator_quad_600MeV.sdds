@@ -1,22 +1,22 @@
-SDDS1
-&column name=ElementName, type=string,  &end
-&column name=ElementParameter, type=string,  &end
-&column name=ParameterValue, type=double,  &end
-&data mode=ascii, &end
-! page number 1
-                  15
-Q6SMATCH K1 -2.495390000000000e+000 
-Q8SMATCH K1 3.898636000000000e+000 
-Q10SMATCH K1 -1.690571200000000e+000 
-Q13SMATCH K1 4.927718000000000e+000 
-Q14SMATCH K1 2.830900000000000e+000 
-Q15SMATCH K1 -9.183358000000000e+000 
-Q5UND1 K1 4.000000000000000e+000 
-Q5UND2 K1 -4.000000000000000e+000 
-Q5UND3 K1 4.000000000000000e+000 
-Q5UND4 K1 -4.000000000000000e+000 
-Q5UND5 K1 4.000000000000000e+000 
-Q5UND6 K1 -5.646193200000000e-001 
-Q9EXP K1 1.783864740000000e-001 
-Q10EXP K1 0.000000000000000e+000 
-Q11EXP K1 0.000000000000000e+000 
+SDDS1poll 
+&column name=ElementName, type=string,  &end 
+&column name=ElementParameter, type=string,  &end 
+&column name=ParameterValue, type=double,  &end 
+&data mode=ascii, &end 
+16
+       Q6SMATCH   K1      -1.200318065105 
+       Q8SMATCH   K1       1.897116360844 
+      Q10SMATCH   K1     -0.668910653776 
+      Q13SMATCH   K1       2.530602859842
+      Q14SMATCH   K1        1.41545 
+      Q15SMATCH   K1      -4.591679
+         Q5UND1   K1              2.2 
+         Q5UND2   K1             -2.2 
+         Q5UND3   K1              2.2 
+         Q5UND4   K1             -2.2 
+         Q5UND5   K1              2.2 
+         Q5UND6   K1             -2.2 
+         Q6UND6   K1    0.186161307839 
+          Q9EXP   K1    0.093949206359
+         Q10EXP   K1              0 
+         Q11EXP   K1              0 

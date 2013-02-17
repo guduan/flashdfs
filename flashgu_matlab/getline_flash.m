@@ -1694,12 +1694,19 @@ UNDULATOR=  	[StartUND, UNDU1, UNDU2, UNDU3, UNDU4, UNDU5, UNDU6, EndUND];
 %  EXP section
 %=====================================================================================
 
-% XFEL test BPMs
-BPM1_1EXP=	{ 'mo' 'BPM1_1EXP'  0 []}';
-BPM1_2EXP=	{ 'mo' 'BPM1_2EXP'  0 []}';
-BPM1_3EXP=	{ 'mo' 'BPM1_3EXP'  0 []}';
-BPM2_1EXP=	{ 'mo' 'BPM2_1EXP'  0 []}';
-BPM2_2EXP=	{ 'mo' 'BPM2_2EXP'  0 []}';
+% % XFEL test BPMs
+% BPM1_1EXP=	{ 'mo' 'BPM1_1EXP'  0 []}';
+% BPM1_2EXP=	{ 'mo' 'BPM1_2EXP'  0 []}';
+% BPM1_3EXP=	{ 'mo' 'BPM1_3EXP'  0 []}';
+% BPM2_1EXP=	{ 'mo' 'BPM2_1EXP'  0 []}';
+% BPM2_2EXP=	{ 'mo' 'BPM2_2EXP'  0 []}';
+%2013/2/17 22:38 
+%change BPM.*.*EXP from MONI to DRIFT (length=0) by duan
+BPM1_1EXP=	{ 'dr' 'BPM1_1EXP'  0 []}';
+BPM1_2EXP=	{ 'dr' 'BPM1_2EXP'  0 []}';
+BPM1_3EXP=	{ 'dr' 'BPM1_3EXP'  0 []}';
+BPM2_1EXP=	{ 'dr' 'BPM2_1EXP'  0 []}';
+BPM2_2EXP=	{ 'dr' 'BPM2_2EXP'  0 []}';
 % other BPMS
 BPM3EXP= 	{ 'mo' 'BPM3EXP'  0 []}';
 BPM9EXP= 	{ 'mo' 'BPM9EXP'  0 []}';
@@ -1979,9 +1986,4 @@ FLASH=[INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  ...
                		COLLIMATOR, ORS, SFUND, SFELC, SMATCH, UNDULATOR, EXP, DUMP]; 
 
 malin={'dr' '' 0 []}';
-D001=	{ 'dr' ''  0.01  []}';
-starttest=[malin,D001,BPM13SMATCH, ...
-			D0100a, D0203, OTR13SMATCH00, D0020, D0256, D0010, D0146, D0072, ...
-			D0071, D0100, D0053, D0100g, Q14SMATCH, BPM14SMATCH, D0076g, WIRE14SMATCH00, ...
-			D0076g, Q15SMATCH, D0026g, EndSMATCH];
 BEAMLINE=[malin,SMATCH,UNDULATOR, EXP];
