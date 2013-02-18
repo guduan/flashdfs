@@ -7,8 +7,6 @@ Q=  {'dr' 'Q' 0 []}';
 LTWAKE=  {'dr' 'LTWAKE' 0 []}';
 LTWAKE39=  {'dr' 'LTWAKE39' 0 []}';
 
-
-
 Coef_E=1.027;
 
 
