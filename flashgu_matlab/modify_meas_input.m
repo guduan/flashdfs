@@ -2,18 +2,10 @@ function [measured_orbit,input_offset,status]=modify_meas_input(measured_orbit,i
 % modify measured orbit and input offset data after choose QuadList and BPMList.
 
 unuseQuadlist=status.unuseQuadlist;% Quadlist that in use
-a=1:status.nQuad;
-useQuadlist=setdiff(a,unuseQuadlist);
+useQuadlist=status.useQuadlist;
 
 unuseBpmlist=status.unuseBpmlist;% Bpmlist that NOT use
-a=1:status.nBpm;
-useBpmlist=setdiff(a,unuseBpmlist);
-
-status.nQuad_new=status.nQuad-length(unuseQuadlist); % new number of Quad according to manual choosen.
-status.nBpm_new=status.nBpm-length(unuseBpmlist); % new number of BPM according to manual choosen.
-
-status.unuseQuadlist=unuseQuadlist;
-status.useBpmlist=useBpmlist;
+useBpmlist=status.useBpmlist;
 
 %**********
 % begin modify

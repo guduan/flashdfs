@@ -17,8 +17,10 @@ clc;
 % figure;
 % bar(tt1);
 
-init=lscov(LRmat.LRmat1,b)
-
+% b=xMeas1(1:17);
+% init=lscov(LRmat.LRmat1,b)
+LR=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
+init=lscov(LR,xMeas1)
 
 
 
