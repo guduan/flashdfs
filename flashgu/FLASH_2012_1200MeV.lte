@@ -2432,4 +2432,133 @@ FLASH: 		LINE = 	(INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  &
                		COLLIMATOR, ORS, SFUND, SFELC, SMATCH, UNDULATOR, EXP, DUMP) 
 
 !-------------------------------------------------------------------------------------
-test: 		LINE = 	(MALIN,SMATCH,UNDULATOR, EXP)
+!-------------------------------------------------------------------------------------
+! modify lattice according to Mathias' MAD file 17:42 2013-2-19 by duan
+B01SMT: LINE = (MALIN,BPM1SMATCH, BPM1SMATCHi, D0077, &
+                D0072, D0071, LOLA, D0300, D0100a, &
+                Q6SMATCH, BPM6SMATCH, D0100a, D0019, &
+                KICK6SMATCH, D0081, H7SMATCH, D0100, V7SMATCH, &
+                D0036, PHA7SMATCH, TEO, D0393, D0100a, &
+                Q8SMATCH, D0100a, OTR8SMATCH00, &
+                D0070, D0130, D9SMATCH, D0174, &
+                D10SMATCH, D0185, D1265, D0100a, Q10SMATCH, &
+                D0100a, D0021, TOR11SMATCH, &
+                D0021, D0068, OTR11SMATCH00, D0100, D11SMATCH, &
+                D0100, D12SMATCH, D0100, H12SMATCH, D0100, &
+                V12SMATCH, D0050, D0100a, Q13SMATCH, BPM13SMATCH, &
+                D0100a, D0203, OTR13SMATCH00, D0020, D0256, &
+                D0010, D0146, D0072,D0071, D0100, D0053, D0100g, &
+                Q14SMATCH, BPM14SMATCH, D0076g, WIRE14SMATCH00, &
+                D0076g, Q15SMATCH, D0026g, EndSMATCH)
+				
+!! VOGTM : 11.03.2010 : INSERT IN--UNDULATOR BPMS IN APPROX RIGHT POSITIONS
+!!
+!! SPLIT UNDULATORS >>>>
+
+!<<<<<<<<<< now defined above (vogtm : 15.03.2010)
+% 4.553 sto UL00
+% 1.2392 sto UK
+% 111 sto  UPOLES1
+% 112 sto  UPOLES2
+% 111 sto  UPOLES3
+% UPOLES1 UPOLES2 + UPOLES3 + sto UPOLES
+% UL00 UPOLES / sto ULPOLE
+% UPOLES1 ULPOLE  *  sto UL01
+% UPOLES2 ULPOLE  *  sto UL02
+% UPOLES3 ULPOLE  *  sto UL03
+% ULPOLE 2 * sto ULAMBDA
+% EACT 0.511 / sto UGAMMA
+!UK1     = 2*PI^2 * UK^2 / ( ULAMBDA^2 * UGAMMA^2)
+% 2 PI 2 ^ * UK 2 ^ * ULAMBDA 2 ^ UGAMMA 2 ^ * / sto UK1
+!VALUE, UL00*UK1, UL00*SQRT(UK1) ! I don't know what it is.
+% UL01 UK1 0.5 ^ *  sto UPHI1
+% UL02 UK1 0.5 ^ *  sto UPHI2
+% UL03 UK1 0.5 ^ *  sto UPHI3
+
+UND_PART1: MATRIX, L=UL01, &
+ R11= 1, R12=UL01, R13= 0, R14= 0, R15= 0, R16= 0, &
+ R21= 0, R22=   1, R23= 0, R24= 0, R25= 0, R26= 0, &
+ R31= 0, R32= 0, &
+!R33= (COS(UPHI1)), R34= (1/SQRT(UK1))*SIN(UPHI1), &
+ R33="UPHI1 cos", R34="1 UK1 0.5 ^ / UPHI1 sin *"&
+ R35= 0, R36= 0, &
+ R41= 0, RM(4,2)= 0, &
+!R43= -SQRT(UK1)*SIN(UPHI1), R44= COS(UPHI1), &
+ R43="0 UK1 0.5 ^ UPHI1 sin * -", R44="UPHI1 cos", &
+ R45= 0, R46= 0, &
+ R51= 0, R52= 0, R53= 0, R54= 0, R55= 1, R56= 0, &
+ R61= 0, R62= 0, R63= 0, R64= 0, R65= 0, R66= 1
+
+UND_PART2: MATRIX, L=UL02, &
+ R11= 1, R12=UL02, R13= 0, R14= 0, R15= 0, R16= 0, &
+ R21= 0, R22=   1, R23= 0, R24= 0, R25= 0, R26= 0, &
+ R31= 0, R32= 0, &
+!R33= (COS(UPHI2)), R34= (1/SQRT(UK1))*SIN(UPHI2), &
+ R33="UPHI2 cos", R34="1 UK1 0.5 ^ / UPHI2 sin *"&
+ R35= 0, R36= 0, &
+ R41= 0, RM(4,2)= 0, &
+!R43= -SQRT(UK1)*SIN(UPHI2), R44= COS(UPHI2), &
+ R43="0 UK1 0.5 ^ UPHI2 sin * -", R44="UPHI2 cos", &
+ R45= 0, R46= 0, &
+ R51= 0, R52= 0, R53= 0, R54= 0, R55= 1, R56= 0, &
+ R61= 0, R62= 0, R63= 0, R64= 0, R65= 0, R66= 1
+
+UND_PART3: MATRIX, L=UL03, &
+ R11= 1, R12=UL03, R13= 0, R14= 0, R15= 0, R16= 0, &
+ R21= 0, R22=   1, R23= 0, R24= 0, R25= 0, R26= 0, &
+ R31= 0, R32= 0, &
+!R33= (COS(UPHI3)), R34= (1/SQRT(UK1))*SIN(UPHI3), &
+ R33="UPHI3 cos", R34="1 UK1 0.5 ^ / UPHI3 sin *"&
+ R35= 0, R36= 0, &
+ R41= 0, RM(4,2)= 0, &
+!R43= -SQRT(UK1)*SIN(UPHI3), R44= COS(UPHI3), &
+ R43="0 UK1 0.5 ^ UPHI3 sin * -", R44="UPHI3 cos", &
+ R45= 0, R46= 0, &
+ R51= 0, R52= 0, R53= 0, R54= 0, R55= 1, R56= 0, &
+ R61= 0, R62= 0, R63= 0, R64= 0, R65= 0, R66= 1
+
+ U1BEG: MARKER
+ U1END: MARKER
+ U2BEG: MARKER
+ U2END: MARKER
+ U3BEG: MARKER
+ U3END: MARKER
+ U4BEG: MARKER
+ U4END: MARKER
+ U5BEG: MARKER
+ U5END: MARKER
+ U6BEG: MARKER
+ U6END: MARKER
+
+ UNDU1: LINE=( U1BEG, UND_PART1, BPM2UND1, UND_PART2, BPM4UND1, UND_PART3, &
+               U1END, Q5UND1000, WIRE5UND100, BPM5UND1, Q6UND1000 )
+ UNDU2: LINE=( U2BEG, UND_PART1, BPM2UND2, UND_PART2, BPM4UND2, UND_PART3, &
+               U2END, Q5UND2000, WIRE5UND200, BPM5UND2, Q6UND2000 )
+ UNDU3: LINE=( U3BEG, UND_PART1, BPM2UND3, UND_PART2, BPM4UND3, UND_PART3, &
+               U3END, Q5UND3000, WIRE5UND300, BPM5UND3, Q6UND3000 )
+ UNDU4: LINE=( U4BEG, UND_PART1, BPM2UND4, UND_PART2, BPM4UND4, UND_PART3, &
+               U4END, Q5UND4000, WIRE5UND400, BPM5UND4, Q6UND4000 )
+ UNDU5: LINE=( U5BEG, UND_PART1, BPM2UND5, UND_PART2, BPM4UND5, UND_PART3, &
+               U5END, Q5UND5000, WIRE5UND500, BPM5UND5, Q6UND5000 )
+ UNDU6: LINE=( U6BEG, UND_PART1, BPM2UND6, UND_PART2, BPM4UND6, UND_PART3, &
+               U6END, Q5UND6000, WIRE5UND600, BPM5UND6, Q6UND6000 )		
+!!
+!! <<<< END : SPLIT UNDULATORS
+!!
+
+!! >>>> For matching only F/2-O-D-O-F/2 cell from middle of Q5UND1 to
+!!      middle of Q5UND3  
+UNDUFODO: LINE( M5UND1C, Q5UND1H, D0076g, &                   ! F/2
+                 WIRE5UND100, BPM5UND1, Q6UND1000, &           ! O
+                 UNDU2, &                                      ! D
+                 U3BEG, UND_PART1, BPM2UND3, UND_PART2, BPM4UND3, UND_PART3, &
+                 U3END, &                                      ! O
+                 D0025g, Q5UND3H, M5UND3C)                     ! F/2
+
+StartUND: MARKER
+EndUND:   MARKER
+
+UNDULATOR1:  LINE = (StartUND, UNDU1, UNDU2, UNDU3, UNDU4, UNDU5, UNDU6, EndUND)
+
+!-------------------------------------------------------------------------------------
+test: 		LINE = 	(MALIN,UNDULATOR1, EXP)
