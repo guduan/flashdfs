@@ -7,6 +7,8 @@ set nonomatch
 #sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 60 /  " undulator_quad_720MeV.sdds
 #sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 75 /  " undulator_quad_900MeV.sdds
 
+#sddsplot -col=s,ParameterValue flash_dfs.realquadoffset1 -graph=sym,type=2,subtype=2 -legend \
+#	-col=s,ParameterValue flash_dfs.realbpmoffset1 -graph=sym,type=3 -legend
 
 
 elegant flash_dfs01.ele >> test.log

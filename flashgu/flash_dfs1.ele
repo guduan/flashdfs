@@ -35,17 +35,17 @@
 &error_element name=BPM* element_type=MONI item=DY amplitude=200e-6 cutoff=3 bind=0 &end
 
 !! Incoming misalignment		
-&error_element name=MALIN element_type=MALIGN item=DX amplitude=200e-6 cutoff=3 bind=0 &end
-&error_element name=MALIN element_type=MALIGN item=DXP amplitude=20e-6 cutoff=3 bind=0 &end
+&error_element name=MALIN element_type=MALIGN item=DX amplitude=0e-6 cutoff=3 bind=0 &end
+&error_element name=MALIN element_type=MALIGN item=DXP amplitude=0e-6 cutoff=3 bind=0 &end
 
 &twiss_output
     filename = %s.twi
     matched = 0,  
     output_at_each_step=0, 
-	beta_x = 8.561
-	beta_y =13.7
-	alpha_x =0.47
-	alpha_y = -1.43
+	beta_x = 8.366
+	beta_y = 21.5
+	alpha_x =0.782
+	alpha_y = -2.182
 	higher_order_chromaticity = 0
 	final_values_only=0
 &end
