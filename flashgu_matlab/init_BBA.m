@@ -9,7 +9,7 @@ if nargin<1
     disp('error input in function init_BBA');
 end
 normal_energy=1200;
-status.beamline=getline_flash(energy/normal_energy);
+status.beamline=getline_flash2(energy/normal_energy);
 status.elemlist=getList(status.beamline,energy);
 
 status.nBpm=length(status.elemlist.bpmid);

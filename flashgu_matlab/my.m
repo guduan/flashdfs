@@ -4,9 +4,9 @@ global elegant_file_root  matlab_file_root
 elegant_file_root='E:\gitHub\flashdfs\flashgu\';
 matlab_file_root='E:\gitHub\flashdfs\flashgu_matlab\';
 
-% % delete all transport matrice, only used for test.
-% obj=[elegant_file_root '*.mat'];
-% delete(obj);
+% delete all transport matrice, only used for test.
+obj=[elegant_file_root '*.mat'];
+delete(obj);
 
 [Tmat,status]=init_BBA_new();
 
