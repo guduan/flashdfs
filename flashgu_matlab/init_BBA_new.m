@@ -3,7 +3,7 @@ function [Tmat,status]=init_BBA_new()
 % Energy in MeV
 global elegant_file_root
 
-status.beamline=getline_flash(0.5);
+status.beamline=getline_flash2(0.5);
 status.elemlist=getList(status.beamline,600);
 
 status.nBpm=length(status.elemlist.bpmid);
