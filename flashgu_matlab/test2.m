@@ -48,6 +48,13 @@ BRmat=-eye(status.nBpm_new);
 BR2=[BRmat;BRmat;BRmat];
 LR2=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
 RALL2=[QR2,BR2];
+RALL2([1 25 49],:)=[];
+RALL2(:,[8 10 12 14 16 18 20 21 22])=[];
+
+diff=RALL2-vogt.RQB_modify;
+surf(diff);
+%diff(find(diff<1e-4))=0;
+
 
 % r3=r1(1:23,1:13);
 % r4=r2(1:23,1:13);

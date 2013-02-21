@@ -2464,3 +2464,5 @@ B01SMT: LINE = (D00001,BPM1SMATCH, BPM1SMATCHi, D0077, &
 
 !-------------------------------------------------------------------------------------
 test: 		LINE = 	(MALIN,B01SMT,UNDULATOR, EXP)
+
+!test: 		LINE = 	(MALIN,UNDULATOR)

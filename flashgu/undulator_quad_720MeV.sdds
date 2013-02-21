@@ -4,8 +4,8 @@ SDDS1poll
 &column name=ParameterValue, type=double,  &end 
 &data mode=ascii, &end 
 16
-       Q6SMATCH   K1      -1.247695 
-       Q8SMATCH   K1       1.949318 
+       Q6SMATCH   K1      -1.260769978309
+       Q8SMATCH   K1       1.983730064678
       Q10SMATCH   K1     -1.04024737396
       Q13SMATCH   K1       2.430543360723 
       Q14SMATCH   K1        1.41545 
