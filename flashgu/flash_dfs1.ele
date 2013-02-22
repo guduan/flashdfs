@@ -26,18 +26,23 @@
 
 &error_control  error_log = %s.erl &end
 
-! Quad misalignment
-&error_element name=Q*, item=DX, amplitude=200e-6, cutoff=3, bind=0 &end
-&error_element name=Q*, item=DY, amplitude=200e-6, cutoff=3, bind=0 &end
-
-! BPM misalignment		
+!! Quad misalignment
+!&error_element name=Q*, item=DX, amplitude=200e-6, cutoff=3, bind=0 &end
+!&error_element name=Q*, item=DY, amplitude=200e-6, cutoff=3, bind=0 &end
+!
+!! BPM misalignment		
+!&error_element name=BPM* element_type=MONI item=DX amplitude=200e-6 cutoff=3 bind=0 &end
+!&error_element name=BPM* element_type=MONI item=DY amplitude=200e-6 cutoff=3 bind=0 &end
+!
+!!! Incoming misalignment		
+!!&error_element name=MALIN element_type=MALIGN item=DX type="plus_or_minus" amplitude=300e-6 bind=0 &end
+!!&error_element name=MALIN element_type=MALIGN item=DXP type="plus_or_minus" amplitude=100e-6 bind=0 &end
+!***************************************
+&error_element name=Q*, element_type=QUAD item=DX, amplitude=200e-6, cutoff=3, bind=0 &end
+&error_element name=Q*, element_type=QUAD item=DY, amplitude=200e-6, cutoff=3, bind=0 &end
 &error_element name=BPM* element_type=MONI item=DX amplitude=200e-6 cutoff=3 bind=0 &end
 &error_element name=BPM* element_type=MONI item=DY amplitude=200e-6 cutoff=3 bind=0 &end
-
-!! Incoming misalignment		
-!&error_element name=MALIN element_type=MALIGN item=DX type="plus_or_minus" amplitude=0.3e-3 bind=0 &end
-!&error_element name=MALIN element_type=MALIGN item=DXP type="plus_or_minus" amplitude=100e-6 bind=0 &end
-&error_element name=MALIN element_type=MALIGN item=DX type="plus_or_minus" amplitude=0e-3 bind=0 &end
+&error_element name=MALIN element_type=MALIGN item=DX type="plus_or_minus" amplitude=0e-6 bind=0 &end
 &error_element name=MALIN element_type=MALIGN item=DXP type="plus_or_minus" amplitude=0e-6 bind=0 &end
 
 &twiss_output

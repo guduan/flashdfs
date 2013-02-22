@@ -1674,20 +1674,44 @@ Q6UND5000= 	[D0076g, Q6UND5, D0025g];
 Q5UND6000= 	[D0025g, Q5UND6, D0076g];
 Q6UND6000= 	[D0076g, Q6UND6, D0025g];
 
-UND_MAGNET={'un' 'UND_MAGNET' 4.553 [1.2392/Kfactor 0.054] }';
+  % define UND_PART* as DRIFT here, just for keeping simple
+UND_PART1={ 'dr' ''  1.51312275449 []}';
+UND_PART2={ 'dr' ''  1.52675449101 []}';
+UND_PART3={ 'dr' ''  1.51312275449 []}';
 
-UNDU1=[UND_MAGNET, BPM2UND1, BPM4UND1, Q5UND1000, WIRE5UND100, BPM5UND1, Q6UND1000];
-UNDU2=[UND_MAGNET, BPM2UND2, BPM4UND2, Q5UND2000, WIRE5UND200, BPM5UND2, Q6UND2000];
-UNDU3=[UND_MAGNET, BPM2UND3, BPM4UND3, Q5UND3000, WIRE5UND300, BPM5UND3, Q6UND3000];
-UNDU4=[UND_MAGNET, BPM2UND4, BPM4UND4, Q5UND4000, WIRE5UND400, BPM5UND4, Q6UND4000];
-UNDU5=[UND_MAGNET, BPM2UND5, BPM4UND5, Q5UND5000, WIRE5UND500, BPM5UND5, Q6UND5000];
-UNDU6=[UND_MAGNET, BPM2UND6, BPM4UND6, Q5UND6000, WIRE5UND600, BPM5UND6, Q6UND6000];
+ U1BEG={'dr' '' 0 []}';
+ U1END={'dr' '' 0 []}';
+ U2BEG={'dr' '' 0 []}';
+ U2END={'dr' '' 0 []}';
+ U3BEG={'dr' '' 0 []}';
+ U3END={'dr' '' 0 []}';
+ U4BEG={'dr' '' 0 []}';
+ U4END={'dr' '' 0 []}';
+ U5BEG={'dr' '' 0 []}';
+ U5END={'dr' '' 0 []}';
+ U6BEG={'dr' '' 0 []}';
+ U6END={'dr' '' 0 []}';
 
-StartUND= 	{ 'dr' ''  0 []}';
-EndUND=   	{ 'dr' ''  0 []}';
+ UNDU1=[ U1BEG, UND_PART1, BPM2UND1, UND_PART2, BPM4UND1, UND_PART3, ...
+               U1END, Q5UND1000, WIRE5UND100, BPM5UND1, Q6UND1000 ];
+ UNDU2=[ U2BEG, UND_PART1, BPM2UND2, UND_PART2, BPM4UND2, UND_PART3, ...
+               U2END, Q5UND2000, WIRE5UND200, BPM5UND2, Q6UND2000 ];
+ UNDU3=[ U3BEG, UND_PART1, BPM2UND3, UND_PART2, BPM4UND3, UND_PART3, ...
+               U3END, Q5UND3000, WIRE5UND300, BPM5UND3, Q6UND3000 ];
+ UNDU4=[ U4BEG, UND_PART1, BPM2UND4, UND_PART2, BPM4UND4, UND_PART3, ...
+               U4END, Q5UND4000, WIRE5UND400, BPM5UND4, Q6UND4000 ];
+ UNDU5=[ U5BEG, UND_PART1, BPM2UND5, UND_PART2, BPM4UND5, UND_PART3, ...
+               U5END, Q5UND5000, WIRE5UND500, BPM5UND5, Q6UND5000 ];
+ UNDU6=[ U6BEG, UND_PART1, BPM2UND6, UND_PART2, BPM4UND6, UND_PART3, ...
+               U6END, Q5UND6000, WIRE5UND600, BPM5UND6, Q6UND6000 ];		
+%
+% <<<< END : SPLIT UNDULATORS
+%
 
-UNDULATOR=[StartUND, UNDU1, UNDU2, UNDU3, UNDU4, UNDU5, UNDU6, EndUND];
+StartUND=  {'dr' '' 0 []}';
+EndUND=  {'dr' '' 0 []}';
 
+UNDULATOR= [StartUND, UNDU1, UNDU2, UNDU3, UNDU4, UNDU5, UNDU6, EndUND];
 %=====================================================================================
 %  EXP section
 %=====================================================================================
@@ -1975,13 +1999,35 @@ StartDUMP0= 	{ 'dr' ''  0 []}';
 EndDUMP0=   	{ 'dr' ''  0 []}';
 D03655=	{ 'dr' ''  0.3655  []}';
 DUMP0=[StartDUMP0, D0394, D1DUMP, D03655, D08833, D0230, D0135f, Q4DUMP, ...
-			D0185f, D0085, D04741, BPM5DUMP, D032423, D0230, D0950, EndDUMP0];
-
-FLASH_BYP=[INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  ...
-               		COLL_BYP, BYPASS, DUMP0, DUMP]; 
-					
-FLASH=[INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  ...
-               		COLLIMATOR, ORS, SFUND, SFELC, SMATCH, UNDULATOR, EXP, DUMP]; 
-
+			D0185f, D0085, D04741, BPM5DUMP, D032423, D0230, D0950, EndDUMP0]; 
+%------------------------------------------------------------------------------------
+%modify lattice according to Mathias' MAD file 17:42 2013-2-19 by duan
 MALIN={'dr' '' 0 []}';
-BEAMLINE=[MALIN,SMATCH,UNDULATOR, EXP];
+D00001={'dr' '' 0.0001 []}';
+
+B01SMT=[D00001,BPM1SMATCH, BPM1SMATCHi, D0077, ...
+                D0072, D0071, LOLA, D0300, D0100a, ...
+                Q6SMATCH, BPM6SMATCH, D0100a, D0019, ...
+                KICK6SMATCH, D0081, H7SMATCH, D0100, V7SMATCH, ...
+                D0036, PHA7SMATCH, TEO, D0393, D0100a, ...
+                Q8SMATCH, D0100a, OTR8SMATCH00, ...
+                D0070, D0130, D9SMATCH, D0174, ...
+                D10SMATCH, D0185, D1265, D0100a, Q10SMATCH, ...
+                D0100a, D0021, TOR11SMATCH, ...
+                D0021, D0068, OTR11SMATCH00, D0100, D11SMATCH, ...
+                D0100, D12SMATCH, D0100, H12SMATCH, D0100, ...
+                V12SMATCH, D0050, D0100a, Q13SMATCH, BPM13SMATCH, ...
+                D0100a, D0203, OTR13SMATCH00, D0020, D0256, ...
+                D0010, D0146, D0072,D0071, D0100, D0053, D0100g, ...
+                Q14SMATCH, BPM14SMATCH, D0076g, WIRE14SMATCH00, ...
+                D0076g, Q15SMATCH, D0026g, EndSMATCH];
+%!-------------------------------------------------------------------------------------
+
+% 
+% FLASH_BYP=[INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  ...
+%                		COLL_BYP, BYPASS, DUMP0, DUMP]; 
+% 					
+% FLASH=[INJ, ACC1, ACC39, BC2, ACC23, BC3, ACC4567,  ...
+%                		COLLIMATOR, ORS, SFUND, SFELC, SMATCH, UNDULATOR, EXP, DUMP]; 
+
+BEAMLINE=[MALIN,B01SMT,UNDULATOR, EXP];
