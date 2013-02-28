@@ -4,9 +4,9 @@ function result=runDFS(status,R,x,w)
 nQuad=status.nQuad_new;
 nBpm=status.nBpm_new;
 
-%[result.offset_calculated,result.std_offset_calculated,result.mse,result.S]=lscov(R,x,w);
-%[result.offset_calculated,result.std_offset_calculated,result.mse,result.S]=util_lssvd(R,x,w,0);
-result.offset_calculated=pinv(R)*x;
+% [result.offset_calculated,result.std_offset_calculated,result.mse,result.S]=lscov(R,x,w);
+[result.offset_calculated,result.std_offset_calculated,result.mse,result.S]=util_lssvd(R,x,w,status.svdthreshold);
+% result.offset_calculated=pinv(R)*x;
 result.qoffset_calculated=result.offset_calculated(1:nQuad);
 result.bpmoffset_calculated=result.offset_calculated(nQuad+1:nQuad+nBpm);
 

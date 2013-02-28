@@ -3,10 +3,14 @@ SDDS1poll
 &column name=ElementParameter, type=string,  &end 
 &column name=ParameterValue, type=double,  &end 
 &data mode=ascii, &end 
-6
+10
          Q5UND1   K1           1.466666666667 
          Q5UND2   K1          -1.466666666667 
          Q5UND3   K1           1.466666666667 
          Q5UND4   K1          -1.466666666667 
          Q5UND5   K1           1.466666666667 
          Q5UND6   K1          -1.466666666667 
+         Q6UND6   K1        -0.31558265033
+          Q9EXP   K1            0.051930750967
+         Q10EXP   K1              0 
+         Q11EXP   K1              0 

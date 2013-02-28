@@ -34,7 +34,7 @@ sddsplot  -title=' Orbits Comparison after 3 correction @ 900MeV' -topTitle \
 	-col=s,Cx flash_dfs23.cen  -graph=line,type=3 -legend=spec="After 2nd correction" \
 	-col=s,Cx flash_dfs33.cen  -graph=line,type=4 -legend=spec="After 3rd correction"
 	
-# plot Dispersion Before and After 2rd correction.
+# plot Dispersion Before and After 3rd correction.
 sddsmakedataset scan.sdds \
     -column=dp,type=double,symbol='$gd' -data=-4e-3,-3e-3,-2e-3,-1e-3,0,1e-3,2e-3,3e-3,4e-3 -ascii
 	
