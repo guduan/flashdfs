@@ -1,5 +1,6 @@
 % run 1st DFS
-measured_orbit1=Readbpm(1);
+% measured_orbit1=Readbpm(1);
+measured_orbit1=myorbit;
 input_offset1=Read_real_offset(1);
 
 [measured_orbit1,input_offset1,status]=modify_meas_input(measured_orbit1,input_offset1,status);

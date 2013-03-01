@@ -66,3 +66,12 @@ bar(tt2);title('BPM OFFSET');
 % tt3=cell2mat({result(end-1:end),input_offset1.launch_real});
 % subplot(3,1,3);
 % bar(tt3);title('LAUNCH');
+
+
+myorbit.orbit1=orbit.orbit1(5:24);
+myorbit.orbit2=orbit.orbit2(5:24);
+myorbit.orbit3=orbit.orbit3(5:24);
+
+myorbit.orbit1=orbit.orbit1(7:24);
+myorbit.orbit2=orbit.orbit2(7:24);
+myorbit.orbit3=orbit.orbit3(7:24);
