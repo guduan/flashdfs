@@ -7,10 +7,17 @@ switch number_of_correction
     case 1
         qoffsetdata=importdata([elegant_file_root 'flash_dfs.realquadoffset']);
         qoffset_real=qoffsetdata.data;
+        qoffset_real_name=qoffsetdata.textdata;
         bpmoffsetdata=importdata([elegant_file_root 'flash_dfs.realbpmoffset']);
         bpmoffset_real=bpmoffsetdata.data;
+        bpmoffset_real_name=bpmoffsetdata.textdata;
         launchdata=importdata([elegant_file_root 'flash_dfs.realinitial']);
         launch_real=launchdata.data; %use both x and xp, NOTICE: using transpose of launchdata.data!
+        launch_real_name={'x';'xp'};
+        
+        input_offset.qoffset_real_name=qoffset_real_name;
+        input_offset.bpmoffset_real_name=bpmoffset_real_name;
+        input_offset.launch_real_name=launch_real_name;
     case 2
         qoffset_real   =dlmread([elegant_file_root 'qoffset_new1.dat'])';
         bpmoffset_real =dlmread([elegant_file_root 'bpmoffset_new1.dat'])';
@@ -34,5 +41,6 @@ end
 input_offset.qoffset_real=qoffset_real;
 input_offset.bpmoffset_real=bpmoffset_real;
 input_offset.launch_real=launch_real;
+
 aa=['Read input offset in correction ',num2str(number_of_correction),' is DONE.'];
 disp(aa);

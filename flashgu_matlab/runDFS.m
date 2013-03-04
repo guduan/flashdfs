@@ -13,7 +13,6 @@ result.bpmoffset_calculated=result.offset_calculated(nQuad+1:nQuad+nBpm);
 if status.opts.useLaunchfit
     result.init_xp=result.offset_calculated(nQuad+nBpm+2);
     result.init_x=result.offset_calculated(nQuad+nBpm+1)+result.init_xp*status.zBpm_new(1);
-    %result.init_x=result.offset_calculated(nQuad+nBpm+1);
 else
     result.init_x=0;
     result.init_xp=0;

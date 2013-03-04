@@ -19,6 +19,13 @@ measured_orbit.orbit3(unuseBpmlist)=[];
 input_offset.qoffset_real(unuseQuadlist)=[];
 input_offset.bpmoffset_real(unuseBpmlist)=[];
 
+if ~isfield(status,'Quad_name_new') % only apply on the 1st correction
+    input_offset.qoffset_real_name(unuseQuadlist)=[];
+    input_offset.bpmoffset_real_name(unuseBpmlist)=[];
+    status.Quad_name_new=input_offset.qoffset_real_name;
+    status.Bpm_name_new=input_offset.bpmoffset_real_name;
+end
+
 status.zQuad_new=status.zQuad;
 status.zBpm_new=status.zBpm;
 status.elemlist.bpmid_new=status.elemlist.bpmid;

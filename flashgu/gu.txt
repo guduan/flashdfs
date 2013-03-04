@@ -14,5 +14,3 @@ sddsplot -graph=line,vary -scale=0,35,0,100 \
 	-col=s,betax flash_dfs03.twi -legend=spec='betax @ 900MeV' \
 	-col=s,Profile flash_dfs01.mag -overlay=xmode=norm,yfact=0.25,yoffset=0.2
 	
-	
-	
