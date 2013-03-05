@@ -48,10 +48,12 @@ end
 %***
 if ~status.opts.usenoise
     x=xMeas;
-elseif status.opts.usenoise&&~status.opts.useLaunchfit
-    x=[xMeas;xconstrain];
-elseif status.opts.usenoise&&status.opts.useLaunchfit
-    xconstrain=[xconstrain;zeros(size(RLMin,1),1)];
+% elseif status.opts.usenoise&&~status.opts.useLaunchfit
+%     x=[xMeas;xconstrain];
+% elseif status.opts.usenoise&&status.opts.useLaunchfit
+%     xconstrain=[xconstrain;zeros(size(RLMin,1),1)];
+%     x=[xMeas;xconstrain];
+else
     x=[xMeas;xconstrain];
 end
 %********

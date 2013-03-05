@@ -10,9 +10,9 @@ delete(obj);
 
 [Tmat,status]=init_BBA_new();
 
-status.usesoftconstr=1;
+status.usesoftconstr=0;
 status.opts=struct( ...
-    'usenoise',1,...
+    'usenoise',0,...
     'useLinQuad',status.usesoftconstr,...
     'useMinQuad',status.usesoftconstr,...
     'useLinBpm',status.usesoftconstr,...
@@ -22,27 +22,26 @@ status.opts=struct( ...
 QRmat=DFS_QRmat_Get(Tmat,status);
 LRmat=DFS_LRmat_Get(Tmat,status);
 
-% status.unuseQuadlist=[2 4 6 8 10 14 15];% Quadlist that NOT use
-% status.unuseBpmlist=[1 2];% Bpmlist that NOT use
+status.unuseQuadlist=[2 4 6 8 10 14 15];% Quadlist that NOT use
+status.unuseBpmlist=[1 2];% Bpmlist that NOT use
 % status.unuseQuadlist=[];% Quadlist that NOT use
 % status.unuseBpmlist=[];% Bpmlist that NOT use
 
-status.unuseQuadlist=[2 4 6 7 8 10 14 15];% Quadlist that NOT use
-status.unuseBpmlist=[1 2];% Bpmlist that NOT use
+% status.unuseQuadlist=[2 4 6 7 8 10 14 15];% Quadlist that NOT use
+% status.unuseBpmlist=[1 2];% Bpmlist that NOT use
 status=modify_list(status);
 
 [QRmat,status]=modify_QRmat(QRmat,status);
 [LRmat,status]=modify_LRmat(LRmat,status);
 
 status.feedback_gain_factor=0.8;
-status.bpm_noise_level=2e-6;
-% status.bpm_noise_level=0;
+status.bpm_noise_level=5e-6;
 % status.svdthreshold=1e-4;
 status.svdthreshold=0;
 
 
 DFS_correct_1;
-%{
+
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 
@@ -50,6 +49,6 @@ checkfile([elegant_file_root,'flash_dfs23.orbit']);
 DFS_correct_3;
 checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
-
+%{
 
 %}

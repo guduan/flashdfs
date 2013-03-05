@@ -20,9 +20,9 @@ if status.opts.useMinBpm
     wconstrain=[wconstrain;weight_factor*ones(status.nBpm_new,1)];
 end
 
-if status.opts.useLaunchfit
-    wconstrain=[wconstrain;1;1];
-end
+% if status.opts.useLaunchfit
+%     wconstrain=[wconstrain;1;1];
+% end
 
 if status.opts.usenoise
     w=[wmag;wconstrain];

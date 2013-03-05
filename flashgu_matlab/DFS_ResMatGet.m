@@ -38,6 +38,12 @@ if status.opts.useMinBpm
     Rconstrain=[Rconstrain;RBMin];
 end
 %*****
+% if status.opts.useLaunchfit
+%     r1=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
+%     R=[Rmag,r1];
+% else
+%     R=[Rmag;Rconstrain];
+% end
 if ~status.opts.usenoise&&~status.opts.useLaunchfit
     R=Rmag;
 elseif ~status.opts.usenoise&&status.opts.useLaunchfit
@@ -49,9 +55,13 @@ elseif status.opts.usenoise&&status.opts.useLaunchfit
     r1=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
     [a,b]=size(Rconstrain);
     Rconstrain=[Rconstrain,zeros(a,2)];
-    r2=[zeros(2,b),eye(2)];
-    Rconstrain=[Rconstrain;r2];
-    R=[Rmag,r1;Rconstrain];
+    %     r2=[zeros(2,b),eye(2)];
+    %     Rconstrain=[Rconstrain;r2];
+    if ~isempty(Rconstrain)
+        R=[Rmag,r1;Rconstrain];
+    else
+        R=[Rmag,r1];
+    end
 end
 %***************************************************
 disp('Full Response Matrix for DFS is OK');
