@@ -11,14 +11,13 @@ sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,
 	| sddsxref -pipe bpmoffset_new1.sdds -take=ParameterValue  \
 	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_1st.sdds
 	
-sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN  -match=col,ElementParameter=DXP \
-	| sddsconvert -pipe -ascii -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN -match=col,ElementParameter=DX* \
+	| sddsconvert -pipe -ascii -retain=col,ElementParameter,ElementName -delete=parameter,* \
 	| sddsxref -pipe=in launch_new1.sdds -take=ParameterValue launch_new_after_1st.sdds
-	
 #put new quad/bpmoffset into lattice to check the orbit and dispersion
-elegant flash_dfs11.ele >> test.log
-elegant flash_dfs12.ele >> test.log
-elegant flash_dfs13.ele >> test.log
+elegant flash_dfs11.ele >> dfs.log
+elegant flash_dfs12.ele >> dfs.log
+elegant flash_dfs13.ele >> dfs.log
 
 sddsplot -title='Orbits Before 1st Correction' -topTitle \
 	-col=s,Cx flash_dfs1.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
@@ -44,7 +43,7 @@ sddsmakedataset scan.sdds \
 echo "after_iteration1 is DONE"
 echo "next step is measure orbits after 1st correction @ each Energy.(run iteration2.txt)"
 
-./iteration2.txt >> test.log
+./iteration2.txt >> dfs.log
 echo "Orbits measurement for 2nd correction is DONE!"
 
 echo "Ready for 2nd correction!"

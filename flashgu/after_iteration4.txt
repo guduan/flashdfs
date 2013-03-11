@@ -11,13 +11,13 @@ sddsprocess -pipe=out flash_dfs1.erl  -match=col,ElementParameter=DX -match=col,
 	| sddsxref -pipe bpmoffset_new4.sdds -take=ParameterValue  \
 	| sddsxref -pipe=in flash_dfs.bpmlocation -take=s bpmoffset_new_after_4th.sdds
 
-sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN  -match=col,ElementParameter=DXP \
-	| sddsconvert -pipe -ascii -retain=col,ElementParameter,ElementName,ElementOccurence -delete=parameter,* \
+sddsprocess -pipe=out flash_dfs1.param  -match=col,ElementType=MALIGN  -match=col,ElementParameter=DX* \
+	| sddsconvert -pipe -ascii -retain=col,ElementParameter,ElementName -delete=parameter,* \
 	| sddsxref -pipe=in launch_new4.sdds -take=ParameterValue launch_new_after_4th.sdds
 #put new quad/bpmoffset into lattice to check the orbit and dispersion
-elegant flash_dfs41.ele >> test.log
-elegant flash_dfs42.ele >> test.log
-elegant flash_dfs43.ele >> test.log
+elegant flash_dfs41.ele >> dfs.log
+elegant flash_dfs42.ele >> dfs.log
+elegant flash_dfs43.ele >> dfs.log
 
 sddsplot  -title='Orbits After 4th Correction' -topTitle \
 	-col=s,Cx flash_dfs41.cen -graph=line,type=1 -legend=spec="orbit @ 600MeV"  \
@@ -53,6 +53,6 @@ sddsprocess -pipe=out flash_dfs43.cen -match=col,ElementType=MONI \
 	| sdds2plaindata -pipe=in  -outputMode=ascii -col=s -col=ElementName -col=Cx -noRowCount -separator='  '  flash_dfs43.orbit
 
 
-#./iteration5.txt >> test.log
+#./iteration5.txt >> dfs.log
 #echo "Orbits measurement for 5th correction is DONE!"
 

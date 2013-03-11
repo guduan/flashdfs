@@ -1,7 +1,7 @@
 #!/bin/csh -f 
 set nonomatch 
 
-./cleanup.txt >&test.log
+./cleanup.txt >&dfs.log
 
 #sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 50 /  " undulator_quad_600MeV.sdds
 #sddsprocess undulator_quad.sdds -redefine=col,ParameterValue,"ParameterValue 100 * 60 /  " undulator_quad_720MeV.sdds
@@ -11,9 +11,9 @@ set nonomatch
 #	-col=s,ParameterValue flash_dfs.realbpmoffset1 -graph=sym,type=3 -legend
 
 
-elegant flash_dfs01.ele >> test.log
-elegant flash_dfs02.ele >> test.log
-elegant flash_dfs03.ele >> test.log
+elegant flash_dfs01.ele >> dfs.log
+elegant flash_dfs02.ele >> dfs.log
+elegant flash_dfs03.ele >> dfs.log
 
 if(-e flash_dfs03.cen) then
     echo "********************"
@@ -38,7 +38,7 @@ else
 	echo "Please check 'elegant flash_dfs03.ele'!"
 endif
 
-./iteration1.txt >> test.log
+./iteration1.txt >> dfs.log
 
 if(-e flash_dfs3.orbit) then
 	echo "Orbits measurement for 1st correction is DONE!"

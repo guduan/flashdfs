@@ -1,4 +1,40 @@
 clc
+
+% see the orbits before 1st correction.
+figure;
+plot(status.zBpm_new,measured_orbit1.orbit1,'r*');hold on;
+plot(status.zBpm_new,measured_orbit1.orbit2,'b*');hold on;
+plot(status.zBpm_new,measured_orbit1.orbit3,'g*');
+legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
+title('orbits before 1st correction');
+polyfit(status.zBpm_new(1:3),measured_orbit1.orbit1(1:3)',1)
+
+
+% see the orbits after 1st correction.
+figure;
+plot(status.zBpm_new,measured_orbit2.orbit1,'r*');hold on;
+plot(status.zBpm_new,measured_orbit2.orbit2,'b*');hold on;
+plot(status.zBpm_new,measured_orbit2.orbit3,'g*');
+legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
+title('orbits after 1st correction');
+polyfit(status.zBpm_new(1:3),measured_orbit2.orbit1(1:3)',1)
+
+% see the orbits after 2nd correction.
+figure;
+plot(status.zBpm_new,measured_orbit3.orbit1,'r*');hold on;
+plot(status.zBpm_new,measured_orbit3.orbit2,'b*');hold on;
+plot(status.zBpm_new,measured_orbit3.orbit3,'g*');
+legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
+title('orbits before 2nd correction');
+polyfit(status.zBpm_new(1:3),measured_orbit3.orbit1(1:3)',1)
+
+
+
+
+
+
+
+
 % a =[1     2
 %      3     4
 %      5     6
@@ -43,16 +79,16 @@ clc
 % LR1=[vogt.LRmat1;vogt.LRmat2;vogt.LRmat3];
 % r1=[QR1,BR1];
 % % 
-QR2=[QRmat.QRmat1;QRmat.QRmat2;QRmat.QRmat3];
-BRmat=-eye(status.nBpm_new);
-BR2=[BRmat;BRmat;BRmat];
-LR2=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
-RALL2=[QR2,BR2];
-RALL2([1 25 49],:)=[];
-RALL2(:,[8 10 12 14 16 18 20 21 22])=[];
-
-diff=RALL2-vogt.RQB_modify;
-surf(diff);
+% QR2=[QRmat.QRmat1;QRmat.QRmat2;QRmat.QRmat3];
+% BRmat=-eye(status.nBpm_new);
+% BR2=[BRmat;BRmat;BRmat];
+% LR2=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
+% RALL2=[QR2,BR2];
+% RALL2([1 25 49],:)=[];
+% RALL2(:,[8 10 12 14 16 18 20 21 22])=[];
+% 
+% diff=RALL2-vogt.RQB_modify;
+% surf(diff);
 %diff(find(diff<1e-4))=0;
 
 

@@ -17,7 +17,7 @@ status.opts=struct( ...
     'useMinQuad',status.usesoftconstr,...
     'useLinBpm',status.usesoftconstr,...
     'useMinBpm',status.usesoftconstr,...
-    'useLaunchfit',0);
+    'useLaunchfit',1);
 
 QRmat=DFS_QRmat_Get(Tmat,status);
 LRmat=DFS_LRmat_Get(Tmat,status);
@@ -41,7 +41,7 @@ status.svdthreshold=0;
 
 
 DFS_correct_1;
-
+%{
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 
@@ -49,6 +49,6 @@ checkfile([elegant_file_root,'flash_dfs23.orbit']);
 DFS_correct_3;
 checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
-%{
+
 
 %}

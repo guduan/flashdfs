@@ -29,5 +29,5 @@ if status.opts.usenoise
 else
     w=wmag;
 end
-
+%  w=[wmag;wconstrain];
 disp('weight factors choosen is DONE!');
