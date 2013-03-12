@@ -1,0 +1,9 @@
+SDDS1
+&column name=ElementName, type=string,  &end
+&column name=ElementParameter, type=string,  &end
+&column name=ParameterValue, type=double,  &end
+&data mode=ascii, &end
+! page number 1
+                   2
+MALIN DXP -6.068600000000000e-007 
+MALIN DX 3.661900000000000e-005 

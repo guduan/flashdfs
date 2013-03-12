@@ -1,0 +1,7 @@
+SDDS1
+&column name=ParameterValue, type=double,  &end
+&data mode=ascii, &end
+! page number 1
+                   2
+-1.146100000000000e-006 
+2.739900000000000e-005 

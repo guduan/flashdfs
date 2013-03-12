@@ -1,0 +1,31 @@
+SDDS1
+&description text="centroid output--input: flash_dfs1.ele  lattice: FLASH_2012_1200MeV.lte", contents="centroid output", &end
+&parameter name=Step, description="Simulation step", type=long, &end
+&column name=s, units=m, description=Distance, type=double,  &end
+&column name=ElementName, description="Element name", format_string=%10s, type=string,  &end
+&column name=ElementOccurence, description="Occurence of element", format_string=%6ld, type=long,  &end
+&column name=ElementType, description="Element-type name", format_string=%10s, type=string,  &end
+&data mode=ascii, &end
+! page number 1
+1
+                  20
+1.513122754490000e+000 BPM2UND1 1 MONI 
+3.039877245500000e+000 BPM4UND1 1 MONI 
+4.886999999990000e+000 BPM5UND1 1 MONI 
+6.611122754480000e+000 BPM2UND2 1 MONI 
+8.137877245490000e+000 BPM4UND2 1 MONI 
+9.984999999980001e+000 BPM5UND2 1 MONI 
+1.170912275447000e+001 BPM2UND3 1 MONI 
+1.323587724548000e+001 BPM4UND3 1 MONI 
+1.508299999997000e+001 BPM5UND3 1 MONI 
+1.680712275446000e+001 BPM2UND4 1 MONI 
+1.833387724547000e+001 BPM4UND4 1 MONI 
+2.018099999996000e+001 BPM5UND4 1 MONI 
+2.190512275444999e+001 BPM2UND5 1 MONI 
+2.343187724545999e+001 BPM4UND5 1 MONI 
+2.527899999994999e+001 BPM5UND5 1 MONI 
+2.700312275443999e+001 BPM2UND6 1 MONI 
+2.852987724544999e+001 BPM4UND6 1 MONI 
+3.037699999993998e+001 BPM5UND6 1 MONI 
+3.416724999993999e+001 BPM3EXP 1 MONI 
+3.964739999993999e+001 BPM9EXP 1 MONI 

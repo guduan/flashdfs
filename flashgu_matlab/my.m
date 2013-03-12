@@ -37,7 +37,7 @@ status=modify_list(status);
 status.feedback_gain_factor=0.8;
 status.bpm_noise_level=5e-6;
 % status.svdthreshold=1e-4;
-status.svdthreshold=0;
+status.svdthreshold=1e-4;
 
 
 DFS_correct_1;
