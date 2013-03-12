@@ -8,10 +8,10 @@ bpmoffset_new=zeros(1,status.nBpm);
 
 qoffset_new(status.useQuadlist)=input_offset.qoffset_real-result.qoffset_calculated*status.feedback_gain_factor;
 bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_calculated*status.feedback_gain_factor;
-launch_new=input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor;
+% launch_new=input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor;
 
-% initial_para=polyfit(status.zBpm_new(1:3),measured_orbit.orbit1(1:3)',1);
-% input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor;
+initial_para=polyfit(status.zBpm_new(1:3),measured_orbit.orbit1(1:3)',1);
+launch_new=input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor-[initial_para(2);initial_para(1)];
 
 csvwrite([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],qoffset_new);
 csvwrite([elegant_file_root 'bpmoffset_new',num2str(correction_number),'.dat'],bpmoffset_new);

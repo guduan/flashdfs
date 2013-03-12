@@ -10,7 +10,7 @@ delete(obj);
 
 [Tmat,status]=init_BBA_new();
 
-status.usesoftconstr=0;
+status.usesoftconstr=1;
 status.opts=struct( ...
     'usenoise',0,...
     'useLinQuad',status.usesoftconstr,...
@@ -41,7 +41,7 @@ status.svdthreshold=0;
 
 
 DFS_correct_1;
-%{
+
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 
@@ -49,6 +49,6 @@ checkfile([elegant_file_root,'flash_dfs23.orbit']);
 DFS_correct_3;
 checkfile([elegant_file_root,'flash_dfs33.orbit']);
 DFS_correct_4;
-
+%{
 
 %}
