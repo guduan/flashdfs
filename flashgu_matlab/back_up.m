@@ -1,4 +1,21 @@
 % back up
+
+% »­Í¼Ìí¼Ó×¢ÊÍ
+% ***************************************
+% Quad offsets calculated which remove linear component
+
+% figure;
+% plot(status.zQuad_new,result.qoffset_calculated,'r*',status.zBpm_new,result.bpmoffset_calculated,'b*');hold on;
+% plot(status.zQuad_new,y1,'r',status.zBpm_new,y2,'b');
+% legend('Quad Offset calculated','Bpm Offset calculated','line fit of Quad Offset','line fit of Bpm Offset',0);
+% % legend('boxoff');
+% xlabel('position z (m)');ylabel('Offsets (um)');
+% titlestr={['Quad and BPM offsets Fit'];
+%     ['Quad offset fit:     x= ',num2str(y1(2)*1e6),' um ','   xp= ',num2str(y1(1)*1e6),' urad'];
+%     [' Bpm offset fit:     x= ',num2str(y2(2)*1e6),' um ','   xp= ',num2str(y2(1)*1e6),' urad']};
+% title(titlestr);
+
+% ***************************************
 for j=1:10
 for i=1:10
     weight_factor=10^i;

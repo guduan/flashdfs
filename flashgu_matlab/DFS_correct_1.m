@@ -1,6 +1,5 @@
 % run 1st DFS
 measured_orbit1=Readbpm(1);
-% measured_orbit1=myorbit;
 input_offset1=Read_real_offset(1);
 
 [measured_orbit1,input_offset1,status]=modify_meas_input(measured_orbit1,input_offset1,status);
@@ -10,6 +9,7 @@ input_offset1=Read_real_offset(1);
 weight_factor=1e3;
 w1=DFS_set_weight_factor(status,weight_factor);
 result1=runDFS(status,R1,x1,w1);
+result1=DFS_launch_fit(status,result1);
 plot_offset(result1,input_offset1,1,status);
 offset_feedback(result1,input_offset1,1,status);
 

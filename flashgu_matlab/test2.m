@@ -1,33 +1,62 @@
 clc
-
-% see the orbits before 1st correction.
+% % *****************************************************
+% % % fit the calculated offsets
 figure;
-plot(status.zBpm_new,measured_orbit1.orbit1,'r*');hold on;
-plot(status.zBpm_new,measured_orbit1.orbit2,'b*');hold on;
-plot(status.zBpm_new,measured_orbit1.orbit3,'g*');
-legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
-title('orbits before 1st correction');
-polyfit(status.zBpm_new(1:3),measured_orbit1.orbit1(1:3)',1)
+plot(status.zQuad_new,result1.qoffset_calculated,'r*');hold on;
+plot(status.zBpm_new,result1.bpmoffset_calculated,'b*');hold on;
+
+linefit_qoffset=polyfit(status.zQuad_new,result1.qoffset_calculated',1);
+linefit_bpmoffset=polyfit(status.zBpm_new,result1.bpmoffset_calculated',1);
+
+y1=polyval(linefit_qoffset,status.zQuad_new);
+y2=polyval(linefit_bpmoffset,status.zBpm_new);
+plot(status.zQuad_new,y1,status.zBpm_new,y2);
+xlabel('position z (m)');ylabel('Offsets (um)');
+titlestr={['Quad and BPM offsets Fit'];
+    ['Quad offset fit:     x= ',num2str(y1(2)*1e6),' um ','   xp= ',num2str(y1(1)*1e6),' urad'];
+    [' Bpm offset fit:     x= ',num2str(y2(2)*1e6),' um ','   xp= ',num2str(y2(1)*1e6),' urad']};
+title(titlestr);
+
+% legend('Quad and BPM offsets Fit');
 
 
-% see the orbits after 1st correction.
-figure;
-plot(status.zBpm_new,measured_orbit2.orbit1,'r*');hold on;
-plot(status.zBpm_new,measured_orbit2.orbit2,'b*');hold on;
-plot(status.zBpm_new,measured_orbit2.orbit3,'g*');
-legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
-title('orbits after 1st correction');
-polyfit(status.zBpm_new(1:3),measured_orbit2.orbit1(1:3)',1)
 
-% see the orbits after 2nd correction.
-figure;
-plot(status.zBpm_new,measured_orbit3.orbit1,'r*');hold on;
-plot(status.zBpm_new,measured_orbit3.orbit2,'b*');hold on;
-plot(status.zBpm_new,measured_orbit3.orbit3,'g*');
-legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
-title('orbits before 2nd correction');
-polyfit(status.zBpm_new(1:3),measured_orbit3.orbit1(1:3)',1)
 
+
+
+
+
+
+% % *****************************************************
+% % % fit measured orbit
+% % see the orbits before 1st correction.
+% figure;
+% plot(status.zBpm_new,measured_orbit1.orbit1,'r*');hold on;
+% plot(status.zBpm_new,measured_orbit1.orbit2,'b*');hold on;
+% plot(status.zBpm_new,measured_orbit1.orbit3,'g*');
+% legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
+% title('orbits before 1st correction');
+% polyfit(status.zBpm_new(1:3),measured_orbit1.orbit1(1:3)',1)
+% 
+% 
+% % see the orbits after 1st correction.
+% figure;
+% plot(status.zBpm_new,measured_orbit2.orbit1,'r*');hold on;
+% plot(status.zBpm_new,measured_orbit2.orbit2,'b*');hold on;
+% plot(status.zBpm_new,measured_orbit2.orbit3,'g*');
+% legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
+% title('orbits after 1st correction');
+% polyfit(status.zBpm_new(1:3),measured_orbit2.orbit1(1:3)',1)
+% 
+% % see the orbits after 2nd correction.
+% figure;
+% plot(status.zBpm_new,measured_orbit3.orbit1,'r*');hold on;
+% plot(status.zBpm_new,measured_orbit3.orbit2,'b*');hold on;
+% plot(status.zBpm_new,measured_orbit3.orbit3,'g*');
+% legend('orbit at 600MeV','orbit at 720MeV','orbit at 900MeV',0);hold off;
+% title('orbits before 2nd correction');
+% polyfit(status.zBpm_new(1:3),measured_orbit3.orbit1(1:3)',1)
+% % *****************************************************
 
 
 

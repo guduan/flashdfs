@@ -27,17 +27,15 @@ status.unuseBpmlist=[1 2];% Bpmlist that NOT use
 % status.unuseQuadlist=[];% Quadlist that NOT use
 % status.unuseBpmlist=[];% Bpmlist that NOT use
 
-% status.unuseQuadlist=[2 4 6 7 8 10 14 15];% Quadlist that NOT use
-% status.unuseBpmlist=[1 2];% Bpmlist that NOT use
 status=modify_list(status);
 
 [QRmat,status]=modify_QRmat(QRmat,status);
 [LRmat,status]=modify_LRmat(LRmat,status);
 
-status.feedback_gain_factor=0.8;
+status.feedback_gain_factor=1;
 status.bpm_noise_level=5e-6;
 % status.svdthreshold=1e-4;
-status.svdthreshold=1e-4;
+status.svdthreshold=0;
 
 
 DFS_correct_1;

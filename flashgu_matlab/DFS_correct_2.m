@@ -9,6 +9,7 @@ input_offset2=Read_real_offset(2);
 weight_factor=1e5;
 w2=DFS_set_weight_factor(status,weight_factor);
 result2=runDFS(status,R2,x2,w2);
+result2=DFS_launch_fit(status,result2);
 plot_offset(result2,input_offset2,2,status);
 offset_feedback(result2,input_offset2,2,status);
 
