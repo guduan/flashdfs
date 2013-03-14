@@ -11,7 +11,7 @@ w1=DFS_set_weight_factor(status,weight_factor);
 result1=runDFS(status,R1,x1,w1);
 result1=DFS_launch_fit(status,result1);
 plot_offset(result1,input_offset1,1,status);
-offset_feedback(result1,input_offset1,1,status);
+% offset_feedback(result1,input_offset1,1,status);
 
 % 
 % clear rms_error_bpm rms_error_quad rms_error

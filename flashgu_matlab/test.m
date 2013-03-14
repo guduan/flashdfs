@@ -47,26 +47,26 @@ clc;
 %***************************************
 
 % %***************************************
-%5.Quad offset+BPM offset+launch
-QR=[QRmat.QRmat1;QRmat.QRmat2;QRmat.QRmat3];
-BRmat=-eye(status.nBpm_new);
-BR=[BRmat;BRmat;BRmat];
-LR=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
-
-RALL=[QR,BR,LR];
-result=util_lssvd(RALL,x1,w1,0);
-% result=lscov(RALL,x1);
-result(end-1)=result(end-1)-result(end)*status.zBpm(1);
-
-tt1=cell2mat({result(1:status.nQuad_new),input_offset1.qoffset_real});
-figure;subplot(3,1,1);
-bar(tt1);title('QUAD OFFSET');
-tt2=cell2mat({result(status.nQuad_new+1:status.nQuad_new+status.nBpm_new),input_offset1.bpmoffset_real});
-subplot(3,1,2);
-bar(tt2);title('BPM OFFSET');
-tt3=cell2mat({result(end-1:end),input_offset1.launch_real});
-subplot(3,1,3);
-bar(tt3);title('LAUNCH');
+% %5.Quad offset+BPM offset+launch
+% QR=[QRmat.QRmat1;QRmat.QRmat2;QRmat.QRmat3];
+% BRmat=-eye(status.nBpm_new);
+% BR=[BRmat;BRmat;BRmat];
+% LR=[LRmat.LRmat1;LRmat.LRmat2;LRmat.LRmat3];
+% 
+% RALL=[QR,BR,LR];
+% result=util_lssvd(RALL,x1,w1,0);
+% % result=lscov(RALL,x1);
+% result(end-1)=result(end-1)-result(end)*status.zBpm(1);
+% 
+% tt1=cell2mat({result(1:status.nQuad_new),input_offset1.qoffset_real});
+% figure;subplot(3,1,1);
+% bar(tt1);title('QUAD OFFSET');
+% tt2=cell2mat({result(status.nQuad_new+1:status.nQuad_new+status.nBpm_new),input_offset1.bpmoffset_real});
+% subplot(3,1,2);
+% bar(tt2);title('BPM OFFSET');
+% tt3=cell2mat({result(end-1:end),input_offset1.launch_real});
+% subplot(3,1,3);
+% bar(tt3);title('LAUNCH');
 
 % %***************************************
 % %6.Quad offset+launch  %without BPM offset

@@ -1,23 +1,13 @@
 clc
-% % *****************************************************
-% % % fit the calculated offsets
-figure;
-plot(status.zQuad_new,result1.qoffset_calculated,'r*');hold on;
-plot(status.zBpm_new,result1.bpmoffset_calculated,'b*');hold on;
-
-linefit_qoffset=polyfit(status.zQuad_new,result1.qoffset_calculated',1);
-linefit_bpmoffset=polyfit(status.zBpm_new,result1.bpmoffset_calculated',1);
-
-y1=polyval(linefit_qoffset,status.zQuad_new);
-y2=polyval(linefit_bpmoffset,status.zBpm_new);
-plot(status.zQuad_new,y1,status.zBpm_new,y2);
-xlabel('position z (m)');ylabel('Offsets (um)');
-titlestr={['Quad and BPM offsets Fit'];
-    ['Quad offset fit:     x= ',num2str(y1(2)*1e6),' um ','   xp= ',num2str(y1(1)*1e6),' urad'];
-    [' Bpm offset fit:     x= ',num2str(y2(2)*1e6),' um ','   xp= ',num2str(y2(1)*1e6),' urad']};
-title(titlestr);
-
-% legend('Quad and BPM offsets Fit');
+% % % *****************************************************
+fullR=R1;
+RQ=fullR(1:54,1:8);
+RB=fullR(1:54,9:26);
+RL=fullR(1:54,27:28);
+RlinQ=fullR(55:56,1:8);
+RminQ=fullR(57:64,1:8);
+RlinB=fullR(65:66,9:26);
+RminB=fullR(67:end,9:26);
 
 
 
@@ -26,6 +16,24 @@ title(titlestr);
 
 
 
+% % % *****************************************************
+% % % *****************************************************
+% % % % fit the calculated offsets
+% figure;
+% plot(status.zQuad_new,result1.qoffset_calculated,'r*');hold on;
+% plot(status.zBpm_new,result1.bpmoffset_calculated,'b*');hold on;
+% 
+% linefit_qoffset=polyfit(status.zQuad_new,result1.qoffset_calculated',1);
+% linefit_bpmoffset=polyfit(status.zBpm_new,result1.bpmoffset_calculated',1);
+% 
+% y1=polyval(linefit_qoffset,status.zQuad_new);
+% y2=polyval(linefit_bpmoffset,status.zBpm_new);
+% plot(status.zQuad_new,y1,status.zBpm_new,y2);
+% xlabel('position z (m)');ylabel('Offsets (um)');
+% titlestr={['Quad and BPM offsets Fit'];
+%     ['Quad offset fit:     x= ',num2str(y1(2)*1e6),' um ','   xp= ',num2str(y1(1)*1e6),' urad'];
+%     [' Bpm offset fit:     x= ',num2str(y2(2)*1e6),' um ','   xp= ',num2str(y2(1)*1e6),' urad']};
+% title(titlestr);
 
 % % *****************************************************
 % % % fit measured orbit
