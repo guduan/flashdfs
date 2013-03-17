@@ -1,5 +1,11 @@
 % back up
 
+% drow an arrow.
+ text(,0,'sin(5*pi/6)=0.5\uparrow',...
+       'HorizontalAlignment','right',...
+       'FontSize',12)
+
+
 % »­Í¼Ìí¼Ó×¢ÊÍ
 % ***************************************
 % Quad offsets calculated which remove linear component

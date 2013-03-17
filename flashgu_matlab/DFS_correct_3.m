@@ -1,16 +1,29 @@
 % run 3rd DFS
+status.opts=struct( ...
+    'usenoise',1,...
+    'useLinQuad',0,...
+    'useMinQuad',0,...
+    'useLinBpm',0,...
+    'useMinBpm',0,...
+    'useLaunchfit',1);
+status.feedback_gain_factor=1;
+status.bpm_noise_level=0;
+status.svdthreshold=1e-5;
+status.fitScale=1;
+% ***************************************
 measured_orbit3=Readbpm(3);
 input_offset3=Read_real_offset(3);
 
 [measured_orbit3,input_offset3,status]=modify_meas_input(measured_orbit3,input_offset3,status);
 [x3,xMeas3,xconstrain3]=DFS_BpmDataGet(status,measured_orbit3,input_offset3);
 [R3,Rmag3,Rconstrain3]=DFS_ResMatGet(status,QRmat,LRmat);
+plot_orbit(status,measured_orbit3,2);
 
 weight_factor=1e5;
 w3=DFS_set_weight_factor(status,weight_factor);
 result3=runDFS(status,R3,x3,w3);
 result3=DFS_launch_fit(status,result3);
-plot_offset(result3,input_offset3,3,status);
+plot_offset1(result3,input_offset3,3,status);
 offset_feedback(result3,input_offset3,3,status);
 
 

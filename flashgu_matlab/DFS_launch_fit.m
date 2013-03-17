@@ -8,5 +8,5 @@ y2=polyval(linefit_bpmoffset,status.zBpm_new);
 
 result.linefit_qoffset=linefit_qoffset;
 result.linefit_bpmoffset=linefit_bpmoffset;
-result.qoffset_move=result.qoffset_calculated-y1';
-result.bpmoffset_move =result.bpmoffset_calculated-y2';
+% result.qoffset_move=result.qoffset_calculated-y1';
+% result.bpmoffset_move =result.bpmoffset_calculated-y2';

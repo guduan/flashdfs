@@ -13,8 +13,8 @@ switch number_of_correction
         bpmoffset_real_name=bpmoffsetdata.textdata;
         launchdata=importdata([elegant_file_root 'flash_dfs.realinitial']);
         launch_real=launchdata.data; %use both x and xp, NOTICE: using transpose of launchdata.data!
+        %         launch_real_name={'x1';'x1p';'x2';'x2p';'x3';'x3p'};
         launch_real_name={'x';'xp'};
-        
         input_offset.qoffset_real_name=qoffset_real_name;
         input_offset.bpmoffset_real_name=bpmoffset_real_name;
         input_offset.launch_real_name=launch_real_name;
