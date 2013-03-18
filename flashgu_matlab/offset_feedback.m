@@ -14,7 +14,7 @@ bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_ca
 % use launch fitted by Quad offsets
 % launch_new=input_offset.launch_real-[result.linefit_qoffset(1);result.linefit_qoffset(2)]*status.feedback_gain_factor;
 launch_new=input_offset.launch_real-mean([result.init_xp1,result.init_xp2,result.init_xp3;result.init_x1,result.init_x2,result.init_x3],2)*status.feedback_gain_factor;
-launch_new=launch_new-[result.linefit_qoffset(1);result.linefit_qoffset(2)]*status.feedback_gain_factor;
+% launch_new=launch_new-[result.linefit_qoffset(1);result.linefit_qoffset(2)]*status.feedback_gain_factor;
 
 % launch_new=input_offset.launch_real;
 % launch_new=input_offset.launch_real*0;

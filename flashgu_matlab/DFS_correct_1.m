@@ -24,10 +24,10 @@ w1=DFS_set_weight_factor(status,weight_factor);
 result1=runDFS(status,R1,x1,w1);
 result1=DFS_launch_fit(status,result1);
 plot_offset1(result1,input_offset1,1,status);
-offset_feedback(result1,input_offset1,1,status);
+% offset_feedback(result1,input_offset1,1,status);
 
 % **************************************************
-if 1
+if 0
 measured_orbit2=Readbpm(2);
 input_offset2=Read_real_offset(2);
 [measured_orbit2,input_offset2,status]=modify_meas_input(measured_orbit2,input_offset2,status);

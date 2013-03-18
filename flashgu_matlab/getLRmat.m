@@ -13,8 +13,9 @@ nCorr=length(corrid);
 nQuad=length(quadid);
 LR=[];
 for i=1:nBpm
-    a=getTmatAll(Tmat,bpmid(1),bpmid(i));
-    LR(i,1)=a(1,1); %R11 response to the incoming position
-    LR(i,2)=a(1,2); %R12  response to the incoming angle
+%     a=getTmatAll(Tmat,bpmid(1),bpmid(i));
+    a=getTmatAll(Tmat,1,bpmid(i));
+    LR(i,2)=a(1,1); %R11 response to the incoming position
+    LR(i,1)=a(1,2); %R12  response to the incoming angle
 end
 

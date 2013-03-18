@@ -24,8 +24,9 @@ status=modify_list(status);
 [LRmat,status]=modify_LRmat(LRmat,status);
 
 % ********************************
-DFS_correct_1;
 %{
+DFS_correct_1;
+
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 

@@ -1,4 +1,19 @@
 clc;
+b=[input_offset1.qoffset_real;input_offset1.bpmoffset_real;repmat(input_offset1.launch_real,3,1)];
+
+measured_orbit1=Readbpm(1);
+input_offset1=Read_real_offset(1);
+[measured_orbit1,input_offset1,status]=modify_meas_input(measured_orbit1,input_offset1,status);
+[x1,xMeas1,xconstrain1]=DFS_BpmDataGet(status,measured_orbit1,input_offset1);
+
+b1=lscov(R1,x1);
+
+plot(b-b1);
+
+
+
+
+
 % [U,S,V]=svd(R1);
 % a=max(S,[],1);
 % plot(max(S,[],1),'rd');
