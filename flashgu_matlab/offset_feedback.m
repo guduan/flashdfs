@@ -8,6 +8,7 @@ bpmoffset_new=zeros(1,status.nBpm);
 
 qoffset_new(status.useQuadlist)=input_offset.qoffset_real-result.qoffset_calculated*status.feedback_gain_factor;
 bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_calculated*status.feedback_gain_factor;
+<<<<<<< HEAD
 % qoffset_new(status.useQuadlist)=input_offset.qoffset_real;
 % bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real;
 
@@ -15,6 +16,12 @@ bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_ca
 % launch_new=input_offset.launch_real-[result.linefit_qoffset(1);result.linefit_qoffset(2)]*status.feedback_gain_factor;
 launch_new=input_offset.launch_real-mean([result.init_xp1,result.init_xp2,result.init_xp3;result.init_x1,result.init_x2,result.init_x3],2)*status.feedback_gain_factor;
 % launch_new=launch_new-[result.linefit_qoffset(1);result.linefit_qoffset(2)]*status.feedback_gain_factor;
+=======
+launch_new=input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor;
+
+% initial_para=polyfit(status.zBpm_new(1:3),measured_orbit.orbit1(1:3)',1);
+% input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor;
+>>>>>>> parent of 62ccb95... 03121
 
 % launch_new=input_offset.launch_real;
 % launch_new=input_offset.launch_real*0;

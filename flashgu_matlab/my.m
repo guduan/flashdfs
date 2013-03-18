@@ -10,6 +10,18 @@ delete(obj);
 
 [Tmat,status]=init_BBA_new();
 
+<<<<<<< HEAD
+=======
+status.usesoftconstr=0;
+status.opts=struct( ...
+    'usenoise',0,...
+    'useLinQuad',status.usesoftconstr,...
+    'useMinQuad',status.usesoftconstr,...
+    'useLinBpm',status.usesoftconstr,...
+    'useMinBpm',status.usesoftconstr,...
+    'useLaunchfit',1);
+
+>>>>>>> parent of 62ccb95... 03121
 QRmat=DFS_QRmat_Get(Tmat,status);
 LRmat=DFS_LRmat_Get(Tmat,status);
 
@@ -26,7 +38,7 @@ status=modify_list(status);
 % ********************************
 %{
 DFS_correct_1;
-
+%{
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
 DFS_correct_2;
 
