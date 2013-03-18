@@ -12,6 +12,7 @@ bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real-result.bpmoffset_ca
 % qoffset_new(status.useQuadlist)=input_offset.qoffset_real;
 % bpmoffset_new(status.useBpmlist)=input_offset.bpmoffset_real;
 
+<<<<<<< HEAD
 % use launch fitted by Quad offsets
 % launch_new=input_offset.launch_real-[result.linefit_qoffset(1);result.linefit_qoffset(2)]*status.feedback_gain_factor;
 launch_new=input_offset.launch_real-mean([result.init_xp1,result.init_xp2,result.init_xp3;result.init_x1,result.init_x2,result.init_x3],2)*status.feedback_gain_factor;
@@ -25,6 +26,11 @@ launch_new=input_offset.launch_real-[result.init_x;result.init_xp]*status.feedba
 
 % launch_new=input_offset.launch_real;
 % launch_new=input_offset.launch_real*0;
+=======
+initial_para=polyfit(status.zBpm_new(1:3),measured_orbit.orbit1(1:3)',1);
+launch_new=input_offset.launch_real-[result.init_x;result.init_xp]*status.feedback_gain_factor-[initial_para(2);initial_para(1)];
+
+>>>>>>> parent of 15c9d0a... 03212
 csvwrite([elegant_file_root 'qoffset_new',num2str(correction_number),'.dat'],qoffset_new);
 csvwrite([elegant_file_root 'bpmoffset_new',num2str(correction_number),'.dat'],bpmoffset_new);
 csvwrite([elegant_file_root 'launch_new',num2str(correction_number),'.dat'],launch_new);

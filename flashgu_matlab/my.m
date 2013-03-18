@@ -35,8 +35,17 @@ status=modify_list(status);
 [QRmat,status]=modify_QRmat(QRmat,status);
 [LRmat,status]=modify_LRmat(LRmat,status);
 
+<<<<<<< HEAD
 % ********************************
 %{
+=======
+status.feedback_gain_factor=0.8;
+status.bpm_noise_level=5e-6;
+% status.svdthreshold=1e-4;
+status.svdthreshold=0;
+
+
+>>>>>>> parent of 15c9d0a... 03212
 DFS_correct_1;
 %{
 checkfile([elegant_file_root,'flash_dfs13.orbit']);
